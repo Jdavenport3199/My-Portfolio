@@ -29,7 +29,6 @@ export default function Blackboard() {
           <p className="keyword">Next.js</p>
           <p className="keyword">React</p>
           <p className="keyword">CSS</p>
-          <p className="keyword">APIs</p>
           <p className="keyword">Project</p>
           <p className="keyword">Responsive</p>
         </div>

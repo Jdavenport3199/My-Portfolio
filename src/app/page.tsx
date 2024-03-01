@@ -1,12 +1,13 @@
 "use client";
+import { useRef, useState } from "react";
+import Link from "next/link";
+import Dashboard from "../components/Dashboard";
 import Stack from "../components/Stack";
 import Cinema from "../components/Cinema";
 import Blackboard from "../components/Blackboard";
 import Ocular from "../components/Ocular";
 import Divids from "../components/Divids";
 import IMDb from "../components/IMDb";
-import Link from "next/link";
-import { useRef, useState } from "react";
 
 export default function Home() {
   const contractDiv = useRef<HTMLDivElement>(null);
@@ -18,8 +19,6 @@ export default function Home() {
       ref.current.scrollIntoView({ behavior: "smooth" });
     }
   };
-
-  // Test
 
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -188,6 +187,7 @@ export default function Home() {
           <p style={{ fontSize: "18px" }}>
             A curated selection of projects and client commissions.
           </p>
+          <Dashboard />
           <Stack />
           <Cinema />
           <Blackboard />
