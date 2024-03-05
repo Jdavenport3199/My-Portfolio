@@ -99,6 +99,8 @@
     background: white;
     color: #171d1c;
     font-family: "Inter Tight", sans-serif;
+    -webkit-border-radius: 0;
+    border-radius: 0;
   }
 
   input:hover,
