@@ -57,6 +57,7 @@ export default function IMDb() {
                 className="blur"
                 style={{
                   backdropFilter: image ? "none" : "blur(10px)",
+                  WebkitBackdropFilter: image ? "none" : "blur(10px)",
                   border: image ? "1px solid #2667ff" : "",
                   background: "rgba(255, 255, 255, 0.125)",
                 }}

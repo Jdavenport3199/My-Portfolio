@@ -29,7 +29,7 @@ export default function Ocular() {
           <p className="keyword">HTML</p>
           <p className="keyword">CSS</p>
           <p className="keyword">JavaScript</p>
-          <p className="keyword">APIs</p>
+          <p className="keyword">API</p>
           <p className="keyword">Project</p>
           <p className="keyword">Responsive</p>
         </div>

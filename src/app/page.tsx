@@ -1,6 +1,7 @@
 "use client";
 import { useRef, useState } from "react";
 import Link from "next/link";
+import Game from "../components/Game";
 import Dashboard from "../components/Dashboard";
 import Stack from "../components/Stack";
 import Cinema from "../components/Cinema";
@@ -8,6 +9,7 @@ import Blackboard from "../components/Blackboard";
 import Ocular from "../components/Ocular";
 import Divids from "../components/Divids";
 import IMDb from "../components/IMDb";
+
 
 export default function Home() {
   const contractDiv = useRef<HTMLDivElement>(null);
@@ -188,6 +190,7 @@ export default function Home() {
             A curated selection of projects and client commissions.
           </p>
           <Dashboard />
+          <Game />
           <Stack />
           <Cinema />
           <Blackboard />

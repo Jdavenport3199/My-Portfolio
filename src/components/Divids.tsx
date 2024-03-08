@@ -77,6 +77,7 @@ export default function Divids() {
                 className="blur"
                 style={{
                   backdropFilter: image1Preview ? "none" : "blur(10px)",
+                  WebkitBackdropFilter: image1Preview ? "none" : "blur(10px)",
                   border: image1Preview ? "1px solid #2667ff" : "",
                   background: "rgba(255, 255, 255, 0.125)",
                 }}
@@ -94,6 +95,7 @@ export default function Divids() {
                 className="blur"
                 style={{
                   backdropFilter: image2Preview ? "none" : "blur(10px)",
+                  WebkitBackdropFilter: image2Preview ? "none" : "blur(10px)",
                   border: image2Preview ? "1px solid #2667ff" : "",
                   background: "rgba(255, 255, 255, 0.125)",
                 }}
