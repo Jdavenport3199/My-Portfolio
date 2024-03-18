@@ -28,14 +28,15 @@ export default function Cinema() {
                 Visit
               </Link>
             </div>
-
             <div className="project" style={{ paddingTop: 0 }}>
               <p>
                 Design & Development&ensp;<b>&middot;</b>&ensp;2024
               </p>
             </div>
-            <hr />
-            <div className="project" style={{ paddingBottom: 0 }}>
+            <div
+              className="project"
+              style={{ paddingBottom: 0, paddingTop: 0 }}
+            >
               <p>
                 A platform for finding specific films curated through genre
                 selection, utilizing the TMDb and OMDb APIs. Visit the live site

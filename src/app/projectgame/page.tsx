@@ -28,14 +28,15 @@ export default function Game() {
                 Visit
               </Link>
             </div>
-
             <div className="project" style={{ paddingTop: 0 }}>
               <p>
                 Design & Development&ensp;<b>&middot;</b>&ensp;2024
               </p>
             </div>
-            <hr />
-            <div className="project" style={{ paddingBottom: 0 }}>
+            <div
+              className="project"
+              style={{ paddingBottom: 0, paddingTop: 0 }}
+            >
               <p>
                 A platform for keeping up to date on new, trending, and upcoming
                 games, utilizing the RAWG API. Visit the live site or view the

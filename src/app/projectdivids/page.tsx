@@ -28,14 +28,15 @@ export default function Divids() {
                 Visit
               </Link>
             </div>
-
             <div className="project" style={{ paddingTop: 0 }}>
               <p>
                 Brand Design & Implementation&ensp;<b>&middot;</b>&ensp;2024
               </p>
             </div>
-            <hr />
-            <div className="project" style={{ paddingBottom: 0 }}>
+            <div
+              className="project"
+              style={{ paddingBottom: 0, paddingTop: 0 }}
+            >
               <p>
                 A platform for users to explore publicly traded stock dividends.
                 Visit the live site or view the screenshot below.
