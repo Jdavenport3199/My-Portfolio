@@ -1,20 +1,11 @@
 "use client";
 import { useRef, useState } from "react";
 import Link from "next/link";
-import Game from "../components/Game";
-import Dashboard from "../components/Dashboard";
-import Stack from "../components/Stack";
-import Cinema from "../components/Cinema";
-import Blackboard from "../components/Blackboard";
-import Ocular from "../components/Ocular";
-import Divids from "../components/Divids";
-import IMDb from "../components/IMDb";
-
+import Footer from "./components/Footer";
 
 export default function Home() {
   const contractDiv = useRef<HTMLDivElement>(null);
   const workDiv = useRef<HTMLDivElement>(null);
-  const connectDiv = useRef<HTMLDivElement>(null);
 
   const scrollTo = (ref: React.RefObject<HTMLDivElement>) => {
     if (ref.current) {
@@ -43,35 +34,36 @@ export default function Home() {
       }),
     });
     setEmailForm(false);
-    // const json = await res.json();
-    // console.log(json);
   };
 
   return (
     <main>
       <div className="nav">
-        <button
-          style={{ fontWeight: "400" }}
-          onClick={() => scrollTo(contractDiv)}
-        >
-          Contract
-        </button>
-        <button style={{ fontWeight: "400" }} onClick={() => scrollTo(workDiv)}>
-          My Work
-        </button>
-        <button
-          style={{ fontWeight: "400" }}
-          onClick={() => scrollTo(connectDiv)}
-        >
-          Connect
-        </button>
+        <Link href={"/"}>
+          <i className="fa-solid fa-circle-nodes fa-lg" id="icon"></i>
+        </Link>
+        <div className="nav-right">
+          <button onClick={() => scrollTo(workDiv)}>Work</button>
+          <button onClick={() => scrollTo(contractDiv)}>Contact</button>
+        </div>
+      </div>
+      <div className="nav-dropdown">
+        <div className="nav-button">
+          <i className="fa-solid fa-ellipsis" id="nav-icon"></i>
+          <button onClick={() => scrollTo(workDiv)} className="nav-link">
+            Work
+          </button>
+          <button onClick={() => scrollTo(contractDiv)} className="nav-link">
+            Contact
+          </button>
+        </div>
       </div>
 
-      <div className="container-holder">
+      <div className="container-holder-colored">
         <div className="container" style={{ paddingTop: 0 }}>
           <div className="title">
             <h1 id="fade1">I&apos;m Justin.</h1>
-            <h2 id="fade2">A Frontend Developer & UI/UX Designer.</h2>
+            <h2 id="fade2">Frontend Developer & UI/UX Designer.</h2>
           </div>
           <div>
             <h3 id="fade3">
@@ -87,175 +79,157 @@ export default function Home() {
         </div>
       </div>
 
-      <div
-        ref={contractDiv}
-        className="container-holder"
-        style={{
-          background: "#f5f5f580",
-          height: "100vh",
-          marginTop: "4rem",
-        }}
-      >
-        <div
-          className="container"
-          style={{ padding: "0", margin: "0", minHeight: "auto" }}
-        >
-          <h2 style={{ color: "#2667ff" }}>
-            <i className="fa-solid fa-pencil fa-xs"></i>&nbsp;Contract.&nbsp;
+      <div ref={workDiv} className="container-holder">
+        <div className="container">
+          <h2>
+            <i className="fa-solid fa-code fa-2xs"></i>&nbsp;A collection of my
+            recent work.
           </h2>
-          <p style={{ fontSize: "18px" }}>Available for commissions.</p>
-          <div
-            className="content-holder"
-            style={{
-              margin: "0",
-              textAlign: "right",
-              width: "100%",
-              display: "flex",
-              alignItems: "center",
-              flexDirection: "column",
-              paddingTop: "2rem",
-            }}
-          >
-            <div
-              style={{
-                display: emailForm ? "none" : "block",
-                textAlign: "center",
-              }}
-            >
-              <p>
-                <i
-                  className="fa-regular fa-circle-check fa-xl"
-                  style={{ color: "#2667ff" }}
-                ></i>
-                <br />
-                Your message has been received.
-                <br />A response will follow shortly.
-              </p>
-            </div>
-            <form
-              onSubmit={handleSubmit}
-              style={{
-                flexDirection: "column",
-                gap: "0.4rem",
-                alignContent: "baseline",
-                display: emailForm ? "flex" : "none",
-              }}
-            >
-              <input
-                type="text"
-                placeholder="Name"
-                required
-                onChange={(e) => setName(e.target.value)}
-                value={name}
-              />
-              <input
-                type="email"
-                placeholder="Email"
-                required
-                onChange={(e) => setEmail(e.target.value)}
-                value={email}
-              />
-              <input
-                type="text"
-                placeholder="Topic"
-                required
-                onChange={(e) => setTopic(e.target.value)}
-                value={topic}
-              />
-              <textarea
-                placeholder="Message"
-                required
-                style={{ height: "10rem", resize: "none" }}
-                onChange={(e) => setMessage(e.target.value)}
-                value={message}
-              />
 
-              <button
-                type="submit"
-                style={{ marginTop: "0.6rem", color: "#2667ff" }}
-              >
-                Submit&nbsp;<i className="fa-regular fa-circle-check"></i>
-              </button>
-            </form>
+          <div className="project-holder">
+            <Link
+              className="project"
+              href={"/projectdashboard"}
+              style={{ marginTop: "2rem" }}
+            >
+              <span className="project-title">Global Enterprises</span>
+              <p>
+                Design & Development&ensp;<b>&middot;</b>&ensp;2024
+              </p>
+            </Link>
+            <hr />
+            <Link className="project" href={"/projectgame"}>
+              <span className="project-title">Game Informer</span>
+              <p>
+                Design & Development&ensp;<b>&middot;</b>&ensp;2024
+              </p>
+            </Link>
+            <hr />
+            <Link className="project" href={"/projectstack"}>
+              <span className="project-title">Stack</span>
+              <p>
+                Brand Design & Implementation&ensp;<b>&middot;</b>&ensp;2024
+              </p>
+            </Link>
+            <hr />
+            <Link className="project" href={"/projectcinema"}>
+              <span className="project-title">Cinema Collection</span>
+              <p>
+                Design & Development&ensp;<b>&middot;</b>&ensp;2024
+              </p>
+            </Link>
+            <hr />
+            {/* <Link className="project" href={"/projectblackboard"}>
+                <span className="project-title">Blackboard</span>
+                <p>
+                  Design & Development&ensp;<b>&middot;</b>&ensp;2024
+                </p>
+              </Link>
+              <hr /> */}
+            <Link className="project" href={"/projectdivids"}>
+              <span className="project-title">DiviDome</span>
+              <p>
+                Brand Design & Implementation&ensp;<b>&middot;</b>&ensp;2024
+              </p>
+            </Link>
+            {/* <hr />
+              <Link className="project" href={"/projectimdb"}>
+                <span className="project-title">IMDb</span>
+                <p>
+                  Design & Development&ensp;<b>&middot;</b>&ensp;2024
+                </p>
+              </Link>
+              <hr />
+              <Link className="project" href={"/projectocular"}>
+                <span className="project-title">OCULAR</span>
+                <p>
+                  Design & Development&ensp;<b>&middot;</b>&ensp;2024
+                </p>
+              </Link> */}
           </div>
         </div>
       </div>
 
-      <div ref={workDiv} className="container-holder">
-        <div className="container" style={{ marginTop: "4rem" }}>
-          <h2 style={{ color: "#2667ff" }}>
-            <i className="fa-solid fa-code fa-xs"></i>&nbsp;My Work.&nbsp;
-          </h2>
-          <p style={{ fontSize: "18px" }}>
-            A curated selection of projects and client commissions.
-          </p>
-          <Dashboard />
-          <Game />
-          <Stack />
-          <Cinema />
-          <Blackboard />
-          <Divids />
-          <IMDb />
-          <Ocular />
+      <div className="container-holder-colored">
+        <div className="container" ref={contractDiv}>
+          <div
+            style={{
+              display: emailForm ? "block" : "none",
+            }}
+          >
+            <h2>
+              <i className="fa-solid fa-pencil fa-2xs"></i>&nbsp;Let&apos;s
+              start a project together.
+            </h2>
+          </div>
+          <div
+            style={{
+              display: emailForm ? "none" : "block",
+              textAlign: "center",
+            }}
+          >
+            <p>
+              <i
+                className="fa-regular fa-circle-check fa-2xl"
+                style={{ color: "#2667ff" }}
+              ></i>
+              <br />
+              <br />
+              Your message has been received.
+              <br />A response will follow shortly.
+            </p>
+          </div>
+          <form
+            onSubmit={handleSubmit}
+            style={{
+              display: emailForm ? "flex" : "none",
+            }}
+          >
+            <p>What&apos;s your name?</p>
+            <input
+              type="text"
+              placeholder="John Doe *"
+              required
+              onChange={(e) => setName(e.target.value)}
+              value={name}
+            />
+            <hr style={{ marginBottom: "1rem" }} />
+            <p>What&apos;s your email?</p>
+            <input
+              type="email"
+              placeholder="johndoe@email.com *"
+              required
+              onChange={(e) => setEmail(e.target.value)}
+              value={email}
+            />
+            <hr style={{ marginBottom: "1rem" }} />
+            <p>What services are you looking for?</p>
+            <input
+              type="text"
+              placeholder="Web Design, Web Development *"
+              required
+              onChange={(e) => setTopic(e.target.value)}
+              value={topic}
+            />
+            <hr style={{ marginBottom: "1rem" }} />
+            <p>What&apos;s your message?</p>
+            <textarea
+              placeholder="Hello Justin, I am looking for help building a website *"
+              required
+              style={{ resize: "none" }}
+              onChange={(e) => setMessage(e.target.value)}
+              value={message}
+            />
+            <div className="form-btn-holder">
+              <button type="submit" className="form-btn">
+                Submit
+              </button>
+            </div>
+          </form>
         </div>
       </div>
 
-      <div
-        ref={connectDiv}
-        className="container-holder"
-        style={{
-          background: "#f5f5f580",
-          height: "100vh",
-          marginTop: "2rem",
-        }}
-      >
-        <div
-          className="container"
-          style={{ padding: "0", margin: "0", minHeight: "auto" }}
-        >
-          <h2 style={{ color: "#2667ff" }}>
-            <i className="fa-solid fa-paperclip fa-xs"></i>&nbsp;Connect.&nbsp;
-          </h2>
-          <p style={{ fontSize: "18px" }}>Follow me on social media.</p>
-        </div>
-        <div
-          style={{
-            display: "flex",
-            flexWrap: "wrap",
-            gap: "4rem",
-            marginTop: "2rem",
-          }}
-        >
-          <Link
-            className="contact-button"
-            target="_blank"
-            rel="noopener noreferrer"
-            href="https://www.linkedin.com/in/justindavenport99/"
-            style={{ color: "#2667ff" }}
-          >
-            <i className="fa-brands fa-linkedin-in fa-2xl"></i>
-          </Link>
-          <Link
-            className="contact-button"
-            target="_blank"
-            rel="noopener noreferrer"
-            href="https://github.com/Jdavenport3199"
-            style={{ color: "#2667ff" }}
-          >
-            <i className="fa-brands fa-github fa-2xl"></i>
-          </Link>
-        </div>
-      </div>
-
-      <div className="footer">
-        <p className="footer-text">
-          This material is protected by copyright law, prohibiting unauthorized
-          reproduction, distribution, or usage without the explicit permission
-          of the copyright owner.
-          <br />
-          &copy;All Rights Reserved. 2024.
-        </p>
-      </div>
+      <Footer />
     </main>
   );
 }
