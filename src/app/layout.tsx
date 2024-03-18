@@ -9,7 +9,7 @@ export const metadata: Metadata = {
     default: "I'm Justin.",
     template: "%s | I'm Justin.",
   },
-  description: "I'm Justin. Frontend Developer & UI/UX Designer.",
+  description: "Frontend Developer & UI/UX Designer.",
   keywords: [
     "Justin Davenport",
     "Frontend",
