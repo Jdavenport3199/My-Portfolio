@@ -1,7 +1,11 @@
-"use client";
 import Image from "next/image";
 import Link from "next/link";
 import Nav from "../components/Nav";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Cinema Collection",
+};
 
 export default function Cinema() {
   return (
