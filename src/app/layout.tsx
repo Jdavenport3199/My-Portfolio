@@ -18,6 +18,9 @@ export const metadata: Metadata = {
     "UX",
     "Designer",
   ],
+  openGraph: {
+    images: "https://www.justindavenport.space/opengraph-image.png",
+  },
 };
 
 export default function RootLayout({

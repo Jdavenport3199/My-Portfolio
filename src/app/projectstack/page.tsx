@@ -62,6 +62,7 @@ export default function Stack() {
         />
         <video
           src="/assets/stack/stack.mkv"
+          preload="auto"
           autoPlay
           muted
           loop

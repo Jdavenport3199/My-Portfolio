@@ -62,6 +62,7 @@ export default function Cinema() {
         />
         <video
           src="/assets/cinema/cinema1.mkv"
+          preload="auto"
           autoPlay
           muted
           loop
