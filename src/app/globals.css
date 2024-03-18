@@ -141,10 +141,7 @@
     flex-direction: column;
     flex-wrap: wrap;
     gap: 1rem;
-    /* padding-top: 24rem;
-    padding-bottom: 16rem; */
-
-    padding-top: 22rem;
+    padding-top: 20rem;
     padding-bottom: 12rem;
   }
 
