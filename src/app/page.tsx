@@ -2,6 +2,7 @@
 import { useRef, useState } from "react";
 import Link from "next/link";
 import Footer from "./components/Footer";
+import Image from "next/image";
 
 export default function Home() {
   const contractDiv = useRef<HTMLDivElement>(null);
@@ -75,6 +76,18 @@ export default function Home() {
                 style={{ color: "#2667ff" }}
               ></i>
             </h3>
+          </div>
+        </div>
+        <div className="image-holder-absolute">
+          <div className="image-holder-cover">
+            <Image
+              className="image-cover"
+              src="/assets/me.jpg"
+              width={250}
+              height={250}
+              alt=""
+            />
+            <span className="image-text">👋</span>
           </div>
         </div>
       </div>
