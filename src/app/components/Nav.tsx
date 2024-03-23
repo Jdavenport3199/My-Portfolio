@@ -4,10 +4,11 @@ export default function Footer() {
   return (
     <>
       <div className="nav">
-        <Link href={"/"}>
+        {/* <Link href={"/"}>
           <i className="fa-solid fa-circle-nodes fa-lg" id="icon"></i>
-        </Link>
+        </Link> */}
         <div className="nav-right">
+          <Link href={"/"}>Home</Link>
           <Link href={"/"}>Work</Link>
           <Link href={"/"}>Contact</Link>
         </div>
@@ -15,6 +16,9 @@ export default function Footer() {
       <div className="nav-dropdown">
         <div className="nav-button">
           <i className="fa-solid fa-ellipsis" id="nav-icon"></i>
+          <Link href={"/"} className="nav-link">
+            Home
+          </Link>
           <Link href={"/"} className="nav-link">
             Work
           </Link>

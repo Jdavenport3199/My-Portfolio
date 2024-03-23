@@ -3,7 +3,6 @@ import Link from "next/link";
 export default function Footer() {
   return (
     <div className="footer">
-      <p style={{ fontSize: "14px" }}>&copy;2024</p>
       <div className="footer-links">
         <Link
           className="contact-button"
@@ -11,7 +10,7 @@ export default function Footer() {
           rel="noopener noreferrer"
           href="https://www.linkedin.com/in/justindavenport99/"
         >
-          LinkedIn
+          <i className="fa-brands fa-linkedin-in fa-xl"></i>
         </Link>
         <Link
           className="contact-button"
@@ -19,7 +18,7 @@ export default function Footer() {
           rel="noopener noreferrer"
           href="https://github.com/Jdavenport3199"
         >
-          GitHub
+          <i className="fa-brands fa-github fa-xl"></i>
         </Link>
       </div>
     </div>

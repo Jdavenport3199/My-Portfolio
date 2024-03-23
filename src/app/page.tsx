@@ -5,8 +5,9 @@ import Footer from "./components/Footer";
 import Image from "next/image";
 
 export default function Home() {
-  const contractDiv = useRef<HTMLDivElement>(null);
+  const homeDiv = useRef<HTMLDivElement>(null);
   const workDiv = useRef<HTMLDivElement>(null);
+  const contractDiv = useRef<HTMLDivElement>(null);
 
   const scrollTo = (ref: React.RefObject<HTMLDivElement>) => {
     if (ref.current) {
@@ -40,10 +41,11 @@ export default function Home() {
   return (
     <main>
       <div className="nav">
-        <Link href={"/"}>
+        {/* <Link href={"/"}>
           <i className="fa-solid fa-circle-nodes fa-lg" id="icon"></i>
-        </Link>
+        </Link> */}
         <div className="nav-right">
+          <button onClick={() => scrollTo(homeDiv)}>Home</button>
           <button onClick={() => scrollTo(workDiv)}>Work</button>
           <button onClick={() => scrollTo(contractDiv)}>Contact</button>
         </div>
@@ -51,6 +53,9 @@ export default function Home() {
       <div className="nav-dropdown">
         <div className="nav-button">
           <i className="fa-solid fa-ellipsis" id="nav-icon"></i>
+          <button onClick={() => scrollTo(homeDiv)} className="nav-link">
+            Home
+          </button>
           <button onClick={() => scrollTo(workDiv)} className="nav-link">
             Work
           </button>
@@ -60,7 +65,7 @@ export default function Home() {
         </div>
       </div>
 
-      <div className="container-holder-colored">
+      <div className="container-holder-colored" ref={homeDiv}>
         <div className="container" style={{ paddingTop: 0 }}>
           <div className="title">
             <h1 id="fade1">I&apos;m Justin.</h1>
@@ -78,7 +83,7 @@ export default function Home() {
             </h3>
           </div>
         </div>
-        <div className="image-holder-absolute">
+        <div className="image-holder-absolute" id="fade1">
           <div className="image-holder-cover">
             <Image
               className="image-cover"
@@ -102,9 +107,16 @@ export default function Home() {
           <div className="project-holder">
             <Link
               className="project"
-              href={"/projectdashboard"}
+              href={"/projectocular"}
               style={{ marginTop: "2rem" }}
             >
+              <span className="project-title">OCULAR</span>
+              <p>
+                Design & Development&ensp;<b>&middot;</b>&ensp;2024
+              </p>
+            </Link>
+            <hr />
+            <Link className="project" href={"/projectdashboard"}>
               <span className="project-title">Global Enterprises</span>
               <p>
                 Design & Development&ensp;<b>&middot;</b>&ensp;2024
