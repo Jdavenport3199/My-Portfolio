@@ -70,8 +70,20 @@ export default function Home() {
         <div className="container-holder-colored" ref={homeDiv}>
           <div className="container" style={{ paddingTop: 0 }}>
             <div className="title">
-              <h1 id="fade1">I&apos;m Justin.</h1>
-              <h2 id="fade2">Frontend Developer & UI/UX Designer.</h2>
+              <div style={{ flexDirection: "column", display: "flex" }}>
+                <h1 id="fade1">I&apos;m Justin.</h1>
+                <h2 id="fade2">Frontend Developer & UI/UX Designer.</h2>
+              </div>
+              <div className="image-holder-cover" id="fade3">
+                <Image
+                  className="image-cover"
+                  src="/assets/me.jpg"
+                  width={250}
+                  height={250}
+                  alt=""
+                />
+                <span className="image-text">👋</span>
+              </div>
             </div>
             <div>
               <h3 id="fade3">
@@ -83,18 +95,6 @@ export default function Home() {
                   style={{ color: "#2667ff" }}
                 ></i>
               </h3>
-            </div>
-          </div>
-          <div className="image-holder-absolute" id="fade1">
-            <div className="image-holder-cover">
-              <Image
-                className="image-cover"
-                src="/assets/me.jpg"
-                width={250}
-                height={250}
-                alt=""
-              />
-              <span className="image-text">👋</span>
             </div>
           </div>
         </div>
@@ -112,14 +112,14 @@ export default function Home() {
                 href={"/projectocular"}
                 style={{ marginTop: "2rem" }}
               >
-                <span className="project-title">OCULAR</span>
+                <span className="project-title">OCULAR&trade;</span>
                 <p>
                   Design & Development&ensp;<b>&middot;</b>&ensp;2024
                 </p>
               </Link>
               <hr />
               <Link className="project" href={"/projectdashboard"}>
-                <span className="project-title">Global Enterprises</span>
+                <span className="project-title">Global Ent.</span>
                 <p>
                   Design & Development&ensp;<b>&middot;</b>&ensp;2024
                 </p>
