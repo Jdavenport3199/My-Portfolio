@@ -4,6 +4,9 @@ import Link from "next/link";
 import Footer from "./components/Footer";
 import Image from "next/image";
 import { ReactLenis } from "@studio-freight/react-lenis";
+import { motion } from "framer-motion";
+import AnimatedTextH1 from "./components/AnimatedTextH1";
+import AnimatedTextH2 from "./components/AnimatedTextH2";
 
 export default function Home() {
   const homeDiv = useRef<HTMLDivElement>(null);
@@ -43,9 +46,6 @@ export default function Home() {
     <ReactLenis root>
       <main>
         <div className="nav">
-          {/* <Link href={"/"}>
-          <i className="fa-solid fa-circle-nodes fa-lg" id="icon"></i>
-        </Link> */}
           <div className="nav-right">
             <button onClick={() => scrollTo(homeDiv)}>Home</button>
             <button onClick={() => scrollTo(workDiv)}>Work</button>
@@ -71,10 +71,19 @@ export default function Home() {
           <div className="container" style={{ paddingTop: 0 }}>
             <div className="title">
               <div style={{ flexDirection: "column", display: "flex" }}>
-                <h1 id="fade1">I&apos;m Justin.</h1>
-                <h2 id="fade2">Frontend Developer & UI/UX Designer.</h2>
+                <AnimatedTextH1 text="I'm Justin." />
+                <AnimatedTextH2 text="Frontend Developer & UI/UX Designer." />
               </div>
-              <div className="image-holder-cover" id="fade3">
+              <motion.div
+                className="image-holder-cover"
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{
+                  duration: 0.8,
+                  delay: 0.2,
+                  ease: [0.68, -0.6, 0.32, 1.8],
+                }}
+              >
                 <Image
                   className="image-cover"
                   src="/assets/me.jpg"
@@ -83,15 +92,14 @@ export default function Home() {
                   alt=""
                 />
                 <span className="image-text">👋</span>
-              </div>
+              </motion.div>
             </div>
             <div>
-              <h3 id="fade3">
+              <h3>
                 Start scrolling to explore a curated selection of projects and
                 client commissions.&nbsp;
                 <i
                   className="fa-solid fa-arrow-trend-down"
-                  id="fade3"
                   style={{ color: "#2667ff" }}
                 ></i>
               </h3>
@@ -101,10 +109,19 @@ export default function Home() {
 
         <div ref={workDiv} className="container-holder">
           <div className="container">
-            <h2>
+            <motion.h2
+              initial={{ opacity: 0, scale: 0.8 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{
+                duration: 0.8,
+                delay: 0.2,
+                ease: [0.68, -0.6, 0.32, 1.8],
+              }}
+            >
               <i className="fa-solid fa-code fa-2xs"></i>&nbsp;A collection of
               my recent work.
-            </h2>
+            </motion.h2>
 
             <div className="project-holder">
               <Link
@@ -146,33 +163,12 @@ export default function Home() {
                 </p>
               </Link>
               <hr />
-              {/* <Link className="project" href={"/projectblackboard"}>
-                <span className="project-title">Blackboard</span>
-                <p>
-                  Design & Development&ensp;<b>&middot;</b>&ensp;2024
-                </p>
-              </Link>
-              <hr /> */}
               <Link className="project" href={"/projectdivids"}>
                 <span className="project-title">DiviDome</span>
                 <p>
                   Brand Design & Implementation&ensp;<b>&middot;</b>&ensp;2024
                 </p>
               </Link>
-              {/* <hr />
-              <Link className="project" href={"/projectimdb"}>
-                <span className="project-title">IMDb</span>
-                <p>
-                  Design & Development&ensp;<b>&middot;</b>&ensp;2024
-                </p>
-              </Link>
-              <hr />
-              <Link className="project" href={"/projectocular"}>
-                <span className="project-title">OCULAR</span>
-                <p>
-                  Design & Development&ensp;<b>&middot;</b>&ensp;2024
-                </p>
-              </Link> */}
             </div>
           </div>
         </div>
@@ -184,10 +180,19 @@ export default function Home() {
                 display: emailForm ? "block" : "none",
               }}
             >
-              <h2>
+              <motion.h2
+                initial={{ opacity: 0, scale: 0.8 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{
+                  duration: 0.8,
+                  delay: 0.2,
+                  ease: [0.68, -0.6, 0.32, 1.8],
+                }}
+              >
                 <i className="fa-solid fa-pencil fa-2xs"></i>&nbsp;Let&apos;s
                 start a project together.
-              </h2>
+              </motion.h2>
             </div>
             <div
               style={{
