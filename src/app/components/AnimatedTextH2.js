@@ -20,7 +20,7 @@ const AnimatedTextH2 = ({ text }) => {
         type: "spring",
         damping: 12,
         stiffness: 100,
-        delay: 1.2
+        delay: 0.8
       },
     },
     hidden: {

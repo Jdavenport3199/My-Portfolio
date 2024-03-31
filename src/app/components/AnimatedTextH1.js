@@ -8,7 +8,7 @@ const AnimatedTextH1 = ({ text }) => {
     hidden: { opacity: 0 },
     visible: (i = 1) => ({
       opacity: 1,
-      transition: { staggerChildren: 0.12, delayChildren: 0.04 * i },
+      transition: { staggerChildren: 0.12, delayChildren: 0.08 * i },
     }),
   };
 
@@ -44,7 +44,9 @@ const AnimatedTextH1 = ({ text }) => {
           variants={child}
           key={index}
         >
-          {word}&nbsp;
+          {word}
+          <br />
+          {/* &nbsp; */}
         </motion.h1>
       ))}
     </motion.div>

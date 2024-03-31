@@ -1,7 +1,6 @@
 "use client";
 import { useRef, useState } from "react";
 import Link from "next/link";
-import Footer from "./components/Footer";
 import Image from "next/image";
 import { ReactLenis } from "@studio-freight/react-lenis";
 import { motion } from "framer-motion";
@@ -12,6 +11,7 @@ export default function Home() {
   const homeDiv = useRef<HTMLDivElement>(null);
   const workDiv = useRef<HTMLDivElement>(null);
   const contractDiv = useRef<HTMLDivElement>(null);
+  const aboutDiv = useRef<HTMLDivElement>(null);
 
   const scrollTo = (ref: React.RefObject<HTMLDivElement>) => {
     if (ref.current) {
@@ -49,60 +49,76 @@ export default function Home() {
           <div className="nav-right">
             <button onClick={() => scrollTo(homeDiv)}>Home</button>
             <button onClick={() => scrollTo(workDiv)}>Work</button>
+            <button onClick={() => scrollTo(aboutDiv)}>About</button>
             <button onClick={() => scrollTo(contractDiv)}>Contact</button>
           </div>
         </div>
-        <div className="nav-dropdown">
-          <div className="nav-button">
-            <i className="fa-solid fa-ellipsis" id="nav-icon"></i>
-            <button onClick={() => scrollTo(homeDiv)} className="nav-link">
-              Home
-            </button>
-            <button onClick={() => scrollTo(workDiv)} className="nav-link">
-              Work
-            </button>
-            <button onClick={() => scrollTo(contractDiv)} className="nav-link">
-              Contact
-            </button>
-          </div>
-        </div>
 
-        <div className="container-holder-colored" ref={homeDiv}>
-          <div className="container" style={{ paddingTop: 0 }}>
-            <div className="title">
-              <div style={{ flexDirection: "column", display: "flex" }}>
-                <AnimatedTextH1 text="I'm Justin." />
-                <AnimatedTextH2 text="Frontend Developer & UI/UX Designer." />
+        <div
+          className="container-holder"
+          style={{ alignItems: "flex-end" }}
+          ref={homeDiv}
+        >
+          <div className="container">
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "space-between",
+                flexWrap: "wrap",
+                gap: "0rem 4rem",
+              }}
+            >
+              <div>
+                <AnimatedTextH1 text="Justin Davenport" />
               </div>
-              <motion.div
-                className="image-holder-cover"
-                initial={{ opacity: 0, scale: 0.8 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{
-                  duration: 0.8,
-                  delay: 0.2,
-                  ease: [0.68, -0.6, 0.32, 1.8],
+              <div
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  justifyContent: "space-between",
                 }}
               >
-                <Image
-                  className="image-cover"
-                  src="/assets/me.jpg"
-                  width={250}
-                  height={250}
-                  alt=""
-                />
-                <span className="image-text">👋</span>
-              </motion.div>
-            </div>
-            <div>
-              <h3>
-                Start scrolling to explore a curated selection of projects and
-                client commissions.&nbsp;
-                <i
-                  className="fa-solid fa-arrow-trend-down"
-                  style={{ color: "#2667ff" }}
-                ></i>
-              </h3>
+                <AnimatedTextH2 text="Designer & Developer" />
+                <div style={{ marginTop: "8rem" }}>
+                  <h3>Socials</h3>
+                  <hr />
+                  <br />
+                  <div className="footer-links">
+                    <ul>
+                      <li>
+                        <Link
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          href="https://www.instagram.com/justindavenport.space/"
+                        >
+                          Instagram&nbsp;
+                          <i className="fa-solid fa-arrow-up-right-dots fa-xs"></i>
+                        </Link>
+                      </li>
+                      <li>
+                        <Link
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          href="https://www.linkedin.com/in/justindavenport99/"
+                        >
+                          LinkedIn&nbsp;
+                          <i className="fa-solid fa-arrow-up-right-dots fa-xs"></i>
+                        </Link>
+                      </li>
+                      <li>
+                        <Link
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          href="https://github.com/Jdavenport3199"
+                        >
+                          GitHub&nbsp;
+                          <i className="fa-solid fa-arrow-up-right-dots fa-xs"></i>
+                        </Link>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -119,61 +135,270 @@ export default function Home() {
                 ease: [0.68, -0.6, 0.32, 1.8],
               }}
             >
-              <i className="fa-solid fa-code fa-2xs"></i>&nbsp;A collection of
-              my recent work.
+              Work
             </motion.h2>
 
-            <div className="project-holder">
-              <Link
-                className="project"
-                href={"/projectocular"}
-                style={{ marginTop: "2rem" }}
-              >
-                <span className="project-title">OCULAR&trade;</span>
-                <p>
-                  Design & Development&ensp;<b>&middot;</b>&ensp;2024
-                </p>
-              </Link>
-              <hr />
-              <Link className="project" href={"/projectdashboard"}>
-                <span className="project-title">Global Ent.</span>
-                <p>
-                  Design & Development&ensp;<b>&middot;</b>&ensp;2024
-                </p>
-              </Link>
-              <hr />
-              <Link className="project" href={"/projectgame"}>
-                <span className="project-title">Game Informer</span>
-                <p>
-                  Design & Development&ensp;<b>&middot;</b>&ensp;2024
-                </p>
-              </Link>
-              <hr />
-              <Link className="project" href={"/projectstack"}>
-                <span className="project-title">Stack</span>
-                <p>
-                  Brand Design & Implementation&ensp;<b>&middot;</b>&ensp;2024
-                </p>
-              </Link>
-              <hr />
-              <Link className="project" href={"/projectcinema"}>
-                <span className="project-title">Cinema Collection</span>
-                <p>
-                  Design & Development&ensp;<b>&middot;</b>&ensp;2024
-                </p>
-              </Link>
-              <hr />
-              <Link className="project" href={"/projectdivids"}>
-                <span className="project-title">DiviDome</span>
-                <p>
-                  Brand Design & Implementation&ensp;<b>&middot;</b>&ensp;2024
-                </p>
-              </Link>
+            <div
+              style={{
+                display: "flex",
+                flexWrap: "wrap",
+                padding: "3rem",
+                justifyContent: "space-between",
+              }}
+            >
+              <div style={{ padding: "1rem" }}>
+                <h3>Client</h3>
+                <hr />
+                <br />
+                <p>OCULAR VIBRATIONS&trade;</p>
+              </div>
+              <div style={{ padding: "1rem" }}>
+                <h3>Description</h3>
+                <hr />
+                <br />
+                <p>Digital Design Studio Website</p>
+              </div>
+              <div style={{ padding: "1rem" }}>
+                <h3>Website</h3>
+                <hr />
+                <br />
+                <Link
+                  href="https://ocular-vibrations.vercel.app/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  ocularvibrations.com&nbsp;
+                  <i className="fa-solid fa-arrow-up-right-dots fa-xs"></i>
+                </Link>
+              </div>
+            </div>
+            <div
+              style={{
+                display: "flex",
+                gap: "1rem 0rem",
+                flexWrap: "wrap",
+                justifyContent: "center",
+              }}
+            >
+              <Image
+                className="image"
+                src="/assets/test2.png"
+                width={1920}
+                height={0}
+                alt={""}
+              />
+            </div>
+
+            <div
+              style={{
+                display: "flex",
+                flexWrap: "wrap",
+                padding: "3rem",
+                justifyContent: "space-between",
+              }}
+            >
+              <div style={{ padding: "1rem" }}>
+                <h3>
+                  <i className="fa-solid fa-person fa-xs"></i>&nbsp;Client
+                </h3>
+                <hr />
+                <br />
+                <p>Christian Davenport</p>
+              </div>
+              <div style={{ padding: "1rem" }}>
+                <h3>
+                  <i className="fa-solid fa-circle-info fa-xs"></i>
+                  &nbsp;Description
+                </h3>
+                <hr />
+                <br />
+                <p>3D Design Portfolio</p>
+              </div>
+              <div style={{ padding: "1rem" }}>
+                <h3>
+                  <i className="fa-solid fa-paperclip fa-2xs"></i>&nbsp;Website
+                </h3>
+                <hr />
+                <br />
+                <Link
+                  href="https://www.christiandavenport.studio/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  christiandavenport.studio&nbsp;
+                  <i className="fa-solid fa-arrow-up-right-dots fa-xs"></i>
+                </Link>
+              </div>
+            </div>
+            <div
+              style={{
+                display: "flex",
+                gap: "1rem 0rem",
+                flexWrap: "wrap",
+                justifyContent: "center",
+              }}
+            >
+              <Image
+                className="image"
+                src="/assets/1.png"
+                width={1920}
+                height={0}
+                alt={""}
+              />
+            </div>
+
+            <div
+              style={{
+                display: "flex",
+                flexWrap: "wrap",
+                padding: "3rem",
+                justifyContent: "space-between",
+              }}
+            >
+              <div style={{ padding: "1rem" }}>
+                <h3>
+                  <i className="fa-solid fa-person fa-xs"></i>&nbsp;Client
+                </h3>
+                <hr />
+                <br />
+                <p>Stack</p>
+              </div>
+              <div style={{ padding: "1rem" }}>
+                <h3>
+                  <i className="fa-solid fa-circle-info fa-xs"></i>
+                  &nbsp;Description
+                </h3>
+                <hr />
+                <br />
+                <p>Platform for Modern Tech Stack Visualization</p>
+              </div>
+              <div style={{ padding: "1rem" }}>
+                <h3>
+                  <i className="fa-solid fa-paperclip fa-2xs"></i>&nbsp;Website
+                </h3>
+                <hr />
+                <br />
+                <Link
+                  href="https://stack-three-psi.vercel.app/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  stack.com&nbsp;
+                  <i className="fa-solid fa-arrow-up-right-dots fa-xs"></i>
+                </Link>
+              </div>
+            </div>
+            <div
+              style={{
+                display: "flex",
+                gap: "1rem 0rem",
+                flexWrap: "wrap",
+                justifyContent: "center",
+              }}
+            >
+              <Image
+                className="image"
+                src="/assets/stack.png"
+                width={1920}
+                height={0}
+                alt={""}
+              />
             </div>
           </div>
         </div>
 
-        <div className="container-holder-colored">
+        <div className="container-holder" ref={aboutDiv}>
+          <div className="container">
+            <motion.h2
+              initial={{ opacity: 0, scale: 0.8 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{
+                duration: 0.8,
+                delay: 0.2,
+                ease: [0.68, -0.6, 0.32, 1.8],
+              }}
+            >
+              About
+            </motion.h2>
+
+            <div className="bio-holder1">
+              <div style={{ padding: "1rem" }}>
+                <h3>Name</h3>
+                <hr />
+                <br />
+                <p>Justin Davenport</p>
+              </div>
+              <div style={{ padding: "1rem" }}>
+                <h3>Location</h3>
+                <hr />
+                <br />
+                <p>Charlotte, NC</p>
+              </div>
+              <div style={{ padding: "1rem" }}>
+                <h3>Biography</h3>
+                <hr />
+                <br />
+                <Link
+                  href="https://ocular-vibrations.vercel.app/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  I am a Frontend Developer & UI/UX Designer from Charlotte, NC.
+                  <br />I am proficient in HTML, CSS, and JavaScript, with my go
+                  to framework being Next.js.
+                  <br />
+                  Additionally, I regularly utilize Figma and the Adobe Suite
+                  when working on projects.
+                </Link>
+              </div>
+            </div>
+
+            <div className="bio-holder2">
+              <div style={{ padding: "1rem" }}>
+                <h3>Frameworks & Languages</h3>
+                <hr />
+                <br />
+                <ul>
+                  <li>&middot;&nbsp;Next.js</li>
+                  <li>&middot;&nbsp;React</li>
+                  <li>&middot;&nbsp;GSAP</li>
+                  <li>&middot;&nbsp;Three.js</li>
+                  <li>&middot;&nbsp;Framer Motion</li>
+                  <li>&middot;&nbsp;HTML5</li>
+                  <li>&middot;&nbsp;CSS</li>
+                </ul>
+              </div>
+              <div style={{ padding: "1rem" }}>
+                <h3>Software</h3>
+                <hr />
+                <br />
+                <ul>
+                  <li>&middot;&nbsp;Figma</li>
+                  <li>&middot;&nbsp;Photoshop</li>
+                  <li>&middot;&nbsp;Illustrator</li>
+                  <li>&middot;&nbsp;Premiere Pro</li>
+                  <li>&middot;&nbsp;Blender</li>
+                  <li>&middot;&nbsp;Unreal Engine</li>
+                </ul>
+              </div>
+              <div style={{ padding: "1rem" }}>
+                <h3>Specialization</h3>
+                <hr />
+                <br />
+                <ul>
+                  <li>&middot;&nbsp;Web Design</li>
+                  <li>&middot;&nbsp;Web Development</li>
+                  <li>&middot;&nbsp;UI/UX Design</li>
+                  <li>&middot;&nbsp;Brand Development</li>
+                  <li>&middot;&nbsp;Motion Design</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div className="container-holder">
           <div className="container" ref={contractDiv}>
             <div
               style={{
@@ -190,8 +415,7 @@ export default function Home() {
                   ease: [0.68, -0.6, 0.32, 1.8],
                 }}
               >
-                <i className="fa-solid fa-pencil fa-2xs"></i>&nbsp;Let&apos;s
-                start a project together.
+                Contact
               </motion.h2>
             </div>
             <div
@@ -217,7 +441,7 @@ export default function Home() {
                 display: emailForm ? "flex" : "none",
               }}
             >
-              <p>What&apos;s your name?</p>
+              <p>Name</p>
               <input
                 type="text"
                 placeholder="John Doe *"
@@ -226,7 +450,7 @@ export default function Home() {
                 value={name}
               />
               <hr style={{ marginBottom: "1rem" }} />
-              <p>What&apos;s your email?</p>
+              <p>Email</p>
               <input
                 type="email"
                 placeholder="johndoe@email.com *"
@@ -235,7 +459,7 @@ export default function Home() {
                 value={email}
               />
               <hr style={{ marginBottom: "1rem" }} />
-              <p>What services are you looking for?</p>
+              <p>Services</p>
               <input
                 type="text"
                 placeholder="Web Design, Web Development *"
@@ -244,9 +468,9 @@ export default function Home() {
                 value={topic}
               />
               <hr style={{ marginBottom: "1rem" }} />
-              <p>What&apos;s your message?</p>
+              <p>Message</p>
               <textarea
-                placeholder="Hello Justin, I am looking for help building a website *"
+                placeholder="Looking for help building a website. *"
                 required
                 style={{ resize: "none" }}
                 onChange={(e) => setMessage(e.target.value)}
@@ -260,8 +484,6 @@ export default function Home() {
             </form>
           </div>
         </div>
-
-        <Footer />
       </main>
     </ReactLenis>
   );
