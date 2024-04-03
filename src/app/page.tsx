@@ -3,7 +3,7 @@ import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { ReactLenis } from "@studio-freight/react-lenis";
-import { motion } from "framer-motion";
+import { motion, useInView, useAnimation } from "framer-motion";
 import AnimatedTextH1 from "./components/AnimatedTextH1";
 import AnimatedTextH2 from "./components/AnimatedTextH2";
 
@@ -90,6 +90,55 @@ export default function Home() {
     };
   }, [lastScroll]);
 
+  const ref1 = useRef<HTMLDivElement>(null);
+  const ref2 = useRef<HTMLDivElement>(null);
+  const ref3 = useRef<HTMLDivElement>(null);
+  const ref4 = useRef<HTMLDivElement>(null);
+  const isInView1 = useInView(ref1, { once: true });
+  const isInView2 = useInView(ref2, { once: true });
+  const isInView3 = useInView(ref3, { once: true });
+  const isInView4 = useInView(ref4, { once: true });
+  const [isVisible, setIsVisible] = useState(false);
+  const controls = useAnimation();
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollThreshold = document.documentElement.scrollHeight * 0.99;
+      const scrollPosition = window.scrollY + window.innerHeight;
+      if (scrollPosition > scrollThreshold) {
+        setIsVisible(true);
+      } else {
+        setIsVisible(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
+  useEffect(() => {
+    if (isVisible) {
+      controls.start({
+        y: 0,
+        transition: {
+          duration: 1.2,
+          ease: [0.76, 0, 0.26, 1],
+        },
+      });
+    } else {
+      controls.start({
+        y: "100%",
+        transition: {
+          duration: 1.2,
+          ease: [0.76, 0, 0.26, 1],
+        },
+      });
+    }
+  }, [isVisible, controls]);
+
   return (
     <ReactLenis root>
       <main>
@@ -97,8 +146,8 @@ export default function Home() {
           <div className="nav-sub">
             <button onClick={() => scrollTo(homeDiv)}>Home</button>
             <button onClick={() => scrollTo(workDiv)}>Work</button>
-            <button onClick={() => scrollTo(aboutDiv)}>About</button>
-            <button onClick={() => scrollTo(contractDiv)}>Contact</button>
+            {/* <button onClick={() => scrollTo(aboutDiv)}>About</button> */}
+            <button onClick={() => scrollTo(contractDiv)}>Connect</button>
           </div>
         </div>
 
@@ -132,30 +181,23 @@ export default function Home() {
               style={{
                 display: "flex",
                 flexWrap: "wrap",
-                padding: "3rem",
-                paddingBottom: "1rem",
+                paddingTop: "4rem",
+                paddingBottom: "2rem",
                 justifyContent: "center",
               }}
             >
               <div className="content">
-                <h3>
-                  <i className="fa-solid fa-circle-user"></i>&nbsp;Client
-                </h3>
+                <h3>Client</h3>
                 <hr />
                 <p>OCULAR VIBRATIONS&trade;</p>
               </div>
               <div className="content">
-                <h3>
-                  <i className="fa-solid fa-circle-info"></i>
-                  &nbsp;Description
-                </h3>
+                <h3>Description</h3>
                 <hr />
                 <p>Digital Design Studio</p>
               </div>
               <div className="content">
-                <h3>
-                  <i className="fa-solid fa-paperclip"></i>&nbsp;Website
-                </h3>
+                <h3>Website</h3>
                 <hr />
                 <Link
                   href="https://ocular-vibrations.vercel.app/"
@@ -163,16 +205,34 @@ export default function Home() {
                   rel="noopener noreferrer"
                 >
                   ocularvibrations.com&nbsp;
-                  <i className="fa-solid fa-up-right-from-square fa-xs"></i>
+                  <button
+                    style={{
+                      width: "2.5rem",
+                      height: "2.5rem",
+                      background: "whitesmoke",
+                      borderRadius: "100rem",
+                      color: "#070707",
+                    }}
+                  >
+                    <i className="fa-solid fa-location-arrow fa-xs"></i>
+                  </button>
                 </Link>
               </div>
             </div>
-
-            <div className="image-holder">
-              <div style={{ position: "absolute", width: "100%", top: 0 }}>
+            <div className="image-holder" ref={ref1}>
+              <div
+                style={{
+                  position: "absolute",
+                  width: "100%",
+                  top: 0,
+                  transform: isInView1 ? "none" : "translateY(200px)",
+                  opacity: isInView1 ? 1 : 0,
+                  transition: "all 0.9s cubic-bezier(0.17, 0.55, 0.55, 1) 0.5s",
+                }}
+              >
                 <img
                   className="image-main"
-                  src={`/ocular/${
+                  src={`/assets/ocular/${
                     ocularImages[ocularIndex % ocularImages.length]
                   }`}
                   width={1920}
@@ -181,7 +241,7 @@ export default function Home() {
                 />
                 <img
                   className="image-subLeft"
-                  src={`/ocular/${
+                  src={`/assets/ocular/${
                     ocularImages[
                       (ocularIndex - 1 + ocularImages.length) %
                         ocularImages.length
@@ -194,7 +254,7 @@ export default function Home() {
                 />
                 <img
                   className="image-subRight"
-                  src={`/ocular/${
+                  src={`/assets/ocular/${
                     ocularImages[(ocularIndex + 1) % ocularImages.length]
                   }`}
                   width={1920}
@@ -204,12 +264,14 @@ export default function Home() {
                 />
               </div>
             </div>
-
             <div
               style={{
                 display: "flex",
                 justifyContent: "center",
                 gap: "0.4rem",
+                transform: isInView1 ? "none" : "translateY(200px)",
+                opacity: isInView1 ? 1 : 0,
+                transition: "all 0.9s cubic-bezier(0.17, 0.55, 0.55, 1) 0.5s",
               }}
             >
               <div
@@ -258,30 +320,23 @@ export default function Home() {
               style={{
                 display: "flex",
                 flexWrap: "wrap",
-                padding: "3rem",
-                paddingBottom: "1rem",
+                paddingTop: "12rem",
+                paddingBottom: "2rem",
                 justifyContent: "center",
               }}
             >
               <div className="content">
-                <h3>
-                  <i className="fa-solid fa-circle-user"></i>&nbsp;Client
-                </h3>
+                <h3>Client</h3>
                 <hr />
                 <p>Christian Davenport</p>
               </div>
               <div className="content">
-                <h3>
-                  <i className="fa-solid fa-circle-info"></i>
-                  &nbsp;Description
-                </h3>
+                <h3>Description</h3>
                 <hr />
                 <p>3D Design Portfolio</p>
               </div>
               <div className="content">
-                <h3>
-                  <i className="fa-solid fa-paperclip"></i>&nbsp;Website
-                </h3>
+                <h3>Website</h3>
                 <hr />
                 <Link
                   href="https://www.christiandavenport.studio/"
@@ -289,15 +344,34 @@ export default function Home() {
                   rel="noopener noreferrer"
                 >
                   christiandavenport.studio&nbsp;
-                  <i className="fa-solid fa-up-right-from-square fa-xs"></i>
+                  <button
+                    style={{
+                      width: "2.5rem",
+                      height: "2.5rem",
+                      background: "whitesmoke",
+                      borderRadius: "100rem",
+                      color: "#070707",
+                    }}
+                  >
+                    <i className="fa-solid fa-location-arrow fa-xs"></i>
+                  </button>
                 </Link>
               </div>
             </div>
-            <div className="image-holder">
-              <div style={{ position: "absolute", width: "100%", top: 0 }}>
+            <div className="image-holder" ref={ref2}>
+              <div
+                style={{
+                  position: "absolute",
+                  width: "100%",
+                  top: 0,
+                  transform: isInView2 ? "none" : "translateY(200px)",
+                  opacity: isInView2 ? 1 : 0,
+                  transition: "all 0.9s cubic-bezier(0.17, 0.55, 0.55, 1) 0.5s",
+                }}
+              >
                 <img
                   className="image-main"
-                  src={`/portfolio/${
+                  src={`/assets/portfolio/${
                     portfolioImages[portfolioIndex % portfolioImages.length]
                   }`}
                   width={1920}
@@ -306,7 +380,7 @@ export default function Home() {
                 />
                 <img
                   className="image-subLeft"
-                  src={`/portfolio/${
+                  src={`/assets/portfolio/${
                     portfolioImages[
                       (portfolioIndex - 1 + portfolioImages.length) %
                         portfolioImages.length
@@ -319,7 +393,7 @@ export default function Home() {
                 />
                 <img
                   className="image-subRight"
-                  src={`/portfolio/${
+                  src={`/assets/portfolio/${
                     portfolioImages[
                       (portfolioIndex + 1) % portfolioImages.length
                     ]
@@ -331,12 +405,14 @@ export default function Home() {
                 />
               </div>
             </div>
-
             <div
               style={{
                 display: "flex",
                 justifyContent: "center",
                 gap: "0.4rem",
+                transform: isInView2 ? "none" : "translateY(200px)",
+                opacity: isInView2 ? 1 : 0,
+                transition: "all 0.9s cubic-bezier(0.17, 0.55, 0.55, 1) 0.5s",
               }}
             >
               <div
@@ -385,30 +461,23 @@ export default function Home() {
               style={{
                 display: "flex",
                 flexWrap: "wrap",
-                padding: "3rem",
-                paddingBottom: "1rem",
+                paddingTop: "12rem",
+                paddingBottom: "2rem",
                 justifyContent: "center",
               }}
             >
               <div className="content">
-                <h3>
-                  <i className="fa-solid fa-circle-user"></i>&nbsp;Client
-                </h3>
+                <h3>Client</h3>
                 <hr />
                 <p>Stack</p>
               </div>
               <div className="content">
-                <h3>
-                  <i className="fa-solid fa-circle-info"></i>
-                  &nbsp;Description
-                </h3>
+                <h3>Description</h3>
                 <hr />
                 <p>Platform for Modern Tech Stack Visualization</p>
               </div>
               <div className="content">
-                <h3>
-                  <i className="fa-solid fa-paperclip"></i>&nbsp;Website
-                </h3>
+                <h3>Website</h3>
                 <hr />
                 <Link
                   href="https://stack-three-psi.vercel.app/"
@@ -416,22 +485,43 @@ export default function Home() {
                   rel="noopener noreferrer"
                 >
                   stack.com&nbsp;
-                  <i className="fa-solid fa-up-right-from-square fa-xs"></i>
+                  <button
+                    style={{
+                      width: "2.5rem",
+                      height: "2.5rem",
+                      background: "whitesmoke",
+                      borderRadius: "100rem",
+                      color: "#070707",
+                    }}
+                  >
+                    <i className="fa-solid fa-location-arrow fa-xs"></i>
+                  </button>
                 </Link>
               </div>
             </div>
-            <div className="image-holder">
-              <div style={{ position: "absolute", width: "100%", top: 0 }}>
+            <div className="image-holder" ref={ref3}>
+              <div
+                style={{
+                  position: "absolute",
+                  width: "100%",
+                  top: 0,
+                  transform: isInView3 ? "none" : "translateY(200px)",
+                  opacity: isInView3 ? 1 : 0,
+                  transition: "all 0.9s cubic-bezier(0.17, 0.55, 0.55, 1) 0.5s",
+                }}
+              >
                 <img
                   className="image-main"
-                  src={`/stack/${stackImages[stackIndex % stackImages.length]}`}
+                  src={`/assets/stack/${
+                    stackImages[stackIndex % stackImages.length]
+                  }`}
                   width={1920}
                   height={0}
                   alt={""}
                 />
                 <img
                   className="image-subLeft"
-                  src={`/stack/${
+                  src={`/assets/stack/${
                     stackImages[
                       (stackIndex - 1 + stackImages.length) % stackImages.length
                     ]
@@ -443,7 +533,7 @@ export default function Home() {
                 />
                 <img
                   className="image-subRight"
-                  src={`/stack/${
+                  src={`/assets/stack/${
                     stackImages[(stackIndex + 1) % stackImages.length]
                   }`}
                   width={1920}
@@ -453,12 +543,14 @@ export default function Home() {
                 />
               </div>
             </div>
-
             <div
               style={{
                 display: "flex",
                 justifyContent: "center",
                 gap: "0.4rem",
+                transform: isInView3 ? "none" : "translateY(200px)",
+                opacity: isInView3 ? 1 : 0,
+                transition: "all 0.9s cubic-bezier(0.17, 0.55, 0.55, 1) 0.5s",
               }}
             >
               <div
@@ -505,30 +597,23 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="container-holder" ref={aboutDiv}>
+        {/* <div className="container-holder" ref={aboutDiv}>
           <div className="container">
             <h2>About</h2>
 
             <div className="bio-holder1">
               <div className="content">
-                <h3>
-                  <i className="fa-solid fa-signature"></i>&nbsp;Name
-                </h3>
+                <h3>Name</h3>
                 <hr />
                 <p>Justin Davenport</p>
               </div>
               <div className="content">
-                <h3>
-                  <i className="fa-solid fa-location-dot"></i>&nbsp;Location
-                </h3>
+                <h3>Location</h3>
                 <hr />
                 <p>Charlotte, NC</p>
               </div>
               <div className="content">
-                <h3>
-                  <i className="fa-solid fa-circle-info"></i>
-                  &nbsp;Biography
-                </h3>
+                <h3>Biography</h3>
                 <hr />
                 <p>
                   I am a Frontend Developer & UI/UX Designer from Charlotte, NC.
@@ -541,10 +626,7 @@ export default function Home() {
 
             <div className="bio-holder2">
               <div className="content">
-                <h3>
-                  <i className="fa-solid fa-code"></i>&nbsp;Frameworks &
-                  Languages
-                </h3>
+                <h3>Frameworks & Languages</h3>
                 <hr />
                 <ul>
                   <li>&middot;&nbsp;Next.js</li>
@@ -557,9 +639,7 @@ export default function Home() {
                 </ul>
               </div>
               <div className="content">
-                <h3>
-                  <i className="fa-brands fa-uncharted"></i>&nbsp;Software
-                </h3>
+                <h3>Software</h3>
                 <hr />
                 <ul>
                   <li>&middot;&nbsp;Figma</li>
@@ -571,10 +651,7 @@ export default function Home() {
                 </ul>
               </div>
               <div className="content">
-                <h3>
-                  <i className="fa-solid fa-triangle-exclamation"></i>
-                  &nbsp;Specialization
-                </h3>
+                <h3>Specialization</h3>
                 <hr />
                 <ul>
                   <li>&middot;&nbsp;Web Design</li>
@@ -586,7 +663,7 @@ export default function Home() {
               </div>
             </div>
           </div>
-        </div>
+        </div> */}
 
         <div className="container-holder">
           <div className="container" ref={contractDiv}>
@@ -595,9 +672,146 @@ export default function Home() {
                 display: emailForm ? "block" : "none",
               }}
             >
-              <h2>Contact</h2>
+              <h2>Connect</h2>
+            </div>
+
+            <div
+              style={{
+                display: "flex",
+                paddingTop: "14rem",
+                paddingBottom: "4rem",
+                justifyContent: "center",
+              }}
+              ref={ref4}
+            >
+              <h2
+                style={{
+                  opacity: isInView4 ? 1 : 0,
+                  transition: "all 0.9s cubic-bezier(0.17, 0.55, 0.55, 1) 0.5s",
+                }}
+              >
+                justindavenport.space@gmail.com
+              </h2>
             </div>
             <div
+              style={{
+                display: "flex",
+                flexWrap: "wrap",
+                paddingBottom: "14rem",
+                justifyContent: "center",
+              }}
+            >
+              <div
+                className="content"
+                style={{
+                  gap: "0.4rem",
+                  display: "flex",
+                  width: "fit-content",
+                  justifyContent: "center",
+                  flexDirection: "column",
+                  paddingBlock: "0rem",
+                }}
+              >
+                <h3>Social</h3>
+                <hr />
+                <div
+                  style={{
+                    gap: "0.4rem",
+                    display: "flex",
+                    width: "fit-content",
+                    justifyContent: "center",
+                  }}
+                >
+                  <Link
+                    href="https://www.instagram.com/justindavenport.space/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <button
+                      style={{
+                        width: "4rem",
+                        height: "4rem",
+                        background: "whitesmoke",
+                        borderRadius: "100rem",
+                        color: "#070707",
+                      }}
+                    >
+                      <i className="fa-brands fa-instagram fa-xl"></i>
+                    </button>
+                  </Link>
+                  <Link
+                    href="https://dribbble.com/justindavenport"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <button
+                      style={{
+                        width: "4rem",
+                        height: "4rem",
+                        background: "whitesmoke",
+                        borderRadius: "100rem",
+                        color: "#070707",
+                      }}
+                    >
+                      <i className="fa-brands fa-dribbble fa-xl"></i>
+                    </button>
+                  </Link>
+                  <Link
+                    href="https://www.behance.net/justindavenportspace"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <button
+                      style={{
+                        width: "4rem",
+                        height: "4rem",
+                        background: "whitesmoke",
+                        borderRadius: "100rem",
+                        color: "#070707",
+                      }}
+                    >
+                      <i className="fa-brands fa-behance fa-xl"></i>
+                    </button>
+                  </Link>
+                  <Link
+                    href="https://www.linkedin.com/in/justindavenport99/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <button
+                      style={{
+                        width: "4rem",
+                        height: "4rem",
+                        background: "whitesmoke",
+                        borderRadius: "100rem",
+                        color: "#070707",
+                      }}
+                    >
+                      <i className="fa-brands fa-linkedin-in fa-xl"></i>
+                    </button>
+                  </Link>
+                  <Link
+                    href="https://github.com/Jdavenport3199"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <button
+                      style={{
+                        width: "4rem",
+                        height: "4rem",
+                        background: "whitesmoke",
+                        borderRadius: "100rem",
+                        color: "#070707",
+                      }}
+                    >
+                      <i className="fa-brands fa-github fa-xl"></i>
+                    </button>
+                  </Link>
+                </div>
+              </div>
+            </div>
+
+            {/* <div
               style={{
                 display: emailForm ? "none" : "block",
                 textAlign: "center",
@@ -621,36 +835,29 @@ export default function Home() {
                   display: emailForm ? "flex" : "none",
                 }}
               >
-                <p>Name</p>
                 <input
                   type="text"
-                  placeholder="John Doe *"
+                  placeholder="* Name"
                   required
                   onChange={(e) => setName(e.target.value)}
                   value={name}
                 />
-                {/* <hr style={{ marginBottom: "1rem" }} /> */}
-                <p>Email</p>
                 <input
                   type="email"
-                  placeholder="johndoe@email.com *"
+                  placeholder="* Email"
                   required
                   onChange={(e) => setEmail(e.target.value)}
                   value={email}
                 />
-                {/* <hr style={{ marginBottom: "1rem" }} /> */}
-                <p>Services</p>
                 <input
                   type="text"
-                  placeholder="Web Design, Web Development *"
+                  placeholder="* Services"
                   required
                   onChange={(e) => setTopic(e.target.value)}
                   value={topic}
                 />
-                {/* <hr style={{ marginBottom: "1rem" }} /> */}
-                <p>Message</p>
                 <textarea
-                  placeholder="Looking for help building a website. *"
+                  placeholder="* Message"
                   required
                   style={{ resize: "none", height: "10rem" }}
                   onChange={(e) => setMessage(e.target.value)}
@@ -662,7 +869,7 @@ export default function Home() {
                   </button>
                 </div>
               </form>
-            </div>
+            </div> */}
           </div>
         </div>
       </main>
