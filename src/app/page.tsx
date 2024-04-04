@@ -94,10 +94,12 @@ export default function Home() {
   const ref2 = useRef<HTMLDivElement>(null);
   const ref3 = useRef<HTMLDivElement>(null);
   const ref4 = useRef<HTMLDivElement>(null);
+  const ref5 = useRef<HTMLDivElement>(null);
   const isInView1 = useInView(ref1, { once: true });
   const isInView2 = useInView(ref2, { once: true });
   const isInView3 = useInView(ref3, { once: true });
   const isInView4 = useInView(ref4, { once: true });
+  const isInView5 = useInView(ref5, { once: true });
   const [isVisible, setIsVisible] = useState(false);
   const controls = useAnimation();
 
@@ -144,16 +146,49 @@ export default function Home() {
       <main>
         <div className="nav" ref={nav}>
           <div className="nav-sub">
-            <button onClick={() => scrollTo(homeDiv)}>Home</button>
-            <button onClick={() => scrollTo(workDiv)}>Work</button>
+            <motion.button
+              onClick={() => scrollTo(homeDiv)}
+              whileHover={{ scale: 0.9 }}
+              transition={{
+                type: "spring",
+                stiffness: 260,
+                damping: 20,
+              }}
+            >
+              Home
+            </motion.button>
+            <motion.button
+              onClick={() => scrollTo(workDiv)}
+              whileHover={{ scale: 0.9 }}
+              transition={{
+                type: "spring",
+                stiffness: 260,
+                damping: 20,
+              }}
+            >
+              Work
+            </motion.button>
             {/* <button onClick={() => scrollTo(aboutDiv)}>About</button> */}
-            <button onClick={() => scrollTo(contractDiv)}>Connect</button>
+            <motion.button
+              onClick={() => scrollTo(contractDiv)}
+              whileHover={{ scale: 0.9 }}
+              transition={{
+                type: "spring",
+                stiffness: 260,
+                damping: 20,
+              }}
+            >
+              Connect
+            </motion.button>
           </div>
         </div>
 
         <div
           className="container-holder"
-          style={{ alignItems: "flex-end" }}
+          style={{
+            alignItems: "flex-end",
+            background: "linear-gradient(to bottom, black, #070707)",
+          }}
           ref={homeDiv}
         >
           <div className="container">
@@ -205,7 +240,7 @@ export default function Home() {
                   rel="noopener noreferrer"
                 >
                   ocularvibrations.com&nbsp;
-                  <button
+                  <motion.button
                     style={{
                       width: "2.5rem",
                       height: "2.5rem",
@@ -213,9 +248,15 @@ export default function Home() {
                       borderRadius: "100rem",
                       color: "#070707",
                     }}
+                    whileHover={{ scale: 0.9 }}
+                    transition={{
+                      type: "spring",
+                      stiffness: 260,
+                      damping: 20,
+                    }}
                   >
                     <i className="fa-solid fa-location-arrow fa-xs"></i>
-                  </button>
+                  </motion.button>
                 </Link>
               </div>
             </div>
@@ -344,7 +385,7 @@ export default function Home() {
                   rel="noopener noreferrer"
                 >
                   christiandavenport.studio&nbsp;
-                  <button
+                  <motion.button
                     style={{
                       width: "2.5rem",
                       height: "2.5rem",
@@ -352,9 +393,15 @@ export default function Home() {
                       borderRadius: "100rem",
                       color: "#070707",
                     }}
+                    whileHover={{ scale: 0.9 }}
+                    transition={{
+                      type: "spring",
+                      stiffness: 260,
+                      damping: 20,
+                    }}
                   >
                     <i className="fa-solid fa-location-arrow fa-xs"></i>
-                  </button>
+                  </motion.button>
                 </Link>
               </div>
             </div>
@@ -485,7 +532,7 @@ export default function Home() {
                   rel="noopener noreferrer"
                 >
                   stack.com&nbsp;
-                  <button
+                  <motion.button
                     style={{
                       width: "2.5rem",
                       height: "2.5rem",
@@ -493,9 +540,15 @@ export default function Home() {
                       borderRadius: "100rem",
                       color: "#070707",
                     }}
+                    whileHover={{ scale: 0.9 }}
+                    transition={{
+                      type: "spring",
+                      stiffness: 260,
+                      damping: 20,
+                    }}
                   >
                     <i className="fa-solid fa-location-arrow fa-xs"></i>
-                  </button>
+                  </motion.button>
                 </Link>
               </div>
             </div>
@@ -665,7 +718,12 @@ export default function Home() {
           </div>
         </div> */}
 
-        <div className="container-holder">
+        <div
+          className="container-holder"
+          style={{
+            background: "linear-gradient(to bottom, #070707, black)",
+          }}
+        >
           <div className="container" ref={contractDiv}>
             <div
               style={{
@@ -678,12 +736,24 @@ export default function Home() {
             <div
               style={{
                 display: "flex",
-                paddingTop: "14rem",
+                paddingTop: "4rem",
                 paddingBottom: "4rem",
-                justifyContent: "center",
+                alignItems: "center",
+                flexDirection: "column",
               }}
               ref={ref4}
             >
+              <Image
+                src="/assets/me.jpg"
+                width={250}
+                height={250}
+                alt={""}
+                style={{
+                  borderRadius: "100rem",
+                  width: "250px",
+                  height: "250px",
+                }}
+              />
               <h2
                 style={{
                   opacity: isInView4 ? 1 : 0,
@@ -697,7 +767,7 @@ export default function Home() {
               style={{
                 display: "flex",
                 flexWrap: "wrap",
-                paddingBottom: "14rem",
+                paddingBottom: "8rem",
                 justifyContent: "center",
               }}
             >
@@ -711,15 +781,24 @@ export default function Home() {
                   flexDirection: "column",
                   paddingBlock: "0rem",
                 }}
+                ref={ref5}
               >
                 <h3>Social</h3>
                 <hr />
-                <div
+                <motion.div
                   style={{
                     gap: "0.4rem",
                     display: "flex",
                     width: "fit-content",
                     justifyContent: "center",
+                    scale: isInView5 ? 1 : 0,
+                  }}
+                  animate={{ scale: isInView5 ? 1 : 0 }}
+                  transition={{
+                    type: "spring",
+                    stiffness: 260,
+                    damping: 20,
+                    delay: 0.8,
                   }}
                 >
                   <Link
@@ -727,7 +806,7 @@ export default function Home() {
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    <button
+                    <motion.button
                       style={{
                         width: "4rem",
                         height: "4rem",
@@ -735,16 +814,22 @@ export default function Home() {
                         borderRadius: "100rem",
                         color: "#070707",
                       }}
+                      whileHover={{ scale: 0.85 }}
+                      transition={{
+                        type: "spring",
+                        stiffness: 260,
+                        damping: 20,
+                      }}
                     >
                       <i className="fa-brands fa-instagram fa-xl"></i>
-                    </button>
+                    </motion.button>
                   </Link>
                   <Link
                     href="https://dribbble.com/justindavenport"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    <button
+                    <motion.button
                       style={{
                         width: "4rem",
                         height: "4rem",
@@ -752,16 +837,22 @@ export default function Home() {
                         borderRadius: "100rem",
                         color: "#070707",
                       }}
+                      whileHover={{ scale: 0.85 }}
+                      transition={{
+                        type: "spring",
+                        stiffness: 260,
+                        damping: 20,
+                      }}
                     >
                       <i className="fa-brands fa-dribbble fa-xl"></i>
-                    </button>
+                    </motion.button>
                   </Link>
                   <Link
                     href="https://www.behance.net/justindavenportspace"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    <button
+                    <motion.button
                       style={{
                         width: "4rem",
                         height: "4rem",
@@ -769,16 +860,22 @@ export default function Home() {
                         borderRadius: "100rem",
                         color: "#070707",
                       }}
+                      whileHover={{ scale: 0.85 }}
+                      transition={{
+                        type: "spring",
+                        stiffness: 260,
+                        damping: 20,
+                      }}
                     >
                       <i className="fa-brands fa-behance fa-xl"></i>
-                    </button>
+                    </motion.button>
                   </Link>
                   <Link
                     href="https://www.linkedin.com/in/justindavenport99/"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    <button
+                    <motion.button
                       style={{
                         width: "4rem",
                         height: "4rem",
@@ -786,16 +883,22 @@ export default function Home() {
                         borderRadius: "100rem",
                         color: "#070707",
                       }}
+                      whileHover={{ scale: 0.85 }}
+                      transition={{
+                        type: "spring",
+                        stiffness: 260,
+                        damping: 20,
+                      }}
                     >
                       <i className="fa-brands fa-linkedin-in fa-xl"></i>
-                    </button>
+                    </motion.button>
                   </Link>
                   <Link
                     href="https://github.com/Jdavenport3199"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    <button
+                    <motion.button
                       style={{
                         width: "4rem",
                         height: "4rem",
@@ -803,11 +906,17 @@ export default function Home() {
                         borderRadius: "100rem",
                         color: "#070707",
                       }}
+                      whileHover={{ scale: 0.85 }}
+                      transition={{
+                        type: "spring",
+                        stiffness: 260,
+                        damping: 20,
+                      }}
                     >
                       <i className="fa-brands fa-github fa-xl"></i>
-                    </button>
+                    </motion.button>
                   </Link>
-                </div>
+                </motion.div>
               </div>
             </div>
 
