@@ -51,7 +51,7 @@
   .email {
     display: inline;
     color: whitesmoke;
-    font-weight: 100;
+    font-weight: 200;
     line-height: 1.4;
     font-size: clamp(32px, 4vw, 48px);
     font-family: "DM Sans", sans-serif;
@@ -264,11 +264,11 @@
 
   ul img {
     all: unset;
-    width: 80px;
-    height: 80px;
+    width: 60px;
+    height: 60px;
     background: whitesmoke;
     border-radius: 100rem;
-    padding: 1rem;
+    padding: 0.4rem;
   }
 
   .image-holder {
@@ -372,6 +372,12 @@
     box-shadow: 0px 0px 8px 4px #00000010;
     width: 640px;
     height: 360px;
+  }
+
+  ul img {
+    width: 80px;
+    height: 80px;
+    padding: 1rem;
   }
 }
 

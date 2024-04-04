@@ -796,7 +796,6 @@ export default function Home() {
                 >
                   <li>
                     <Image
-                      className="icon"
                       src={"/assets/icons/figma.svg"}
                       width={0}
                       height={0}
@@ -805,7 +804,6 @@ export default function Home() {
                   </li>
                   <li>
                     <Image
-                      className="icon"
                       src={"/assets/icons/photoshop.svg"}
                       width={0}
                       height={0}
@@ -814,7 +812,6 @@ export default function Home() {
                   </li>
                   <li>
                     <Image
-                      className="icon"
                       src={"/assets/icons/illustrator.svg"}
                       width={0}
                       height={0}
@@ -823,7 +820,6 @@ export default function Home() {
                   </li>
                   <li>
                     <Image
-                      className="icon"
                       src={"/assets/icons/premiere.svg"}
                       width={0}
                       height={0}
@@ -832,7 +828,6 @@ export default function Home() {
                   </li>
                   <li>
                     <Image
-                      className="icon"
                       src={"/assets/icons/blender.svg"}
                       width={0}
                       height={0}
@@ -841,7 +836,6 @@ export default function Home() {
                   </li>
                   <li>
                     <Image
-                      className="icon"
                       src={"/assets/icons/unreal.svg"}
                       width={0}
                       height={0}
@@ -857,7 +851,7 @@ export default function Home() {
                 display: "flex",
                 flexWrap: "wrap",
                 justifyContent: "center",
-                paddingBottom: "8rem",
+                paddingBottom: "4rem",
               }}
             >
               <div
@@ -888,7 +882,6 @@ export default function Home() {
                 >
                   <li>
                     <Image
-                      className="icon"
                       src={"/assets/icons/next.svg"}
                       width={0}
                       height={0}
@@ -897,7 +890,6 @@ export default function Home() {
                   </li>
                   <li>
                     <Image
-                      className="icon"
                       src={"/assets/icons/react.svg"}
                       width={0}
                       height={0}
@@ -906,7 +898,6 @@ export default function Home() {
                   </li>
                   <li>
                     <Image
-                      className="icon"
                       src={"/assets/icons/html.svg"}
                       width={0}
                       height={0}
@@ -915,7 +906,6 @@ export default function Home() {
                   </li>
                   <li>
                     <Image
-                      className="icon"
                       src={"/assets/icons/css.svg"}
                       width={0}
                       height={0}
@@ -924,7 +914,6 @@ export default function Home() {
                   </li>
                   <li>
                     <Image
-                      className="icon"
                       src={"/assets/icons/framer.svg"}
                       width={0}
                       height={0}
@@ -933,7 +922,6 @@ export default function Home() {
                   </li>
                   <li>
                     <Image
-                      className="icon"
                       src={"/assets/icons/webgl.svg"}
                       width={0}
                       height={0}
