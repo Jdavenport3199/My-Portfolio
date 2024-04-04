@@ -250,7 +250,8 @@
   }
 
   .container-holder-top {
-    align-items: center;
+    margin-top: 6rem;
+    align-items: start;
   }
 
   .container {

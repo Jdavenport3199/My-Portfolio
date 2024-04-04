@@ -9,7 +9,7 @@ export default function Model() {
   const mesh = useRef(null);
   const ref = useRef(null);
   const tl = useRef(null);
-  const scale = viewport.width / 25;
+  const scale = viewport.width / 10;
   const materialProps = useControls({
     thickness: { value: 1.15, min: 0, max: 3, step: 0.05 },
     roughness: { value: 0.1, min: 0, max: 1, step: 0.1 },
@@ -23,9 +23,9 @@ export default function Model() {
 
   useFrame(() => {
     if (mesh.current) {
-      (mesh.current as any).rotation.x += 0.001;
-      (mesh.current as any).rotation.y += 0.001;
-      (mesh.current as any).rotation.z += 0.001;
+      (mesh.current as any).rotation.x += 0.004;
+      (mesh.current as any).rotation.y += 0.004;
+      (mesh.current as any).rotation.z += 0.004;
     }
   });
 
