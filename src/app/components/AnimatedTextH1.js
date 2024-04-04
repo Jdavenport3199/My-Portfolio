@@ -8,27 +8,25 @@ const AnimatedTextH1 = ({ text }) => {
     hidden: { opacity: 0 },
     visible: (i = 1) => ({
       opacity: 1,
-      transition: { staggerChildren: 0.12, delayChildren: 0.08 * i },
+      transition: { staggerChildren: 0.4, delayChildren: 1.25 * i },
     }),
   };
 
   const child = {
     visible: {
       opacity: 1,
-      x: 0,
       transition: {
         type: "spring",
-        damping: 12,
-        stiffness: 100,
+        stiffness: 20,
+        damping: 40,
       },
     },
     hidden: {
       opacity: 0,
-      x: 20,
       transition: {
         type: "spring",
-        damping: 12,
-        stiffness: 100,
+        stiffness: 20,
+        damping: 40,
       },
     },
   };
@@ -46,7 +44,6 @@ const AnimatedTextH1 = ({ text }) => {
         >
           {word}
           <br />
-          {/* &nbsp; */}
         </motion.h1>
       ))}
     </motion.div>

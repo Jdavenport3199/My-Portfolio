@@ -6,6 +6,12 @@ import { ReactLenis } from "@studio-freight/react-lenis";
 import { motion, useInView, useAnimation } from "framer-motion";
 import AnimatedTextH1 from "./components/AnimatedTextH1";
 import AnimatedTextH2 from "./components/AnimatedTextH2";
+import Scene from "./components/Scene";
+import dynamic from "next/dynamic";
+
+const SceneLoading = dynamic(() => import("./components/Scene"), {
+  ssr: true,
+});
 
 export default function Home() {
   const homeDiv = useRef<HTMLDivElement>(null);
@@ -197,6 +203,10 @@ export default function Home() {
           </div>
         </div>
 
+        <div className="background">
+          <Scene />
+        </div>
+
         <div
           className="container-holder-top"
           style={{
@@ -213,9 +223,7 @@ export default function Home() {
                 gap: "0rem 4rem",
               }}
             >
-              <div>
-                <AnimatedTextH1 text="Justin Davenport" />
-              </div>
+              <AnimatedTextH1 text="Justin Davenport" />
               <AnimatedTextH2 text="Designer & Developer" />
             </div>
           </div>
@@ -794,54 +802,96 @@ export default function Home() {
                     delay: 0.8,
                   }}
                 >
-                  <li>
+                  <motion.li
+                    whileHover={{ scale: 0.85 }}
+                    transition={{
+                      type: "spring",
+                      stiffness: 260,
+                      damping: 20,
+                    }}
+                  >
                     <Image
                       src={"/assets/icons/figma.svg"}
                       width={0}
                       height={0}
                       alt=""
                     />
-                  </li>
-                  <li>
+                  </motion.li>
+                  <motion.li
+                    whileHover={{ scale: 0.85 }}
+                    transition={{
+                      type: "spring",
+                      stiffness: 260,
+                      damping: 20,
+                    }}
+                  >
                     <Image
                       src={"/assets/icons/photoshop.svg"}
                       width={0}
                       height={0}
                       alt=""
                     />
-                  </li>
-                  <li>
+                  </motion.li>
+                  <motion.li
+                    whileHover={{ scale: 0.85 }}
+                    transition={{
+                      type: "spring",
+                      stiffness: 260,
+                      damping: 20,
+                    }}
+                  >
                     <Image
                       src={"/assets/icons/illustrator.svg"}
                       width={0}
                       height={0}
                       alt=""
                     />
-                  </li>
-                  <li>
+                  </motion.li>
+                  <motion.li
+                    whileHover={{ scale: 0.85 }}
+                    transition={{
+                      type: "spring",
+                      stiffness: 260,
+                      damping: 20,
+                    }}
+                  >
                     <Image
                       src={"/assets/icons/premiere.svg"}
                       width={0}
                       height={0}
                       alt=""
                     />
-                  </li>
-                  <li>
+                  </motion.li>
+                  <motion.li
+                    whileHover={{ scale: 0.85 }}
+                    transition={{
+                      type: "spring",
+                      stiffness: 260,
+                      damping: 20,
+                    }}
+                  >
                     <Image
                       src={"/assets/icons/blender.svg"}
                       width={0}
                       height={0}
                       alt=""
                     />
-                  </li>
-                  <li>
+                  </motion.li>
+                  <motion.li
+                    whileHover={{ scale: 0.85 }}
+                    transition={{
+                      type: "spring",
+                      stiffness: 260,
+                      damping: 20,
+                    }}
+                  >
                     <Image
                       src={"/assets/icons/unreal.svg"}
                       width={0}
                       height={0}
                       alt=""
                     />
-                  </li>
+                  </motion.li>
                 </motion.ul>
               </div>
             </div>
@@ -880,54 +930,96 @@ export default function Home() {
                     delay: 0.8,
                   }}
                 >
-                  <li>
+                  <motion.li
+                    whileHover={{ scale: 0.85 }}
+                    transition={{
+                      type: "spring",
+                      stiffness: 260,
+                      damping: 20,
+                    }}
+                  >
                     <Image
                       src={"/assets/icons/next.svg"}
                       width={0}
                       height={0}
                       alt=""
                     />
-                  </li>
-                  <li>
+                  </motion.li>
+                  <motion.li
+                    whileHover={{ scale: 0.85 }}
+                    transition={{
+                      type: "spring",
+                      stiffness: 260,
+                      damping: 20,
+                    }}
+                  >
                     <Image
                       src={"/assets/icons/react.svg"}
                       width={0}
                       height={0}
                       alt=""
                     />
-                  </li>
-                  <li>
+                  </motion.li>
+                  <motion.li
+                    whileHover={{ scale: 0.85 }}
+                    transition={{
+                      type: "spring",
+                      stiffness: 260,
+                      damping: 20,
+                    }}
+                  >
                     <Image
                       src={"/assets/icons/html.svg"}
                       width={0}
                       height={0}
                       alt=""
                     />
-                  </li>
-                  <li>
+                  </motion.li>
+                  <motion.li
+                    whileHover={{ scale: 0.85 }}
+                    transition={{
+                      type: "spring",
+                      stiffness: 260,
+                      damping: 20,
+                    }}
+                  >
                     <Image
                       src={"/assets/icons/css.svg"}
                       width={0}
                       height={0}
                       alt=""
                     />
-                  </li>
-                  <li>
+                  </motion.li>
+                  <motion.li
+                    whileHover={{ scale: 0.85 }}
+                    transition={{
+                      type: "spring",
+                      stiffness: 260,
+                      damping: 20,
+                    }}
+                  >
                     <Image
                       src={"/assets/icons/framer.svg"}
                       width={0}
                       height={0}
                       alt=""
                     />
-                  </li>
-                  <li>
+                  </motion.li>
+                  <motion.li
+                    whileHover={{ scale: 0.85 }}
+                    transition={{
+                      type: "spring",
+                      stiffness: 260,
+                      damping: 20,
+                    }}
+                  >
                     <Image
                       src={"/assets/icons/webgl.svg"}
                       width={0}
                       height={0}
                       alt=""
                     />
-                  </li>
+                  </motion.li>
                 </motion.ul>
               </div>
             </div>
@@ -960,15 +1052,11 @@ export default function Home() {
               ref={ref4}
             >
               <Image
+                className="profilepic"
                 src="/assets/me.jpg"
-                width={250}
-                height={250}
+                width={175}
+                height={175}
                 alt={""}
-                style={{
-                  borderRadius: "100rem",
-                  width: "250px",
-                  height: "250px",
-                }}
               />
               {/* <div style={{ textAlign: "center", width: "40%" }}>
                 <p>
