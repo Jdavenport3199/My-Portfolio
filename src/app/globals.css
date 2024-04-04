@@ -53,6 +53,7 @@
     height: 100vh;
     width: 100%;
     z-index: 1;
+    padding-top: 12rem;
 
     ::-webkit-scrollbar {
       display: none;
@@ -250,7 +251,7 @@
   }
 
   .container-holder-top {
-    margin-top: 6rem;
+    padding-top: 6rem;
     align-items: start;
   }
 
