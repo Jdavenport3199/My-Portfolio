@@ -95,11 +95,15 @@ export default function Home() {
   const ref3 = useRef<HTMLDivElement>(null);
   const ref4 = useRef<HTMLDivElement>(null);
   const ref5 = useRef<HTMLDivElement>(null);
+  const ref6 = useRef<HTMLDivElement>(null);
+  const ref7 = useRef<HTMLDivElement>(null);
   const isInView1 = useInView(ref1, { once: true });
   const isInView2 = useInView(ref2, { once: true });
   const isInView3 = useInView(ref3, { once: true });
   const isInView4 = useInView(ref4, { once: true });
   const isInView5 = useInView(ref5, { once: true });
+  const isInView6 = useInView(ref6, { once: true });
+  const isInView7 = useInView(ref7, { once: true });
   const [isVisible, setIsVisible] = useState(false);
   const controls = useAnimation();
 
@@ -168,7 +172,17 @@ export default function Home() {
             >
               Work
             </motion.button>
-            {/* <button onClick={() => scrollTo(aboutDiv)}>About</button> */}
+            <motion.button
+              onClick={() => scrollTo(aboutDiv)}
+              whileHover={{ scale: 0.9 }}
+              transition={{
+                type: "spring",
+                stiffness: 260,
+                damping: 20,
+              }}
+            >
+              Tools
+            </motion.button>
             <motion.button
               onClick={() => scrollTo(contractDiv)}
               whileHover={{ scale: 0.9 }}
@@ -184,9 +198,8 @@ export default function Home() {
         </div>
 
         <div
-          className="container-holder"
+          className="container-holder-top"
           style={{
-            alignItems: "flex-end",
             background: "linear-gradient(to bottom, black, #070707)",
           }}
           ref={homeDiv}
@@ -349,23 +362,51 @@ export default function Home() {
               ></div>
             </div>
             <div className="image-btns">
-              <button onClick={() => handleOcularImages(-1)}>
-                <i className="fa-solid fa-chevron-left"></i>
-              </button>
-              <button onClick={() => handleOcularImages(1)}>
-                <i className="fa-solid fa-chevron-right"></i>
-              </button>
+              <motion.button
+                style={{
+                  display: "flex",
+                  justifyContent: "center",
+                  alignItems: "center",
+                  width: "2.5rem",
+                  height: "2.5rem",
+                  background: "whitesmoke",
+                  borderRadius: "100rem",
+                  color: "#070707",
+                }}
+                whileHover={{ scale: 0.9 }}
+                transition={{
+                  type: "spring",
+                  stiffness: 260,
+                  damping: 20,
+                }}
+                onClick={() => handleOcularImages(-1)}
+              >
+                <i className="fa-solid fa-circle-chevron-left"></i>
+              </motion.button>
+              <motion.button
+                style={{
+                  display: "flex",
+                  justifyContent: "center",
+                  alignItems: "center",
+                  width: "2.5rem",
+                  height: "2.5rem",
+                  background: "whitesmoke",
+                  borderRadius: "100rem",
+                  color: "#070707",
+                }}
+                whileHover={{ scale: 0.9 }}
+                transition={{
+                  type: "spring",
+                  stiffness: 260,
+                  damping: 20,
+                }}
+                onClick={() => handleOcularImages(1)}
+              >
+                <i className="fa-solid fa-circle-chevron-right"></i>
+              </motion.button>
             </div>
 
-            <div
-              style={{
-                display: "flex",
-                flexWrap: "wrap",
-                paddingTop: "12rem",
-                paddingBottom: "2rem",
-                justifyContent: "center",
-              }}
-            >
+            <div className="content-holder">
               <div className="content">
                 <h3>Client</h3>
                 <hr />
@@ -496,23 +537,51 @@ export default function Home() {
               ></div>
             </div>
             <div className="image-btns">
-              <button onClick={() => handlePortfolioImages(-1)}>
-                <i className="fa-solid fa-chevron-left"></i>
-              </button>
-              <button onClick={() => handlePortfolioImages(1)}>
-                <i className="fa-solid fa-chevron-right"></i>
-              </button>
+              <motion.button
+                style={{
+                  display: "flex",
+                  justifyContent: "center",
+                  alignItems: "center",
+                  width: "2.5rem",
+                  height: "2.5rem",
+                  background: "whitesmoke",
+                  borderRadius: "100rem",
+                  color: "#070707",
+                }}
+                whileHover={{ scale: 0.9 }}
+                transition={{
+                  type: "spring",
+                  stiffness: 260,
+                  damping: 20,
+                }}
+                onClick={() => handlePortfolioImages(-1)}
+              >
+                <i className="fa-solid fa-circle-chevron-left"></i>
+              </motion.button>
+              <motion.button
+                style={{
+                  display: "flex",
+                  justifyContent: "center",
+                  alignItems: "center",
+                  width: "2.5rem",
+                  height: "2.5rem",
+                  background: "whitesmoke",
+                  borderRadius: "100rem",
+                  color: "#070707",
+                }}
+                whileHover={{ scale: 0.9 }}
+                transition={{
+                  type: "spring",
+                  stiffness: 260,
+                  damping: 20,
+                }}
+                onClick={() => handlePortfolioImages(1)}
+              >
+                <i className="fa-solid fa-circle-chevron-right"></i>
+              </motion.button>
             </div>
 
-            <div
-              style={{
-                display: "flex",
-                flexWrap: "wrap",
-                paddingTop: "12rem",
-                paddingBottom: "2rem",
-                justifyContent: "center",
-              }}
-            >
+            <div className="content-holder">
               <div className="content">
                 <h3>Client</h3>
                 <hr />
@@ -640,83 +709,242 @@ export default function Home() {
               ></div>
             </div>
             <div className="image-btns">
-              <button onClick={() => handleStackImages(-1)}>
-                <i className="fa-solid fa-chevron-left"></i>
-              </button>
-              <button onClick={() => handleStackImages(1)}>
-                <i className="fa-solid fa-chevron-right"></i>
-              </button>
+              <motion.button
+                style={{
+                  display: "flex",
+                  justifyContent: "center",
+                  alignItems: "center",
+                  width: "2.5rem",
+                  height: "2.5rem",
+                  background: "whitesmoke",
+                  borderRadius: "100rem",
+                  color: "#070707",
+                }}
+                whileHover={{ scale: 0.9 }}
+                transition={{
+                  type: "spring",
+                  stiffness: 260,
+                  damping: 20,
+                }}
+                onClick={() => handleStackImages(-1)}
+              >
+                <i className="fa-solid fa-circle-chevron-left"></i>
+              </motion.button>
+              <motion.button
+                style={{
+                  display: "flex",
+                  justifyContent: "center",
+                  alignItems: "center",
+                  width: "2.5rem",
+                  height: "2.5rem",
+                  background: "whitesmoke",
+                  borderRadius: "100rem",
+                  color: "#070707",
+                }}
+                whileHover={{ scale: 0.9 }}
+                transition={{
+                  type: "spring",
+                  stiffness: 260,
+                  damping: 20,
+                }}
+                onClick={() => handleStackImages(1)}
+              >
+                <i className="fa-solid fa-circle-chevron-right"></i>
+              </motion.button>
             </div>
           </div>
         </div>
 
-        {/* <div className="container-holder" ref={aboutDiv}>
+        <div className="container-holder" ref={aboutDiv}>
           <div className="container">
-            <h2>About</h2>
+            <h2>Tools</h2>
 
-            <div className="bio-holder1">
-              <div className="content">
-                <h3>Name</h3>
+            <div
+              style={{
+                display: "flex",
+                flexWrap: "wrap",
+                paddingTop: "4rem",
+                paddingBottom: "8rem",
+                justifyContent: "center",
+              }}
+            >
+              <div
+                className="content"
+                style={{
+                  gap: "0.4rem",
+                  display: "flex",
+                  width: "fit-content",
+                  justifyContent: "center",
+                  flexDirection: "column",
+                  paddingBlock: "0rem",
+                }}
+                ref={ref6}
+              >
+                <h3>Software</h3>
                 <hr />
-                <p>Justin Davenport</p>
-              </div>
-              <div className="content">
-                <h3>Location</h3>
-                <hr />
-                <p>Charlotte, NC</p>
-              </div>
-              <div className="content">
-                <h3>Biography</h3>
-                <hr />
-                <p>
-                  I am a Frontend Developer & UI/UX Designer from Charlotte, NC.
-                  I am proficient in HTML, CSS, and JavaScript, with my go to
-                  framework being Next.js. Additionally, I regularly utilize
-                  Figma and the Adobe Suite when working on projects.
-                </p>
+                <motion.ul
+                  style={{
+                    scale: isInView6 ? 1 : 0,
+                  }}
+                  animate={{ scale: isInView6 ? 1 : 0 }}
+                  transition={{
+                    type: "spring",
+                    stiffness: 260,
+                    damping: 20,
+                    delay: 0.8,
+                  }}
+                >
+                  <li>
+                    <Image
+                      className="icon"
+                      src={"/assets/icons/figma.svg"}
+                      width={0}
+                      height={0}
+                      alt=""
+                    />
+                  </li>
+                  <li>
+                    <Image
+                      className="icon"
+                      src={"/assets/icons/photoshop.svg"}
+                      width={0}
+                      height={0}
+                      alt=""
+                    />
+                  </li>
+                  <li>
+                    <Image
+                      className="icon"
+                      src={"/assets/icons/illustrator.svg"}
+                      width={0}
+                      height={0}
+                      alt=""
+                    />
+                  </li>
+                  <li>
+                    <Image
+                      className="icon"
+                      src={"/assets/icons/premiere.svg"}
+                      width={0}
+                      height={0}
+                      alt=""
+                    />
+                  </li>
+                  <li>
+                    <Image
+                      className="icon"
+                      src={"/assets/icons/blender.svg"}
+                      width={0}
+                      height={0}
+                      alt=""
+                    />
+                  </li>
+                  <li>
+                    <Image
+                      className="icon"
+                      src={"/assets/icons/unreal.svg"}
+                      width={0}
+                      height={0}
+                      alt=""
+                    />
+                  </li>
+                </motion.ul>
               </div>
             </div>
 
-            <div className="bio-holder2">
-              <div className="content">
+            <div
+              style={{
+                display: "flex",
+                flexWrap: "wrap",
+                justifyContent: "center",
+                paddingBottom: "8rem",
+              }}
+            >
+              <div
+                className="content"
+                style={{
+                  gap: "0.4rem",
+                  display: "flex",
+                  width: "fit-content",
+                  justifyContent: "center",
+                  flexDirection: "column",
+                  paddingBlock: "0rem",
+                }}
+                ref={ref7}
+              >
                 <h3>Frameworks & Languages</h3>
                 <hr />
-                <ul>
-                  <li>&middot;&nbsp;Next.js</li>
-                  <li>&middot;&nbsp;React</li>
-                  <li>&middot;&nbsp;GSAP</li>
-                  <li>&middot;&nbsp;Three.js</li>
-                  <li>&middot;&nbsp;Framer Motion</li>
-                  <li>&middot;&nbsp;HTML5</li>
-                  <li>&middot;&nbsp;CSS</li>
-                </ul>
-              </div>
-              <div className="content">
-                <h3>Software</h3>
-                <hr />
-                <ul>
-                  <li>&middot;&nbsp;Figma</li>
-                  <li>&middot;&nbsp;Photoshop</li>
-                  <li>&middot;&nbsp;Illustrator</li>
-                  <li>&middot;&nbsp;Premiere Pro</li>
-                  <li>&middot;&nbsp;Blender</li>
-                  <li>&middot;&nbsp;Unreal Engine</li>
-                </ul>
-              </div>
-              <div className="content">
-                <h3>Specialization</h3>
-                <hr />
-                <ul>
-                  <li>&middot;&nbsp;Web Design</li>
-                  <li>&middot;&nbsp;Web Development</li>
-                  <li>&middot;&nbsp;UI/UX Design</li>
-                  <li>&middot;&nbsp;Brand Development</li>
-                  <li>&middot;&nbsp;Motion Design</li>
-                </ul>
+                <motion.ul
+                  style={{
+                    scale: isInView7 ? 1 : 0,
+                  }}
+                  animate={{ scale: isInView7 ? 1 : 0 }}
+                  transition={{
+                    type: "spring",
+                    stiffness: 260,
+                    damping: 20,
+                    delay: 0.8,
+                  }}
+                >
+                  <li>
+                    <Image
+                      className="icon"
+                      src={"/assets/icons/next.svg"}
+                      width={0}
+                      height={0}
+                      alt=""
+                    />
+                  </li>
+                  <li>
+                    <Image
+                      className="icon"
+                      src={"/assets/icons/react.svg"}
+                      width={0}
+                      height={0}
+                      alt=""
+                    />
+                  </li>
+                  <li>
+                    <Image
+                      className="icon"
+                      src={"/assets/icons/html.svg"}
+                      width={0}
+                      height={0}
+                      alt=""
+                    />
+                  </li>
+                  <li>
+                    <Image
+                      className="icon"
+                      src={"/assets/icons/css.svg"}
+                      width={0}
+                      height={0}
+                      alt=""
+                    />
+                  </li>
+                  <li>
+                    <Image
+                      className="icon"
+                      src={"/assets/icons/framer.svg"}
+                      width={0}
+                      height={0}
+                      alt=""
+                    />
+                  </li>
+                  <li>
+                    <Image
+                      className="icon"
+                      src={"/assets/icons/webgl.svg"}
+                      width={0}
+                      height={0}
+                      alt=""
+                    />
+                  </li>
+                </motion.ul>
               </div>
             </div>
           </div>
-        </div> */}
+        </div>
 
         <div
           className="container-holder"
@@ -754,14 +982,33 @@ export default function Home() {
                   height: "250px",
                 }}
               />
-              <h2
-                style={{
-                  opacity: isInView4 ? 1 : 0,
-                  transition: "all 0.9s cubic-bezier(0.17, 0.55, 0.55, 1) 0.5s",
-                }}
+              {/* <div style={{ textAlign: "center", width: "40%" }}>
+                <p>
+                  I'm a Frontend Developer based in Charlotte, NC, specializing
+                  in HTML, CSS, and JavaScript, with a focus on Next.js. I
+                  possess proficiency in leveraging frameworks such as GSAP and
+                  Three.js to elevate interactivity and craft compelling visual
+                  experiences. My project workflow benefits from the regular
+                  utilization of Figma and the Adobe Suite for both design and
+                  development endeavors.
+                </p>
+              </div> */}
+              <Link
+                href="mailto:justindavenport.space@gmail.com"
+                target="_blank"
+                rel="noopener noreferrer"
               >
-                justindavenport.space@gmail.com
-              </h2>
+                <h2
+                  className="email"
+                  style={{
+                    opacity: isInView4 ? 1 : 0,
+                    transition:
+                      "all 0.9s cubic-bezier(0.17, 0.55, 0.55, 1) 0.5s",
+                  }}
+                >
+                  justindavenport.space@gmail.com
+                </h2>
+              </Link>
             </div>
             <div
               style={{
