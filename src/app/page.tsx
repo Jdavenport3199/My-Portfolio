@@ -203,9 +203,9 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="background">
+        {/* <div className="background">
           <Scene />
-        </div>
+        </div> */}
 
         <div
           className="container-holder-top"
