@@ -239,7 +239,7 @@ export default function Home() {
             rel="noopener noreferrer"
             style={{ lineHeight: "0", opacity: 1 }}
           >
-            <img src="/ocular.png" width={1215} height={2160} alt={""} />
+            <img src="/ocular2.png" width={1215} height={2160} alt={""} />
           </Link>
           <span style={{ textAlign: "left" }}>OCULAR VIBRATIONS™</span>
           <p style={{ lineHeight: "0" }}>2024</p>
