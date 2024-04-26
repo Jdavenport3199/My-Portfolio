@@ -60,7 +60,7 @@ export default function Home() {
           </div>
           <div className="text-holder">
             <p>
-              I'm Justin, a Software Developer located in Charlotte, NC. My
+              I&apos;m Justin, a Software Developer located in Charlotte, NC. My
               expertise lies in crafting dynamic web experiences using HTML,
               CSS, and JavaScript primarily within Next.js. I thrive on
               enhancing interactivity and creating captivating visuals,
