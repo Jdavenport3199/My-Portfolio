@@ -223,26 +223,119 @@ export default function Home() {
         </div>
       </div>
 
-      <div className="container-holder" style={{ minHeight: "0" }}>
+      <div className="container-holder">
         <div
+          className="container-holder"
           style={{
-            display: "flex",
-            flexDirection: "column",
-            justifyContent: "center",
-            gap: "0.6rem",
-            marginBottom: "2rem",
+            minHeight: "0",
+            gap: "2rem",
+            alignItems: "flex-start",
+            width: "95%",
           }}
         >
           <Link
             href="https://www.ocularvibrations.com/"
             target="_blank"
             rel="noopener noreferrer"
-            style={{ lineHeight: "0", opacity: 1 }}
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              justifyContent: "center",
+              alignItems: "center",
+              gap: "0.6rem",
+              marginBottom: "2rem",
+              lineHeight: "0",
+              opacity: 1,
+            }}
           >
-            <img src="/ocular2.png" width={1215} height={2160} alt={""} />
+            <img
+              className="img-sm"
+              src="/ocular.png"
+              width={1215}
+              height={2160}
+              alt={""}
+            />
+            <span style={{ textAlign: "left" }}>OCULAR VIBRATIONS™</span>
+            <p style={{ lineHeight: "0" }}>2024</p>
           </Link>
-          <span style={{ textAlign: "left" }}>OCULAR VIBRATIONS™</span>
-          <p style={{ lineHeight: "0" }}>2024</p>
+
+          <Link
+            href="https://stack-three-psi.vercel.app/"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              justifyContent: "center",
+              alignItems: "center",
+              gap: "0.6rem",
+              marginBottom: "2rem",
+              lineHeight: "0",
+              opacity: 1,
+            }}
+          >
+            <img
+              className="img-lg"
+              src="/stack.png"
+              width={1920}
+              height={1080}
+              alt={""}
+            />
+            <span style={{ textAlign: "left" }}>Stack</span>
+            <p style={{ lineHeight: "0" }}>2024</p>
+          </Link>
+
+          <Link
+            href="https://ocular-vibrations.vercel.app/"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              justifyContent: "center",
+              alignItems: "center",
+              gap: "0.6rem",
+              marginBottom: "2rem",
+              lineHeight: "0",
+              opacity: 1,
+            }}
+          >
+            <img
+              className="img-lg"
+              src="/studio.png"
+              width={1920}
+              height={1080}
+              alt={""}
+            />
+            <span style={{ textAlign: "left" }}>OCULAR VIBRATIONS™</span>
+            <p style={{ lineHeight: "0" }}>2024</p>
+          </Link>
+
+          <Link
+            href="https://photography-flax-phi.vercel.app/"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              justifyContent: "center",
+              alignItems: "center",
+              gap: "0.6rem",
+              marginBottom: "2rem",
+              lineHeight: "0",
+              opacity: 1,
+            }}
+          >
+            <img
+              className="img-sm"
+              src="/photo.png"
+              width={1215}
+              height={2160}
+              alt={""}
+            />
+            <span style={{ textAlign: "left" }}>Danilo Scarpati</span>
+            <p style={{ lineHeight: "0" }}>2024</p>
+          </Link>
         </div>
       </div>
     </main>
