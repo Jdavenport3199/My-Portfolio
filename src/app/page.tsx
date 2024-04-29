@@ -21,14 +21,14 @@ export default function Home() {
       if (currentScroll <= threshold && nav.current) {
         if (nav.current.style.top !== "0rem") {
           nav.current.style.top = "0rem";
-          nav.current.style.height = "6rem";
+          nav.current.style.height = "5rem";
         }
       } else if (currentScroll < lastScroll && nav.current) {
         nav.current.style.top = "0rem";
-        nav.current.style.height = "6rem";
+        nav.current.style.height = "5rem";
       } else if (currentScroll > lastScroll && nav.current) {
-        nav.current.style.top = "-6.25rem";
-        nav.current.style.height = "6rem";
+        nav.current.style.top = "-5.25rem";
+        nav.current.style.height = "5rem";
       }
       setLastScroll(currentScroll);
     };
@@ -53,7 +53,7 @@ export default function Home() {
       </div>
 
       <div className="container-holder-top">
-        <div className="container">
+        <div className="container" style={{ marginBottom: "4rem" }}>
           <h1>Justin Davenport</h1>
           <div style={{ marginTop: "0.6rem" }}>
             <h2>DESIGNER & DEVELOPER</h2>
@@ -256,7 +256,16 @@ export default function Home() {
               alt={""}
             />
             <span style={{ textAlign: "left" }}>OCULAR VIBRATIONS™</span>
-            <p style={{ lineHeight: "0" }}>2024</p>
+            <p>Design Studio</p>
+            <p
+              style={{
+                lineHeight: "0",
+                fontWeight: "500",
+                fontSize: "clamp(12px, 2vw, 18px)",
+              }}
+            >
+              2024
+            </p>
           </Link>
 
           <Link
@@ -276,13 +285,22 @@ export default function Home() {
           >
             <img
               className="img-lg"
-              src="/stack1.png"
+              src="/stack.png"
               width={1920}
               height={1080}
               alt={""}
             />
             <span style={{ textAlign: "left" }}>Stack</span>
-            <p style={{ lineHeight: "0" }}>2024</p>
+            <p>Social Media Platform</p>
+            <p
+              style={{
+                lineHeight: "0",
+                fontWeight: "500",
+                fontSize: "clamp(12px, 2vw, 18px)",
+              }}
+            >
+              2024
+            </p>
           </Link>
 
           <Link
@@ -308,7 +326,16 @@ export default function Home() {
               alt={""}
             />
             <span style={{ textAlign: "left" }}>OCULAR VIBRATIONS™</span>
-            <p style={{ lineHeight: "0" }}>2024</p>
+            <p>Design Studio</p>
+            <p
+              style={{
+                lineHeight: "0",
+                fontWeight: "500",
+                fontSize: "clamp(12px, 2vw, 18px)",
+              }}
+            >
+              2024
+            </p>
           </Link>
 
           <Link
@@ -334,7 +361,16 @@ export default function Home() {
               alt={""}
             />
             <span style={{ textAlign: "left" }}>Danilo Scarpati</span>
-            <p style={{ lineHeight: "0" }}>2024</p>
+            <p>Art Gallery</p>
+            <p
+              style={{
+                lineHeight: "0",
+                fontWeight: "500",
+                fontSize: "clamp(12px, 2vw, 18px)",
+              }}
+            >
+              2024
+            </p>
           </Link>
         </div>
       </div>
