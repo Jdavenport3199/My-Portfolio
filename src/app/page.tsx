@@ -276,7 +276,7 @@ export default function Home() {
           >
             <img
               className="img-lg"
-              src="/stack.png"
+              src="/stack1.png"
               width={1920}
               height={1080}
               alt={""}

@@ -169,7 +169,7 @@
 
     .img-sm,
     .img-lg {
-      border: 1px solid #070707;
+      border: 1px solid #07070740;
       transition: 300ms ease-in-out;
     }
   }
