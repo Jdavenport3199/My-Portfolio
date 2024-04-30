@@ -87,21 +87,36 @@ export default function Home() {
                 gap: "0.6rem",
               }}
             >
-              <p style={{ fontWeight: "500" }}>CONTACT</p>
+              {/* <p style={{ fontWeight: "500" }}>CONTACT</p> */}
               <Link
                 href="mailto:justindavenport.space@gmail.com"
                 target="_blank"
                 rel="noopener noreferrer"
                 style={{
+                  display: "flex",
+                  justifyContent: "center",
+                  alignItems: "center",
+                  gap: "0.8rem",
                   borderRadius: "100rem",
                   background: "whitesmoke",
                   paddingBlock: "1rem",
-                  paddingLeft: "2.4rem",
-                  paddingRight: "2.4rem",
-                  fontWeight: "300",
+                  paddingLeft: "2rem",
+                  paddingRight: "2rem",
+                  fontWeight: "400",
                 }}
               >
                 justindavenport.space@gmail.com
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  height="26"
+                  width="26"
+                  viewBox="0 0 512 512"
+                >
+                  <path
+                    fill="#070707"
+                    d="M16.1 260.2c-22.6 12.9-20.5 47.3 3.6 57.3L160 376V479.3c0 18.1 14.6 32.7 32.7 32.7c9.7 0 18.9-4.3 25.1-11.8l62-74.3 123.9 51.6c18.9 7.9 40.8-4.5 43.9-24.7l64-416c1.9-12.1-3.4-24.3-13.5-31.2s-23.3-7.5-34-1.4l-448 256zm52.1 25.5L409.7 90.6 190.1 336l1.2 1L68.2 285.7zM403.3 425.4L236.7 355.9 450.8 116.6 403.3 425.4z"
+                  />
+                </svg>
               </Link>
             </div>
             <div>
@@ -113,7 +128,7 @@ export default function Home() {
                   gap: "0.6rem",
                 }}
               >
-                <p style={{ fontWeight: "500" }}>SOCIALS</p>
+                {/* <p style={{ fontWeight: "500" }}>SOCIALS</p> */}
                 <div className="social-btn-holder">
                   <Link
                     href="https://www.instagram.com/justindavenport.space/"
@@ -228,7 +243,7 @@ export default function Home() {
           className="container-holder"
           style={{
             minHeight: "0",
-            gap: "2rem",
+            gap: "2rem 2rem",
             alignItems: "flex-start",
             width: "95%",
           }}
@@ -267,7 +282,6 @@ export default function Home() {
               2024
             </p>
           </Link>
-
           <Link
             href="https://stack-three-psi.vercel.app/"
             target="_blank"
@@ -337,7 +351,6 @@ export default function Home() {
               2024
             </p>
           </Link>
-
           <Link
             href="https://photography-flax-phi.vercel.app/"
             target="_blank"
@@ -370,6 +383,111 @@ export default function Home() {
               }}
             >
               2024
+            </p>
+          </Link>
+
+          <Link
+            href="https://www.figma.com/proto/fvEPHkapwuwyS7f6EdocPP/IMDB?type=design&node-id=19-1375&t=WtQrpK7P8tvHMsf0-8&scaling=scale-down&page-id=0%3A1&starting-point-node-id=19%3A2610&hide-ui=1"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              justifyContent: "center",
+              alignItems: "center",
+              gap: "0.6rem",
+              marginBottom: "2rem",
+              lineHeight: "0",
+              opacity: 1,
+            }}
+          >
+            <img
+              className="img-sm"
+              src="/imdb.png"
+              width={1215}
+              height={2160}
+              alt={""}
+              style={{ objectFit: "contain", border: "2px solid transparent" }}
+            />
+            <span style={{ textAlign: "left" }}>IMDb</span>
+            <p>Figma Prototype</p>
+            <p
+              style={{
+                lineHeight: "0",
+                fontWeight: "500",
+                fontSize: "clamp(12px, 2vw, 18px)",
+              }}
+            >
+              2023
+            </p>
+          </Link>
+          <Link
+            href="https://dividome.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              justifyContent: "center",
+              alignItems: "center",
+              gap: "0.6rem",
+              marginBottom: "2rem",
+              lineHeight: "0",
+              opacity: 1,
+            }}
+          >
+            <img
+              className="img-lg"
+              src="/divids1.png"
+              width={1920}
+              height={1080}
+              alt={""}
+            />
+            <span style={{ textAlign: "left" }}>DiviDome</span>
+            <p>Stock Dividends Platform</p>
+            <p
+              style={{
+                lineHeight: "0",
+                fontWeight: "500",
+                fontSize: "clamp(12px, 2vw, 18px)",
+              }}
+            >
+              2023
+            </p>
+          </Link>
+
+          <Link
+            href="https://cinema-collection.vercel.app/"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              justifyContent: "center",
+              alignItems: "center",
+              gap: "0.6rem",
+              marginBottom: "2rem",
+              lineHeight: "0",
+              opacity: 1,
+            }}
+          >
+            <img
+              className="img-lg"
+              src="/cinema.png"
+              width={1920}
+              height={1080}
+              alt={""}
+            />
+            <span style={{ textAlign: "left" }}>Cinema Collection</span>
+            <p>Movie Search Platform</p>
+            <p
+              style={{
+                lineHeight: "0",
+                fontWeight: "500",
+                fontSize: "clamp(12px, 2vw, 18px)",
+              }}
+            >
+              2023
             </p>
           </Link>
         </div>
