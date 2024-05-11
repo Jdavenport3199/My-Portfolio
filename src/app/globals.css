@@ -63,7 +63,7 @@
   }
 
   span {
-    font-weight: 800;
+    font-weight: 500;
     font-size: clamp(24px, 2vw, 28px);
     line-height: 1.4;
   }
@@ -71,8 +71,8 @@
   a,
   button {
     line-height: 1.4;
-    font-size: clamp(14px, 2vw, 20px);
-    font-weight: 500;
+    font-size: clamp(16px, 2vw, 22px);
+    font-weight: 400;
     text-decoration: none;
     width: fit-content;
     transition: 150ms linear;
@@ -94,7 +94,13 @@
     padding-bottom: 0rem;
     width: 100%;
     z-index: 3;
-    background: white;
+    background: #070707;
+
+    button {
+      color: white;
+      font-size: clamp(16px, 2vw, 22px);
+      font-weight: 400;
+    }
   }
 
   .nav-sub {
@@ -167,7 +173,7 @@
   .text-holder {
     width: 100%;
     margin-top: 2rem;
-    margin-bottom: 6rem;
+    margin-bottom: 4rem;
   }
 
   /* a:hover {
@@ -210,7 +216,7 @@
 
   .text-holder {
     width: 60%;
-    margin-bottom: 12rem;
+    margin-bottom: 10rem;
   }
 
   .img-lg {

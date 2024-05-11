@@ -43,12 +43,22 @@ export default function Home() {
     <main>
       <div className="nav" ref={nav}>
         <div className="nav-sub">
-          <button
-            onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+          {/* <p style={{ color: "white" }}>
+            Justin Davenport — Designer & Developer
+          </p> */}
+          <div
+            style={{
+              display: "flex",
+              gap: "4rem",
+            }}
           >
-            HOME
-          </button>
-          <button onClick={() => scrollTo(workDiv)}>WORK</button>
+            <button
+              onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+            >
+              Home
+            </button>
+            <button onClick={() => scrollTo(workDiv)}>Work</button>
+          </div>
         </div>
       </div>
 
@@ -56,7 +66,7 @@ export default function Home() {
         <div className="container" style={{ marginBottom: "4rem" }}>
           <h1>Justin Davenport</h1>
           <div style={{ marginTop: "0.6rem" }}>
-            <h2>DESIGNER & DEVELOPER</h2>
+            <h2>Designer & Developer</h2>
           </div>
           <div className="text-holder">
             <p>
@@ -232,9 +242,12 @@ export default function Home() {
         </div>
       </div>
 
-      <div className="container-holder" style={{ minHeight: "0" }}>
-        <div className="container" ref={workDiv}>
-          <h2>WORK</h2>
+      <div
+        className="container-holder"
+        style={{ minHeight: "0", marginBottom: "0" }}
+      >
+        <div className="container" style={{ paddingTop: "2rem" }} ref={workDiv}>
+          <h2>Work</h2>
         </div>
       </div>
 
@@ -248,10 +261,7 @@ export default function Home() {
             width: "95%",
           }}
         >
-          <Link
-            href="https://www.ocularvibrations.com/"
-            target="_blank"
-            rel="noopener noreferrer"
+          <div
             style={{
               display: "flex",
               flexDirection: "column",
@@ -259,19 +269,24 @@ export default function Home() {
               alignItems: "center",
               gap: "0.6rem",
               marginBottom: "2rem",
-              lineHeight: "0",
-              opacity: 1,
             }}
           >
-            <img
-              className="img-sm"
-              src="/ocular.png"
-              width={1215}
-              height={2160}
-              alt={""}
-            />
-            <span style={{ textAlign: "left" }}>OCULAR VIBRATIONS™</span>
-            <p>Design Studio</p>
+            <Link
+              href="https://teenage-engineering.vercel.app/"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{ opacity: 1, lineHeight: "0" }}
+            >
+              <img
+                className="img-sm"
+                src="/te.png"
+                width={1215}
+                height={2160}
+                alt={""}
+              />
+            </Link>
+            <span style={{ textAlign: "left" }}>Teenage Engineering™</span>
+            <p>Electronics Company</p>
             <p
               style={{
                 lineHeight: "0",
@@ -281,11 +296,9 @@ export default function Home() {
             >
               2024
             </p>
-          </Link>
-          <Link
-            href="https://stack-three-psi.vercel.app/"
-            target="_blank"
-            rel="noopener noreferrer"
+          </div>
+
+          <div
             style={{
               display: "flex",
               flexDirection: "column",
@@ -293,17 +306,22 @@ export default function Home() {
               alignItems: "center",
               gap: "0.6rem",
               marginBottom: "2rem",
-              lineHeight: "0",
-              opacity: 1,
             }}
           >
-            <img
-              className="img-lg"
-              src="/stack1.png"
-              width={1920}
-              height={1080}
-              alt={""}
-            />
+            <Link
+              href="https://stack-three-psi.vercel.app/"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{ opacity: 1, lineHeight: "0" }}
+            >
+              <img
+                className="img-lg"
+                src="/stack1.png"
+                width={1920}
+                height={1080}
+                alt={""}
+              />
+            </Link>
             <span style={{ textAlign: "left" }}>Stack</span>
             <p>Social Media Platform</p>
             <p
@@ -315,12 +333,9 @@ export default function Home() {
             >
               2024
             </p>
-          </Link>
+          </div>
 
-          <Link
-            href="https://ocular-vibrations.vercel.app/"
-            target="_blank"
-            rel="noopener noreferrer"
+          <div
             style={{
               display: "flex",
               flexDirection: "column",
@@ -328,17 +343,22 @@ export default function Home() {
               alignItems: "center",
               gap: "0.6rem",
               marginBottom: "2rem",
-              lineHeight: "0",
-              opacity: 1,
             }}
           >
-            <img
-              className="img-lg"
-              src="/studio.png"
-              width={1920}
-              height={1080}
-              alt={""}
-            />
+            <Link
+              href="https://ocular-vibrations.vercel.app/"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{ opacity: 1, lineHeight: "0" }}
+            >
+              <img
+                className="img-lg"
+                src="/studio.png"
+                width={1920}
+                height={1080}
+                alt={""}
+              />
+            </Link>
             <span style={{ textAlign: "left" }}>OCULAR VIBRATIONS™</span>
             <p>Design Studio</p>
             <p
@@ -350,11 +370,9 @@ export default function Home() {
             >
               2024
             </p>
-          </Link>
-          <Link
-            href="https://photography-flax-phi.vercel.app/"
-            target="_blank"
-            rel="noopener noreferrer"
+          </div>
+
+          <div
             style={{
               display: "flex",
               flexDirection: "column",
@@ -362,17 +380,59 @@ export default function Home() {
               alignItems: "center",
               gap: "0.6rem",
               marginBottom: "2rem",
-              lineHeight: "0",
-              opacity: 1,
             }}
           >
-            <img
-              className="img-sm"
-              src="/photo.png"
-              width={1215}
-              height={2160}
-              alt={""}
-            />
+            <Link
+              href="https://www.ocularvibrations.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{ opacity: 1, lineHeight: "0" }}
+            >
+              <img
+                className="img-sm"
+                src="/ocular.png"
+                width={1215}
+                height={2160}
+                alt={""}
+              />
+            </Link>
+            <span style={{ textAlign: "left" }}>OCULAR VIBRATIONS™</span>
+            <p>Design Studio</p>
+            <p
+              style={{
+                lineHeight: "0",
+                fontWeight: "500",
+                fontSize: "clamp(12px, 2vw, 18px)",
+              }}
+            >
+              2024
+            </p>
+          </div>
+
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              justifyContent: "center",
+              alignItems: "center",
+              gap: "0.6rem",
+              marginBottom: "2rem",
+            }}
+          >
+            <Link
+              href="https://photography-flax-phi.vercel.app/"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{ opacity: 1, lineHeight: "0" }}
+            >
+              <img
+                className="img-sm"
+                src="/photo.png"
+                width={1215}
+                height={2160}
+                alt={""}
+              />
+            </Link>
             <span style={{ textAlign: "left" }}>Danilo Scarpati</span>
             <p>Art Gallery</p>
             <p
@@ -384,12 +444,8 @@ export default function Home() {
             >
               2024
             </p>
-          </Link>
-
-          <Link
-            href="https://www.figma.com/proto/fvEPHkapwuwyS7f6EdocPP/IMDB?type=design&node-id=19-1375&t=WtQrpK7P8tvHMsf0-8&scaling=scale-down&page-id=0%3A1&starting-point-node-id=19%3A2610&hide-ui=1"
-            target="_blank"
-            rel="noopener noreferrer"
+          </div>
+          <div
             style={{
               display: "flex",
               flexDirection: "column",
@@ -397,52 +453,22 @@ export default function Home() {
               alignItems: "center",
               gap: "0.6rem",
               marginBottom: "2rem",
-              lineHeight: "0",
-              opacity: 1,
             }}
           >
-            <img
-              className="img-sm"
-              src="/imdb.png"
-              width={1215}
-              height={2160}
-              alt={""}
-              style={{ objectFit: "contain", border: "2px solid transparent" }}
-            />
-            <span style={{ textAlign: "left" }}>IMDb</span>
-            <p>Figma Prototype</p>
-            <p
-              style={{
-                lineHeight: "0",
-                fontWeight: "500",
-                fontSize: "clamp(12px, 2vw, 18px)",
-              }}
+            <Link
+              href="https://dividome.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{ opacity: 1, lineHeight: "0" }}
             >
-              2023
-            </p>
-          </Link>
-          <Link
-            href="https://dividome.com/"
-            target="_blank"
-            rel="noopener noreferrer"
-            style={{
-              display: "flex",
-              flexDirection: "column",
-              justifyContent: "center",
-              alignItems: "center",
-              gap: "0.6rem",
-              marginBottom: "2rem",
-              lineHeight: "0",
-              opacity: 1,
-            }}
-          >
-            <img
-              className="img-lg"
-              src="/divids1.png"
-              width={1920}
-              height={1080}
-              alt={""}
-            />
+              <img
+                className="img-lg"
+                src="/divids1.png"
+                width={1920}
+                height={1080}
+                alt={""}
+              />
+            </Link>
             <span style={{ textAlign: "left" }}>DiviDome</span>
             <p>Stock Dividends Platform</p>
             <p
@@ -454,12 +480,9 @@ export default function Home() {
             >
               2023
             </p>
-          </Link>
+          </div>
 
-          <Link
-            href="https://cinema-collection.vercel.app/"
-            target="_blank"
-            rel="noopener noreferrer"
+          <div
             style={{
               display: "flex",
               flexDirection: "column",
@@ -467,17 +490,22 @@ export default function Home() {
               alignItems: "center",
               gap: "0.6rem",
               marginBottom: "2rem",
-              lineHeight: "0",
-              opacity: 1,
             }}
           >
-            <img
-              className="img-lg"
-              src="/cinema1.png"
-              width={1920}
-              height={1080}
-              alt={""}
-            />
+            <Link
+              href="https://cinema-collection.vercel.app/"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{ opacity: 1, lineHeight: "0" }}
+            >
+              <img
+                className="img-lg"
+                src="/cinema1.png"
+                width={1920}
+                height={1080}
+                alt={""}
+              />
+            </Link>
             <span style={{ textAlign: "left" }}>Cinema Collection</span>
             <p>Movie Search Platform</p>
             <p
@@ -489,7 +517,47 @@ export default function Home() {
             >
               2023
             </p>
-          </Link>
+          </div>
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              justifyContent: "center",
+              alignItems: "center",
+              gap: "0.6rem",
+              marginBottom: "2rem",
+            }}
+          >
+            <Link
+              href="https://www.figma.com/proto/fvEPHkapwuwyS7f6EdocPP/IMDB?type=design&node-id=19-1375&t=WtQrpK7P8tvHMsf0-8&scaling=scale-down&page-id=0%3A1&starting-point-node-id=19%3A2610&hide-ui=1"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{ opacity: 1, lineHeight: "0" }}
+            >
+              <img
+                className="img-sm"
+                src="/imdb.png"
+                width={1215}
+                height={2160}
+                alt={""}
+                style={{
+                  objectFit: "contain",
+                  border: "2px solid transparent",
+                }}
+              />
+            </Link>
+            <span style={{ textAlign: "left" }}>IMDb</span>
+            <p>Figma Prototype</p>
+            <p
+              style={{
+                lineHeight: "0",
+                fontWeight: "500",
+                fontSize: "clamp(12px, 2vw, 18px)",
+              }}
+            >
+              2023
+            </p>
+          </div>
         </div>
       </div>
     </main>
