@@ -86,7 +86,7 @@ export default function Home() {
       >
         <div
           className="container"
-          style={{ paddingTop: "2rem" }}
+          style={{ paddingTop: "8rem" }}
           ref={aboutDiv}
         >
           <span className="header">ABOUT</span>
@@ -106,12 +106,17 @@ export default function Home() {
           style={{
             display: "flex",
             justifyContent: "space-between",
-            alignItems: "center",
+            alignItems: "flex-end",
             flexWrap: "wrap-reverse",
             gap: "2rem",
           }}
         >
-          <div className="text-holder" style={{ margin: "0" }}>
+          <div
+            className="text-holder"
+            style={{ margin: "0", paddingTop: "4rem" }}
+          >
+            <h2>Welcome to my digital journey.</h2>
+            <br />
             <p>
               I&apos;m Justin, a Software Developer located in Charlotte, NC. My
               expertise lies in crafting dynamic web experiences using HTML,
@@ -247,7 +252,7 @@ export default function Home() {
         className="container-holder"
         style={{ minHeight: "0", marginBottom: "0" }}
       >
-        <div className="container" style={{ paddingTop: "2rem" }} ref={workDiv}>
+        <div className="container" style={{ paddingTop: "8rem" }} ref={workDiv}>
           <span className="header">WORK</span>
         </div>
       </div>
@@ -576,7 +581,7 @@ export default function Home() {
       >
         <div
           className="container"
-          style={{ paddingTop: "2rem" }}
+          style={{ paddingTop: "8rem" }}
           ref={contactDiv}
         >
           <span className="header">CONTACT</span>
@@ -586,22 +591,12 @@ export default function Home() {
       <div
         className="container-holder"
         style={{
-          minHeight: "80vh",
+          minHeight: "75vh",
           marginBottom: "0",
-          alignItems: "flex-end",
+          alignItems: "flex-start",
         }}
       >
-        {/* <div
-          style={{
-            marginLeft: "20%",
-            position: "absolute",
-            height: "800px",
-            width: "800px",
-            background: "white",
-            borderRadius: "100rem",
-            zIndex: "1",
-          }}
-        ></div> */}
+        <div className="orb"></div>
         <div
           className="container"
           style={{
@@ -612,42 +607,26 @@ export default function Home() {
             gap: "2rem",
           }}
         >
-          <div className="text-holder" style={{ margin: "0" }}>
-            <p>Get in touch.</p>
+          <div
+            className="text-holder"
+            style={{ margin: "0", paddingTop: "4rem" }}
+          >
+            <h2>Let's connect and create something together.</h2>
+            <br />
+            <p>
+              Feel free to reach out if you're seeking services in Branding,
+              UX/UI Design, 3D Modeling, App Design, or Web Design. I'm here to
+              collaborate and bring your vision to life.
+            </p>
           </div>
           <Link
             href="mailto:justindavenport.space@gmail.com"
             target="_blank"
             rel="noopener noreferrer"
-            style={{
-              background: "#070707",
-              color: "white",
-              borderRadius: "100rem",
-              width: "400px",
-              height: "400px",
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "center",
-            }}
+            className="contact-btn"
           >
             Contact
           </Link>
-        </div>
-
-        <div
-          className="nav"
-          style={{ position: "relative", marginBottom: "4rem" }}
-        >
-          <div className="nav-nav">
-            <div className="nav-sub" style={{ flexWrap: "wrap", gap: "0rem" }}>
-              <p style={{ color: "white", fontSize: "clamp(16px, 2vw, 22px)" }}>
-                All content subject to copyright.
-              </p>
-              <p style={{ color: "white", fontSize: "clamp(16px, 2vw, 22px)" }}>
-                &copy;Justin Davenport 2024
-              </p>
-            </div>
-          </div>
         </div>
       </div>
     </main>

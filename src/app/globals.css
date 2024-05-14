@@ -200,10 +200,24 @@
     justify-content: center;
     align-items: center;
     transition: 300ms ease-in-out;
-    backdrop-filter: blur(20px);
   }
 
-  .social-btn:hover {
+  .contact-btn {
+    background: #070707;
+    color: white;
+    border-radius: 100rem;
+    width: 200px;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 1;
+    transition: 300ms ease-in-out;
+  }
+
+  .social-btn:hover,
+  .contact-btn:hover {
+    opacity: 1;
     scale: 0.9;
     transition: 300ms ease-in-out;
   }
@@ -222,6 +236,17 @@
       border-radius: 3rem;
       transition: 300ms ease-in-out;
     }
+  }
+
+  .orb {
+    margin-left: auto;
+    margin-right: 60%;
+    position: absolute;
+    height: 250px;
+    width: 250px;
+    background: white;
+    border-radius: 100rem;
+    z-index: 1;
   }
 }
 
@@ -272,6 +297,18 @@
 
   .img-profile {
     border-radius: 100rem;
+    width: 400px;
+    height: 400px;
+  }
+
+  .orb {
+    margin-left: 25%;
+    margin-right: auto;
+    height: 600px;
+    width: 600px;
+  }
+
+  .contact-btn {
     width: 400px;
     height: 400px;
   }
