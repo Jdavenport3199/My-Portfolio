@@ -611,11 +611,11 @@ export default function Home() {
             className="text-holder"
             style={{ margin: "0", paddingTop: "4rem" }}
           >
-            <h2>Let's connect and create something together.</h2>
+            <h2>Let&apos;s connect and create something together.</h2>
             <br />
             <p>
-              Feel free to reach out if you're seeking services in Branding,
-              UX/UI Design, 3D Modeling, App Design, or Web Design. I'm here to
+              Feel free to reach out if you&apos;re seeking services in Branding,
+              UX/UI Design, 3D Modeling, App Design, or Web Design. I&apos;m here to
               collaborate and bring your vision to life.
             </p>
           </div>
