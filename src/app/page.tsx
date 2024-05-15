@@ -118,14 +118,14 @@ export default function Home() {
             <h2>Welcome to my digital journey.</h2>
             <br />
             <p>
-              I&apos;m Justin, a Software Developer located in Charlotte, NC. My
-              expertise lies in crafting dynamic web experiences using HTML,
-              CSS, and JavaScript primarily within Next.js. I thrive on
-              enhancing interactivity and creating captivating visuals,
-              harnessing frameworks like GSAP and Three.js to push the
-              boundaries of user engagement. My workflow seamlessly integrates
-              design and development, thanks to my adeptness with tools like
-              Figma and the Adobe Suite.
+              I&apos;m Justin, a Web Developer and Product Designer located in
+              Charlotte, NC. My expertise lies in crafting dynamic web
+              experiences using HTML, CSS, and JavaScript primarily within
+              Next.js. I thrive on enhancing interactivity and creating
+              captivating visuals, harnessing frameworks like GSAP and Three.js
+              to push the boundaries of user engagement. My workflow seamlessly
+              integrates design and development, thanks to my adeptness with
+              tools like Figma and the Adobe Suite.
             </p>
             <br />
             <br />
