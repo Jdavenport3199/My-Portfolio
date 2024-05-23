@@ -48,8 +48,8 @@ export default function Home() {
           <div className="nav-sub">
             <p style={{ color: "white", fontSize: "clamp(16px, 2vw, 22px)" }}>
               Justin Davenport —{" "}
-              <b style={{ color: "white", fontWeight: "800" }}>
-                DESIGNER. DEVELOPER.
+              <b style={{ color: "white", fontWeight: "600" }}>
+                Designer. Developer.
               </b>
             </p>
             <div className="nav-links">
@@ -67,19 +67,33 @@ export default function Home() {
       </div>
 
       <div
-        className="container-holder-top"
-        style={
-          {
-            // minHeight: "104vh",
-            // background: "#070707",
-            // borderRadius: "0 0 100rem 100rem",
-          }
-        }
-      >
-        <div className="orb-black"></div>
-        <div className="container-title">
-          <h1>DESIGNER. DEVELOPER.</h1>
-          <h2>— Justin Davenport</h2>
+        style={{
+          width: "100%",
+          height: "100vh",
+          backgroundImage: "url(/background.jpg)",
+          backgroundPosition: "top center",
+          backgroundRepeat: "no-repeat",
+          backgroundSize: "100% 100%",
+          mixBlendMode: "multiply",
+          position: "fixed",
+          opacity: "0.2",
+        }}
+      ></div>
+      <div
+        style={{
+          width: "100%",
+          height: "100vh",
+          backdropFilter: "blur(8px)",
+          position: "fixed",
+        }}
+      ></div>
+
+      <div className="container-holder">
+        <div className="container">
+          <h1>Designer. Developer.</h1>
+          <h2 style={{ textAlign: "right", marginTop: "4rem" }}>
+            Justin Davenport
+          </h2>
         </div>
       </div>
 
@@ -596,7 +610,6 @@ export default function Home() {
           alignItems: "flex-start",
         }}
       >
-        <div className="orb"></div>
         <div
           className="container"
           style={{

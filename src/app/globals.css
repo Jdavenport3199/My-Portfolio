@@ -47,12 +47,13 @@
 
   h1,
   .header {
-    font-weight: 800;
+    font-weight: 600;
     line-height: 1;
-    font-size: clamp(60px, 10vw, 140px);
+    font-size: clamp(72px, 10vw, 160px);
   }
 
   .header {
+    font-weight: 900;
     font-size: clamp(48px, 4vw, 64px);
   }
 
@@ -69,7 +70,7 @@
   }
 
   span {
-    font-weight: 800;
+    font-weight: 600;
     font-size: clamp(24px, 2vw, 28px);
     line-height: 1.4;
   }
@@ -129,7 +130,6 @@
 
   .nav-links {
     display: none;
-    gap: 2rem;
   }
 
   .container-holder,
@@ -150,17 +150,6 @@
 
   .container {
     width: 95%;
-  }
-
-  .container-title {
-    width: 95%;
-    margin-bottom: 12rem;
-    text-align: left;
-
-    h1,
-    h2 {
-      color: white;
-    }
   }
 
   img {
@@ -236,40 +225,12 @@
       transition: 300ms ease-in-out;
     }
   }
-
-  .orb {
-    margin-left: auto;
-    margin-right: 60%;
-    position: absolute;
-    height: 250px;
-    width: 250px;
-    background: white;
-    border-radius: 100rem;
-    z-index: 1;
-  }
-
-  .orb-black {
-    margin-left: -10%;
-    position: absolute;
-    top: 16rem;
-    left: 0rem;
-    width: 425px;
-    aspect-ratio: 1;
-    background: #070707;
-    border-radius: 100rem;
-    z-index: 1;
-  }
 }
 
 @media (min-width: 425px) {
   .img-sm {
     width: 400px;
     height: 720px;
-  }
-
-  .orb-black {
-    width: 100%;
-    padding-bottom: 100%;
   }
 }
 
@@ -281,24 +242,17 @@
 
   .nav-links {
     display: flex;
-    gap: 4rem;
+    gap: 2rem;
   }
 
   .container-title {
     width: 60%;
   }
-
-  .orb-black {
-    margin-left: 5%;
-    top: -4rem;
-    width: 100%;
-    padding-bottom: 100%;
-  }
 }
 
 @media (min-width: 1499px) {
-  h2 {
-    font-weight: 200;
+  .nav-links {
+    gap: 4rem;
   }
 
   .container {
@@ -319,26 +273,6 @@
     border-radius: 100rem;
     width: 400px;
     height: 400px;
-  }
-
-  .orb {
-    margin-left: 25%;
-    margin-right: auto;
-    height: 600px;
-    width: 600px;
-  }
-
-  .orb-black {
-    margin-left: 10%;
-    position: absolute;
-    top: -8rem;
-    left: 0rem;
-    height: 1200px;
-    width: 1200px;
-    padding-bottom: 0%;
-    background: #070707;
-    border-radius: 100rem;
-    z-index: 1;
   }
 
   .contact-btn {
