@@ -48,7 +48,7 @@ export default function Home() {
           <div className="nav-sub">
             <p style={{ color: "white", fontSize: "clamp(16px, 2vw, 22px)" }}>
               Justin Davenport —{" "}
-              <b style={{ color: "white", fontWeight: "500" }}>
+              <b style={{ color: "white", fontWeight: "600" }}>
                 Designer & Developer
               </b>
             </p>
@@ -76,7 +76,7 @@ export default function Home() {
           backgroundSize: "100% 100%",
           mixBlendMode: "multiply",
           position: "fixed",
-          opacity: "0.15",
+          opacity: "0.25",
         }}
       ></div>
       <div
