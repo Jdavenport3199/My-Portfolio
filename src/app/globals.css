@@ -11,7 +11,9 @@
   }
 
   ::-webkit-scrollbar-thumb {
-    background: #070707;
+    /* background: #070707; */
+
+    background: #1a1a1a;
   }
 
   html,
@@ -29,7 +31,9 @@
     box-sizing: border-box;
     z-index: 2;
     font-family: 'Switzer', sans-serif;
-    color: #070707;
+    /* color: #070707; */
+
+    color: #1a1a1a;
   }
 
   .background {
@@ -47,9 +51,9 @@
 
   h1,
   .header {
-    font-weight: 600;
+    font-weight: 500;
     line-height: 1;
-    font-size: clamp(72px, 10vw, 160px);
+    font-size: clamp(64px, 10vw, 160px);
   }
 
   .header {
@@ -60,7 +64,7 @@
   h2 {
     font-weight: 300;
     line-height: 1.4;
-    font-size: clamp(28px, 4vw, 42px);
+    font-size: clamp(28px, 4vw, 48px);
   }
 
   p {
@@ -70,7 +74,7 @@
   }
 
   span {
-    font-weight: 600;
+    font-weight: 500;
     font-size: clamp(24px, 2vw, 28px);
     line-height: 1.4;
   }
@@ -115,7 +119,9 @@
     justify-content: center;
     align-items: center;
     width: 95%;
-    background: #070707;
+    /* background: #070707; */
+
+    background: #1a1a1a;
     border-radius: 100rem;
   }
 
@@ -167,8 +173,8 @@
 
   .img-profile {
     border-radius: 100rem;
-    width: 250px;
-    height: 250px;
+    width: 200px;
+    height: 200px;
   }
 
   .social-btn-holder {
@@ -183,7 +189,9 @@
   .social-btn {
     width: 4rem;
     height: 4rem;
-    background: #070707;
+    /* background: #070707; */
+
+    background: #1a1a1a;
     border-radius: 100rem;
     display: flex;
     justify-content: center;
@@ -192,7 +200,9 @@
   }
 
   .contact-btn {
-    background: #070707;
+    /* background: #070707; */
+
+    background: #1a1a1a;
     color: white;
     border-radius: 100rem;
     width: 200px;
@@ -260,7 +270,7 @@
   }
 
   .text-holder {
-    width: 60%;
+    width: 65%;
     padding-top: 4rem;
   }
 

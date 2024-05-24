@@ -48,8 +48,8 @@ export default function Home() {
           <div className="nav-sub">
             <p style={{ color: "white", fontSize: "clamp(16px, 2vw, 22px)" }}>
               Justin Davenport —{" "}
-              <b style={{ color: "white", fontWeight: "600" }}>
-                Designer. Developer.
+              <b style={{ color: "white", fontWeight: "500" }}>
+                Designer & Developer
               </b>
             </p>
             <div className="nav-links">
@@ -76,7 +76,7 @@ export default function Home() {
           backgroundSize: "100% 100%",
           mixBlendMode: "multiply",
           position: "fixed",
-          opacity: "0.2",
+          opacity: "0.15",
         }}
       ></div>
       <div
@@ -84,14 +84,18 @@ export default function Home() {
           width: "100%",
           height: "100vh",
           backdropFilter: "blur(8px)",
+          WebkitBackdropFilter: "blur(8px)",
           position: "fixed",
         }}
       ></div>
 
       <div className="container-holder">
         <div className="container">
-          <h1>Designer. Developer.</h1>
-          <h2 style={{ textAlign: "right", marginTop: "4rem" }}>
+          <h1>
+            Designer
+            <br />& Developer
+          </h1>
+          <h2 style={{ lineHeight: "2.8", textAlign: "right" }}>
             Justin Davenport
           </h2>
         </div>

@@ -6,10 +6,11 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: {
-    default: "Justin Davenport — Designer. Developer.",
+    default: "Justin Davenport — Designer & Developer",
     template: "%s | Justin Davenport",
   },
-  description: "I'm Justin, a Software Developer located in Charlotte, NC.",
+  description:
+    "I'm Justin, a Web Developer and Product Designer located in Charlotte, NC.",
   keywords: ["Justin", "Davenport", "Designer", "Developer"],
   metadataBase: new URL("https://www.justindavenport.space/"),
 };
