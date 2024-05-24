@@ -62,10 +62,20 @@ export default function Home() {
                 // onClick={() => scrollTo(aboutDiv)}
                 onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
               >
-                About
+                Home
               </button>
               <button onClick={() => scrollTo(workDiv)}>Work</button>
-              <button onClick={() => scrollTo(contactDiv)}>Contact</button>
+              <button
+                // onClick={() => scrollTo(contactDiv)}
+                onClick={() =>
+                  window.scrollTo({
+                    top: document.documentElement.scrollHeight,
+                    behavior: "smooth",
+                  })
+                }
+              >
+                Contact
+              </button>
             </div>
           </div>
         </div>
@@ -81,7 +91,7 @@ export default function Home() {
           backgroundSize: "100% 100%",
           mixBlendMode: "multiply",
           position: "fixed",
-          opacity: "0.25",
+          opacity: "0.2",
         }}
       ></div>
       <div
@@ -106,7 +116,7 @@ export default function Home() {
         </div>
       </div> */}
 
-      <div
+      {/* <div
         className="container-holder"
         style={{ minHeight: "0", marginBottom: "0" }}
       >
@@ -117,14 +127,14 @@ export default function Home() {
         >
           <span className="header">ABOUT</span>
         </div>
-      </div>
+      </div> */}
 
       <div
         className="container-holder"
         style={{
-          minHeight: "60vh",
+          minHeight: "100vh",
           marginBottom: "0",
-          alignItems: "flex-start",
+          alignItems: "center",
         }}
       >
         <div
@@ -267,6 +277,7 @@ export default function Home() {
             width={1215}
             height={2160}
             alt={""}
+            style={{ boxShadow: "0px 8px 10px 2px #00000010" }}
           />
         </div>
       </div>
@@ -276,7 +287,8 @@ export default function Home() {
         style={{ minHeight: "0", marginBottom: "0" }}
       >
         <div className="container" style={{ paddingTop: "8rem" }} ref={workDiv}>
-          <span className="header">WORK</span>
+          {/* <span className="header">WORK</span> */}
+          <h2>A collection of my recent work.</h2>
         </div>
       </div>
 
@@ -598,7 +610,7 @@ export default function Home() {
         </div>
       </div>
 
-      <div
+      {/* <div
         className="container-holder"
         style={{ minHeight: "0", marginBottom: "0" }}
       >
@@ -609,14 +621,14 @@ export default function Home() {
         >
           <span className="header">CONTACT</span>
         </div>
-      </div>
+      </div> */}
 
       <div
         className="container-holder"
         style={{
-          minHeight: "75vh",
+          minHeight: "100vh",
           marginBottom: "0",
-          alignItems: "flex-start",
+          alignItems: "center",
         }}
       >
         <div
@@ -630,7 +642,7 @@ export default function Home() {
           }}
         >
           <div className="text-holder">
-            <h2>Let&apos;s connect and create something together.</h2>
+            <h2>Let&apos;s create something together.</h2>
             <br />
             <p>
               Get in touch if you&apos;re seeking services in Branding, UX/UI
@@ -644,7 +656,15 @@ export default function Home() {
             rel="noopener noreferrer"
             className="contact-btn"
           >
-            Contact
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              height="32"
+              width="32"
+              viewBox="0 0 512 512"
+              fill="white"
+            >
+              <path d="M498.1 5.6c10.1 7 15.4 19.1 13.5 31.2l-64 416c-1.5 9.7-7.4 18.2-16 23s-18.9 5.4-28 1.6L284 427.7l-68.5 74.1c-8.9 9.7-22.9 12.9-35.2 8.1S160 493.2 160 480V396.4c0-4 1.5-7.8 4.2-10.7L331.8 202.8c5.8-6.3 5.6-16-.4-22s-15.7-6.4-22-.7L106 360.8 17.7 316.6C7.1 311.3 .3 300.7 0 288.9s5.9-22.8 16.1-28.7l448-256c10.7-6.1 23.9-5.5 34 1.4z" />{" "}
+            </svg>
           </Link>
         </div>
       </div>

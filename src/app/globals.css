@@ -58,9 +58,9 @@
   }
 
   h2 {
-    font-weight: 300;
+    font-weight: 400;
     line-height: 1.4;
-    font-size: clamp(28px, 4vw, 48px);
+    font-size: clamp(28px, 4vw, 52px);
   }
 
   p {
@@ -261,7 +261,7 @@
 
   .text-holder {
     width: 65%;
-    padding-top: 4rem;
+    padding-top: 2rem;
   }
 
   .img-lg {
