@@ -53,12 +53,17 @@ export default function Home() {
               </b>
             </p>
             <div className="nav-links">
-              <button
+              {/* <button
                 onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
               >
                 Home
+              </button> */}
+              <button
+                // onClick={() => scrollTo(aboutDiv)}
+                onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+              >
+                About
               </button>
-              <button onClick={() => scrollTo(aboutDiv)}>About</button>
               <button onClick={() => scrollTo(workDiv)}>Work</button>
               <button onClick={() => scrollTo(contactDiv)}>Contact</button>
             </div>
@@ -83,13 +88,13 @@ export default function Home() {
         style={{
           width: "100%",
           height: "100vh",
-          backdropFilter: "blur(8px)",
-          WebkitBackdropFilter: "blur(8px)",
+          backdropFilter: "blur(12px)",
+          WebkitBackdropFilter: "blur(12px)",
           position: "fixed",
         }}
       ></div>
 
-      <div className="container-holder">
+      {/* <div className="container-holder">
         <div className="container">
           <h1>
             Designer
@@ -99,7 +104,7 @@ export default function Home() {
             Justin Davenport
           </h2>
         </div>
-      </div>
+      </div> */}
 
       <div
         className="container-holder"

@@ -11,9 +11,7 @@
   }
 
   ::-webkit-scrollbar-thumb {
-    /* background: #070707; */
-
-    background: #1a1a1a;
+    background: #070707;
   }
 
   html,
@@ -31,9 +29,7 @@
     box-sizing: border-box;
     z-index: 2;
     font-family: 'Switzer', sans-serif;
-    /* color: #070707; */
-
-    color: #1a1a1a;
+    color: #070707;
   }
 
   .background {
@@ -68,7 +64,7 @@
   }
 
   p {
-    font-size: clamp(16px, 2vw, 20px);
+    font-size: clamp(16px, 2vw, 22px);
     font-weight: 300;
     line-height: 1.4;
   }
@@ -119,9 +115,7 @@
     justify-content: center;
     align-items: center;
     width: 95%;
-    /* background: #070707; */
-
-    background: #1a1a1a;
+    background: #070707;
     border-radius: 100rem;
   }
 
@@ -189,9 +183,7 @@
   .social-btn {
     width: 4rem;
     height: 4rem;
-    /* background: #070707; */
-
-    background: #1a1a1a;
+    background: #070707;
     border-radius: 100rem;
     display: flex;
     justify-content: center;
@@ -200,9 +192,7 @@
   }
 
   .contact-btn {
-    /* background: #070707; */
-
-    background: #1a1a1a;
+    background: #070707;
     color: white;
     border-radius: 100rem;
     width: 200px;
