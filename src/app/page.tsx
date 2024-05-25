@@ -3,10 +3,8 @@ import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 
 export default function Home() {
-  const aboutDiv = useRef<HTMLDivElement>(null);
   const workDiv = useRef<HTMLDivElement>(null);
   const blogDiv = useRef<HTMLDivElement>(null);
-  const contactDiv = useRef<HTMLDivElement>(null);
 
   const scrollTo = (ref: React.RefObject<HTMLDivElement>) => {
     if (ref.current) {
@@ -54,13 +52,7 @@ export default function Home() {
               </b>
             </p>
             <div className="nav-links">
-              {/* <button
-                onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-              >
-                Home
-              </button> */}
               <button
-                // onClick={() => scrollTo(aboutDiv)}
                 onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
               >
                 Home
@@ -68,7 +60,6 @@ export default function Home() {
               <button onClick={() => scrollTo(workDiv)}>Work</button>
               <button onClick={() => scrollTo(blogDiv)}>Blog</button>
               <button
-                // onClick={() => scrollTo(contactDiv)}
                 onClick={() =>
                   window.scrollTo({
                     top: document.documentElement.scrollHeight,
@@ -91,17 +82,16 @@ export default function Home() {
           backgroundPosition: "top center",
           backgroundRepeat: "no-repeat",
           backgroundSize: "100% 100%",
-          mixBlendMode: "multiply",
           position: "fixed",
-          opacity: "0.15",
+          opacity: "0.1",
         }}
       ></div>
       <div
         style={{
           width: "100%",
           height: "100vh",
-          backdropFilter: "blur(12px)",
-          WebkitBackdropFilter: "blur(12px)",
+          backdropFilter: "blur(8px)",
+          WebkitBackdropFilter: "blur(8px)",
           position: "fixed",
         }}
       ></div>
@@ -289,7 +279,6 @@ export default function Home() {
         style={{ minHeight: "0", marginBottom: "0" }}
       >
         <div className="container" style={{ paddingTop: "8rem" }} ref={workDiv}>
-          {/* <span className="header">WORK</span> */}
           <h2>A collection of my recent work.</h2>
         </div>
       </div>
@@ -617,8 +606,7 @@ export default function Home() {
         style={{ minHeight: "0", marginBottom: "0" }}
       >
         <div className="container" style={{ paddingTop: "8rem" }} ref={blogDiv}>
-          {/* <span className="header">WORK</span> */}
-          <h2>A collection of recent posts.</h2>
+          <h2>Explore my recent articles.</h2>
         </div>
       </div>
 
@@ -638,7 +626,6 @@ export default function Home() {
               flexDirection: "column",
               justifyContent: "center",
               marginBottom: "2rem",
-              alignItems: "center",
             }}
           >
             <Link
@@ -656,9 +643,9 @@ export default function Home() {
               />
             </Link>
             <br />
-            <span>Article</span>
+            <span>Create a Product Landing Page with GSAP in Next.js</span>
             <p>
-              Create a product landing page with GSAP in Next.js &middot;{" "}
+              Tutorial &middot;{" "}
               <b
                 style={{
                   lineHeight: "0",
@@ -666,25 +653,12 @@ export default function Home() {
                   fontSize: "clamp(14px, 4vw, 18px)",
                 }}
               >
-                Next.js, GSAP
+                2024
               </b>
             </p>
           </div>
         </div>
       </div>
-
-      {/* <div
-        className="container-holder"
-        style={{ minHeight: "0", marginBottom: "0" }}
-      >
-        <div
-          className="container"
-          style={{ paddingTop: "8rem" }}
-          ref={contactDiv}
-        >
-          <span className="header">CONTACT</span>
-        </div>
-      </div> */}
 
       <div
         className="container-holder"

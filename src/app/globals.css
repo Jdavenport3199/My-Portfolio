@@ -60,7 +60,7 @@
   h2 {
     font-weight: 300;
     line-height: 1.4;
-    font-size: clamp(28px, 4vw, 54px);
+    font-size: clamp(28px, 4vw, 64px);
   }
 
   p {
