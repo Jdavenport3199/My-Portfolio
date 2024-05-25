@@ -5,6 +5,7 @@ import Link from "next/link";
 export default function Home() {
   const aboutDiv = useRef<HTMLDivElement>(null);
   const workDiv = useRef<HTMLDivElement>(null);
+  const blogDiv = useRef<HTMLDivElement>(null);
   const contactDiv = useRef<HTMLDivElement>(null);
 
   const scrollTo = (ref: React.RefObject<HTMLDivElement>) => {
@@ -65,6 +66,7 @@ export default function Home() {
                 Home
               </button>
               <button onClick={() => scrollTo(workDiv)}>Work</button>
+              <button onClick={() => scrollTo(blogDiv)}>Blog</button>
               <button
                 // onClick={() => scrollTo(contactDiv)}
                 onClick={() =>
@@ -91,7 +93,7 @@ export default function Home() {
           backgroundSize: "100% 100%",
           mixBlendMode: "multiply",
           position: "fixed",
-          opacity: "0.2",
+          opacity: "0.15",
         }}
       ></div>
       <div
@@ -604,6 +606,67 @@ export default function Home() {
                 }}
               >
                 2023
+              </b>
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div
+        className="container-holder"
+        style={{ minHeight: "0", marginBottom: "0" }}
+      >
+        <div className="container" style={{ paddingTop: "8rem" }} ref={blogDiv}>
+          {/* <span className="header">WORK</span> */}
+          <h2>A collection of recent posts.</h2>
+        </div>
+      </div>
+
+      <div className="container-holder">
+        <div
+          className="container-holder"
+          style={{
+            minHeight: "0",
+            gap: "2rem 2rem",
+            alignItems: "flex-start",
+            width: "95%",
+          }}
+        >
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              justifyContent: "center",
+              marginBottom: "2rem",
+              alignItems: "center",
+            }}
+          >
+            <Link
+              href="https://medium.com/@justindavenport.space/create-a-product-landing-page-with-gsap-in-next-js-9403e29b89d8"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{ opacity: 1, lineHeight: "0" }}
+            >
+              <img
+                className="img-lg"
+                src="/tutorial.png"
+                width={1215}
+                height={2160}
+                alt={""}
+              />
+            </Link>
+            <br />
+            <span>Article</span>
+            <p>
+              Create a product landing page with GSAP in Next.js &middot;{" "}
+              <b
+                style={{
+                  lineHeight: "0",
+                  fontWeight: "500",
+                  fontSize: "clamp(14px, 4vw, 18px)",
+                }}
+              >
+                Next.js, GSAP
               </b>
             </p>
           </div>
