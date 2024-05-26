@@ -610,7 +610,10 @@ export default function Home() {
         </div>
       </div>
 
-      <div className="container-holder">
+      <div
+        className="container-holder"
+        style={{ minHeight: "0", alignItems: "flex-start" }}
+      >
         <div
           className="container-holder"
           style={{
