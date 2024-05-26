@@ -45,40 +45,34 @@
     transition: 150ms linear;
   }
 
-  h1,
-  .header {
+  h1 {
     font-weight: 600;
-    line-height: 1;
-    font-size: clamp(64px, 10vw, 160px);
-  }
-
-  .header {
-    font-weight: 900;
-    font-size: clamp(48px, 4vw, 64px);
+    line-height: 1.2;
+    font-size: clamp(40px, 8vw, 96px);
   }
 
   h2 {
     font-weight: 400;
     line-height: 1.4;
-    font-size: clamp(28px, 4vw, 64px);
+    font-size: clamp(26px, 4vw, 58px);
   }
 
   p {
-    font-size: clamp(16px, 2vw, 22px);
+    font-size: clamp(16px, 2vw, 20px);
     font-weight: 300;
     line-height: 1.4;
   }
 
   span {
     font-weight: 600;
-    font-size: clamp(22px, 2vw, 28px);
+    font-size: clamp(20px, 2vw, 28px);
     line-height: 1.4;
   }
 
   a,
   button {
     line-height: 1.4;
-    font-size: clamp(16px, 2vw, 22px);
+    font-size: clamp(16px, 2vw, 20px);
     font-weight: 300;
     text-decoration: none;
     width: fit-content;
@@ -167,8 +161,8 @@
 
   .img-profile {
     border-radius: 100rem;
-    width: 200px;
-    height: 200px;
+    width: 150px;
+    height: 150px;
   }
 
   .social-btn-holder {
@@ -195,8 +189,8 @@
     background: #070707;
     color: white;
     border-radius: 100rem;
-    width: 200px;
-    height: 200px;
+    width: 150px;
+    height: 150px;
     display: flex;
     justify-content: center;
     align-items: center;

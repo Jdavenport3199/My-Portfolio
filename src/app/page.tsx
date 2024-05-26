@@ -48,7 +48,7 @@ export default function Home() {
             <p style={{ color: "white", fontSize: "clamp(16px, 2vw, 22px)" }}>
               Justin Davenport —{" "}
               <b style={{ color: "white", fontWeight: "600" }}>
-                Designer & Developer
+                Designer. Developer.
               </b>
             </p>
             <div className="nav-links">
@@ -96,31 +96,6 @@ export default function Home() {
         }}
       ></div>
 
-      {/* <div className="container-holder">
-        <div className="container">
-          <h1>
-            Designer
-            <br />& Developer
-          </h1>
-          <h2 style={{ lineHeight: "2.8", textAlign: "right" }}>
-            Justin Davenport
-          </h2>
-        </div>
-      </div> */}
-
-      {/* <div
-        className="container-holder"
-        style={{ minHeight: "0", marginBottom: "0" }}
-      >
-        <div
-          className="container"
-          style={{ paddingTop: "8rem" }}
-          ref={aboutDiv}
-        >
-          <span className="header">ABOUT</span>
-        </div>
-      </div> */}
-
       <div
         className="container-holder"
         style={{
@@ -140,7 +115,7 @@ export default function Home() {
           }}
         >
           <div className="text-holder">
-            <h2>Welcome to my digital journey.</h2>
+            <h1>Designer. Developer.</h1>
             <br />
             <p>
               I&apos;m Justin, a Web Developer and Product Designer located in
@@ -298,6 +273,7 @@ export default function Home() {
               display: "flex",
               flexDirection: "column",
               justifyContent: "center",
+              alignItems: "center",
               marginBottom: "2rem",
             }}
           >
@@ -317,18 +293,7 @@ export default function Home() {
             </Link>
             <br />
             <span>Teenage Engineering™</span>
-            <p>
-              Electronics Company &middot;{" "}
-              <b
-                style={{
-                  lineHeight: "0",
-                  fontWeight: "500",
-                  fontSize: "clamp(14px, 4vw, 18px)",
-                }}
-              >
-                2024
-              </b>
-            </p>
+            <p>Electronics Company</p>
           </div>
 
           <div
@@ -336,6 +301,7 @@ export default function Home() {
               display: "flex",
               flexDirection: "column",
               justifyContent: "center",
+              alignItems: "center",
               marginBottom: "2rem",
             }}
           >
@@ -355,18 +321,7 @@ export default function Home() {
             </Link>
             <br />
             <span>Stack</span>
-            <p>
-              Social Media Platform &middot;{" "}
-              <b
-                style={{
-                  lineHeight: "0",
-                  fontWeight: "500",
-                  fontSize: "clamp(14px, 4vw, 18px)",
-                }}
-              >
-                2024
-              </b>
-            </p>
+            <p>Social Media Platform</p>
           </div>
 
           <div
@@ -374,6 +329,7 @@ export default function Home() {
               display: "flex",
               flexDirection: "column",
               justifyContent: "center",
+              alignItems: "center",
               marginBottom: "2rem",
             }}
           >
@@ -393,18 +349,7 @@ export default function Home() {
             </Link>
             <br />
             <span>OCULAR VIBRATIONS™</span>
-            <p>
-              Design Studio &middot;{" "}
-              <b
-                style={{
-                  lineHeight: "0",
-                  fontWeight: "500",
-                  fontSize: "clamp(14px, 4vw, 18px)",
-                }}
-              >
-                2024
-              </b>
-            </p>
+            <p>Design Studio</p>
           </div>
 
           <div
@@ -412,6 +357,7 @@ export default function Home() {
               display: "flex",
               flexDirection: "column",
               justifyContent: "center",
+              alignItems: "center",
               marginBottom: "2rem",
             }}
           >
@@ -431,18 +377,7 @@ export default function Home() {
             </Link>
             <br />
             <span>OCULAR VIBRATIONS™</span>
-            <p>
-              Design Studio &middot;{" "}
-              <b
-                style={{
-                  lineHeight: "0",
-                  fontWeight: "500",
-                  fontSize: "clamp(14px, 4vw, 18px)",
-                }}
-              >
-                2024
-              </b>
-            </p>
+            <p>Design Studio</p>
           </div>
 
           <div
@@ -450,6 +385,7 @@ export default function Home() {
               display: "flex",
               flexDirection: "column",
               justifyContent: "center",
+              alignItems: "center",
               marginBottom: "2rem",
             }}
           >
@@ -469,24 +405,14 @@ export default function Home() {
             </Link>
             <br />
             <span>Danilo Scarpati</span>
-            <p>
-              Art Gallery &middot;{" "}
-              <b
-                style={{
-                  lineHeight: "0",
-                  fontWeight: "500",
-                  fontSize: "clamp(14px, 4vw, 18px)",
-                }}
-              >
-                2024
-              </b>
-            </p>
+            <p>Art Gallery</p>
           </div>
           <div
             style={{
               display: "flex",
               flexDirection: "column",
               justifyContent: "center",
+              alignItems: "center",
               marginBottom: "2rem",
             }}
           >
@@ -506,18 +432,7 @@ export default function Home() {
             </Link>
             <br />
             <span>DiviDome</span>
-            <p>
-              Stock Dividends Platform &middot;{" "}
-              <b
-                style={{
-                  lineHeight: "0",
-                  fontWeight: "500",
-                  fontSize: "clamp(14px, 4vw, 18px)",
-                }}
-              >
-                2023
-              </b>
-            </p>
+            <p>Stock Dividends Platform</p>
           </div>
 
           <div
@@ -525,6 +440,7 @@ export default function Home() {
               display: "flex",
               flexDirection: "column",
               justifyContent: "center",
+              alignItems: "center",
               marginBottom: "2rem",
             }}
           >
@@ -544,24 +460,14 @@ export default function Home() {
             </Link>
             <br />
             <span>Cinema Collection</span>
-            <p>
-              Movie Search Platform &middot;{" "}
-              <b
-                style={{
-                  lineHeight: "0",
-                  fontWeight: "500",
-                  fontSize: "clamp(14px, 4vw, 18px)",
-                }}
-              >
-                2023
-              </b>
-            </p>
+            <p>Movie Search Platform</p>
           </div>
           <div
             style={{
               display: "flex",
               flexDirection: "column",
               justifyContent: "center",
+              alignItems: "center",
               marginBottom: "2rem",
             }}
           >
@@ -585,18 +491,7 @@ export default function Home() {
             </Link>
             <br />
             <span>IMDb</span>
-            <p>
-              Figma Prototype &middot;{" "}
-              <b
-                style={{
-                  lineHeight: "0",
-                  fontWeight: "500",
-                  fontSize: "clamp(14px, 4vw, 18px)",
-                }}
-              >
-                2023
-              </b>
-            </p>
+            <p>Figma Prototype</p>
           </div>
         </div>
       </div>
@@ -628,7 +523,9 @@ export default function Home() {
               display: "flex",
               flexDirection: "column",
               justifyContent: "center",
+              alignItems: "center",
               marginBottom: "2rem",
+              textAlign: "center",
             }}
           >
             <Link
@@ -647,18 +544,7 @@ export default function Home() {
             </Link>
             <br />
             <span>Create a Product Landing Page with GSAP in Next.js</span>
-            <p>
-              Tutorial &middot;{" "}
-              <b
-                style={{
-                  lineHeight: "0",
-                  fontWeight: "500",
-                  fontSize: "clamp(14px, 4vw, 18px)",
-                }}
-              >
-                2024
-              </b>
-            </p>
+            <p>Tutorial</p>
           </div>
         </div>
       </div>
@@ -676,8 +562,8 @@ export default function Home() {
           style={{
             display: "flex",
             justifyContent: "space-between",
-            alignItems: "flex-end",
-            flexWrap: "wrap-reverse",
+            alignItems: "flex-start",
+            flexWrap: "wrap",
             gap: "2rem",
           }}
         >
