@@ -20,16 +20,16 @@ export default function Home() {
       const currentScroll = window.scrollY;
       const threshold = 50;
       if (currentScroll <= threshold && nav.current) {
-        if (nav.current.style.top !== "1rem") {
-          nav.current.style.top = "1rem";
-          nav.current.style.height = "5rem";
+        if (nav.current.style.top !== "0rem") {
+          nav.current.style.top = "0rem";
+          nav.current.style.height = "6rem";
         }
       } else if (currentScroll < lastScroll && nav.current) {
-        nav.current.style.top = "1rem";
-        nav.current.style.height = "5rem";
+        nav.current.style.top = "0rem";
+        nav.current.style.height = "6rem";
       } else if (currentScroll > lastScroll && nav.current) {
-        nav.current.style.top = "-5.25rem";
-        nav.current.style.height = "5rem";
+        nav.current.style.top = "-6.25rem";
+        nav.current.style.height = "6rem";
       }
       setLastScroll(currentScroll);
     };
@@ -47,7 +47,7 @@ export default function Home() {
           <div className="nav-sub">
             <p>
               Justin Davenport —{" "}
-              <b style={{ fontWeight: "500" }}>Designer. Developer.</b>
+              <b style={{ fontWeight: "600" }}>Designer. Developer.</b>
             </p>
             <div className="nav-links">
               <button

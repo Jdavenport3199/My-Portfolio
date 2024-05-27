@@ -90,11 +90,15 @@
     justify-content: center;
     align-items: center;
     position: fixed;
-    top: 1rem;
+    top: 0rem;
     transition: 0.3s;
     padding-bottom: 0rem;
     width: 100%;
     z-index: 3;
+    border-radius: 0rem 0rem 2rem 2rem;
+    background: #f5f5f580;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
 
     a,
     button,
@@ -110,10 +114,10 @@
     justify-content: center;
     align-items: center;
     width: 95%;
-    border-radius: 100rem;
+    /* border-radius: 100rem;
     background: #f5f5f580;
     backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px); */
   }
 
   .nav-sub {
@@ -122,7 +126,7 @@
     justify-content: center;
     align-items: center;
     gap: 1rem;
-    height: 5rem;
+    height: 6rem;
   }
 
   .nav-links {
