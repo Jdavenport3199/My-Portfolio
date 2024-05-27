@@ -45,11 +45,9 @@ export default function Home() {
       <div className="nav" ref={nav}>
         <div className="nav-nav">
           <div className="nav-sub">
-            <p style={{ color: "white", fontSize: "clamp(16px, 2vw, 22px)" }}>
+            <p>
               Justin Davenport —{" "}
-              <b style={{ color: "white", fontWeight: "600" }}>
-                Designer. Developer.
-              </b>
+              <b style={{ fontWeight: "500" }}>Designer. Developer.</b>
             </p>
             <div className="nav-links">
               <button
@@ -116,8 +114,7 @@ export default function Home() {
         >
           <div className="text-holder">
             <h1>Designer. Developer.</h1>
-            <br />
-            <p>
+            <p className="splash-p">
               I&apos;m Justin, a Web Developer and Product Designer located in
               Charlotte, NC. My expertise lies in crafting dynamic web
               experiences using HTML, CSS, and JavaScript primarily within
@@ -127,14 +124,13 @@ export default function Home() {
               integrates design and development, thanks to my adeptness with
               tools like Figma and the Adobe Suite.
             </p>
-            <br />
-            <br />
             <div>
               <div
                 style={{
                   display: "flex",
                   flexWrap: "wrap",
                   alignItems: "center",
+                  justifyContent: "right",
                   gap: "0.6rem",
                 }}
               >
@@ -238,14 +234,14 @@ export default function Home() {
               </div>
             </div>
           </div>
-          <img
+          {/* <img
             className="img-profile"
             src="/me.jpg"
             width={1215}
             height={2160}
             alt={""}
             style={{ boxShadow: "0px 8px 10px 2px #00000010" }}
-          />
+          /> */}
         </div>
       </div>
 
@@ -567,7 +563,7 @@ export default function Home() {
             gap: "2rem",
           }}
         >
-          <div className="text-holder">
+          <div className="text-holder-contact">
             <h2>Let&apos;s create something together.</h2>
             <br />
             <p>
