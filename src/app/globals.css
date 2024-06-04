@@ -95,11 +95,9 @@
   .nav {
     display: flex;
     justify-content: center;
-    align-items: center;
     position: fixed;
-    top: 1rem;
+    top: 2rem;
     transition: 0.3s;
-    padding-bottom: 0rem;
     width: 100%;
     z-index: 3;
   }
@@ -171,10 +169,10 @@
     transition: 150ms linear;
   }
 
-  .project:hover {
+  /* .project:hover {
     background: #07070708;
     transition: 150ms linear;
-  }
+  } */
 
   .project-title {
     padding: 2rem;
@@ -261,6 +259,27 @@
     margin-top: 2rem;
     margin-bottom: 4rem;
   }
+
+  .footer {
+    width: 95%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    flex-direction: column;
+    gap: 2rem;
+    height: 18rem;
+
+    a,
+    p {
+      text-align: center;
+      font-size: clamp(12px, 2vw, 16px);
+    }
+  }
+
+  .logo {
+    display: none;
+  }
 }
 
 @media (min-width: 425px) {
@@ -339,5 +358,15 @@
 
   .splash-title-holder {
     gap: 2.5rem;
+  }
+}
+
+@media (min-width: 1599px) {
+  .logo {
+    display: block;
+    margin-left: 2.5%;
+    top: 2rem;
+    position: fixed;
+    z-index: 3;
   }
 }
