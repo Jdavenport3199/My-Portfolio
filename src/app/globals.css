@@ -82,6 +82,7 @@
     font-weight: 400;
     text-decoration: none;
     width: fit-content;
+    display: flex;
     transition: 150ms linear;
   }
 
