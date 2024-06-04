@@ -1,10 +1,12 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 export default function Home() {
   const [lastScroll, setLastScroll] = useState(0);
   const nav = useRef<HTMLDivElement>(null);
+  const pathname = usePathname();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -12,15 +14,15 @@ export default function Home() {
       const threshold = 50;
       if (currentScroll <= threshold && nav.current) {
         if (nav.current.style.top !== "0rem") {
-          nav.current.style.top = "2rem";
-          nav.current.style.height = "4rem";
+          nav.current.style.top = "1rem";
+          nav.current.style.height = "3rem";
         }
       } else if (currentScroll < lastScroll && nav.current) {
-        nav.current.style.top = "2rem";
-        nav.current.style.height = "4rem";
+        nav.current.style.top = "1rem";
+        nav.current.style.height = "3rem";
       } else if (currentScroll > lastScroll && nav.current) {
-        nav.current.style.top = "-4.25rem";
-        nav.current.style.height = "4rem";
+        nav.current.style.top = "-3.25rem";
+        nav.current.style.height = "3rem";
       }
       setLastScroll(currentScroll);
     };
@@ -37,13 +39,31 @@ export default function Home() {
         <div className="nav-nav">
           <div className="nav-sub">
             <div className="nav-links">
-              <Link href={"/"}>Home</Link>
-              <Link href={"/"}>Work</Link>
-              <Link href={"/articles"}>Articles</Link>
+              <Link
+                href={"/"}
+                style={{ background: pathname === "/" ? "auto" : "none" }}
+              >
+                Home
+              </Link>
+              <Link
+                href={"/work"}
+                style={{ background: pathname === "/work" ? "auto" : "none" }}
+              >
+                Work
+              </Link>
+              <Link
+                href={"/articles"}
+                style={{
+                  background: pathname === "/articles" ? "auto" : "none",
+                }}
+              >
+                Articles
+              </Link>
               <Link
                 href="mailto:justindavenport.space@gmail.com"
                 target="_blank"
                 rel="noopener noreferrer"
+                style={{ background: "none" }}
               >
                 Contact
               </Link>
@@ -64,6 +84,10 @@ export default function Home() {
       <div className="container-holder" style={{ alignItems: "flex-start" }}>
         <div className="project-holder">
           <div className="project">
+            <div className="project-title">
+              <p>Tutorial</p>
+              <span>Create a Product Landing Page with GSAP in Next.js</span>
+            </div>
             <Link
               href="https://medium.com/@justindavenport.space/create-a-product-landing-page-with-gsap-in-next-js-9403e29b89d8"
               target="_blank"
@@ -72,15 +96,12 @@ export default function Home() {
             >
               <img
                 className="img-lg"
-                src="/tutorial.png"
+                src="/te-new.png"
                 width={1215}
                 height={2160}
                 alt={""}
               />
             </Link>
-            <br />
-            <span>Create a Product Landing Page with GSAP in Next.js</span>
-            <p>Tutorial</p>
           </div>
         </div>
       </div>

@@ -1,18 +1,12 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 export default function Home() {
-  const workDiv = useRef<HTMLDivElement>(null);
-
-  const scrollTo = (ref: React.RefObject<HTMLDivElement>) => {
-    if (ref.current) {
-      ref.current.scrollIntoView({ behavior: "smooth" });
-    }
-  };
-
   const [lastScroll, setLastScroll] = useState(0);
   const nav = useRef<HTMLDivElement>(null);
+  const pathname = usePathname();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -20,15 +14,15 @@ export default function Home() {
       const threshold = 50;
       if (currentScroll <= threshold && nav.current) {
         if (nav.current.style.top !== "0rem") {
-          nav.current.style.top = "2rem";
-          nav.current.style.height = "4rem";
+          nav.current.style.top = "1rem";
+          nav.current.style.height = "3rem";
         }
       } else if (currentScroll < lastScroll && nav.current) {
-        nav.current.style.top = "2rem";
-        nav.current.style.height = "4rem";
+        nav.current.style.top = "1rem";
+        nav.current.style.height = "3rem";
       } else if (currentScroll > lastScroll && nav.current) {
-        nav.current.style.top = "-4.25rem";
-        nav.current.style.height = "4rem";
+        nav.current.style.top = "-3.25rem";
+        nav.current.style.height = "3rem";
       }
       setLastScroll(currentScroll);
     };
@@ -45,17 +39,31 @@ export default function Home() {
         <div className="nav-nav">
           <div className="nav-sub">
             <div className="nav-links">
-              <button
-                onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+              <Link
+                href={"/"}
+                style={{ background: pathname === "/" ? "auto" : "none" }}
               >
                 Home
-              </button>
-              <button onClick={() => scrollTo(workDiv)}>Work</button>
-              <Link href={"/articles"}>Articles</Link>
+              </Link>
+              <Link
+                href={"/work"}
+                style={{ background: pathname === "/work" ? "auto" : "none" }}
+              >
+                Work
+              </Link>
+              <Link
+                href={"/articles"}
+                style={{
+                  background: pathname === "/articles" ? "auto" : "none",
+                }}
+              >
+                Articles
+              </Link>
               <Link
                 href="mailto:justindavenport.space@gmail.com"
                 target="_blank"
                 rel="noopener noreferrer"
+                style={{ background: "none" }}
               >
                 Contact
               </Link>
@@ -190,198 +198,6 @@ export default function Home() {
                 </button>
               </Link>
             </div>
-          </div>
-        </div>
-      </div>
-
-      <div className="container-holder">
-        <div className="container-title" ref={workDiv}>
-          <h2>Work</h2>
-        </div>
-      </div>
-
-      <div className="container-holder">
-        <div className="project-holder">
-          <div className="project">
-            <Link
-              href="https://www.christiandavenport.studio/"
-              target="_blank"
-              rel="noopener noreferrer"
-              style={{ opacity: 1, lineHeight: "0" }}
-            >
-              <img
-                className="img-lg"
-                src="/cj.png"
-                width={1920}
-                height={1080}
-                alt={""}
-              />
-            </Link>
-            <br />
-            <span>Christian Davenport</span>
-            <p>3D Portfolio</p>
-          </div>
-
-          <div className="project">
-            <Link
-              href="https://teenage-engineering.vercel.app/"
-              target="_blank"
-              rel="noopener noreferrer"
-              style={{ opacity: 1, lineHeight: "0" }}
-            >
-              <img
-                className="img-sm"
-                src="/te.png"
-                width={1215}
-                height={2160}
-                alt={""}
-              />
-            </Link>
-            <br />
-            <span>Teenage Engineering™</span>
-            <p>Electronics Company</p>
-          </div>
-
-          <div className="project">
-            <Link
-              href="https://stack-three-psi.vercel.app/"
-              target="_blank"
-              rel="noopener noreferrer"
-              style={{ opacity: 1, lineHeight: "0" }}
-            >
-              <img
-                className="img-lg"
-                src="/stack1.png"
-                width={1920}
-                height={1080}
-                alt={""}
-              />
-            </Link>
-            <br />
-            <span>Stack</span>
-            <p>Social Media Platform</p>
-          </div>
-
-          <div className="project">
-            <Link
-              href="https://ocular-vibrations.vercel.app/"
-              target="_blank"
-              rel="noopener noreferrer"
-              style={{ opacity: 1, lineHeight: "0" }}
-            >
-              <img
-                className="img-lg"
-                src="/studio.png"
-                width={1920}
-                height={1080}
-                alt={""}
-              />
-            </Link>
-            <br />
-            <span>OCULAR VIBRATIONS™</span>
-            <p>Design Studio</p>
-          </div>
-
-          <div className="project">
-            <Link
-              href="https://www.ocularvibrations.com/"
-              target="_blank"
-              rel="noopener noreferrer"
-              style={{ opacity: 1, lineHeight: "0" }}
-            >
-              <img
-                className="img-sm"
-                src="/ocular.png"
-                width={1215}
-                height={2160}
-                alt={""}
-              />
-            </Link>
-            <br />
-            <span>OCULAR VIBRATIONS™</span>
-            <p>Design Studio</p>
-          </div>
-
-          <div className="project">
-            <Link
-              href="https://photography-flax-phi.vercel.app/"
-              target="_blank"
-              rel="noopener noreferrer"
-              style={{ opacity: 1, lineHeight: "0" }}
-            >
-              <img
-                className="img-sm"
-                src="/photo.png"
-                width={1215}
-                height={2160}
-                alt={""}
-              />
-            </Link>
-            <br />
-            <span>Danilo Scarpati</span>
-            <p>Art Gallery</p>
-          </div>
-          <div className="project">
-            <Link
-              href="https://dividome.com/"
-              target="_blank"
-              rel="noopener noreferrer"
-              style={{ opacity: 1, lineHeight: "0" }}
-            >
-              <img
-                className="img-lg"
-                src="/divids1.png"
-                width={1920}
-                height={1080}
-                alt={""}
-              />
-            </Link>
-            <br />
-            <span>DiviDome</span>
-            <p>Stock Dividends Platform</p>
-          </div>
-
-          <div className="project">
-            <Link
-              href="https://cinema-collection.vercel.app/"
-              target="_blank"
-              rel="noopener noreferrer"
-              style={{ opacity: 1, lineHeight: "0" }}
-            >
-              <img
-                className="img-lg"
-                src="/cinema1.png"
-                width={1920}
-                height={1080}
-                alt={""}
-              />
-            </Link>
-            <br />
-            <span>Cinema Collection</span>
-            <p>Movie Platform</p>
-          </div>
-          <div className="project">
-            <Link
-              href="https://www.figma.com/proto/fvEPHkapwuwyS7f6EdocPP/IMDB?type=design&node-id=19-1375&t=WtQrpK7P8tvHMsf0-8&scaling=scale-down&page-id=0%3A1&starting-point-node-id=19%3A2610&hide-ui=1"
-              target="_blank"
-              rel="noopener noreferrer"
-              style={{ opacity: 1, lineHeight: "0" }}
-            >
-              <img
-                className="img-sm"
-                src="/imdb.png"
-                width={1215}
-                height={2160}
-                alt={""}
-                style={{
-                  objectFit: "contain",
-                  border: "2px solid transparent",
-                }}
-              />
-            </Link>
-            <br />
-            <span>IMDb</span>
-            <p>Figma Prototype</p>
           </div>
         </div>
       </div>
