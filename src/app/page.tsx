@@ -48,7 +48,7 @@ export default function Home() {
     setTranslateX(newTranslateX);
   };
 
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const scrollToTop = () => {
@@ -57,7 +57,7 @@ export default function Home() {
 
       setTimeout(() => {
         setLoading(false);
-      }, 1000);
+      }, 500);
     };
 
     scrollToTop();
