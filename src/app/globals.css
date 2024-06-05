@@ -33,6 +33,7 @@
     background-size: 100% 100%;
     position: fixed;
     opacity: 0.085;
+    z-index: 1;
   }
 
   .overlay {
@@ -41,6 +42,7 @@
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
     position: fixed;
+    z-index: 1;
   }
 
   button {
@@ -154,12 +156,34 @@
   }
 
   .container-holder,
-  .project-holder {
+  .project-holder,
+  .loader-holder {
     width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
+  }
+
+  .loader-holder {
+    min-height: 100vh;
+  }
+
+  .container-holder {
+    position: relative;
+    animation: fade 500ms ease-in-out forwards;
+  }
+
+  @keyframes fade {
+    0% {
+      opacity: 0;
+      transform: translateY(5%)
+    }
+
+    100% {
+      opacity: 1;
+      transform: translateY(0%)
+    }
   }
 
   .project-holder {
