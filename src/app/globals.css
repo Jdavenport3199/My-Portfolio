@@ -102,6 +102,18 @@
     z-index: 3;
   }
 
+  .nav-slider {
+    position: absolute;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    background: #07070708;
+    border-radius: 100rem;
+    height: 2.5rem;
+    width: 6rem;
+    z-index: 1;
+    transition: transform 0.3s ease;
+  }
+
   .nav-nav {
     display: flex;
     justify-content: center;
@@ -125,6 +137,7 @@
 
   .nav-links {
     display: flex;
+    justify-content: center;
     gap: 0rem;
 
     a,
@@ -132,10 +145,11 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      background: #07070708;
+      /* background: #07070708; */
       border-radius: 100rem;
       height: 2.5rem;
       width: 6rem;
+      z-index: 2;
     }
   }
 
@@ -294,9 +308,9 @@
     line-height: 1.2;
   }
 
-  .nav-links {
+  /* .nav-links {
     gap: 2rem;
-  }
+  } */
 
   .project-holder {
     text-align: left;
