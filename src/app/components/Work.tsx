@@ -50,6 +50,27 @@ const Work: React.FC<Props> = ({ translateX }) => {
           <div className="project">
             <div className="project-title">
               <p>Website</p>
+              <span>3D Artist Portfolio</span>
+            </div>
+            <Link
+              href="https://www.christiandavenport.studio/"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{ opacity: 1, lineHeight: "0" }}
+            >
+              <img
+                className="img-lg"
+                src="/cj-new.png"
+                width={1920}
+                height={1080}
+                alt={""}
+              />
+            </Link>
+          </div>
+
+          <div className="project">
+            <div className="project-title">
+              <p>Website</p>
               <span>Stack</span>
             </div>
             <Link
@@ -82,27 +103,6 @@ const Work: React.FC<Props> = ({ translateX }) => {
               <img
                 className="img-lg"
                 src="/studio-new.png"
-                width={1920}
-                height={1080}
-                alt={""}
-              />
-            </Link>
-          </div>
-
-          <div className="project">
-            <div className="project-title">
-              <p>Website</p>
-              <span>3D Design Studio</span>
-            </div>
-            <Link
-              href="https://www.christiandavenport.studio/"
-              target="_blank"
-              rel="noopener noreferrer"
-              style={{ opacity: 1, lineHeight: "0" }}
-            >
-              <img
-                className="img-lg"
-                src="/cj-new.png"
                 width={1920}
                 height={1080}
                 alt={""}
