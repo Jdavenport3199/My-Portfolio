@@ -30,6 +30,11 @@ const Work: React.FC<Props> = ({ translateX }) => {
             <div className="project-title">
               <p>Website</p>
               <span>Teenage Engineering™</span>
+              <div className="subject-holder">
+                <p className="subject">Next.js</p>
+                <p className="subject">React</p>
+                <p className="subject">GSAP</p>
+              </div>
             </div>
             <Link
               href="https://teenage-engineering.vercel.app/"
@@ -51,6 +56,11 @@ const Work: React.FC<Props> = ({ translateX }) => {
             <div className="project-title">
               <p>Website</p>
               <span>3D Artist Portfolio</span>
+              <div className="subject-holder">
+                <p className="subject">Next.js</p>
+                <p className="subject">React</p>
+                <p className="subject">Three.js</p>
+              </div>
             </div>
             <Link
               href="https://www.christiandavenport.studio/"
@@ -72,6 +82,10 @@ const Work: React.FC<Props> = ({ translateX }) => {
             <div className="project-title">
               <p>Website</p>
               <span>Stack</span>
+              <div className="subject-holder">
+                <p className="subject">Next.js</p>
+                <p className="subject">React</p>
+              </div>
             </div>
             <Link
               href="https://stack-three-psi.vercel.app/"
@@ -93,6 +107,12 @@ const Work: React.FC<Props> = ({ translateX }) => {
             <div className="project-title">
               <p>Website</p>
               <span>OCULAR VIBRATIONS™</span>
+              <div className="subject-holder">
+                <p className="subject">Next.js</p>
+                <p className="subject">React</p>
+                <p className="subject">Three.js</p>
+                <p className="subject">GSAP</p>
+              </div>
             </div>
             <Link
               href="https://ocular-vibrations.vercel.app/"
@@ -114,6 +134,12 @@ const Work: React.FC<Props> = ({ translateX }) => {
             <div className="project-title">
               <p>Website</p>
               <span>OCULAR VIBRATIONS™</span>
+              <div className="subject-holder">
+                <p className="subject">Next.js</p>
+                <p className="subject">React</p>
+                <p className="subject">Three.js</p>
+                <p className="subject">GSAP</p>
+              </div>
             </div>
             <Link
               href="https://www.ocularvibrations.com/"
@@ -135,6 +161,11 @@ const Work: React.FC<Props> = ({ translateX }) => {
             <div className="project-title">
               <p>Website</p>
               <span>Danilo Scarpati</span>
+              <div className="subject-holder">
+                <p className="subject">Next.js</p>
+                <p className="subject">React</p>
+                <p className="subject">GSAP</p>
+              </div>
             </div>
             <Link
               href="https://photography-flax-phi.vercel.app/"
@@ -156,6 +187,10 @@ const Work: React.FC<Props> = ({ translateX }) => {
             <div className="project-title">
               <p>Website</p>
               <span>DiviDome</span>
+              <div className="subject-holder">
+                <p className="subject">Next.js</p>
+                <p className="subject">React</p>
+              </div>
             </div>
             <Link
               href="https://dividome.com/"
@@ -177,6 +212,10 @@ const Work: React.FC<Props> = ({ translateX }) => {
             <div className="project-title">
               <p>Website</p>
               <span>Cinema Collection</span>
+              <div className="subject-holder">
+                <p className="subject">Next.js</p>
+                <p className="subject">React</p>
+              </div>
             </div>
             <Link
               href="https://cinema-collection.vercel.app/"

@@ -5,6 +5,7 @@ import Footer from "./components/Footer";
 import Work from "./components/Work";
 import Articles from "./components/Articles";
 import GridLoader from "react-spinners/GridLoader";
+import { switzer } from "./ui/fonts";
 
 export default function Home() {
   //   const div = useRef<HTMLDivElement>(null);
@@ -65,13 +66,6 @@ export default function Home() {
 
   return (
     <main>
-      {/* <div className="logo">
-        <span style={{ fontWeight: 600 }}>Justin Davenport</span>
-        <p style={{ fontSize: "clamp(12px, 2vw, 16px)" }}>
-          Web Developer&ensp;|&ensp;Product Designer
-        </p>
-      </div> */}
-
       <div className="background"></div>
       <div className="overlay"></div>
 
@@ -107,20 +101,26 @@ export default function Home() {
           >
             <div className="text-holder">
               <div className="splash-title-holder">
-                {/* <h1 className="splash-title-right">Web Developer</h1> */}
-                <h1 className="splash-title-right">WEB DEVELOPER</h1>
-                <h1 className="divider">
-                  <b style={{ fontWeight: "200", lineHeight: "1" }}>|</b>
+                <h1 className={`splash-title-right ${switzer.className}`}>
+                  WEB DEVELOPER
                 </h1>
-                {/* <h1 className="splash-title-left">Product Designer</h1> */}
-                <h1 className="splash-title-left">PRODUCT DESIGNER</h1>
+                <h1 className="divider">
+                  <b
+                    style={{
+                      fontWeight: "200",
+                      fontFamily: "Inter, sans-serif",
+                    }}
+                  >
+                    |
+                  </b>
+                </h1>
+                <h1 className={`splash-title-left ${switzer.className}`}>
+                  PRODUCT DESIGNER
+                </h1>
               </div>
               <p className="splash-p">
                 I&apos;m Justin, a Web Developer and Product Designer located in
                 Charlotte, NC.
-                {/* <br className="divider" />
-                My expertise lies in crafting dynamic web experiences using
-                HTML, CSS, and JavaScript primarily within Next.js. */}
               </p>
               <div
                 style={{
