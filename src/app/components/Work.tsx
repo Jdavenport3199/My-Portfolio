@@ -40,6 +40,7 @@ const Work: React.FC<Props> = ({ translateX }) => {
               href="https://teenage-engineering.vercel.app/"
               target="_blank"
               rel="noopener noreferrer"
+              aria-label="Teenage Engineering"
               style={{ opacity: 1, lineHeight: "0" }}
             >
               <img
@@ -66,6 +67,7 @@ const Work: React.FC<Props> = ({ translateX }) => {
               href="https://www.christiandavenport.studio/"
               target="_blank"
               rel="noopener noreferrer"
+              aria-label="3D Artist Portfolio"
               style={{ opacity: 1, lineHeight: "0" }}
             >
               <img
@@ -91,6 +93,7 @@ const Work: React.FC<Props> = ({ translateX }) => {
               href="https://stack-three-psi.vercel.app/"
               target="_blank"
               rel="noopener noreferrer"
+              aria-label="Stack"
               style={{ opacity: 1, lineHeight: "0" }}
             >
               <img
@@ -118,6 +121,7 @@ const Work: React.FC<Props> = ({ translateX }) => {
               href="https://ocular-vibrations.vercel.app/"
               target="_blank"
               rel="noopener noreferrer"
+              aria-label="OCULAR VIBRATIONS"
               style={{ opacity: 1, lineHeight: "0" }}
             >
               <img
@@ -145,6 +149,7 @@ const Work: React.FC<Props> = ({ translateX }) => {
               href="https://www.ocularvibrations.com/"
               target="_blank"
               rel="noopener noreferrer"
+              aria-label="OCULAR VIBRATIONS"
               style={{ opacity: 1, lineHeight: "0" }}
             >
               <img
@@ -171,6 +176,7 @@ const Work: React.FC<Props> = ({ translateX }) => {
               href="https://photography-flax-phi.vercel.app/"
               target="_blank"
               rel="noopener noreferrer"
+              aria-label="Danilo Scarpati"
               style={{ opacity: 1, lineHeight: "0" }}
             >
               <img
@@ -196,6 +202,7 @@ const Work: React.FC<Props> = ({ translateX }) => {
               href="https://dividome.com/"
               target="_blank"
               rel="noopener noreferrer"
+              aria-label="DiviDome"
               style={{ opacity: 1, lineHeight: "0" }}
             >
               <img
@@ -221,6 +228,7 @@ const Work: React.FC<Props> = ({ translateX }) => {
               href="https://cinema-collection.vercel.app/"
               target="_blank"
               rel="noopener noreferrer"
+              aria-label="Cinema Collection"
               style={{ opacity: 1, lineHeight: "0" }}
             >
               <img

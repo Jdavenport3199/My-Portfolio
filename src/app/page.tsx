@@ -133,6 +133,7 @@ export default function Home() {
                     href="mailto:justindavenport.space@gmail.com"
                     target="_blank"
                     rel="noopener noreferrer"
+                    aria-label="Email"
                   >
                     <button className="social-btn">
                       <svg
@@ -152,6 +153,7 @@ export default function Home() {
                     href="https://www.linkedin.com/in/justindavenport99/"
                     target="_blank"
                     rel="noopener noreferrer"
+                    aria-label="LinkedIn"
                   >
                     <button className="social-btn">
                       <svg
@@ -171,6 +173,7 @@ export default function Home() {
                     href="https://github.com/Jdavenport3199"
                     target="_blank"
                     rel="noopener noreferrer"
+                    aria-label="GitHub"
                   >
                     <button className="social-btn">
                       <svg
@@ -190,6 +193,7 @@ export default function Home() {
                     href="https://dribbble.com/justindavenport"
                     target="_blank"
                     rel="noopener noreferrer"
+                    aria-label="Dribbble"
                   >
                     <button className="social-btn">
                       <svg
@@ -209,6 +213,7 @@ export default function Home() {
                     href="https://www.behance.net/justindavenportspace"
                     target="_blank"
                     rel="noopener noreferrer"
+                    aria-label="Behance"
                   >
                     <button className="social-btn">
                       <svg
