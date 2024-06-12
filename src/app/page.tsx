@@ -79,8 +79,15 @@ export default function Home() {
                   transform: `translateX(${translateX})`,
                 }}
               ></div>
-              <button onClick={() => handleTranslate("-50%")}>Work</button>
-              <button onClick={() => handleTranslate("50%")}>Articles</button>
+              <button onClick={() => handleTranslate("-50%")} aria-label="Work">
+                Work
+              </button>
+              <button
+                onClick={() => handleTranslate("50%")}
+                aria-label="Articles"
+              >
+                Articles
+              </button>
             </div>
           </div>
         </div>
@@ -135,7 +142,7 @@ export default function Home() {
                     rel="noopener noreferrer"
                     aria-label="Email"
                   >
-                    <button className="social-btn">
+                    <button className="social-btn" aria-label="Email">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         height="24"
@@ -155,7 +162,7 @@ export default function Home() {
                     rel="noopener noreferrer"
                     aria-label="LinkedIn"
                   >
-                    <button className="social-btn">
+                    <button className="social-btn" aria-label="LinkedIn">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         height="28"
@@ -175,7 +182,7 @@ export default function Home() {
                     rel="noopener noreferrer"
                     aria-label="GitHub"
                   >
-                    <button className="social-btn">
+                    <button className="social-btn" aria-label="GitHub">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         height="28"
@@ -195,7 +202,7 @@ export default function Home() {
                     rel="noopener noreferrer"
                     aria-label="Dribbble"
                   >
-                    <button className="social-btn">
+                    <button className="social-btn" aria-label="Dribbble">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         height="28"
@@ -215,7 +222,7 @@ export default function Home() {
                     rel="noopener noreferrer"
                     aria-label="Behance"
                   >
-                    <button className="social-btn">
+                    <button className="social-btn" aria-label="Behance">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         height="28"

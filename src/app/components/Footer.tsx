@@ -13,7 +13,7 @@ export default function Footer() {
               rel="noopener noreferrer"
               aria-label="Email"
             >
-              <button className="social-btn">
+              <button className="social-btn" aria-label="Email">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   height="24"
@@ -33,7 +33,7 @@ export default function Footer() {
               rel="noopener noreferrer"
               aria-label="LinkedIn"
             >
-              <button className="social-btn">
+              <button className="social-btn" aria-label="LinkedIn">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   height="28"
@@ -53,7 +53,7 @@ export default function Footer() {
               rel="noopener noreferrer"
               aria-label="GitHub"
             >
-              <button className="social-btn">
+              <button className="social-btn" aria-label="GitHub">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   height="28"
@@ -73,7 +73,7 @@ export default function Footer() {
               rel="noopener noreferrer"
               aria-label="Dribbble"
             >
-              <button className="social-btn">
+              <button className="social-btn" aria-label="Dribbble">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   height="28"
@@ -93,7 +93,7 @@ export default function Footer() {
               rel="noopener noreferrer"
               aria-label="Behance"
             >
-              <button className="social-btn">
+              <button className="social-btn" aria-label="Behance">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   height="28"
