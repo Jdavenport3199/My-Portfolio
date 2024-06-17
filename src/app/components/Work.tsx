@@ -28,12 +28,16 @@ const Work: React.FC<Props> = ({ translateX }) => {
         <div className="project-holder">
           <div className="project">
             <div className="project-title">
-              <p>Website</p>
               <span>Teenage Engineering™</span>
+              <p style={{ marginTop: "0.4rem" }}>
+                Teenage Engineering™ creates high quality, well designed,
+                electronic products for all people who love sound and music.
+              </p>
               <div className="subject-holder">
                 <p className="subject">Next.js</p>
                 <p className="subject">React</p>
                 <p className="subject">GSAP</p>
+                <p className="subject">Website</p>
               </div>
             </div>
             <Link
@@ -44,7 +48,7 @@ const Work: React.FC<Props> = ({ translateX }) => {
               style={{ opacity: 1, lineHeight: "0" }}
             >
               <img
-                className="img-lg"
+                className="img"
                 src="/te-new.png"
                 width={1215}
                 height={2160}
@@ -55,12 +59,17 @@ const Work: React.FC<Props> = ({ translateX }) => {
 
           <div className="project">
             <div className="project-title">
-              <p>Website</p>
               <span>3D Artist Portfolio</span>
+              <p style={{ marginTop: "0.4rem" }}>
+                A 3D artist and digital designer portfolio which showcases a
+                diverse array of meticulously crafted 3D art and digital
+                designs.
+              </p>
               <div className="subject-holder">
                 <p className="subject">Next.js</p>
                 <p className="subject">React</p>
                 <p className="subject">Three.js</p>
+                <p className="subject">Website</p>
               </div>
             </div>
             <Link
@@ -71,7 +80,7 @@ const Work: React.FC<Props> = ({ translateX }) => {
               style={{ opacity: 1, lineHeight: "0" }}
             >
               <img
-                className="img-lg"
+                className="img"
                 src="/cj-new.png"
                 width={1920}
                 height={1080}
@@ -82,11 +91,15 @@ const Work: React.FC<Props> = ({ translateX }) => {
 
           <div className="project">
             <div className="project-title">
-              <p>Website</p>
               <span>Stack</span>
+              <p style={{ marginTop: "0.4rem" }}>
+                Stack is a platform designed to help developers showcase and
+                visualize their tech stacks.
+              </p>
               <div className="subject-holder">
                 <p className="subject">Next.js</p>
                 <p className="subject">React</p>
+                <p className="subject">Website</p>
               </div>
             </div>
             <Link
@@ -97,7 +110,7 @@ const Work: React.FC<Props> = ({ translateX }) => {
               style={{ opacity: 1, lineHeight: "0" }}
             >
               <img
-                className="img-lg"
+                className="img"
                 src="/stack-new.png"
                 width={1920}
                 height={1080}
@@ -108,13 +121,17 @@ const Work: React.FC<Props> = ({ translateX }) => {
 
           <div className="project">
             <div className="project-title">
-              <p>Website</p>
               <span>OCULAR VIBRATIONS™</span>
+              <p style={{ marginTop: "0.4rem" }}>
+                OCULAR VIBRATIONS™ is a digital design studio based in
+                Charlotte, NC.
+              </p>
               <div className="subject-holder">
                 <p className="subject">Next.js</p>
                 <p className="subject">React</p>
                 <p className="subject">Three.js</p>
                 <p className="subject">GSAP</p>
+                <p className="subject">Website</p>
               </div>
             </div>
             <Link
@@ -125,7 +142,7 @@ const Work: React.FC<Props> = ({ translateX }) => {
               style={{ opacity: 1, lineHeight: "0" }}
             >
               <img
-                className="img-lg"
+                className="img"
                 src="/studio-new.png"
                 width={1920}
                 height={1080}
@@ -136,13 +153,17 @@ const Work: React.FC<Props> = ({ translateX }) => {
 
           <div className="project">
             <div className="project-title">
-              <p>Website</p>
               <span>OCULAR VIBRATIONS™</span>
+              <p style={{ marginTop: "0.4rem" }}>
+                OCULAR VIBRATIONS™ is a digital design studio based in
+                Charlotte, NC.
+              </p>
               <div className="subject-holder">
                 <p className="subject">Next.js</p>
                 <p className="subject">React</p>
                 <p className="subject">Three.js</p>
                 <p className="subject">GSAP</p>
+                <p className="subject">Website</p>
               </div>
             </div>
             <Link
@@ -153,7 +174,7 @@ const Work: React.FC<Props> = ({ translateX }) => {
               style={{ opacity: 1, lineHeight: "0" }}
             >
               <img
-                className="img-lg"
+                className="img"
                 src="/ocular-new.png"
                 width={1215}
                 height={2160}
@@ -164,12 +185,16 @@ const Work: React.FC<Props> = ({ translateX }) => {
 
           <div className="project">
             <div className="project-title">
-              <p>Website</p>
               <span>Danilo Scarpati</span>
+              <p style={{ marginTop: "0.4rem" }}>
+                A photograpghy portfolio which showcases a stunning collection
+                that captures the beauty and essence of diverse subjects.
+              </p>
               <div className="subject-holder">
                 <p className="subject">Next.js</p>
                 <p className="subject">React</p>
                 <p className="subject">GSAP</p>
+                <p className="subject">Website</p>
               </div>
             </div>
             <Link
@@ -180,7 +205,7 @@ const Work: React.FC<Props> = ({ translateX }) => {
               style={{ opacity: 1, lineHeight: "0" }}
             >
               <img
-                className="img-lg"
+                className="img"
                 src="/photo-new.png"
                 width={1215}
                 height={2160}
@@ -191,11 +216,15 @@ const Work: React.FC<Props> = ({ translateX }) => {
 
           <div className="project">
             <div className="project-title">
-              <p>Website</p>
               <span>DiviDome</span>
+              <p style={{ marginTop: "0.4rem" }}>
+                DiviDome provides comprehensive access to dividend data for all
+                publicly traded companies.
+              </p>
               <div className="subject-holder">
                 <p className="subject">Next.js</p>
                 <p className="subject">React</p>
+                <p className="subject">Website</p>
               </div>
             </div>
             <Link
@@ -206,7 +235,7 @@ const Work: React.FC<Props> = ({ translateX }) => {
               style={{ opacity: 1, lineHeight: "0" }}
             >
               <img
-                className="img-lg"
+                className="img"
                 src="/divids-new.png"
                 width={1920}
                 height={1080}
@@ -217,11 +246,15 @@ const Work: React.FC<Props> = ({ translateX }) => {
 
           <div className="project">
             <div className="project-title">
-              <p>Website</p>
               <span>Cinema Collection</span>
+              <p style={{ marginTop: "0.4rem" }}>
+                Cinema Collection allows for discovery of new and unique films
+                based on your favorite movie genres.
+              </p>
               <div className="subject-holder">
                 <p className="subject">Next.js</p>
                 <p className="subject">React</p>
+                <p className="subject">Website</p>
               </div>
             </div>
             <Link
@@ -232,7 +265,7 @@ const Work: React.FC<Props> = ({ translateX }) => {
               style={{ opacity: 1, lineHeight: "0" }}
             >
               <img
-                className="img-lg"
+                className="img"
                 src="/cinema-new.png"
                 width={1920}
                 height={1080}
