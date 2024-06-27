@@ -63,7 +63,11 @@ const Work: React.FC<Props> = ({ translateX }) => {
             </p>
             <div className="img-holder">
               <div className="overlay-img"></div>
-              <img className="img" src="/te-new.png" />
+              <img
+                className="img"
+                src="/te-new.webp"
+                alt="Teenage Engineering™"
+              />
             </div>
           </Link>
 
@@ -97,7 +101,7 @@ const Work: React.FC<Props> = ({ translateX }) => {
             </p>
             <div className="img-holder">
               <div className="overlay-img"></div>
-              <img className="img" src="/cj-new.png" />
+              <img className="img" src="/cj-new.webp" alt="Digital Portfolio" />
             </div>
           </Link>
 
@@ -131,7 +135,7 @@ const Work: React.FC<Props> = ({ translateX }) => {
             </p>
             <div className="img-holder">
               <div className="overlay-img"></div>
-              <img className="img" src="/stack-new.png" />
+              <img className="img" src="/stack-new.webp" alt="Stack" />
             </div>
           </Link>
 
@@ -165,7 +169,11 @@ const Work: React.FC<Props> = ({ translateX }) => {
             </p>
             <div className="img-holder">
               <div className="overlay-img"></div>
-              <img className="img" src="/studio-new.png" />
+              <img
+                className="img"
+                src="/studio-new.webp"
+                alt="OCULAR VIBRATIONS™ v1"
+              />
             </div>
           </Link>
 
@@ -199,7 +207,11 @@ const Work: React.FC<Props> = ({ translateX }) => {
             </p>
             <div className="img-holder">
               <div className="overlay-img"></div>
-              <img className="img" src="/ocular-new.png" />
+              <img
+                className="img"
+                src="/ocular-new.webp"
+                alt="OCULAR VIBRATIONS™ v2"
+              />
             </div>
           </Link>
 
@@ -233,7 +245,11 @@ const Work: React.FC<Props> = ({ translateX }) => {
             </p>
             <div className="img-holder">
               <div className="overlay-img"></div>
-              <img className="img" src="/cinema-new.png" />
+              <img
+                className="img"
+                src="/cinema-new.webp"
+                alt="Cinema Collection"
+              />
             </div>
           </Link>
         </div>

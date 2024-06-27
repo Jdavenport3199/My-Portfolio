@@ -4,10 +4,10 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   title: {
-    default: "justin.",
-    template: "%s | justin.",
+    default: "Justin Davenport — Web Developer. Product Designer.",
+    template: "%s | Justin Davenport",
   },
-  description: "justin. web developer. product designer.",
+  description: "Web Developer. Product Designer.",
   // keywords: ["Justin", "Davenport", "Web", "Developer", "Product", "Designer"],
   metadataBase: new URL("https://www.justindavenport.space/"),
 };
@@ -20,9 +20,7 @@ export default function RootLayout({
   return (
     <>
       <html lang="en">
-        <body className={`${switzer.className} antialiased`}>
-          {children}
-        </body>
+        <body className={`${switzer.className} antialiased`}>{children}</body>
       </html>
     </>
   );
