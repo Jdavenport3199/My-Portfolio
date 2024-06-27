@@ -1,5 +1,6 @@
 "use client";
 import Link from "next/link";
+import { switzer } from "../ui/fonts";
 
 interface Props {
   translateX: string;
@@ -13,81 +14,79 @@ const Articles: React.FC<Props> = ({ translateX }) => {
         style={{
           display: translateX === "50%" ? "flex" : "none",
         }}
+        id="fade"
       >
         <div className="container-title">
-          <h2>Articles</h2>
+          <h2 className={switzer.className}>
+            blog<strong style={{ color: "#007FFF" }}>.</strong>
+          </h2>
         </div>
       </div>
       <div
         className="container-holder"
         style={{
           display: translateX === "50%" ? "flex" : "none",
+          minHeight: "70vh",
+          alignItems: "flex-start",
         }}
+        id="fade"
       >
         <div className="project-holder">
-          <div className="project">
-            <div className="project-title">
-              <span>
-                Optimize Custom Fonts for PageSpeed Insights in Next.js
-              </span>
-              <p style={{ marginTop: "0.4rem" }}>
-                This article covers the basics of optimizing custom fonts within
-                Next.js to increase the overall performance score across
-                Google’s PageSpeed Insights.
-              </p>
-              <div className="subject-holder">
-                <p className="subject">Next.js</p>
-                <p className="subject">React</p>
-                <p className="subject">Google Insights</p>
-                <p className="subject">Tutorial</p>
-              </div>
-            </div>
-            <Link
-              href="https://medium.com/@justindavenport.space/optimize-custom-fonts-for-pagespeed-insights-in-next-js-334fe993b65a"
-              target="_blank"
-              rel="noopener noreferrer"
-              style={{ opacity: 1, lineHeight: "0" }}
+          <Link
+            className="project"
+            href="https://medium.com/@justindavenport.space/optimize-custom-fonts-for-pagespeed-insights-in-next-js-334fe993b65a"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{ opacity: 1, lineHeight: "0", height: "auto" }}
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              height="16"
+              width="12"
+              viewBox="0 0 448 512"
+              fill="#007FFF"
+              style={{
+                transform: "rotate(-45deg)",
+                position: "absolute",
+                right: "2rem",
+                top: "2rem",
+              }}
             >
-              <img
-                className="img"
-                src="/te-new.png"
-                width={1215}
-                height={2160}
-                alt={""}
-              />
-            </Link>
-          </div>
+              <path d="M438.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L338.8 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l306.7 0L233.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z" />
+            </svg>
+            <span className="project-name">NEXT.JS FONTS</span>
+            <p className={switzer.className} style={{ marginTop: "0.4rem" }}>
+              Optimize custom fonts for PageSpeed Insights in Next.js.
+            </p>
+          </Link>
 
-          <div className="project">
-            <div className="project-title">
-              <span>Create a Product Landing Page with GSAP in Next.js</span>
-              <p style={{ marginTop: "0.4rem" }}>
-                This article covers the basics of implementing GSAP’s
-                ScrollTrigger in Next.js to create a cutting-edge product
-                landing page.
-              </p>
-              <div className="subject-holder">
-                <p className="subject">Next.js</p>
-                <p className="subject">React</p>
-                <p className="subject">GSAP</p>
-                <p className="subject">Tutorial</p>
-              </div>
-            </div>
-            <Link
-              href="https://medium.com/@justindavenport.space/create-a-product-landing-page-with-gsap-in-next-js-9403e29b89d8"
-              target="_blank"
-              rel="noopener noreferrer"
-              style={{ opacity: 1, lineHeight: "0" }}
+          <Link
+            className="project"
+            href="https://medium.com/@justindavenport.space/create-a-product-landing-page-with-gsap-in-next-js-9403e29b89d8"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{ opacity: 1, lineHeight: "0", height: "auto" }}
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              height="16"
+              width="12"
+              viewBox="0 0 448 512"
+              fill="#007FFF"
+              style={{
+                transform: "rotate(-45deg)",
+                position: "absolute",
+                right: "2rem",
+                top: "2rem",
+              }}
             >
-              <img
-                className="img"
-                src="/te-new.png"
-                width={1215}
-                height={2160}
-                alt={""}
-              />
-            </Link>
-          </div>
+              <path d="M438.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L338.8 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l306.7 0L233.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z" />
+            </svg>
+            <span className="project-name">GSAP INTRODUCTION</span>
+            <p className={switzer.className} style={{ marginTop: "0.4rem" }}>
+              Create a product landing page with GSAP in Next.js.
+            </p>
+          </Link>
         </div>
       </div>
     </>
