@@ -237,8 +237,9 @@
 
   .img {
     max-width: 85%;
-    padding-top: 3rem;
+    margin-top: 3rem;
     transform: translateY(2.5%);
+    border: 1px solid whitesmoke;
     transition: 300ms ease-out;
   }
 
@@ -257,6 +258,7 @@
     }
 
     .img {
+      box-shadow: #00000008 0px 0px 20px 4px;
       scale: 1.05;
       transform: translateY(-2.5%);
       transition: 300ms ease-out;
