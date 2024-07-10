@@ -9,9 +9,9 @@ export const metadata: Metadata = {
   },
   description: "Web Developer and Product Designer",
   openGraph: {
-    images: "/opengraph-image.png",
+    images: "https://www.justindavenport.space/opengraph-image.png",
   },
-  metadataBase: new URL("https://justindavenport.space/"),
+  metadataBase: new URL("https://www.justindavenport.space/"),
 };
 
 export default function RootLayout({
