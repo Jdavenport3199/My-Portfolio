@@ -110,7 +110,8 @@ export default function Home() {
 
         <div className="nav" ref={nav}>
           <div className="nav-holder">
-            {/* <strong
+            <strong
+              className="logo"
               style={{
                 fontSize: "clamp(10px, 2vw, 12px)",
                 fontWeight: "500",
@@ -119,15 +120,7 @@ export default function Home() {
               }}
             >
               JUSTIN DAVENPORT
-            </strong> */}
-            <span
-              style={{
-                color: "#007FFF",
-                fontWeight: 400
-              }}
-            >
-              JUSTIN DAVENPORT
-            </span>
+            </strong>
             <div className="nav-nav">
               <div className="nav-sub">
                 <div className="nav-links">
@@ -181,24 +174,20 @@ export default function Home() {
                 alignItems: "flex-end",
               }}
             >
-              <div
-                className="container"
-                id="fade"
-                style={{ marginTop: "20rem" }}
-              >
+              <div className="container-splash" id="fade">
                 <h1>
                   WEB DEVELOPER
                   <br />
                   <strong
                     style={{
-                      fontSize: "clamp(24px, 8vw, 48px)",
+                      fontSize: "clamp(14px, 4vw, 48px)",
                       fontWeight: 300,
                       color: "#007FFF",
                     }}
                   >
                     AND
                   </strong>{" "}
-                  PRODUCT DESIGNER.
+                  PRODUCT DESIGNER
                 </h1>
                 <br />
                 <p>

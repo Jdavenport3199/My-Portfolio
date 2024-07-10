@@ -49,7 +49,7 @@
 
   h1 {
     line-height: 1;
-    font-size: clamp(24px, 8vw, 86px);
+    font-size: clamp(24px, 6vw, 84px);
     font-weight: 300;
   }
 
@@ -100,10 +100,8 @@
 
   .nav-holder {
     display: flex;
-    justify-content: space-between;
+    justify-content: right;
     align-items: center;
-    width: 95%;
-
     width: 85%;
   }
 
@@ -208,6 +206,8 @@
     border: 1px solid black;
     transition: 150ms linear;
     height: 18rem;
+
+    width: 100%;
   }
 
   .project-name {
@@ -266,10 +266,12 @@
 
   .container,
   .container-title {
-    width: 95%;
-
-
     width: 85%;
+  }
+
+  .container-splash {
+    width: 85%;
+    margin-top: 40%;
   }
 
   .container-title {
@@ -287,31 +289,6 @@
     flex-wrap: wrap;
   }
 
-  .social-btn {
-    width: 3.25rem;
-    height: 3.25rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 100rem;
-    transition: 300ms ease-in-out;
-  }
-
-  .social-btn:hover {
-    opacity: 1;
-    scale: 0.9;
-  }
-
-  .text-holder {
-    width: 95%;
-    height: 92.5vh;
-    text-align: center;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 2rem;
-  }
-
   .test {
     text-align: center;
     display: flex;
@@ -325,40 +302,8 @@
     height: 95vh;
   }
 
-  .test2 {
-    text-align: center;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: #ffffff;
-    border-radius: 0rem;
-    height: 8rem;
-  }
-
-  .splash-title-holder {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-    flex-direction: column;
-    gap: 0.5rem;
-  }
-
-  .splash-title-left,
-  .splash-title-right {
-    width: 95%;
-    text-align: center;
-  }
-
-  .divider {
+  .logo {
     display: none;
-  }
-
-  .splash-p {
-    margin-top: 2rem;
-    margin-bottom: 4rem;
-    font-size: clamp(18px, 2vw, 24px);
   }
 
   .footer-holder {
@@ -388,12 +333,22 @@
       text-align: right;
     }
   }
+
+  .embed-responsive {
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+  }
 }
 
 @media (min-width: 799px) {
-  /* .nav-holder {
-    width: 90%;
-  } */
+  .nav-holder {
+    justify-content: space-between;
+  }
 
   h1 {
     line-height: 1.2;
@@ -404,34 +359,8 @@
     justify-content: center;
   }
 
-  .project {
-    max-width: 960px;
-    width: 45%;
-    padding: 3rem;
-  }
-
-  .splash-title-holder {
-    flex-direction: row;
-    gap: 1.5rem;
-  }
-
-  .splash-title-left {
-    width: 45%;
-    text-align: left;
-  }
-
-  .splash-title-right {
-    width: 45%;
-    text-align: right;
-  }
-
-  .divider {
+  .logo {
     display: block;
-  }
-
-  .splash-p {
-    margin-top: 2rem;
-    margin-bottom: 8rem;
   }
 
   .footer {
@@ -444,8 +373,17 @@
     width: 80%;
   }
 
-  .splash-title-holder {
-    gap: 2.5rem;
+  .container-splash {
+    width: 80%;
+    margin-top: 12%;
+  }
+}
+
+@media (min-width: 999px) {
+  .project {
+    max-width: 960px;
+    width: 45%;
+    padding: 3rem;
   }
 }
 
