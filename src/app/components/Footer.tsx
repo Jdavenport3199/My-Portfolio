@@ -1,12 +1,11 @@
 "use client";
 import Link from "next/link";
-import { switzer } from "../ui/fonts";
 
 export default function Footer() {
   return (
     <>
       <div className="container-holder">
-        <div className="footer-holder">
+        <div className="footer-holder" style={{ width: "95%" }}>
           <div className="footer">
             <div className="social-btn-holder">
               <Link
@@ -14,6 +13,7 @@ export default function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="LinkedIn"
+                style={{ color: "#007FFF" }}
               >
                 LINKEDIN
               </Link>
@@ -22,39 +22,38 @@ export default function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="GitHub"
+                style={{ color: "#007FFF" }}
               >
                 GITHUB
+              </Link>
+              <Link
+                href="/pages/resume"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Resume"
+                style={{ color: "#007FFF" }}
+              >
+                RESUME
               </Link>
               <Link
                 href="mailto:justindavenport.space@gmail.com"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Email"
+                style={{ color: "#007FFF" }}
               >
-                JUSTINDAVENPORT.SPACE@GMAIL.COM
+                EMAIL
               </Link>
             </div>
-            <div>
-              <strong
-                style={{
-                  fontSize: "clamp(10px, 2vw, 12px)",
-                  fontWeight: "500",
-                  lineHeight: "1.4",
-                }}
-              >
-                ©2024
-              </strong>
-              {/* <strong
-                className={switzer.className}
-                style={{
-                  fontWeight: "800",
-                  fontSize: "clamp(14px, 2vw, 16px)",
-                  color: "#007FFF",
-                }}
-              >
-                Justin Davenport
-              </strong> */}
-            </div>
+            <strong
+              style={{
+                fontSize: "clamp(10px, 2vw, 12px)",
+                fontWeight: "500",
+                lineHeight: "1.4",
+              }}
+            >
+              ©2024 JUSTIN DAVENPORT
+            </strong>
           </div>
         </div>
       </div>

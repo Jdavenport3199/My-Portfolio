@@ -4,10 +4,10 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   title: {
-    default: "Justin Davenport — Web Developer. Product Designer.",
-    template: "%s | Justin Davenport",
+    default: "JUSTIN DAVENPORT — PORTFOLIO",
+    template: "%s — JUSTIN DAVENPORT",
   },
-  description: "Web Developer. Product Designer.",
+  description: "WEB DEVELOPER / PRODUCT DESIGNER",
   // keywords: ["Justin", "Davenport", "Web", "Developer", "Product", "Designer"],
   metadataBase: new URL("https://www.justindavenport.space/"),
 };

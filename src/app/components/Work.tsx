@@ -1,6 +1,5 @@
 "use client";
 import Link from "next/link";
-import { switzer } from "../ui/fonts";
 
 interface Props {
   translateX: string;
@@ -17,9 +16,7 @@ const Work: React.FC<Props> = ({ translateX }) => {
         id="fade"
       >
         <div className="container-title">
-          <h2 className={switzer.className}>
-            work<strong style={{ color: "#007FFF" }}>.</strong>
-          </h2>
+          <h2>WORK</h2>
         </div>
       </div>
 
@@ -57,7 +54,7 @@ const Work: React.FC<Props> = ({ translateX }) => {
               <path d="M438.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L338.8 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l306.7 0L233.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z" />
             </svg>
             <span className="project-name">GLOBAL ENTERPRISES</span>
-            <p className={switzer.className} style={{ marginTop: "0.4rem" }}>
+            <p style={{ marginTop: "0.4rem" }}>
               A dynamic and responsive mock company dashboard.
             </p>
             <div className="img-holder">
@@ -94,7 +91,7 @@ const Work: React.FC<Props> = ({ translateX }) => {
               <path d="M438.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L338.8 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l306.7 0L233.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z" />
             </svg>
             <span className="project-name">TEENAGE ENGINEERING™</span>
-            <p className={switzer.className} style={{ marginTop: "0.4rem" }}>
+            <p style={{ marginTop: "0.4rem" }}>
               Teenage Engineering™ creates high quality electronic products for
               people who love sound and music.
             </p>
@@ -128,7 +125,7 @@ const Work: React.FC<Props> = ({ translateX }) => {
               <path d="M438.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L338.8 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l306.7 0L233.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z" />
             </svg>
             <span className="project-name">DIGITAL PORTFOLIO</span>
-            <p className={switzer.className} style={{ marginTop: "0.4rem" }}>
+            <p style={{ marginTop: "0.4rem" }}>
               A digital portfolio showcasing a diverse array of meticulously
               crafted 3d art and digital designs.
             </p>
@@ -162,7 +159,7 @@ const Work: React.FC<Props> = ({ translateX }) => {
               <path d="M438.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L338.8 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l306.7 0L233.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z" />
             </svg>
             <span className="project-name">STACK</span>
-            <p className={switzer.className} style={{ marginTop: "0.4rem" }}>
+            <p style={{ marginTop: "0.4rem" }}>
               Stack is a platform designed to help developers showcase and
               visualize their tech stacks.
             </p>
@@ -196,7 +193,7 @@ const Work: React.FC<Props> = ({ translateX }) => {
               <path d="M438.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L338.8 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l306.7 0L233.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z" />
             </svg>
             <span className="project-name">OCULAR VIBRATIONS™ v1</span>
-            <p className={switzer.className} style={{ marginTop: "0.4rem" }}>
+            <p style={{ marginTop: "0.4rem" }}>
               OCULAR VIBRATIONS™ is a digital design studio based in Charlotte,
               NC.
             </p>
@@ -234,7 +231,7 @@ const Work: React.FC<Props> = ({ translateX }) => {
               <path d="M438.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L338.8 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l306.7 0L233.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z" />
             </svg>
             <span className="project-name">OCULAR VIBRATIONS™</span>
-            <p className={switzer.className} style={{ marginTop: "0.4rem" }}>
+            <p style={{ marginTop: "0.4rem" }}>
               OCULAR VIBRATIONS™ is a digital design studio based in Charlotte,
               NC.
             </p>
@@ -272,17 +269,13 @@ const Work: React.FC<Props> = ({ translateX }) => {
               <path d="M438.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L338.8 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l306.7 0L233.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z" />
             </svg>
             <span className="project-name">CINEMA COLLECTION</span>
-            <p className={switzer.className} style={{ marginTop: "0.4rem" }}>
+            <p style={{ marginTop: "0.4rem" }}>
               Cinema Collection allows for discovery of new and unique films
               based on your favorite movie genres.
             </p>
             <div className="img-holder">
               <div className="overlay-img"></div>
-              <img
-                className="img"
-                src="/cinema.png"
-                alt="Cinema Collection"
-              />
+              <img className="img" src="/cinema.png" alt="Cinema Collection" />
             </div>
           </Link>
         </div>
