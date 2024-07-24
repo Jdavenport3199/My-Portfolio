@@ -9,7 +9,7 @@ import Link from "next/link";
 export default function Home() {
   const [translateX, setTranslateX] = useState("-50%");
   const [lastScroll, setLastScroll] = useState(0);
-  const [loading, setLoading] = useState(true);
+  // const [loading, setLoading] = useState(true);
   const nav = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -36,17 +36,17 @@ export default function Home() {
     };
   }, [lastScroll]);
 
-  useEffect(() => {
-    const scrollToTop = () => {
-      window.scrollTo(0, 0);
-      setLoading(true);
+  // useEffect(() => {
+  //   const scrollToTop = () => {
+  //     window.scrollTo(0, 0);
+  //     setLoading(true);
 
-      setTimeout(() => {
-        setLoading(false);
-      }, 500);
-    };
-    scrollToTop();
-  }, []);
+  //     setTimeout(() => {
+  //       setLoading(false);
+  //     }, 500);
+  //   };
+  //   scrollToTop();
+  // }, []);
 
   const test = useRef(null);
   const test2 = useRef(null);
@@ -131,11 +131,11 @@ export default function Home() {
         <div className="test"></div>
       </div>
 
-      {loading ? (
+      {/* {loading ? (
         <div className="loader-holder">
           <GridLoader color="#007FFF" size={10} />
         </div>
-      ) : (
+      ) : ( */}
         <>
           <div
             className="container-holder"
@@ -224,7 +224,7 @@ export default function Home() {
           <Articles translateX={translateX} />
           <Footer />
         </>
-      )}
+      {/* )} */}
     </main>
   );
 }

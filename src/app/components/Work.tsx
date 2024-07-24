@@ -55,11 +55,12 @@ const Work: React.FC<Props> = ({ translateX }) => {
             </svg>
             <span className="project-name">DEVOLIO</span>
             <p style={{ marginTop: "0.4rem" }}>
-              A dynamic and responsive mock company dashboard.
+              Devolio is a platform for developers to visually showcase their
+              GitHub projects.
             </p>
             <div className="img-holder">
               <div className="overlay-img"></div>
-              <img className="img" src="/devolio.png" alt="Devolio" />
+              <img className="img" src="/devolio.webp" alt="Devolio" />
             </div>
           </Link>
 
@@ -94,7 +95,7 @@ const Work: React.FC<Props> = ({ translateX }) => {
               <div className="overlay-img"></div>
               <img
                 className="img"
-                src="/dashboard.png"
+                src="/dashboard.webp"
                 alt="Global Enterprises"
               />
             </div>
@@ -130,7 +131,7 @@ const Work: React.FC<Props> = ({ translateX }) => {
             </p>
             <div className="img-holder">
               <div className="overlay-img"></div>
-              <img className="img" src="/te.png" alt="Teenage Engineering™" />
+              <img className="img" src="/te.webp" alt="Teenage Engineering™" />
             </div>
           </Link>
 
@@ -164,7 +165,7 @@ const Work: React.FC<Props> = ({ translateX }) => {
             </p>
             <div className="img-holder">
               <div className="overlay-img"></div>
-              <img className="img" src="/cj.png" alt="Digital Portfolio" />
+              <img className="img" src="/cj.webp" alt="Digital Portfolio" />
             </div>
           </Link>
 
@@ -198,7 +199,7 @@ const Work: React.FC<Props> = ({ translateX }) => {
             </p>
             <div className="img-holder">
               <div className="overlay-img"></div>
-              <img className="img" src="/stack.png" alt="Stack" />
+              <img className="img" src="/stack.webp" alt="Stack" />
             </div>
           </Link>
 
@@ -308,7 +309,7 @@ const Work: React.FC<Props> = ({ translateX }) => {
             </p>
             <div className="img-holder">
               <div className="overlay-img"></div>
-              <img className="img" src="/cinema.png" alt="Cinema Collection" />
+              <img className="img" src="/cinema.webp" alt="Cinema Collection" />
             </div>
           </Link>
         </div>
