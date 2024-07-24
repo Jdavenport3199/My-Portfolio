@@ -115,7 +115,7 @@ export default function Home() {
               >
                 Located in Charlotte,
                 <br className="break" />
-                available for global opportunities.
+                {" "}available for global opportunities.
               </h2>
             </div>
             <div className="footer-holder" id="fade">

@@ -28,7 +28,7 @@
     background-repeat: no-repeat;
     /* background-size: 100% 100%; */
     position: fixed;
-    margin-top: 24rem;
+    margin-top: 18rem;
     opacity: .65;
     z-index: 1;
   }
@@ -48,7 +48,6 @@
   }
 
   h1 {
-    line-height: 1;
     font-size: clamp(28px, 6vw, 96px);
     font-weight: 300;
   }
@@ -269,7 +268,7 @@
 
   .container-splash {
     width: 95%;
-    margin-top: 40%;
+    margin-top: 50%;
   }
 
   .container-title {
@@ -351,10 +350,6 @@
     justify-content: space-between;
   }
 
-  h1 {
-    line-height: 1.2;
-  }
-
   .project-holder {
     gap: 2rem 2rem;
     justify-content: center;
@@ -406,5 +401,6 @@
 @media (min-width: 1499px) {
   .background {
     background-size: 100% 100%;
+    margin-top: 24rem;
   }
 }
