@@ -56,9 +56,7 @@ export default function Home() {
 
       <div className="nav" ref={nav}>
         <div className="nav-holder">
-          <strong className="logo">
-            {/* Justin Davenport */}
-            </strong>
+          <strong className="logo">{/* Justin Davenport */}</strong>
           <div className="nav-nav">
             <div className="nav-sub">
               <div className="nav-links">
@@ -109,18 +107,20 @@ export default function Home() {
                 </strong>{" "}
                 PRODUCT DESIGNER
               </h1>
-              <br />
-              <h2 style={{ fontSize: "clamp(20px, 2vw, 24px)" }}>
-                Located in Charlotte, available for global opportunities.
+              <h2
+                style={{
+                  fontSize: "clamp(16px, 4vw, 24px)",
+                  marginTop: "1rem",
+                }}
+              >
+                Located in Charlotte,
+                <br className="break" />
+                available for global opportunities.
               </h2>
             </div>
             <div className="footer-holder" id="fade">
               <div className="footer">
-                <p
-
-                >
-                  Explore my work below, or contact me for collaborations.
-                </p>
+                <p>Explore my work below, or contact me for collaborations.</p>
                 <div className="social-btn-holder">
                   <Link
                     href="https://www.linkedin.com/in/justindavenport99/"
