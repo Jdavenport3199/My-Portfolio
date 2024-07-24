@@ -12,6 +12,9 @@ export const metadata: Metadata = {
     images: "https://www.justindavenport.space/opengraph-image.png",
   },
   metadataBase: new URL("https://www.justindavenport.space/"),
+  icons: {
+    icon: "/favicon.ico",
+  },
 };
 
 export default function RootLayout({
