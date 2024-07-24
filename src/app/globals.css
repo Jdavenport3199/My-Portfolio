@@ -237,7 +237,7 @@
   .img {
     max-width: 85%;
     margin-top: 3rem;
-    transform: translateY(2.5%);
+    transform: translateY(20%);
     border: 1px solid whitesmoke;
     transition: 300ms ease-out;
   }
@@ -259,7 +259,7 @@
     .img {
       box-shadow: #00000008 0px 0px 20px 4px;
       scale: 1.05;
-      transform: translateY(-2.5%);
+      transform: translateY(-15%);
       transition: 300ms ease-out;
     }
   }
@@ -341,6 +341,18 @@
     align-items: center;
     position: relative;
     overflow: hidden;
+  }
+}
+
+@media (min-width: 499px) {
+  .img {
+    transform: translateY(2.5%);
+  }
+
+  .project:hover {
+    .img {
+      transform: translateY(-2.5%);
+    }
   }
 }
 
