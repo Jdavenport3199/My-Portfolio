@@ -5,8 +5,9 @@ export default function Footer() {
   return (
     <>
       <div className="container-holder">
-        <div className="footer-holder" style={{ width: "95%" }}>
+        <div className="footer-holder">
           <div className="footer">
+            <p>©2024 Justin Davenport</p>
             <div className="social-btn-holder">
               <Link
                 href="https://www.linkedin.com/in/justindavenport99/"
@@ -15,7 +16,7 @@ export default function Footer() {
                 aria-label="LinkedIn"
                 style={{ color: "#007FFF" }}
               >
-                LINKEDIN
+                LinkedIn
               </Link>
               <Link
                 href="https://github.com/Jdavenport3199"
@@ -24,7 +25,7 @@ export default function Footer() {
                 aria-label="GitHub"
                 style={{ color: "#007FFF" }}
               >
-                GITHUB
+                GitHub
               </Link>
               <Link
                 href="/pages/resume"
@@ -33,7 +34,7 @@ export default function Footer() {
                 aria-label="Resume"
                 style={{ color: "#007FFF" }}
               >
-                RESUME
+                Resume
               </Link>
               <Link
                 href="mailto:justindavenport.space@gmail.com"
@@ -42,18 +43,9 @@ export default function Footer() {
                 aria-label="Email"
                 style={{ color: "#007FFF" }}
               >
-                EMAIL
+                Email
               </Link>
             </div>
-            <strong
-              style={{
-                fontSize: "clamp(10px, 2vw, 12px)",
-                fontWeight: "500",
-                lineHeight: "1.4",
-              }}
-            >
-              ©2024 JUSTIN DAVENPORT
-            </strong>
           </div>
         </div>
       </div>

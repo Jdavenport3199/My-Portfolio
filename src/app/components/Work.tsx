@@ -1,5 +1,6 @@
 "use client";
 import Link from "next/link";
+import { object_sans } from "../ui/fonts";
 
 interface Props {
   translateX: string;
@@ -16,7 +17,7 @@ const Work: React.FC<Props> = ({ translateX }) => {
         id="fade"
       >
         <div className="container-title">
-          <h2>WORK</h2>
+          <h2 className={object_sans.className}>WORK</h2>
         </div>
       </div>
 
@@ -24,7 +25,7 @@ const Work: React.FC<Props> = ({ translateX }) => {
         className="container-holder"
         style={{
           display: translateX === "-50%" ? "flex" : "none",
-          minHeight: "70vh",
+          minHeight: "120vh",
           alignItems: "flex-start",
         }}
         id="fade"
@@ -53,7 +54,7 @@ const Work: React.FC<Props> = ({ translateX }) => {
             >
               <path d="M438.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L338.8 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l306.7 0L233.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z" />
             </svg>
-            <span className="project-name">DEVOLIO</span>
+            <span className="project-name">Devolio.io</span>
             <p style={{ marginTop: "0.4rem" }}>
               Devolio is a platform for developers to visually showcase their
               GitHub projects.
@@ -87,7 +88,7 @@ const Work: React.FC<Props> = ({ translateX }) => {
             >
               <path d="M438.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L338.8 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l306.7 0L233.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z" />
             </svg>
-            <span className="project-name">GLOBAL ENTERPRISES</span>
+            <span className="project-name">Global Enterprises</span>
             <p style={{ marginTop: "0.4rem" }}>
               A dynamic and responsive mock company dashboard.
             </p>
@@ -124,7 +125,7 @@ const Work: React.FC<Props> = ({ translateX }) => {
             >
               <path d="M438.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L338.8 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l306.7 0L233.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z" />
             </svg>
-            <span className="project-name">TEENAGE ENGINEERING™</span>
+            <span className="project-name">Teenage Engineering™</span>
             <p style={{ marginTop: "0.4rem" }}>
               Teenage Engineering™ creates high quality electronic products for
               people who love sound and music.
@@ -158,7 +159,7 @@ const Work: React.FC<Props> = ({ translateX }) => {
             >
               <path d="M438.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L338.8 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l306.7 0L233.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z" />
             </svg>
-            <span className="project-name">DIGITAL PORTFOLIO</span>
+            <span className="project-name">Digital Portfolio</span>
             <p style={{ marginTop: "0.4rem" }}>
               A digital portfolio showcasing a diverse array of meticulously
               crafted 3d art and digital designs.
@@ -192,7 +193,7 @@ const Work: React.FC<Props> = ({ translateX }) => {
             >
               <path d="M438.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L338.8 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l306.7 0L233.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z" />
             </svg>
-            <span className="project-name">STACK</span>
+            <span className="project-name">Stack</span>
             <p style={{ marginTop: "0.4rem" }}>
               Stack is a platform designed to help developers showcase and
               visualize their tech stacks.
@@ -202,82 +203,6 @@ const Work: React.FC<Props> = ({ translateX }) => {
               <img className="img" src="/stack.webp" alt="Stack" />
             </div>
           </Link>
-
-          {/* <Link
-            className="project"
-            href="https://ocular-vibrations.vercel.app/"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Teenage Engineering"
-            style={{ opacity: 1, lineHeight: "0" }}
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              height="16"
-              width="12"
-              viewBox="0 0 448 512"
-              fill="#007FFF"
-              style={{
-                transform: "rotate(-45deg)",
-                position: "absolute",
-                right: "2rem",
-                top: "2rem",
-              }}
-            >
-              <path d="M438.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L338.8 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l306.7 0L233.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z" />
-            </svg>
-            <span className="project-name">OCULAR VIBRATIONS™ v1</span>
-            <p style={{ marginTop: "0.4rem" }}>
-              OCULAR VIBRATIONS™ is a digital design studio based in Charlotte,
-              NC.
-            </p>
-            <div className="img-holder">
-              <div className="overlay-img"></div>
-              <img
-                className="img"
-                src="/studio-new.webp"
-                alt="OCULAR VIBRATIONS™ v1"
-              />
-            </div>
-          </Link> */}
-
-          {/* <Link
-            className="project"
-            href="https://www.ocularvibrations.com/"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Teenage Engineering"
-            style={{ opacity: 1, lineHeight: "0" }}
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              height="16"
-              width="12"
-              viewBox="0 0 448 512"
-              fill="#007FFF"
-              style={{
-                transform: "rotate(-45deg)",
-                position: "absolute",
-                right: "2rem",
-                top: "2rem",
-              }}
-            >
-              <path d="M438.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L338.8 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l306.7 0L233.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z" />
-            </svg>
-            <span className="project-name">OCULAR VIBRATIONS™</span>
-            <p style={{ marginTop: "0.4rem" }}>
-              OCULAR VIBRATIONS™ is a digital design studio based in Charlotte,
-              NC.
-            </p>
-            <div className="img-holder">
-              <div className="overlay-img"></div>
-              <img
-                className="img"
-                src="/ocular-new.webp"
-                alt="OCULAR VIBRATIONS™ v2"
-              />
-            </div>
-          </Link> */}
 
           <Link
             className="project"
@@ -302,7 +227,7 @@ const Work: React.FC<Props> = ({ translateX }) => {
             >
               <path d="M438.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L338.8 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l306.7 0L233.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z" />
             </svg>
-            <span className="project-name">CINEMA COLLECTION</span>
+            <span className="project-name">Cinema Collection</span>
             <p style={{ marginTop: "0.4rem" }}>
               Cinema Collection allows for discovery of new and unique films
               based on your favorite movie genres.

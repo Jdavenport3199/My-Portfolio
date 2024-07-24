@@ -5,6 +5,7 @@ import Work from "./components/Work";
 import Articles from "./components/Articles";
 import GridLoader from "react-spinners/GridLoader";
 import Link from "next/link";
+import { object_sans } from "./ui/fonts";
 
 export default function Home() {
   const [translateX, setTranslateX] = useState("-50%");
@@ -48,38 +49,6 @@ export default function Home() {
     scrollToTop();
   }, []);
 
-  const test = useRef(null);
-  const test2 = useRef(null);
-  let ticking = false;
-
-  useEffect(() => {
-    const handleScroll = () => {
-      if (!ticking) {
-        window.requestAnimationFrame(() => {
-          const scrolled = window.scrollY;
-          if (test.current) {
-            const parallaxSpeed = 0.75;
-            (test.current as any).style.transform = `translateY(${
-              scrolled * parallaxSpeed
-            }px)`;
-          }
-          if (test2.current) {
-            const parallaxSpeed = 0.9;
-            (test2.current as any).style.transform = `translateY(${
-              scrolled * parallaxSpeed
-            }px)`;
-          }
-          ticking = false;
-        });
-        ticking = true;
-      }
-    };
-    window.addEventListener("scroll", handleScroll);
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, [test, test2]);
-
   return (
     <main>
       <div className="background"></div>
@@ -87,17 +56,9 @@ export default function Home() {
 
       <div className="nav" ref={nav}>
         <div className="nav-holder">
-          <strong
-            className="logo"
-            style={{
-              fontSize: "clamp(10px, 2vw, 12px)",
-              fontWeight: "500",
-              lineHeight: "1.4",
-              color: "#007FFF",
-            }}
-          >
-            JUSTIN DAVENPORT
-          </strong>
+          <strong className="logo">
+            {/* Justin Davenport */}
+            </strong>
           <div className="nav-nav">
             <div className="nav-sub">
               <div className="nav-links">
@@ -108,27 +69,15 @@ export default function Home() {
                   }}
                 ></div>
                 <button onClick={() => setTranslateX("-50%")} aria-label="Work">
-                  WORK
+                  Work
                 </button>
                 <button onClick={() => setTranslateX("50%")} aria-label="Blog">
-                  BLOG
+                  Blog
                 </button>
               </div>
             </div>
           </div>
         </div>
-      </div>
-
-      <div
-        className="container-holder"
-        style={{
-          minHeight: "100vh",
-          alignItems: "flex-start",
-          position: "absolute",
-        }}
-        ref={test}
-      >
-        <div className="test"></div>
       </div>
 
       {loading ? (
@@ -146,7 +95,7 @@ export default function Home() {
             }}
           >
             <div className="container-splash" id="fade">
-              <h1>
+              <h1 className={object_sans.className}>
                 WEB DEVELOPER
                 <br />
                 <strong
@@ -161,23 +110,17 @@ export default function Home() {
                 PRODUCT DESIGNER
               </h1>
               <br />
-              <p>
-                Located in Charlotte, available globally.
-                <br />
-                Feel free to contact me or explore my work below.
-              </p>
+              <h2 style={{ fontSize: "clamp(20px, 2vw, 24px)" }}>
+                Located in Charlotte, available for global opportunities.
+              </h2>
             </div>
             <div className="footer-holder" id="fade">
               <div className="footer">
-                <strong
-                  style={{
-                    fontSize: "clamp(10px, 2vw, 12px)",
-                    fontWeight: "500",
-                    lineHeight: "1.4",
-                  }}
+                <p
+
                 >
-                  AVAILABLE FOR WORK
-                </strong>
+                  Explore my work below, or contact me for collaborations.
+                </p>
                 <div className="social-btn-holder">
                   <Link
                     href="https://www.linkedin.com/in/justindavenport99/"
@@ -186,7 +129,7 @@ export default function Home() {
                     aria-label="LinkedIn"
                     style={{ color: "#007FFF" }}
                   >
-                    LINKEDIN
+                    LinkedIn
                   </Link>
                   <Link
                     href="https://github.com/Jdavenport3199"
@@ -195,7 +138,7 @@ export default function Home() {
                     aria-label="GitHub"
                     style={{ color: "#007FFF" }}
                   >
-                    GITHUB
+                    GitHub
                   </Link>
                   <Link
                     href="/pages/resume"
@@ -204,7 +147,7 @@ export default function Home() {
                     aria-label="Resume"
                     style={{ color: "#007FFF" }}
                   >
-                    RESUME
+                    Resume
                   </Link>
                   <Link
                     href="mailto:justindavenport.space@gmail.com"
@@ -213,7 +156,7 @@ export default function Home() {
                     aria-label="Email"
                     style={{ color: "#007FFF" }}
                   >
-                    EMAIL
+                    Email
                   </Link>
                 </div>
               </div>
@@ -222,7 +165,7 @@ export default function Home() {
 
           <Work translateX={translateX} />
           <Articles translateX={translateX} />
-          <Footer />
+          {/* <Footer /> */}
         </>
       )}
     </main>
