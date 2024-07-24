@@ -278,7 +278,7 @@
   }
 
   .social-btn-holder {
-    gap: 1rem 1rem;
+    gap: 1rem 2rem;
     display: flex;
     width: fit-content;
     justify-content: center;
@@ -315,11 +315,6 @@
     flex-direction: column;
     padding: 1rem;
     padding-block: 1.5rem;
-
-    /* a,
-    p {
-      text-align: right;
-    } */
   }
 
   .embed-responsive {
@@ -383,10 +378,6 @@
   .container-splash {
     width: 80%;
     margin-top: 8%;
-  }
-
-  .social-btn-holder {
-    gap: 1rem 2rem;
   }
 }
 
