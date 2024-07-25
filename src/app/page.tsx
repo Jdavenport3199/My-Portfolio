@@ -78,6 +78,8 @@ export default function Home() {
         </div>
       </div>
 
+      {/* TESTING */}
+
       {loading ? (
         <div className="loader-holder">
           <GridLoader color="#007FFF" size={10} />
