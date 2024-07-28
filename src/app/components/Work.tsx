@@ -33,7 +33,7 @@ const Work: React.FC<Props> = ({ translateX }) => {
         <div className="project-holder">
           <Link
             className="project"
-            href=""
+            href="https://devolio.io/"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Devolio"
