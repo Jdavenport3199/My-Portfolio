@@ -31,7 +31,7 @@ const Work: React.FC<Props> = ({ translateX }) => {
         id="fade"
       >
         <div className="project-holder">
-          <Link
+          {/* <Link
             className="project"
             href="https://devolio.io/"
             target="_blank"
@@ -63,7 +63,7 @@ const Work: React.FC<Props> = ({ translateX }) => {
               <div className="overlay-img"></div>
               <img className="img" src="/devolio.webp" alt="Devolio" />
             </div>
-          </Link>
+          </Link> */}
 
           <Link
             className="project"
