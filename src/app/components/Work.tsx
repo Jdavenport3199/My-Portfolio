@@ -95,7 +95,7 @@ const Work: React.FC<Props> = ({ translateX }) => {
             </p>
             <div className="img-holder">
               <div className="overlay-img"></div>
-              <img className="img" src="/iSync.webp" alt="iSync" />
+              <img className="img" src="/isync.webp" alt="iSync" />
             </div>
           </Link>
 
