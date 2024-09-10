@@ -67,6 +67,40 @@ const Work: React.FC<Props> = ({ translateX }) => {
 
           <Link
             className="project"
+            href="https://i-sync.vercel.app/"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Devolio"
+            style={{ opacity: 1, lineHeight: "0", paddingBottom: "0" }}
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              height="16"
+              width="12"
+              viewBox="0 0 448 512"
+              fill="#007FFF"
+              style={{
+                transform: "rotate(-45deg)",
+                position: "absolute",
+                right: "2rem",
+                top: "2rem",
+              }}
+            >
+              <path d="M438.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L338.8 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l306.7 0L233.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z" />
+            </svg>
+            <span className="project-name">iSync</span>
+            <p style={{ marginTop: "0.4rem" }}>
+              iSync is a platform for adding songs, playlists, and mixes from
+              YouTube directly to your Apple Music Library.
+            </p>
+            <div className="img-holder">
+              <div className="overlay-img"></div>
+              <img className="img" src="/iSync.webp" alt="iSync" />
+            </div>
+          </Link>
+
+          <Link
+            className="project"
             href="https://dashboard-six-snowy.vercel.app/"
             target="_blank"
             rel="noopener noreferrer"
