@@ -4,11 +4,10 @@ import Footer from "./components/Footer";
 import Work from "./components/Work";
 import Articles from "./components/Articles";
 import GridLoader from "react-spinners/GridLoader";
-import Link from "next/link";
-import { object_sans } from "./ui/fonts";
+import { neue_montreal, pangaia, switzer } from "./ui/fonts";
 
 export default function Home() {
-  const [translateX, setTranslateX] = useState("-50%");
+  const [translateX, setTranslateX] = useState("-100%");
   const [lastScroll, setLastScroll] = useState(0);
   const [loading, setLoading] = useState(true);
   const nav = useRef<HTMLDivElement>(null);
@@ -47,131 +46,358 @@ export default function Home() {
       }, 500);
     };
     scrollToTop();
-  }, []);
+  }, [translateX]);
+
+  const servicesDiv = useRef<HTMLDivElement>(null);
+  const contactDiv = useRef<HTMLDivElement>(null);
+
+  const scrollTo = (ref: React.RefObject<HTMLDivElement>) => {
+    if (ref.current) {
+      ref.current.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [topic, setTopic] = useState("");
+  const [message, setMessage] = useState("");
+  const [emailForm, setEmailForm] = useState<boolean>(true);
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const res = await fetch("/api/email", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        name: name,
+        email: email,
+        topic: topic,
+        message: message,
+      }),
+    });
+    setEmailForm(false);
+  };
 
   return (
     <main>
-      <div className="background"></div>
+      <div
+        className="background"
+        style={{ display: translateX === "-100%" ? "flex" : "none" }}
+      ></div>
       <div className="overlay"></div>
 
       <div className="nav" ref={nav}>
-        <div className="nav-holder">
-          <strong className="logo">{/* Justin Davenport */}</strong>
-          <div className="nav-nav">
-            <div className="nav-sub">
-              <div className="nav-links">
-                <div
-                  className="nav-slider"
-                  style={{
-                    transform: `translateX(${translateX})`,
-                  }}
-                ></div>
-                <button onClick={() => setTranslateX("-50%")} aria-label="Work">
-                  Work
-                </button>
-                <button onClick={() => setTranslateX("50%")} aria-label="Blog">
-                  Blog
-                </button>
-              </div>
-            </div>
+        <div className="nav-nav">
+          <div className="nav-links">
+            <div
+              className="nav-slider"
+              style={{
+                transform: `translateX(${translateX})`,
+              }}
+            ></div>
+            <button onClick={() => setTranslateX("-100%")} aria-label="Work">
+              About
+            </button>
+            <button onClick={() => setTranslateX("0%")} aria-label="Work">
+              Work
+            </button>
+            <button onClick={() => setTranslateX("100%")} aria-label="Blog">
+              Blog
+            </button>
           </div>
         </div>
       </div>
 
       {loading ? (
         <div className="loader-holder">
-          <GridLoader color="#007FFF" size={10} />
+          <GridLoader color="rgb(36, 36, 36)" size={10} />
         </div>
       ) : (
         <>
           <div
             className="container-holder"
             style={{
-              minHeight: "95vh",
-              display: translateX === "-50%" ? "flex" : "none",
-              alignItems: "flex-end",
+              minHeight: "100vh",
+              display: translateX === "-100%" ? "flex" : "none",
             }}
           >
             <div className="container-splash" id="fade">
-              <h1 className={object_sans.className}>
-                WEB DEVELOPER
-                <br />
-                <strong
-                  style={{
-                    fontSize: "clamp(14px, 4vw, 48px)",
-                    fontWeight: 300,
-                    color: "#007FFF",
-                  }}
-                >
-                  AND
-                </strong>{" "}
-                PRODUCT DESIGNER
-              </h1>
-              <h2
+              <img
+                src="/me.jpg"
+                width={140}
+                height={140}
                 style={{
-                  fontSize: "clamp(16px, 4vw, 24px)",
-                  marginTop: "0.8rem",
+                  objectFit: "cover",
+                  borderRadius: "100rem",
+                  padding: "0.6rem",
+                  background: "#00000006",
+                }}
+              />
+              <br />
+              <h1 className={pangaia.className} style={{ display: "inline" }}>
+                Crafting&nbsp;
+              </h1>
+              <h1
+                className={neue_montreal.className}
+                style={{
+                  display: "inline-block",
                 }}
               >
-                Located in Charlotte, available globally.
-              </h2>
-            </div>
-            <div className="footer-holder" id="fade">
-              <div className="footer">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  height="20"
-                  width="20"
-                  viewBox="0 0 512 512"
-                  id="rotate"
+                digital experiences,
+              </h1>
+              <h1 className={pangaia.className}>
+                with clean code and intuitive design.
+              </h1>
+              <div
+                style={{
+                  display: "flex",
+                  justifyContent: "center",
+                  gap: "0.4rem",
+                  marginBlock: "2rem",
+                }}
+              >
+                <button
+                  className="button"
+                  onClick={() => scrollTo(servicesDiv)}
                 >
-                  <path d="M418.4 157.9c35.3-8.3 61.6-40 61.6-77.9c0-44.2-35.8-80-80-80c-43.4 0-78.7 34.5-80 77.5L136.2 151.1C121.7 136.8 101.9 128 80 128c-44.2 0-80 35.8-80 80s35.8 80 80 80c12.2 0 23.8-2.7 34.1-7.6L259.7 407.8c-2.4 7.6-3.7 15.8-3.7 24.2c0 44.2 35.8 80 80 80s80-35.8 80-80c0-27.7-14-52.1-35.4-66.4l37.8-207.7zM156.3 232.2c2.2-6.9 3.5-14.2 3.7-21.7l183.8-73.5c3.6 3.5 7.4 6.7 11.6 9.5L317.6 354.1c-5.5 1.3-10.8 3.1-15.8 5.5L156.3 232.2z" />
-                </svg>
-                <div className="social-btn-holder">
-                  <Link
-                    href="https://www.linkedin.com/in/justindavenport99/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label="LinkedIn"
-                    style={{ color: "#007FFF" }}
-                  >
-                    LinkedIn
-                  </Link>
-                  <Link
-                    href="https://github.com/Jdavenport3199"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label="GitHub"
-                    style={{ color: "#007FFF" }}
-                  >
-                    GitHub
-                  </Link>
-                  <Link
-                    href="/pages/resume"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label="Resume"
-                    style={{ color: "#007FFF" }}
-                  >
-                    Resume
-                  </Link>
-                  <Link
-                    href="mailto:justindavenport.space@gmail.com"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label="Email"
-                    style={{ color: "#007FFF" }}
-                  >
-                    Email
-                  </Link>
+                  View Services
+                </button>
+                <button className="button" onClick={() => scrollTo(contactDiv)}>
+                  Contact Me
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div
+            className="container-holder"
+            style={{
+              display: translateX === "-100%" ? "flex" : "none",
+              minHeight: "100vh",
+              alignItems: "center",
+              flexDirection: "column",
+            }}
+            ref={servicesDiv}
+          >
+            <div
+              className="container-splash"
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+              }}
+            >
+              <h2 className={neue_montreal.className}>
+                Let's collaborate to create impactful results.
+              </h2>
+              <h3 className={pangaia.className}>
+                Reach out to explore how we can work together to achieve
+                meaningful and impactful results for your project.
+              </h3>
+              <br />
+              <br />
+              {/* <p>My Services</p>
+              <br /> */}
+              <div className="container-services">
+                <div
+                  style={{
+                    width: "49%",
+                    background: "#00000006",
+                    padding: "2rem",
+                    borderRadius: "1rem",
+                    backdropFilter: "blur(12px)",
+                    WebkitBackdropFilter: "blur(12px)",
+                  }}
+                >
+                  <img
+                    src="/icons/ui.png"
+                    width={40}
+                    height={40}
+                    style={{ marginBottom: "0.4rem" }}
+                  />
+                  <br />
+                  <span>UX & UI</span>
+                  <p style={{ marginTop: "0.4rem" }}>
+                    Designing interfaces that are intuitive, efficient, and
+                    enjoyable to use.
+                  </p>
+                </div>
+                <div
+                  style={{
+                    width: "49%",
+                    background: "#00000006",
+                    padding: "2rem",
+                    borderRadius: "1rem",
+                    backdropFilter: "blur(12px)",
+                    WebkitBackdropFilter: "blur(12px)",
+                  }}
+                >
+                  <img
+                    src="/icons/phone.png"
+                    width={40}
+                    height={40}
+                    style={{ marginBottom: "0.4rem" }}
+                  />
+                  <br />
+                  <span>Web & Mobile App</span>
+                  <p style={{ marginTop: "0.4rem" }}>
+                    Transforming ideas into exceptional web and mobile app
+                    experiences.
+                  </p>
+                </div>
+                <div
+                  style={{
+                    width: "49%",
+                    background: "#00000006",
+                    padding: "2rem",
+                    borderRadius: "1rem",
+                    backdropFilter: "blur(12px)",
+                    WebkitBackdropFilter: "blur(12px)",
+                  }}
+                >
+                  <img
+                    src="/icons/design.png"
+                    width={40}
+                    height={40}
+                    style={{ marginBottom: "0.4rem" }}
+                  />
+                  <br />
+                  <span>Design & Creative</span>
+                  <p style={{ marginTop: "0.4rem" }}>
+                    Crafting visually stunning designs that connect with your
+                    audience.
+                  </p>
+                </div>
+                <div
+                  style={{
+                    width: "49%",
+                    background: "#00000006",
+                    padding: "2rem",
+                    borderRadius: "1rem",
+                    backdropFilter: "blur(12px)",
+                    WebkitBackdropFilter: "blur(12px)",
+                  }}
+                >
+                  <img
+                    src="/icons/dev.png"
+                    width={40}
+                    height={40}
+                    style={{ marginBottom: "0.4rem" }}
+                  />
+                  <br />
+                  <span>Development</span>
+                  <p style={{ marginTop: "0.4rem" }}>
+                    Bringing your vision to life with the latest technology and
+                    design trends.
+                  </p>
                 </div>
               </div>
             </div>
           </div>
 
+          <div
+            className="background"
+            style={{
+              transform: "scaleX(-1)",
+              marginTop: "0",
+              display: translateX === "-100%" ? "flex" : "none",
+            }}
+          ></div>
+          <div
+            className="container-holder"
+            style={{
+              display: translateX === "-100%" ? "flex" : "none",
+              minHeight: "100vh",
+              alignItems: "center",
+              flexDirection: "column",
+            }}
+            ref={contactDiv}
+          >
+            <div
+              className="container-splash"
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+              }}
+            >
+              <h2 className={neue_montreal.className}>
+                Tell me about your next project.
+              </h2>
+              <h3 className={pangaia.className}>
+                Let's connect to discuss your vision, challenges, and how we can
+                collaborate on bringing your next project to life.
+              </h3>
+              <br />
+              <br />
+              {/* <p>Connect</p>
+              <br /> */}
+              <div
+                style={{
+                  display: emailForm ? "none" : "block",
+                  textAlign: "center",
+                }}
+              >
+                <p>
+                  Your message has been received.
+                  <br />
+                  A response will follow shortly.
+                </p>
+              </div>
+              <form
+                onSubmit={handleSubmit}
+                style={{
+                  display: emailForm ? "flex" : "none",
+                }}
+              >
+                <input
+                  className={switzer.className}
+                  type="text"
+                  placeholder="Name"
+                  required
+                  onChange={(e) => setName(e.target.value)}
+                  value={name}
+                />
+                <input
+                  className={switzer.className}
+                  type="email"
+                  placeholder="Email"
+                  required
+                  onChange={(e) => setEmail(e.target.value)}
+                  value={email}
+                />
+                <input
+                  className={switzer.className}
+                  type="text"
+                  placeholder="Subject"
+                  required
+                  onChange={(e) => setTopic(e.target.value)}
+                  value={topic}
+                />
+                <textarea
+                  className={switzer.className}
+                  placeholder="Message"
+                  required
+                  style={{ height: "14rem", resize: "none" }}
+                  onChange={(e) => setMessage(e.target.value)}
+                  value={message}
+                />
+                <button
+                  type="submit"
+                  className="button"
+                  style={{ width: "100%" }}
+                >
+                  Submit
+                </button>
+              </form>
+            </div>
+          </div>
+
           <Work translateX={translateX} />
           <Articles translateX={translateX} />
-          {/* <Footer /> */}
+          <Footer />
         </>
       )}
     </main>

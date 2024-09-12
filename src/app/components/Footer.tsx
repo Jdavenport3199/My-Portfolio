@@ -7,14 +7,29 @@ export default function Footer() {
       <div className="container-holder">
         <div className="footer-holder">
           <div className="footer">
-            <p>©2024 Justin Davenport</p>
+            <p>©2024 All rights reserved.</p>
             <div className="social-btn-holder">
+              <Link
+                href="https://dribbble.com/justindavenport"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Dribbble"
+              >
+                Dribbble
+              </Link>
+              <Link
+                href="https://www.behance.net/justindavenportspace"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Behance"
+              >
+                Behance
+              </Link>
               <Link
                 href="https://www.linkedin.com/in/justindavenport99/"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="LinkedIn"
-                style={{ color: "#007FFF" }}
               >
                 LinkedIn
               </Link>
@@ -23,7 +38,6 @@ export default function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="GitHub"
-                style={{ color: "#007FFF" }}
               >
                 GitHub
               </Link>
@@ -32,18 +46,8 @@ export default function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Resume"
-                style={{ color: "#007FFF" }}
               >
                 Resume
-              </Link>
-              <Link
-                href="mailto:justindavenport.space@gmail.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Email"
-                style={{ color: "#007FFF" }}
-              >
-                Email
               </Link>
             </div>
           </div>
