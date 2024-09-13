@@ -253,6 +253,7 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+    justify-content: flex-start;
     background: #00000006;
     overflow: hidden;
     max-width: auto;
@@ -284,7 +285,7 @@
 
   .img {
     max-width: 85%;
-    margin-top: 1.5rem;
+    margin-top: 2rem;
     transition: 300ms ease-out;
   }
 
@@ -294,7 +295,7 @@
     .img {
       box-shadow: #00000008 0px 0px 20px 4px;
       scale: 1.05;
-      transform: translateY(-15%);
+      /* transform: translateY(-15%); */
       transition: 300ms ease-out;
     }
   }
@@ -360,15 +361,15 @@
 
 @media (min-width: 499px) {
   .img {
-    margin-top: 3rem;
-    transform: translateY(2.5%);
+    /* margin-top: 3rem; */
+    /* transform: translateY(10%); */
   }
 
-  .project:hover {
+  /* .project:hover {
     .img {
-      transform: translateY(-2.5%);
+      transform: translateY(2.5%);
     }
-  }
+  } */
 
   form {
     width: 450px;
