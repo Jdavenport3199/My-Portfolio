@@ -119,23 +119,26 @@ export default function Home() {
           <div
             className="container-holder"
             style={{
+              flexDirection: "column",
               minHeight: "100vh",
               display: translateX === "-100%" ? "flex" : "none",
             }}
           >
             <div className="container-splash" id="fade">
-              <img
-                src="/me.jpg"
-                width={140}
-                height={140}
-                style={{
-                  objectFit: "cover",
-                  borderRadius: "100rem",
-                  padding: "0.6rem",
-                  background: "#00000006",
-                }}
-              />
-              <br />
+              <div>
+                <img
+                  src="/me.png"
+                  width={140}
+                  height={140}
+                  style={{
+                    objectFit: "cover",
+                    borderRadius: "100rem",
+                    padding: "0.4rem",
+                    background: "#00000006",
+                    marginBottom: "1rem",
+                  }}
+                />
+              </div>
               <h1 className={pangaia.className} style={{ display: "inline" }}>
                 Crafting&nbsp;
               </h1>
@@ -155,7 +158,8 @@ export default function Home() {
                   display: "flex",
                   justifyContent: "center",
                   gap: "0.4rem",
-                  marginBlock: "2rem",
+                  marginTop: "2.5rem",
+                  marginBottom: "4rem",
                 }}
               >
                 <button
@@ -190,7 +194,7 @@ export default function Home() {
               }}
             >
               <h2 className={neue_montreal.className}>
-                Let's collaborate to create impactful results.
+                Let&apos;s collaborate to create impactful results.
               </h2>
               <h3 className={pangaia.className}>
                 Reach out to explore how we can work together to achieve
@@ -198,19 +202,8 @@ export default function Home() {
               </h3>
               <br />
               <br />
-              {/* <p>My Services</p>
-              <br /> */}
               <div className="container-services">
-                <div
-                  style={{
-                    width: "49%",
-                    background: "#00000006",
-                    padding: "2rem",
-                    borderRadius: "1rem",
-                    backdropFilter: "blur(12px)",
-                    WebkitBackdropFilter: "blur(12px)",
-                  }}
-                >
+                <div className="services">
                   <img
                     src="/icons/ui.png"
                     width={40}
@@ -224,16 +217,7 @@ export default function Home() {
                     enjoyable to use.
                   </p>
                 </div>
-                <div
-                  style={{
-                    width: "49%",
-                    background: "#00000006",
-                    padding: "2rem",
-                    borderRadius: "1rem",
-                    backdropFilter: "blur(12px)",
-                    WebkitBackdropFilter: "blur(12px)",
-                  }}
-                >
+                <div className="services">
                   <img
                     src="/icons/phone.png"
                     width={40}
@@ -247,16 +231,7 @@ export default function Home() {
                     experiences.
                   </p>
                 </div>
-                <div
-                  style={{
-                    width: "49%",
-                    background: "#00000006",
-                    padding: "2rem",
-                    borderRadius: "1rem",
-                    backdropFilter: "blur(12px)",
-                    WebkitBackdropFilter: "blur(12px)",
-                  }}
-                >
+                <div className="services">
                   <img
                     src="/icons/design.png"
                     width={40}
@@ -270,16 +245,7 @@ export default function Home() {
                     audience.
                   </p>
                 </div>
-                <div
-                  style={{
-                    width: "49%",
-                    background: "#00000006",
-                    padding: "2rem",
-                    borderRadius: "1rem",
-                    backdropFilter: "blur(12px)",
-                    WebkitBackdropFilter: "blur(12px)",
-                  }}
-                >
+                <div className="services">
                   <img
                     src="/icons/dev.png"
                     width={40}
@@ -327,13 +293,11 @@ export default function Home() {
                 Tell me about your next project.
               </h2>
               <h3 className={pangaia.className}>
-                Let's connect to discuss your vision, challenges, and how we can
-                collaborate on bringing your next project to life.
+                Let&apos;s connect to discuss your vision, challenges, and how
+                we can collaborate on bringing your next project to life.
               </h3>
               <br />
               <br />
-              {/* <p>Connect</p>
-              <br /> */}
               <div
                 style={{
                   display: emailForm ? "none" : "block",
@@ -342,8 +306,7 @@ export default function Home() {
               >
                 <p>
                   Your message has been received.
-                  <br />
-                  A response will follow shortly.
+                  <br />A response will follow shortly.
                 </p>
               </div>
               <form

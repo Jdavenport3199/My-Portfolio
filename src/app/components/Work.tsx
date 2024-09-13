@@ -19,7 +19,7 @@ const Work: React.FC<Props> = ({ translateX }) => {
         <div className="container-title">
           <h2 className={neue_montreal.className}>Explore my recent work.</h2>
           <h3 className={pangaia.className}>
-            Discover the latest projects and designs I've been working on.
+            Discover the latest projects and designs I&apos;ve been working on.
           </h3>
           <br />
           <br />
@@ -30,7 +30,7 @@ const Work: React.FC<Props> = ({ translateX }) => {
         className="container-holder"
         style={{
           display: translateX === "0%" ? "flex" : "none",
-          minHeight: "150vh",
+          minHeight: "145vh",
           alignItems: "flex-start",
         }}
         id="fade"
