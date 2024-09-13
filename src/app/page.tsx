@@ -2,6 +2,7 @@
 import { useEffect, useRef, useState } from "react";
 import Footer from "./components/Footer";
 import Work from "./components/Work";
+import Image from "next/image";
 import Articles from "./components/Articles";
 import GridLoader from "react-spinners/GridLoader";
 import { neue_montreal, pangaia, switzer } from "./ui/fonts";
@@ -126,8 +127,8 @@ export default function Home() {
           >
             <div className="container-splash" id="fade">
               <div>
-                <img
-                  src="/me.png"
+                <Image
+                  src="/me.webp"
                   width={140}
                   height={140}
                   style={{
@@ -137,6 +138,7 @@ export default function Home() {
                     background: "#00000006",
                     marginBottom: "1rem",
                   }}
+                  alt="Justin"
                 />
               </div>
               <h1 className={pangaia.className} style={{ display: "inline" }}>
@@ -159,7 +161,7 @@ export default function Home() {
                   justifyContent: "center",
                   gap: "0.4rem",
                   marginTop: "2.5rem",
-                  marginBottom: "4rem",
+                  marginBottom: "2rem",
                 }}
               >
                 <button
