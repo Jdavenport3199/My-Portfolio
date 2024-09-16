@@ -188,7 +188,7 @@ export default function Home() {
                 </div>
                 <div className="social-btn-holder">
                   <Link
-                    href=""
+                    href="https://www.instagram.com/justindavenport.space/"
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label="Instagram"
