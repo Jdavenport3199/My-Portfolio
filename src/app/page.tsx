@@ -149,12 +149,17 @@ export default function Home() {
                 <br />
                 with clean code and intuitive design.
               </h1>
-              <div style={{ marginTop: "0.6rem" }}>
+              <div style={{ marginTop: "0.8rem" }}>
                 <span
-                  style={{ color: "rgb(36, 36, 36, 0.6)", fontWeight: 300 }}
+                  style={{
+                    color: "rgb(36, 36, 36, 0.6)",
+                    fontWeight: 300,
+                    fontSize: "clamp(16px, 2vw, 20px)",
+                    lineHeight: 1.4,
+                  }}
                 >
-                  I&apos;m Justin, a digital designer specializing in web development
-                  and product design.
+                  I&apos;m Justin, a digital designer specializing in web
+                  development and product design.
                 </span>
               </div>
               <div
@@ -313,7 +318,12 @@ export default function Home() {
                   Let&apos;s collaborate to create impactful results.
                 </h2>
                 <span
-                  style={{ color: "rgb(36, 36, 36, 0.6)", fontWeight: 300 }}
+                  style={{
+                    color: "rgb(36, 36, 36, 0.6)",
+                    fontWeight: 300,
+                    fontSize: "clamp(16px, 2vw, 20px)",
+                    lineHeight: 1.4,
+                  }}
                 >
                   Reach out to explore how we can work together to achieve
                   meaningful and impactful results for your project.
@@ -427,7 +437,12 @@ export default function Home() {
                   Tell me about your next project.
                 </h2>
                 <span
-                  style={{ color: "rgb(36, 36, 36, 0.6)", fontWeight: 300 }}
+                  style={{
+                    color: "rgb(36, 36, 36, 0.6)",
+                    fontWeight: 300,
+                    fontSize: "clamp(16px, 2vw, 20px)",
+                    lineHeight: 1.4,
+                  }}
                 >
                   Let&apos;s connect to discuss your vision and how we can
                   collaborate on bringing your next project to life.

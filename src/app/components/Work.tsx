@@ -29,7 +29,7 @@ const Work: React.FC<Props> = ({ translateX }) => {
             >
               Explore my recent work.
             </h2>
-            <span style={{ color: "rgb(36, 36, 36, 0.6)", fontWeight: 300 }}>
+            <span style={{ color: "rgb(36, 36, 36, 0.6)", fontWeight: 300, fontSize: "clamp(16px, 2vw, 20px)", lineHeight: 1.4 }}>
               Discover the latest projects and designs I&apos;ve been working
               on.
             </span>

@@ -29,7 +29,7 @@ const Articles: React.FC<Props> = ({ translateX }) => {
             >
               Explore my recent blog posts.
             </h2>
-            <span style={{ color: "rgb(36, 36, 36, 0.6)", fontWeight: 300 }}>
+            <span style={{ color: "rgb(36, 36, 36, 0.6)", fontWeight: 300, fontSize: "clamp(16px, 2vw, 20px)", lineHeight: 1.4 }}>
               Read through my latest blog posts to stay updated on my thoughts,
               insights, and industry trends.
             </span>
