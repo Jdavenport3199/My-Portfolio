@@ -6,19 +6,10 @@ export const switzer = localFont({
   variable: "--font-switzer",
 });
 
-export const pangaia = localFont({
+export const object_sans = localFont({
   src: [
     {
-      path: "./PPPangaia-Light.woff2",
-      style: "normal",
-    },
-  ],
-});
-
-export const neue_montreal = localFont({
-  src: [
-    {
-      path: "./PPNeueMontreal-Bold.woff2",
+      path: "./SF-Pro.ttf",
       style: "normal",
     },
   ],

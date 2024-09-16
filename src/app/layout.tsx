@@ -4,10 +4,10 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   title: {
-    default: "Justin Davenport | Portfolio",
+    default: "Justin Davenport — Digital Designer",
     template: "%s | Justin Davenport",
   },
-  description: "Web Developer and Product Designer",
+  description: "Digital designer specializing in web development and product design.",
   openGraph: {
     images: "https://www.justindavenport.space/opengraph-image.png",
   },
