@@ -1,60 +1,85 @@
 "use client";
 import Link from "next/link";
 import { object_sans } from "../ui/fonts";
+import { useRef, useState } from "react";
 
 interface Props {
   translateX: string;
 }
 
 const Work: React.FC<Props> = ({ translateX }) => {
+  const [toggle, setToggle] = useState(false);
+  const div = useRef<HTMLDivElement>(null);
+
+  const scrollTo = (ref: React.RefObject<HTMLDivElement>) => {
+    if (ref.current) {
+      const elementTop = ref.current.getBoundingClientRect().top;
+      const stickyThreshold = 2 * 16;
+
+      if (elementTop <= stickyThreshold) {
+        window.scrollTo(0, 240);
+      }
+    }
+  };
+
   const projects = [
     {
       name: "OCULAR VIBRATIONS™",
       description:
         "A modern age digital design studio, your gateway to the digital renaissance.",
-      image: "/ocular.png",
+      image: "/projects/ocular.png",
       link: "https://www.ocularvibrations.com/",
     },
     {
       name: "iSync",
       description:
         "Add songs, playlists, and mixes from YouTube directly to your Apple Music Library.",
-      image: "/isync.png",
+      image: "/projects/isync.png",
       link: "https://i-sync.vercel.app/",
     },
     {
       name: "Global Enterprises",
       description: "A dynamic and responsive mock company dashboard.",
-      image: "/ge.png",
+      image: "/projects/ge.png",
       link: "https://dashboard-six-snowy.vercel.app/",
     },
     {
       name: "Teenage Engineering™",
       description:
         "Teenage Engineering™ creates high quality electronic products for people who love sound and music.",
-      image: "/te.png",
+      image: "/projects/te.png",
       link: "https://teenage-engineering.vercel.app/",
     },
     {
       name: "Digital Portfolio",
       description:
         "A digital portfolio showcasing a diverse array of meticulously crafted 3D art and digital designs.",
-      image: "/studio.png",
+      image: "/projects/studio.png",
       link: "https://www.christiandavenport.studio/",
     },
     {
       name: "Stack",
       description:
         "A platform designed to help developers showcase and visualize their tech stacks.",
-      image: "/stack.png",
+      image: "/projects/stack.png",
       link: "https://stack-three-psi.vercel.app/",
     },
     {
       name: "Cinema Collection",
       description:
         "A platform for discovery of new and unique films based on your favorite movie genres.",
-      image: "/cinema.png",
+      image: "/projects/cinema.png",
       link: "https://cinema-collection.vercel.app/",
+    },
+  ];
+
+  const designs = [
+    {
+      name: "Smart Home",
+      description:
+        "An all-in-one application to control your home’s smart devices.",
+      image: "/designs/smarthome.png",
+      link: "https://dribbble.com/shots/24906297-Smart-Home-App",
     },
   ];
 
@@ -68,7 +93,7 @@ const Work: React.FC<Props> = ({ translateX }) => {
         id="fade"
       >
         <div className="container-title">
-          <div style={{ width: "100%", marginBottom: "4rem" }}>
+          <div style={{ width: "100%", marginBottom: "2rem" }}>
             <h2
               className={object_sans.className}
               style={{
@@ -99,12 +124,119 @@ const Work: React.FC<Props> = ({ translateX }) => {
         className="container-holder"
         style={{
           display: translateX === "0%" ? "flex" : "none",
+          position: "sticky",
+          top: "2rem",
+          zIndex: "4",
+        }}
+        id="fade"
+        ref={div}
+      >
+        <div className="container-title" style={{ paddingTop: "0rem" }}>
+          <div
+            style={{
+              width: "100%",
+              marginBottom: "4rem",
+              display: "flex",
+              gap: "0.4rem",
+            }}
+          >
+            <button
+              className={toggle === false ? "button" : "button-light"}
+              onClick={() => {
+                setToggle(false), scrollTo(div);
+              }}
+            >
+              Live Projects
+            </button>
+            <button
+              className={toggle === true ? "button" : "button-light"}
+              onClick={() => {
+                setToggle(true), scrollTo(div);
+              }}
+            >
+              Designs
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div
+        className="container-holder"
+        style={{
+          display: translateX === "0%" ? "flex" : "none",
           alignItems: "flex-start",
           marginBottom: "8rem",
         }}
         id="fade"
       >
-        <div className="project-holder">
+        <div
+          className="project-holder"
+          style={{
+            display: toggle ? "flex" : "none",
+          }}
+        >
+          {designs.map((designs, index) => (
+            <Link
+              key={index}
+              className="project"
+              href={designs.link}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={designs.name}
+              style={{
+                opacity: 1,
+                lineHeight: "0",
+                padding: "0rem",
+                width: "100%",
+                position: "relative",
+              }}
+            >
+              <div className="project-title">
+                <span
+                  style={{
+                    color: "white",
+                    fontWeight: "300",
+                    fontSize: "clamp(20px, 2vw, 24px)",
+                  }}
+                >
+                  {designs.name}
+                </span>
+                <p
+                  style={{
+                    color: "whitesmoke",
+                    fontWeight: "300",
+                    fontSize: "clamp(14px, 2vw, 16px)",
+                  }}
+                >
+                  {designs.description}
+                </p>
+                <p className="detail">— View the design.</p>
+              </div>
+              <div className="project-btn">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  height="16"
+                  width="12"
+                  viewBox="0 0 448 512"
+                  fill="white"
+                  style={{
+                    transform: "rotate(-45deg)",
+                  }}
+                >
+                  <path d="M438.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L338.8 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l306.7 0L233.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z" />
+                </svg>
+              </div>
+              <img className="img" src={designs.image} alt={designs.name} />
+            </Link>
+          ))}
+        </div>
+
+        <div
+          className="project-holder"
+          style={{
+            display: !toggle ? "flex" : "none",
+          }}
+        >
           {projects.map((project, index) => (
             <Link
               key={index}

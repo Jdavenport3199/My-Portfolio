@@ -15,7 +15,7 @@ export default function Home() {
   useEffect(() => {
     const handleScroll = () => {
       const currentScroll = window.scrollY;
-      const threshold = 50;
+      const threshold = 400;
       if (currentScroll <= threshold && nav.current) {
         if (nav.current.style.top !== "0rem") {
           nav.current.style.top = "2rem";

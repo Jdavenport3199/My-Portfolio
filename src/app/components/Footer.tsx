@@ -10,6 +10,14 @@ export default function Footer() {
             <p>©2024 All rights reserved.</p>
             <div className="social-btn-holder">
               <Link
+                href="https://www.instagram.com/justindavenport.space/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Instagram"
+              >
+                Instagram
+              </Link>
+              <Link
                 href="https://dribbble.com/justindavenport"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -17,14 +25,14 @@ export default function Footer() {
               >
                 Dribbble
               </Link>
-              <Link
+              {/* <Link
                 href="https://www.behance.net/justindavenportspace"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Behance"
               >
                 Behance
-              </Link>
+              </Link> */}
               <Link
                 href="https://www.linkedin.com/in/justindavenport99/"
                 target="_blank"

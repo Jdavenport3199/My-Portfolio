@@ -100,7 +100,8 @@
     opacity: 0.4;
   }
 
-  .button {
+  .button,
+  .button-light {
     background: rgb(36, 36, 36);
     color: white;
     display: flex;
@@ -112,7 +113,15 @@
     transition: 300ms ease;
   }
 
-  .button:hover {
+  .button-light {
+    color: rgb(36, 36, 36);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    background: #00000006;
+  }
+
+  .button:hover,
+  .button-light:hover {
     opacity: 0.85;
     transform: translateY(-5px);
   }
