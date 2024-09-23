@@ -1,6 +1,5 @@
 "use client";
 import Link from "next/link";
-import { object_sans } from "../ui/fonts";
 import { useRef, useState } from "react";
 
 interface Props {
@@ -8,7 +7,8 @@ interface Props {
 }
 
 const Work: React.FC<Props> = ({ translateX }) => {
-  const [toggle, setToggle] = useState(false);
+  const [projectsToggle, setProjectsToggle] = useState(true);
+  const [designsToggle, setDesignsToggle] = useState(false);
   const div = useRef<HTMLDivElement>(null);
 
   const scrollTo = (ref: React.RefObject<HTMLDivElement>) => {
@@ -17,7 +17,12 @@ const Work: React.FC<Props> = ({ translateX }) => {
       const stickyThreshold = 2 * 16;
 
       if (elementTop <= stickyThreshold) {
-        window.scrollTo(0, 240);
+        if (projectsToggle === false) {
+          window.scrollTo({ top: 240, behavior: "smooth" });
+        }
+        if (designsToggle === false) {
+          window.scrollTo({ top: 240, behavior: "smooth" });
+        }
       }
     }
   };
@@ -95,7 +100,6 @@ const Work: React.FC<Props> = ({ translateX }) => {
         <div className="container-title">
           <div style={{ width: "100%", marginBottom: "2rem" }}>
             <h2
-              className={object_sans.className}
               style={{
                 background:
                   "linear-gradient(to right, rgb(36, 36, 36), rgb(184, 184, 184))",
@@ -113,7 +117,7 @@ const Work: React.FC<Props> = ({ translateX }) => {
                 lineHeight: 1.4,
               }}
             >
-              Discover the latest projects and designs I&apos;ve been working
+              Discover the latest websites and designs I&apos;ve been working
               on.
             </span>
           </div>
@@ -121,37 +125,27 @@ const Work: React.FC<Props> = ({ translateX }) => {
       </div>
 
       <div
-        className="container-holder"
+        className="toggle-holder"
         style={{
           display: translateX === "0%" ? "flex" : "none",
-          position: "sticky",
-          top: "2rem",
-          zIndex: "4",
         }}
         id="fade"
         ref={div}
       >
         <div className="container-title" style={{ paddingTop: "0rem" }}>
-          <div
-            style={{
-              width: "100%",
-              marginBottom: "4rem",
-              display: "flex",
-              gap: "0.4rem",
-            }}
-          >
+          <div className="toggle-btn-holder">
             <button
-              className={toggle === false ? "button" : "button-light"}
+              className={projectsToggle === true ? "button" : "button-light"}
               onClick={() => {
-                setToggle(false), scrollTo(div);
+                setProjectsToggle(true), setDesignsToggle(false), scrollTo(div);
               }}
             >
-              Live Projects
+              Websites
             </button>
             <button
-              className={toggle === true ? "button" : "button-light"}
+              className={designsToggle === true ? "button" : "button-light"}
               onClick={() => {
-                setToggle(true), scrollTo(div);
+                setDesignsToggle(true), setProjectsToggle(false), scrollTo(div);
               }}
             >
               Designs
@@ -172,7 +166,8 @@ const Work: React.FC<Props> = ({ translateX }) => {
         <div
           className="project-holder"
           style={{
-            display: toggle ? "flex" : "none",
+            display: designsToggle ? "flex" : "none",
+            marginBottom: "0.4rem",
           }}
         >
           {designs.map((designs, index) => (
@@ -234,7 +229,7 @@ const Work: React.FC<Props> = ({ translateX }) => {
         <div
           className="project-holder"
           style={{
-            display: !toggle ? "flex" : "none",
+            display: projectsToggle ? "flex" : "none",
           }}
         >
           {projects.map((project, index) => (

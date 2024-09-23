@@ -6,7 +6,7 @@ export const switzer = localFont({
   variable: "--font-switzer",
 });
 
-export const object_sans = localFont({
+export const sf_pro = localFont({
   src: [
     {
       path: "./SF-Pro.ttf",

@@ -3,7 +3,7 @@ import { useEffect, useRef, useState } from "react";
 import Work from "./components/Work";
 import Articles from "./components/Articles";
 import GridLoader from "react-spinners/GridLoader";
-import { object_sans, switzer } from "./ui/fonts";
+import { sf_pro } from "./ui/fonts";
 import Footer from "./components/Footer";
 
 export default function Home() {
@@ -15,18 +15,18 @@ export default function Home() {
   useEffect(() => {
     const handleScroll = () => {
       const currentScroll = window.scrollY;
-      const threshold = 400;
+      const threshold = 100;
       if (currentScroll <= threshold && nav.current) {
         if (nav.current.style.top !== "0rem") {
           nav.current.style.top = "2rem";
-          nav.current.style.height = "3rem";
+          nav.current.style.height = "2.5rem";
         }
       } else if (currentScroll < lastScroll && nav.current) {
         nav.current.style.top = "2rem";
-        nav.current.style.height = "3rem";
+        nav.current.style.height = "2.5rem";
       } else if (currentScroll > lastScroll && nav.current) {
         nav.current.style.top = "-3.25rem";
-        nav.current.style.height = "3rem";
+        nav.current.style.height = "2.5rem";
       }
       setLastScroll(currentScroll);
     };
@@ -137,7 +137,6 @@ export default function Home() {
           >
             <div className="container-splash" id="fade">
               <h1
-                className={object_sans.className}
                 style={{
                   background:
                     "linear-gradient(to right, rgb(36, 36, 36), rgb(184, 184, 184))",
@@ -215,7 +214,6 @@ export default function Home() {
             >
               <div style={{ width: "100%", marginBottom: "4rem" }}>
                 <h2
-                  className={object_sans.className}
                   style={{
                     background:
                       "linear-gradient(to right, rgb(36, 36, 36), rgb(184, 184, 184))",
@@ -334,7 +332,6 @@ export default function Home() {
             >
               <div style={{ width: "100%", marginBottom: "4rem" }}>
                 <h2
-                  className={object_sans.className}
                   style={{
                     background:
                       "linear-gradient(to right, rgb(36, 36, 36), rgb(184, 184, 184))",
@@ -374,7 +371,7 @@ export default function Home() {
                 }}
               >
                 <input
-                  className={switzer.className}
+                  className={sf_pro.className}
                   type="text"
                   placeholder="Name"
                   required
@@ -382,7 +379,7 @@ export default function Home() {
                   value={name}
                 />
                 <input
-                  className={switzer.className}
+                  className={sf_pro.className}
                   type="email"
                   placeholder="Email"
                   required
@@ -390,7 +387,7 @@ export default function Home() {
                   value={email}
                 />
                 <input
-                  className={switzer.className}
+                  className={sf_pro.className}
                   type="text"
                   placeholder="Subject"
                   required
@@ -398,7 +395,7 @@ export default function Home() {
                   value={topic}
                 />
                 <textarea
-                  className={switzer.className}
+                  className={sf_pro.className}
                   placeholder="Message"
                   required
                   style={{ height: "14rem", resize: "none" }}

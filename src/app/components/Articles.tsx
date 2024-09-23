@@ -1,6 +1,5 @@
 "use client";
 import Link from "next/link";
-import { object_sans } from "../ui/fonts";
 
 interface Props {
   translateX: string;
@@ -19,7 +18,6 @@ const Articles: React.FC<Props> = ({ translateX }) => {
         <div className="container-title">
           <div style={{ width: "100%", marginBottom: "4rem" }}>
             <h2
-              className={object_sans.className}
               style={{
                 background:
                   "linear-gradient(to right, rgb(36, 36, 36), rgb(184, 184, 184))",
