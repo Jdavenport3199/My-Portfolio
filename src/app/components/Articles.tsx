@@ -44,7 +44,7 @@ const Articles: React.FC<Props> = ({ translateX }) => {
         className="container-holder"
         style={{
           display: translateX === "100%" ? "flex" : "none",
-          minHeight: "55vh",
+          minHeight: "60vh",
           alignItems: "flex-start",
         }}
         id="fade"
