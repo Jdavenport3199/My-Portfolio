@@ -15,7 +15,7 @@ export default function Home() {
   useEffect(() => {
     const handleScroll = () => {
       const currentScroll = window.scrollY;
-      const threshold = 100;
+      const threshold = 50;
       if (currentScroll <= threshold && nav.current) {
         if (nav.current.style.top !== "0rem") {
           nav.current.style.top = "2rem";
@@ -89,13 +89,14 @@ export default function Home() {
         <div className="nav">
           <div className="nav-nav">
             <div className="nav-links">
-              <div
+              {/* <div
                 className="nav-slider"
                 style={{
                   transform: `translateX(${translateX})`,
                 }}
-              ></div>
+              ></div> */}
               <button
+                className={translateX === "-100%" ? "button" : "button-light"}
                 style={{ color: translateX === "-100%" ? "white" : "" }}
                 onClick={() => setTranslateX("-100%")}
                 aria-label="Work"
@@ -103,6 +104,7 @@ export default function Home() {
                 About
               </button>
               <button
+                className={translateX === "0%" ? "button" : "button-light"}
                 style={{ color: translateX === "0%" ? "white" : "" }}
                 onClick={() => setTranslateX("0%")}
                 aria-label="Work"
@@ -110,6 +112,7 @@ export default function Home() {
                 Work
               </button>
               <button
+                className={translateX === "100%" ? "button" : "button-light"}
                 style={{ color: translateX === "100%" ? "white" : "" }}
                 onClick={() => setTranslateX("100%")}
                 aria-label="Blog"
@@ -241,10 +244,10 @@ export default function Home() {
                     <sup
                       style={{
                         color: "rgb(36, 36, 36, 0.6)",
-                        fontSize: "14px",
+                        fontSize: "12px",
                       }}
                     >
-                      01&ensp;
+                      001&ensp;
                     </sup>
                     UX / UI Design
                   </span>
@@ -259,10 +262,10 @@ export default function Home() {
                     <sup
                       style={{
                         color: "rgb(36, 36, 36, 0.6)",
-                        fontSize: "14px",
+                        fontSize: "12px",
                       }}
                     >
-                      02&ensp;
+                      002&ensp;
                     </sup>
                     Project Conception
                   </span>
@@ -277,10 +280,10 @@ export default function Home() {
                     <sup
                       style={{
                         color: "rgb(36, 36, 36, 0.6)",
-                        fontSize: "14px",
+                        fontSize: "12px",
                       }}
                     >
-                      03&ensp;
+                      003&ensp;
                     </sup>
                     Creative Design & Visual Branding
                   </span>
@@ -295,10 +298,10 @@ export default function Home() {
                     <sup
                       style={{
                         color: "rgb(36, 36, 36, 0.6)",
-                        fontSize: "14px",
+                        fontSize: "12px",
                       }}
                     >
-                      04&ensp;
+                      004&ensp;
                     </sup>
                     Web & App Development
                   </span>
@@ -330,7 +333,13 @@ export default function Home() {
                 alignItems: "center",
               }}
             >
-              <div style={{ width: "100%", marginBottom: "4rem" }}>
+              <div
+                style={{
+                  width: "100%",
+                  marginBottom: "4rem",
+                  marginTop: "8rem",
+                }}
+              >
                 <h2
                   style={{
                     background:

@@ -16,12 +16,21 @@ const Work: React.FC<Props> = ({ translateX }) => {
       const elementTop = ref.current.getBoundingClientRect().top;
       const stickyThreshold = 2 * 16;
 
-      if (elementTop <= stickyThreshold) {
+      if (window.innerWidth < 799) {
         if (projectsToggle === false) {
-          window.scrollTo({ top: 240, behavior: "smooth" });
+          window.scrollTo({ top: 0, behavior: "smooth" });
         }
         if (designsToggle === false) {
-          window.scrollTo({ top: 240, behavior: "smooth" });
+          window.scrollTo({ top: 0, behavior: "smooth" });
+        }
+      } else if (window.innerWidth >= 799) {
+        if (elementTop <= stickyThreshold) {
+          if (projectsToggle === false) {
+            window.scrollTo({ top: 240, behavior: "smooth" });
+          }
+          if (designsToggle === false) {
+            window.scrollTo({ top: 240, behavior: "smooth" });
+          }
         }
       }
     }
@@ -83,8 +92,15 @@ const Work: React.FC<Props> = ({ translateX }) => {
       name: "Smart Home",
       description:
         "An all-in-one application to control your home’s smart devices.",
-      image: "/designs/smarthome.png",
+      image: "/designs/smarthome-mockup.png",
       link: "https://dribbble.com/shots/24906297-Smart-Home-App",
+    },
+    {
+      name: "IMDb",
+      description:
+        "The world's most popular source for movie, TV and celebrity content.",
+      image: "/designs/imdb-mockup.png",
+      link: "https://dribbble.com/shots/24913217-IMDb-mobile-app",
     },
   ];
 
@@ -187,15 +203,13 @@ const Work: React.FC<Props> = ({ translateX }) => {
               }}
             >
               <div className="project-title">
-                <span
+                <h2
                   style={{
                     color: "white",
-                    fontWeight: "300",
-                    fontSize: "clamp(20px, 2vw, 24px)",
                   }}
                 >
                   {designs.name}
-                </span>
+                </h2>
                 <p
                   style={{
                     color: "whitesmoke",
@@ -221,7 +235,29 @@ const Work: React.FC<Props> = ({ translateX }) => {
                   <path d="M438.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L338.8 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l306.7 0L233.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z" />
                 </svg>
               </div>
-              <img className="img" src={designs.image} alt={designs.name} />
+              <div
+                style={{
+                  position: "absolute",
+                  top: "2.5rem",
+                  left: "4rem",
+                  zIndex: "4",
+                }}
+              >
+                <sup
+                  style={{
+                    color: "white",
+                    fontSize: "12px",
+                  }}
+                >
+                  {String(index + 1).padStart(3, "0")}&ensp;
+                </sup>
+              </div>
+              <img
+                className="img"
+                src={designs.image}
+                alt={designs.name}
+                style={{ objectPosition: "top center" }}
+              />
             </Link>
           ))}
         </div>
@@ -249,15 +285,13 @@ const Work: React.FC<Props> = ({ translateX }) => {
               }}
             >
               <div className="project-title">
-                <span
+                <h2
                   style={{
                     color: "white",
-                    fontWeight: "300",
-                    fontSize: "clamp(20px, 2vw, 24px)",
                   }}
                 >
                   {project.name}
-                </span>
+                </h2>
                 <p
                   style={{
                     color: "whitesmoke",
@@ -283,7 +317,29 @@ const Work: React.FC<Props> = ({ translateX }) => {
                   <path d="M438.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L338.8 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l306.7 0L233.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z" />
                 </svg>
               </div>
-              <img className="img" src={project.image} alt={project.name} />
+              <div
+                style={{
+                  position: "absolute",
+                  top: "2.5rem",
+                  left: "4rem",
+                  zIndex: "4",
+                }}
+              >
+                <sup
+                  style={{
+                    color: "white",
+                    fontSize: "12px",
+                  }}
+                >
+                  {String(index + 1).padStart(3, "0")}&ensp;
+                </sup>
+              </div>
+              <img
+                className="img"
+                src={project.image}
+                alt={project.name}
+                style={{ objectPosition: "center center" }}
+              />
             </Link>
           ))}
         </div>

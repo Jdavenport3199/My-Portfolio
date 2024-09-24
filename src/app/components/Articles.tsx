@@ -80,18 +80,18 @@ const Articles: React.FC<Props> = ({ translateX }) => {
               <sup
                 style={{
                   color: "rgb(36, 36, 36, 0.6)",
-                  fontSize: "14px",
+                  fontSize: "12px",
                 }}
               >
-                01&ensp;
+                001&ensp;
               </sup>
               Next.js Fonts
             </span>
             <p style={{ marginTop: "0.4rem" }}>
               Learn how to optimize custom fonts in Next.js for faster load
               times and better PageSpeed Insights scores. This post covers
-              techniques for reducing font size, modern formats, and efficient
-              loading without compromising design.
+              techniques for reducing font size and efficient loading without
+              compromising design.
             </p>
           </Link>
 
@@ -124,10 +124,10 @@ const Articles: React.FC<Props> = ({ translateX }) => {
               <sup
                 style={{
                   color: "rgb(36, 36, 36, 0.6)",
-                  fontSize: "14px",
+                  fontSize: "12px",
                 }}
               >
-                02&ensp;
+                002&ensp;
               </sup>
               GSAP Introduction
             </span>
