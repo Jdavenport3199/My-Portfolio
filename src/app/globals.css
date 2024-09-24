@@ -385,15 +385,15 @@
   }
 
   footer {
-    width: 80%;
+    width: 85%;
     padding-block: 8rem;
   }
 
   .footer {
     display: flex;
     justify-content: space-between;
-    align-items: flex-end;
-    flex-wrap: wrap-reverse;
+    align-items: flex-start;
+    flex-wrap: wrap;
     gap: 4rem 8rem;
   }
 
