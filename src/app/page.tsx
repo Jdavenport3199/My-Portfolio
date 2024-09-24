@@ -570,7 +570,36 @@ export default function Home() {
                       style={{
                         color: "rgb(36, 36, 36, 0.6)",
                         lineHeight: 1.4,
-                        fontWeight: 600,
+                        fontWeight: 500,
+                      }}
+                    >
+                      LINKS
+                    </p>
+                    <button
+                      onClick={() => setTranslateX("-100%")}
+                      aria-label="Work"
+                    >
+                      About
+                    </button>
+                    <button
+                      onClick={() => setTranslateX("0%")}
+                      aria-label="Work"
+                    >
+                      Work
+                    </button>
+                    <button
+                      onClick={() => setTranslateX("100%")}
+                      aria-label="Blog"
+                    >
+                      Blog
+                    </button>
+                  </div>
+                  <div className="footerLinks">
+                    <p
+                      style={{
+                        color: "rgb(36, 36, 36, 0.6)",
+                        lineHeight: 1.4,
+                        fontWeight: 500,
                       }}
                     >
                       SOCIALS
@@ -615,35 +644,6 @@ export default function Home() {
                     >
                       Resume
                     </Link>
-                  </div>
-                  <div className="footerLinks">
-                    <p
-                      style={{
-                        color: "rgb(36, 36, 36, 0.6)",
-                        lineHeight: 1.4,
-                        fontWeight: 600,
-                      }}
-                    >
-                      LINKS
-                    </p>
-                    <button
-                      onClick={() => setTranslateX("-100%")}
-                      aria-label="Work"
-                    >
-                      About
-                    </button>
-                    <button
-                      onClick={() => setTranslateX("0%")}
-                      aria-label="Work"
-                    >
-                      Work
-                    </button>
-                    <button
-                      onClick={() => setTranslateX("100%")}
-                      aria-label="Blog"
-                    >
-                      Blog
-                    </button>
                   </div>
                 </div>
               </div>

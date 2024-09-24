@@ -245,8 +245,7 @@
   }
 
   .toggle-holder {
-    position: fixed;
-    bottom: -2rem;
+    position: relative;
     z-index: 4;
   }
 
@@ -254,7 +253,7 @@
     width: 100%;
     margin-bottom: 4rem;
     display: flex;
-    justify-content: center;
+    justify-content: left;
     gap: 0.4rem;
   }
 
@@ -410,7 +409,7 @@
   }
 
   #footerLinksLeft {
-    padding-right: 2rem;
+    padding-right: 0rem;
   }
 }
 
