@@ -236,11 +236,9 @@ const Work: React.FC<Props> = ({ translateX }) => {
                 </svg>
               </div>
               <div
+                className="project-title"
                 style={{
-                  position: "absolute",
                   top: "2.5rem",
-                  left: "4rem",
-                  zIndex: "4",
                 }}
               >
                 <sup
@@ -318,11 +316,9 @@ const Work: React.FC<Props> = ({ translateX }) => {
                 </svg>
               </div>
               <div
+                className="project-title"
                 style={{
-                  position: "absolute",
                   top: "2.5rem",
-                  left: "4rem",
-                  zIndex: "4",
                 }}
               >
                 <sup

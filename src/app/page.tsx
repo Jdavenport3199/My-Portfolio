@@ -201,7 +201,7 @@ export default function Home() {
             className="container-holder"
             style={{
               display: translateX === "-100%" ? "flex" : "none",
-              minHeight: "100vh",
+              minHeight: "90vh",
               alignItems: "center",
               flexDirection: "column",
             }}
@@ -215,7 +215,7 @@ export default function Home() {
                 alignItems: "center",
               }}
             >
-              <div style={{ width: "100%", marginBottom: "4rem" }}>
+              <div style={{ width: "100%", marginBottom: "4rem", marginTop: "8rem", }}>
                 <h2
                   style={{
                     background:
