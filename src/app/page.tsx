@@ -2,9 +2,9 @@
 import { useEffect, useRef, useState } from "react";
 import Work from "./components/Work";
 import Articles from "./components/Articles";
-import GridLoader from "react-spinners/GridLoader";
+import Loader from "react-spinners/GridLoader";
 import { sf_pro } from "./ui/fonts";
-import Footer from "./components/Footer";
+import Link from "next/link";
 
 export default function Home() {
   const [translateX, setTranslateX] = useState("-100%");
@@ -80,23 +80,142 @@ export default function Home() {
     setEmailForm(false);
   };
 
+  const [navPanel, setNavPanel] = useState(false);
+
   return (
     <main>
       <div className="background"></div>
       <div className="overlay"></div>
 
+      <button
+        className="nav-mobile"
+        onClick={() => setNavPanel(!navPanel)}
+        style={{
+          position: "fixed",
+          top: "2rem",
+          right: "2rem",
+          zIndex: "6",
+        }}
+      >
+        <div
+          style={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            flexDirection: "column",
+            width: "24px",
+            gap: "0.4rem",
+          }}
+        >
+          <hr
+            style={{
+              width: "100%",
+              border: "0",
+              borderTop: "2px solid rgba(36, 36, 36)",
+            }}
+          />
+          <hr
+            style={{
+              width: "100%",
+              border: "0",
+              borderTop: "2px solid rgba(36, 36, 36)",
+            }}
+          />
+          <hr
+            style={{
+              width: "100%",
+              border: "0",
+              borderTop: "2px solid rgba(36, 36, 36)",
+            }}
+          />
+        </div>
+      </button>
+
+      <div
+        style={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          position: "fixed",
+          flexDirection: "column",
+          top: "0rem",
+          right: "0rem",
+          zIndex: "5",
+          background: "#ffffff40",
+          padding: navPanel ? "2rem" : "0",
+          backdropFilter: "blur(20px) saturate(200%)",
+          WebkitBackdropFilter: "blur(20px) saturate(200%)",
+          height: navPanel ? "100%" : "0",
+          width: navPanel ? "100%" : "0",
+          overflow: "hidden",
+          transition: "500ms ease-out",
+        }}
+      >
+        <div
+          style={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            flexDirection: "column",
+            gap: "1rem",
+          }}
+        >
+          <button
+            style={{
+              color: translateX === "-100%" ? "" : "rgba(36, 36, 36, 0.6)",
+              visibility: navPanel ? "visible" : "hidden",
+              opacity: navPanel ? "" : "0",
+              transition: "opacity 250ms ease-out, visibility 0ms linear 250ms",
+            }}
+            onClick={() => {
+              setTranslateX("-100%"), setNavPanel(!navPanel);
+            }}
+            aria-label="Work"
+          >
+            About
+          </button>
+          <button
+            style={{
+              color: translateX === "0%" ? "" : "rgba(36, 36, 36, 0.6)",
+              visibility: navPanel ? "visible" : "hidden",
+              opacity: navPanel ? "" : "0",
+              transition: "opacity 250ms ease-out, visibility 0ms linear 250ms",
+            }}
+            onClick={() => {
+              setTranslateX("0%"), setNavPanel(!navPanel);
+            }}
+            aria-label="Work"
+          >
+            Work
+          </button>
+          <button
+            style={{
+              color: translateX === "100%" ? "" : "rgba(36, 36, 36, 0.6)",
+              visibility: navPanel ? "visible" : "hidden",
+              opacity: navPanel ? "" : "0",
+              transition: "opacity 250ms ease-out, visibility 0ms linear 250ms",
+            }}
+            onClick={() => {
+              setTranslateX("100%"), setNavPanel(!navPanel);
+            }}
+            aria-label="Blog"
+          >
+            Blog
+          </button>
+        </div>
+      </div>
+
       <nav ref={nav}>
         <div className="nav">
           <div className="nav-nav">
             <div className="nav-links">
-              {/* <div
+              <div
                 className="nav-slider"
                 style={{
                   transform: `translateX(${translateX})`,
                 }}
-              ></div> */}
+              ></div>
               <button
-                className={translateX === "-100%" ? "button" : "button-light"}
                 style={{ color: translateX === "-100%" ? "white" : "" }}
                 onClick={() => setTranslateX("-100%")}
                 aria-label="Work"
@@ -104,7 +223,6 @@ export default function Home() {
                 About
               </button>
               <button
-                className={translateX === "0%" ? "button" : "button-light"}
                 style={{ color: translateX === "0%" ? "white" : "" }}
                 onClick={() => setTranslateX("0%")}
                 aria-label="Work"
@@ -112,7 +230,6 @@ export default function Home() {
                 Work
               </button>
               <button
-                className={translateX === "100%" ? "button" : "button-light"}
                 style={{ color: translateX === "100%" ? "white" : "" }}
                 onClick={() => setTranslateX("100%")}
                 aria-label="Blog"
@@ -126,7 +243,7 @@ export default function Home() {
 
       {loading ? (
         <div className="loader-holder">
-          <GridLoader color="rgb(36, 36, 36, 0.6)" size={10} />
+          <Loader color="rgb(36, 36, 36, 0.6)" size={10} />
         </div>
       ) : (
         <>
@@ -155,7 +272,6 @@ export default function Home() {
                 <span
                   style={{
                     color: "rgb(36, 36, 36, 0.6)",
-                    fontWeight: 300,
                     fontSize: "clamp(16px, 2vw, 20px)",
                     lineHeight: 1.4,
                   }}
@@ -177,6 +293,7 @@ export default function Home() {
                 <div
                   style={{
                     display: "flex",
+                    flexWrap: "wrap",
                     gap: "0.4rem",
                   }}
                 >
@@ -215,7 +332,13 @@ export default function Home() {
                 alignItems: "center",
               }}
             >
-              <div style={{ width: "100%", marginBottom: "4rem", marginTop: "8rem", }}>
+              <div
+                style={{
+                  width: "100%",
+                  marginBottom: "4rem",
+                  marginTop: "8rem",
+                }}
+              >
                 <h2
                   style={{
                     background:
@@ -229,7 +352,6 @@ export default function Home() {
                 <span
                   style={{
                     color: "rgb(36, 36, 36, 0.6)",
-                    fontWeight: 300,
                     fontSize: "clamp(16px, 2vw, 20px)",
                     lineHeight: 1.4,
                   }}
@@ -319,7 +441,7 @@ export default function Home() {
             className="container-holder"
             style={{
               display: translateX === "-100%" ? "flex" : "none",
-              minHeight: "80vh",
+              minHeight: "90vh",
               alignItems: "center",
               flexDirection: "column",
             }}
@@ -353,7 +475,6 @@ export default function Home() {
                 <span
                   style={{
                     color: "rgb(36, 36, 36, 0.6)",
-                    fontWeight: 300,
                     fontSize: "clamp(16px, 2vw, 20px)",
                     lineHeight: 1.4,
                   }}
@@ -424,7 +545,122 @@ export default function Home() {
 
           <Work translateX={translateX} />
           <Articles translateX={translateX} />
-          <Footer />
+          {/* <Footer /> */}
+
+          <div
+            className="container-holder"
+            style={{
+              background:
+                "linear-gradient(to top, #f5f5f5 0%, transparent 100%)",
+              alignItems: "center",
+              flexDirection: "column",
+            }}
+          >
+            <footer>
+              <div className="footer">
+                <div>
+                  <div style={{ marginBottom: "0.4rem" }}>
+                    <span>Justin Davenport — Digital Designer</span>
+                  </div>
+                  <p>©2024 All rights reserved.</p>
+                </div>
+                <div className="footerLinksHolder">
+                  <div className="footerLinks" id="footerLinksLeft">
+                    <p
+                      style={{
+                        color: "rgb(36, 36, 36, 0.6)",
+                        lineHeight: 1.4,
+                        fontWeight: 600,
+                      }}
+                    >
+                      LINKS
+                    </p>
+                    <button
+                      onClick={() => setTranslateX("-100%")}
+                      aria-label="Work"
+                    >
+                      About
+                    </button>
+                    <button
+                      onClick={() => setTranslateX("0%")}
+                      aria-label="Work"
+                    >
+                      Work
+                    </button>
+                    <button
+                      onClick={() => setTranslateX("100%")}
+                      aria-label="Blog"
+                    >
+                      Blog
+                    </button>
+                    <button
+                      onClick={() => scrollTo(servicesDiv)}
+                      aria-label="Services"
+                    >
+                      Services
+                    </button>
+                    <button
+                      onClick={() => scrollTo(contactDiv)}
+                      aria-label="Contact"
+                    >
+                      Contact
+                    </button>
+                  </div>
+                  <div className="footerLinks">
+                    <p
+                      style={{
+                        color: "rgb(36, 36, 36, 0.6)",
+                        lineHeight: 1.4,
+                        fontWeight: 600,
+                      }}
+                    >
+                      SOCIALS
+                    </p>
+                    <Link
+                      href="https://www.instagram.com/justindavenport.space/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label="Instagram"
+                    >
+                      Instagram
+                    </Link>
+                    <Link
+                      href="https://dribbble.com/justindavenport"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label="Dribbble"
+                    >
+                      Dribbble
+                    </Link>
+                    <Link
+                      href="https://www.linkedin.com/in/justindavenport99/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label="LinkedIn"
+                    >
+                      LinkedIn
+                    </Link>
+                    <Link
+                      href="https://github.com/Jdavenport3199"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label="GitHub"
+                    >
+                      GitHub
+                    </Link>
+                    <Link
+                      href="/pages/resume"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label="Resume"
+                    >
+                      Resume
+                    </Link>
+                  </div>
+                </div>
+              </div>
+            </footer>
+          </div>
         </>
       )}
     </main>

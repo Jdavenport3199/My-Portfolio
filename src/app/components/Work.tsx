@@ -128,7 +128,6 @@ const Work: React.FC<Props> = ({ translateX }) => {
             <span
               style={{
                 color: "rgb(36, 36, 36, 0.6)",
-                fontWeight: 300,
                 fontSize: "clamp(16px, 2vw, 20px)",
                 lineHeight: 1.4,
               }}
@@ -151,7 +150,7 @@ const Work: React.FC<Props> = ({ translateX }) => {
         <div className="container-title" style={{ paddingTop: "0rem" }}>
           <div className="toggle-btn-holder">
             <button
-              className={projectsToggle === true ? "button" : "button-light"}
+              className={projectsToggle === true ? "button" : "button"}
               onClick={() => {
                 setProjectsToggle(true), setDesignsToggle(false), scrollTo(div);
               }}
@@ -159,7 +158,7 @@ const Work: React.FC<Props> = ({ translateX }) => {
               Websites
             </button>
             <button
-              className={designsToggle === true ? "button" : "button-light"}
+              className={designsToggle === true ? "button" : "button"}
               onClick={() => {
                 setDesignsToggle(true), setProjectsToggle(false), scrollTo(div);
               }}

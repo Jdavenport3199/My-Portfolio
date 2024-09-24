@@ -30,7 +30,6 @@ const Articles: React.FC<Props> = ({ translateX }) => {
             <span
               style={{
                 color: "rgb(36, 36, 36, 0.6)",
-                fontWeight: 300,
                 fontSize: "clamp(16px, 2vw, 20px)",
                 lineHeight: 1.4,
               }}
