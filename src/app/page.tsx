@@ -82,6 +82,10 @@ export default function Home() {
 
   const [navPanel, setNavPanel] = useState(false);
 
+  const downloadResume = () => {
+    window.open("/Justin Davenport — Resume.pdf", "_blank");
+  };
+
   return (
     <main>
       <div className="background"></div>
@@ -276,8 +280,8 @@ export default function Home() {
                     lineHeight: 1.4,
                   }}
                 >
-                  I&apos;m Justin, a digital designer specializing in web
-                  development and product design.
+                  I&apos;m Justin, a creative specializing in web development,
+                  product design, and everything in between.
                 </span>
               </div>
               <div
@@ -560,9 +564,9 @@ export default function Home() {
               <div className="footer">
                 <div>
                   <div style={{ marginBottom: "0.4rem" }}>
-                    <span>Justin Davenport — Digital Designer</span>
+                    <span>Justin Davenport — Developer & Designer.</span>
                   </div>
-                  <p>©2024 All rights reserved.</p>
+                  <p>©2024 All Rights Reserved</p>
                 </div>
                 <div className="footerLinksHolder">
                   <div className="footerLinks" id="footerLinksLeft">
@@ -636,14 +640,9 @@ export default function Home() {
                     >
                       GitHub
                     </Link>
-                    <Link
-                      href="/pages/resume"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      aria-label="Resume"
-                    >
+                    <button onClick={downloadResume} aria-label="Resume">
                       Resume
-                    </Link>
+                    </button>
                   </div>
                 </div>
               </div>
