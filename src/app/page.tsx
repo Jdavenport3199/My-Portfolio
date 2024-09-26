@@ -91,13 +91,15 @@ export default function Home() {
       <div className="background"></div>
       <div className="overlay"></div>
 
+      <span className="logo">Justin Davenport</span>
+
       <button
         className="nav-mobile"
         onClick={() => setNavPanel(!navPanel)}
         style={{
           position: "fixed",
           top: "2rem",
-          right: "2rem",
+          right: "5%",
           zIndex: "6",
         }}
       >
@@ -210,37 +212,35 @@ export default function Home() {
       </div>
 
       <nav ref={nav}>
-        <div className="nav">
-          <div className="nav-nav">
-            <div className="nav-links">
-              <div
-                className="nav-slider"
-                style={{
-                  transform: `translateX(${translateX})`,
-                }}
-              ></div>
-              <button
-                style={{ color: translateX === "-100%" ? "white" : "" }}
-                onClick={() => setTranslateX("-100%")}
-                aria-label="Work"
-              >
-                About
-              </button>
-              <button
-                style={{ color: translateX === "0%" ? "white" : "" }}
-                onClick={() => setTranslateX("0%")}
-                aria-label="Work"
-              >
-                Work
-              </button>
-              <button
-                style={{ color: translateX === "100%" ? "white" : "" }}
-                onClick={() => setTranslateX("100%")}
-                aria-label="Blog"
-              >
-                Blog
-              </button>
-            </div>
+        <div className="nav-nav">
+          <div className="nav-links">
+            <div
+              className="nav-slider"
+              style={{
+                transform: `translateX(${translateX})`,
+              }}
+            ></div>
+            <button
+              style={{ color: translateX === "-100%" ? "white" : "" }}
+              onClick={() => setTranslateX("-100%")}
+              aria-label="Work"
+            >
+              About
+            </button>
+            <button
+              style={{ color: translateX === "0%" ? "white" : "" }}
+              onClick={() => setTranslateX("0%")}
+              aria-label="Work"
+            >
+              Work
+            </button>
+            <button
+              style={{ color: translateX === "100%" ? "white" : "" }}
+              onClick={() => setTranslateX("100%")}
+              aria-label="Blog"
+            >
+              Blog
+            </button>
           </div>
         </div>
       </nav>
@@ -272,7 +272,7 @@ export default function Home() {
                 <br />
                 with clean code and intuitive design.
               </h1>
-              <div style={{ marginTop: "0.8rem" }}>
+              {/* <div style={{ marginTop: "0.8rem" }}>
                 <span
                   style={{
                     color: "rgb(36, 36, 36, 0.6)",
@@ -283,7 +283,7 @@ export default function Home() {
                   I&apos;m Justin, a creative specializing in web development,
                   product design, and everything in between.
                 </span>
-              </div>
+              </div> */}
               <div
                 style={{
                   display: "flex",
@@ -303,15 +303,20 @@ export default function Home() {
                 >
                   <button
                     className="button"
+                    style={{
+                      background: "white",
+                      border: "1px solid rgb(36, 36, 36)",
+                      color: "black",
+                    }}
                     onClick={() => scrollTo(servicesDiv)}
                   >
-                    View Services
+                    My Services
                   </button>
                   <button
                     className="button"
                     onClick={() => scrollTo(contactDiv)}
                   >
-                    Contact Me
+                    Let&apos;s Connect
                   </button>
                 </div>
               </div>
@@ -549,7 +554,6 @@ export default function Home() {
 
           <Work translateX={translateX} />
           <Articles translateX={translateX} />
-          {/* <Footer /> */}
 
           <div
             className="container-holder"
