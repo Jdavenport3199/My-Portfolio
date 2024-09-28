@@ -1,4 +1,4 @@
-import { Resend } from 'resend';
+import { Resend } from "resend";
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
@@ -8,6 +8,7 @@ export async function POST(request: Request) {
   try {
     const htmlBody = `
     <p><b>${requestData.topic}</b></p>
+    <p>${requestData.company}</p>
     <p>${requestData.message}</p>
     <br>
     <p>${requestData.name}</p>
@@ -15,11 +16,11 @@ export async function POST(request: Request) {
   `;
 
     const data = await resend.emails.send({
-      from: 'justindavenport.space <onboarding@resend.dev>',
+      from: "justindavenport.space <onboarding@resend.dev>",
       // from: requestData.email,
-      to: ['justindavenport.space@gmail.com'],
+      to: ["justindavenport.space@gmail.com"],
       subject: requestData.topic,
-      html: htmlBody
+      html: htmlBody,
     });
 
     return Response.json(data);

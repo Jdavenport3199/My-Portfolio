@@ -1,14 +1,14 @@
 import type { Metadata } from "next";
-import { sf_pro, switzer } from "./ui/fonts";
+import { inter, sf_pro, switzer } from "./ui/fonts";
 import "./globals.css";
 
 export const metadata: Metadata = {
   title: {
-    default: "Justin Davenport — Developer & Designer.",
-    template: "%s — Justin Davenport",
+    default: "Justin Davenport.",
+    template: "%s — Justin Davenport.",
   },
   description:
-    "Crafting digital experiences with clean code and intuitive design.",
+    "Developer. Designer.",
   openGraph: {
     images: "https://www.justindavenport.space/opengraph-image.png",
   },
@@ -26,7 +26,7 @@ export default function RootLayout({
   return (
     <>
       <html lang="en">
-        <body className={`${sf_pro.className} antialiased`}>{children}</body>
+        <body className={`${inter.className} antialiased`}>{children}</body>
       </html>
     </>
   );

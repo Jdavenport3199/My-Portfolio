@@ -1,41 +1,15 @@
 "use client";
 import Link from "next/link";
-import { useRef, useState } from "react";
+import { gsap } from "gsap";
+import { useInView } from "react-intersection-observer";
+import { RefObject, useEffect, useRef } from "react";
+import { inter_tight } from "../ui/fonts";
 
 interface Props {
-  translateX: string;
+  worksDiv: RefObject<HTMLDivElement>;
 }
 
-const Work: React.FC<Props> = ({ translateX }) => {
-  const [projectsToggle, setProjectsToggle] = useState(true);
-  const [designsToggle, setDesignsToggle] = useState(false);
-  const div = useRef<HTMLDivElement>(null);
-
-  const scrollTo = (ref: React.RefObject<HTMLDivElement>) => {
-    if (ref.current) {
-      const elementTop = ref.current.getBoundingClientRect().top;
-      const stickyThreshold = 2 * 16;
-
-      if (window.innerWidth < 799) {
-        if (projectsToggle === false) {
-          window.scrollTo({ top: 0, behavior: "smooth" });
-        }
-        if (designsToggle === false) {
-          window.scrollTo({ top: 0, behavior: "smooth" });
-        }
-      } else if (window.innerWidth >= 799) {
-        if (elementTop <= stickyThreshold) {
-          if (projectsToggle === false) {
-            window.scrollTo({ top: 240, behavior: "smooth" });
-          }
-          if (designsToggle === false) {
-            window.scrollTo({ top: 240, behavior: "smooth" });
-          }
-        }
-      }
-    }
-  };
-
+const Work: React.FC<Props> = ({ worksDiv }) => {
   const projects = [
     {
       name: "OCULAR VIBRATIONS™",
@@ -43,6 +17,20 @@ const Work: React.FC<Props> = ({ translateX }) => {
         "A modern age digital design studio, your gateway to the digital renaissance.",
       image: "/projects/ocular.png",
       link: "https://www.ocularvibrations.com/",
+    },
+    {
+      name: "Smart Home",
+      description:
+        "An all-in-one application to control your home’s smart devices.",
+      image: "/designs/smarthome-mockup.png",
+      link: "https://dribbble.com/shots/24906297-Smart-Home-App",
+    },
+    {
+      name: "IMDb",
+      description:
+        "The world's most popular source for movie, TV and celebrity content.",
+      image: "/designs/imdb-mockup.png",
+      link: "https://dribbble.com/shots/24913217-IMDb-mobile-app",
     },
     {
       name: "iSync",
@@ -87,186 +75,59 @@ const Work: React.FC<Props> = ({ translateX }) => {
     },
   ];
 
-  const designs = [
-    {
-      name: "Smart Home",
-      description:
-        "An all-in-one application to control your home’s smart devices.",
-      image: "/designs/smarthome-mockup.png",
-      link: "https://dribbble.com/shots/24906297-Smart-Home-App",
-    },
-    {
-      name: "IMDb",
-      description:
-        "The world's most popular source for movie, TV and celebrity content.",
-      image: "/designs/imdb-mockup.png",
-      link: "https://dribbble.com/shots/24913217-IMDb-mobile-app",
-    },
-  ];
+  const [contentHolder, inViewContentHolder] = useInView({
+    triggerOnce: true,
+    threshold: 0.25,
+  });
+  const content = useRef<HTMLAnchorElement[]>([]);
+  const hr = useRef<HTMLHRElement>(null);
+
+  useEffect(() => {
+    if (inViewContentHolder) {
+      const tl = gsap.timeline();
+      tl.to(worksDiv.current, {
+        opacity: 1,
+        duration: 1,
+        ease: "power2.inOut",
+      });
+      tl.to(hr.current, {
+        width: "100%",
+        duration: 0.5,
+        ease: "power2.inOut",
+      });
+      content.current.forEach((ref, index) => {
+        tl.to(ref, {
+          opacity: 1,
+          duration: 0.25,
+          ease: "power2.inOut",
+        });
+      });
+    }
+  }, [inViewContentHolder]);
 
   return (
-    <>
+    <div ref={contentHolder}>
       <div
         className="container-holder"
-        style={{
-          display: translateX === "0%" ? "flex" : "none",
-        }}
-        id="fade"
+        style={{ opacity: "0", paddingBottom: "8rem" }}
+        ref={worksDiv}
       >
         <div className="container-title">
-          <div style={{ width: "100%", marginBottom: "2rem" }}>
-            <h2
-              style={{
-                background:
-                  "linear-gradient(to right, rgb(36, 36, 36), rgb(184, 184, 184))",
-                WebkitBackgroundClip: "text",
-                color: "transparent",
-              }}
-            >
-              Explore my recent work.
-            </h2>
-            <span
-              style={{
-                color: "rgb(36, 36, 36, 0.6)",
-                fontSize: "clamp(16px, 2vw, 20px)",
-                lineHeight: 1.4,
-              }}
-            >
+          <div style={{ width: "100%", paddingBottom: "4rem" }}>
+            <h1 className={inter_tight.className}>Works.</h1>
+            <h2>FEATURED PROJECTS</h2>
+            <hr ref={hr} style={{ width: "0%" }} />
+            <p style={{ maxWidth: "295px", textAlign: "justify" }}>
               Discover the latest websites and designs I&apos;ve been working
               on.
-            </span>
+            </p>
           </div>
         </div>
-      </div>
 
-      <div
-        className="toggle-holder"
-        style={{
-          display: translateX === "0%" ? "flex" : "none",
-        }}
-        id="fade"
-        ref={div}
-      >
-        <div className="container-title" style={{ paddingTop: "0rem" }}>
-          <div className="toggle-btn-holder">
-            <button
-              className={projectsToggle === true ? "button" : "button"}
-              onClick={() => {
-                setProjectsToggle(true), setDesignsToggle(false), scrollTo(div);
-              }}
-            >
-              Websites
-            </button>
-            <button
-              className={designsToggle === true ? "button" : "button"}
-              onClick={() => {
-                setDesignsToggle(true), setProjectsToggle(false), scrollTo(div);
-              }}
-            >
-              Designs
-            </button>
-          </div>
-        </div>
-      </div>
-
-      <div
-        className="container-holder"
-        style={{
-          display: translateX === "0%" ? "flex" : "none",
-          alignItems: "flex-start",
-          marginBottom: "8rem",
-        }}
-        id="fade"
-      >
-        <div
-          className="project-holder"
-          style={{
-            display: designsToggle ? "flex" : "none",
-            marginBottom: "0.4rem",
-          }}
-        >
-          {designs.map((designs, index) => (
-            <Link
-              key={index}
-              className="project"
-              href={designs.link}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label={designs.name}
-              style={{
-                opacity: 1,
-                lineHeight: "0",
-                padding: "0rem",
-                width: "100%",
-                position: "relative",
-              }}
-            >
-              <div className="project-title">
-                <h2
-                  style={{
-                    color: "white",
-                  }}
-                >
-                  {designs.name}
-                </h2>
-                <p
-                  style={{
-                    color: "whitesmoke",
-                    fontWeight: "300",
-                    fontSize: "clamp(14px, 2vw, 16px)",
-                  }}
-                >
-                  {designs.description}
-                </p>
-                <p className="detail">— View the design.</p>
-              </div>
-              <div className="project-btn">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  height="16"
-                  width="12"
-                  viewBox="0 0 448 512"
-                  fill="white"
-                  style={{
-                    transform: "rotate(-45deg)",
-                  }}
-                >
-                  <path d="M438.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L338.8 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l306.7 0L233.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z" />
-                </svg>
-              </div>
-              <div
-                className="project-title"
-                style={{
-                  top: "2.5rem",
-                }}
-              >
-                <sup
-                  style={{
-                    color: "white",
-                    fontSize: "12px",
-                  }}
-                >
-                  {String(index + 1).padStart(3, "0")}&ensp;
-                </sup>
-              </div>
-              <img
-                className="img"
-                src={designs.image}
-                alt={designs.name}
-                style={{ objectPosition: "top center" }}
-              />
-            </Link>
-          ))}
-        </div>
-
-        <div
-          className="project-holder"
-          style={{
-            display: projectsToggle ? "flex" : "none",
-          }}
-        >
+        <div className="project-holder">
           {projects.map((project, index) => (
             <Link
+              ref={(el) => (content.current[index] = el!)}
               key={index}
               className="project"
               href={project.link}
@@ -274,7 +135,7 @@ const Work: React.FC<Props> = ({ translateX }) => {
               rel="noopener noreferrer"
               aria-label={project.name}
               style={{
-                opacity: 1,
+                opacity: 0,
                 lineHeight: "0",
                 padding: "0rem",
                 width: "100%",
@@ -282,23 +143,7 @@ const Work: React.FC<Props> = ({ translateX }) => {
               }}
             >
               <div className="project-title">
-                <h2
-                  style={{
-                    color: "white",
-                  }}
-                >
-                  {project.name}
-                </h2>
-                <p
-                  style={{
-                    color: "whitesmoke",
-                    fontWeight: "300",
-                    fontSize: "clamp(14px, 2vw, 16px)",
-                  }}
-                >
-                  {project.description}
-                </p>
-                <p className="detail">— Explore the live site.</p>
+                <p className="detail">Explore</p>
               </div>
               <div className="project-btn">
                 <svg
@@ -313,21 +158,6 @@ const Work: React.FC<Props> = ({ translateX }) => {
                 >
                   <path d="M438.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L338.8 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l306.7 0L233.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z" />
                 </svg>
-              </div>
-              <div
-                className="project-title"
-                style={{
-                  top: "2.5rem",
-                }}
-              >
-                <sup
-                  style={{
-                    color: "white",
-                    fontSize: "12px",
-                  }}
-                >
-                  {String(index + 1).padStart(3, "0")}&ensp;
-                </sup>
               </div>
               <img
                 className="img"
@@ -339,7 +169,7 @@ const Work: React.FC<Props> = ({ translateX }) => {
           ))}
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

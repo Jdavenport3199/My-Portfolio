@@ -2,14 +2,13 @@
 import { useEffect, useRef, useState } from "react";
 import Work from "./components/Work";
 import Articles from "./components/Articles";
-import Loader from "react-spinners/GridLoader";
-import { sf_pro } from "./ui/fonts";
+import { inter, inter_tight } from "./ui/fonts";
 import Link from "next/link";
+import { gsap } from "gsap";
+import { useInView } from "react-intersection-observer";
 
 export default function Home() {
-  const [translateX, setTranslateX] = useState("-100%");
   const [lastScroll, setLastScroll] = useState(0);
-  const [loading, setLoading] = useState(true);
   const nav = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -36,19 +35,10 @@ export default function Home() {
     };
   }, [lastScroll]);
 
-  useEffect(() => {
-    const scrollToTop = () => {
-      window.scrollTo(0, 0);
-      setLoading(true);
-
-      setTimeout(() => {
-        setLoading(false);
-      }, 500);
-    };
-    scrollToTop();
-  }, [translateX]);
-
+  const homeDiv = useRef<HTMLDivElement>(null);
   const servicesDiv = useRef<HTMLDivElement>(null);
+  const worksDiv = useRef<HTMLDivElement>(null);
+  const articlesDiv = useRef<HTMLDivElement>(null);
   const contactDiv = useRef<HTMLDivElement>(null);
 
   const scrollTo = (ref: React.RefObject<HTMLDivElement>) => {
@@ -60,6 +50,7 @@ export default function Home() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [topic, setTopic] = useState("");
+  const [company, setCompany] = useState("");
   const [message, setMessage] = useState("");
   const [emailForm, setEmailForm] = useState<boolean>(true);
 
@@ -86,23 +77,66 @@ export default function Home() {
     window.open("/Justin Davenport — Resume.pdf", "_blank");
   };
 
+  const [contentHolder1, inViewContentHolder1] = useInView({
+    triggerOnce: true,
+    threshold: 0.25,
+  });
+  const hr1 = useRef<HTMLHRElement>(null);
+  const [contentHolder2, inViewContentHolder2] = useInView({
+    triggerOnce: true,
+    threshold: 0.25,
+  });
+  const hr2 = useRef<HTMLHRElement>(null);
+
+  useEffect(() => {
+    if (inViewContentHolder1) {
+      const tl = gsap.timeline();
+      tl.to(servicesDiv.current, {
+        opacity: 1,
+        duration: 1,
+        ease: "power2.inOut",
+      });
+      tl.to(hr1.current, {
+        width: "100%",
+        duration: 0.5,
+        ease: "power2.inOut",
+      });
+    }
+    if (inViewContentHolder2) {
+      const tl = gsap.timeline();
+      tl.to(contactDiv.current, {
+        opacity: 1,
+        duration: 1,
+        ease: "power2.inOut",
+      });
+      tl.to(hr2.current, {
+        width: "100%",
+        duration: 0.5,
+        ease: "power2.inOut",
+      });
+    }
+  }, [inViewContentHolder1, inViewContentHolder2]);
+
   return (
     <main>
-      <div className="background"></div>
-      <div className="overlay"></div>
+      <div className="grid-container" ref={homeDiv}>
+        <div className="grid-lines">
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
+      </div>
 
-      <span className="logo">Justin Davenport</span>
-
-      <button
-        className="nav-mobile"
-        onClick={() => setNavPanel(!navPanel)}
-        style={{
-          position: "fixed",
-          top: "2rem",
-          right: "5%",
-          zIndex: "6",
-        }}
-      >
+      <nav onClick={() => setNavPanel(!navPanel)}>
         <div
           style={{
             display: "flex",
@@ -118,6 +152,7 @@ export default function Home() {
               width: "100%",
               border: "0",
               borderTop: "2px solid rgba(36, 36, 36)",
+              margin: "0",
             }}
           />
           <hr
@@ -125,6 +160,7 @@ export default function Home() {
               width: "100%",
               border: "0",
               borderTop: "2px solid rgba(36, 36, 36)",
+              margin: "0",
             }}
           />
           <hr
@@ -132,10 +168,11 @@ export default function Home() {
               width: "100%",
               border: "0",
               borderTop: "2px solid rgba(36, 36, 36)",
+              margin: "0",
             }}
           />
         </div>
-      </button>
+      </nav>
 
       <div
         style={{
@@ -160,500 +197,519 @@ export default function Home() {
         <div
           style={{
             display: "flex",
-            alignItems: "center",
             justifyContent: "center",
             flexDirection: "column",
-            gap: "1rem",
+            gap: "2rem",
           }}
         >
           <button
             style={{
-              color: translateX === "-100%" ? "" : "rgba(36, 36, 36, 0.6)",
               visibility: navPanel ? "visible" : "hidden",
               opacity: navPanel ? "" : "0",
               transition: "opacity 250ms ease-out, visibility 0ms linear 250ms",
             }}
+            aria-label="Home"
             onClick={() => {
-              setTranslateX("-100%"), setNavPanel(!navPanel);
+              scrollTo(homeDiv), setNavPanel(!navPanel);
             }}
-            aria-label="Work"
           >
-            About
+            Home
           </button>
           <button
             style={{
-              color: translateX === "0%" ? "" : "rgba(36, 36, 36, 0.6)",
               visibility: navPanel ? "visible" : "hidden",
               opacity: navPanel ? "" : "0",
               transition: "opacity 250ms ease-out, visibility 0ms linear 250ms",
             }}
+            aria-label="Services"
             onClick={() => {
-              setTranslateX("0%"), setNavPanel(!navPanel);
+              scrollTo(servicesDiv), setNavPanel(!navPanel);
             }}
-            aria-label="Work"
           >
-            Work
+            Services
           </button>
           <button
             style={{
-              color: translateX === "100%" ? "" : "rgba(36, 36, 36, 0.6)",
               visibility: navPanel ? "visible" : "hidden",
               opacity: navPanel ? "" : "0",
               transition: "opacity 250ms ease-out, visibility 0ms linear 250ms",
             }}
+            aria-label="Works"
             onClick={() => {
-              setTranslateX("100%"), setNavPanel(!navPanel);
+              scrollTo(worksDiv), setNavPanel(!navPanel);
             }}
-            aria-label="Blog"
           >
-            Blog
+            Works
+          </button>
+          <button
+            style={{
+              visibility: navPanel ? "visible" : "hidden",
+              opacity: navPanel ? "" : "0",
+              transition: "opacity 250ms ease-out, visibility 0ms linear 250ms",
+            }}
+            aria-label="Articles"
+            onClick={() => {
+              scrollTo(articlesDiv), setNavPanel(!navPanel);
+            }}
+          >
+            Articles
+          </button>
+          <button
+            style={{
+              visibility: navPanel ? "visible" : "hidden",
+              opacity: navPanel ? "" : "0",
+              transition: "opacity 250ms ease-out, visibility 0ms linear 250ms",
+            }}
+            aria-label="Contact"
+            onClick={() => {
+              scrollTo(contactDiv), setNavPanel(!navPanel);
+            }}
+          >
+            Contact
           </button>
         </div>
       </div>
 
-      <nav ref={nav}>
-        <div className="nav-nav">
-          <div className="nav-links">
-            <div
-              className="nav-slider"
-              style={{
-                transform: `translateX(${translateX})`,
-              }}
-            ></div>
-            <button
-              style={{ color: translateX === "-100%" ? "white" : "" }}
-              onClick={() => setTranslateX("-100%")}
-              aria-label="Work"
-            >
-              About
-            </button>
-            <button
-              style={{ color: translateX === "0%" ? "white" : "" }}
-              onClick={() => setTranslateX("0%")}
-              aria-label="Work"
-            >
-              Work
-            </button>
-            <button
-              style={{ color: translateX === "100%" ? "white" : "" }}
-              onClick={() => setTranslateX("100%")}
-              aria-label="Blog"
-            >
-              Blog
-            </button>
-          </div>
-        </div>
-      </nav>
-
-      {loading ? (
-        <div className="loader-holder">
-          <Loader color="rgb(36, 36, 36, 0.6)" size={10} />
-        </div>
-      ) : (
-        <>
-          <div
-            className="container-holder"
+      <div
+        className="container-holder"
+        style={{
+          flexDirection: "column",
+          minHeight: "100vh",
+        }}
+      >
+        <div className="container-splash">
+          <h1
+            className={inter_tight.className}
             style={{
-              flexDirection: "column",
-              minHeight: "100vh",
-              display: translateX === "-100%" ? "flex" : "none",
+              animation: "fade 750ms ease-in-out forwards",
+              animationDelay: ".5s",
+              opacity: "0",
             }}
           >
-            <div className="container-splash" id="fade">
-              <h1
+            Justin Davenport.
+          </h1>
+          <div
+            style={{
+              marginBottom: "6rem",
+              animation: "fade 750ms ease-in-out forwards",
+              animationDelay: "1.5s",
+              opacity: "0",
+            }}
+          >
+            <span style={{ fontSize: "clamp(24px, 4vw, 28px)" }}>
+              Developer. Designer.
+            </span>
+          </div>
+          <br />
+          <p
+            style={{
+              maxWidth: "295px",
+              textAlign: "justify",
+              animation: "fade 750ms ease-in-out forwards",
+              animationDelay: "2.5s",
+              opacity: "0",
+            }}
+          >
+            Crafting digital experiences with clean code and intuitive design.
+          </p>
+        </div>
+      </div>
+
+      <div
+        className="container-holder"
+        style={{
+          minHeight: "100vh",
+          alignItems: "center",
+          flexDirection: "column",
+          paddingBottom: "8rem",
+        }}
+        ref={contentHolder1}
+      >
+        <div
+          className="container-splash"
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            opacity: "0",
+          }}
+          ref={servicesDiv}
+        >
+          <div
+            style={{
+              width: "100%",
+              paddingBlock: "4rem",
+            }}
+          >
+            <h1 className={inter_tight.className}>Services.</h1>
+            <h2>MY EXPERTISE</h2>
+            <hr ref={hr1} style={{ width: "0%" }} />
+            <p style={{ maxWidth: "295px", textAlign: "justify" }}>
+              Reach out to explore how we can work together to achieve
+              meaningful and impactful results for your project.
+            </p>
+          </div>
+          <div className="container-services">
+            <div className="services" style={{ paddingTop: "0" }}>
+              <sup
                 style={{
-                  background:
-                    "linear-gradient(to right, rgb(36, 36, 36), rgb(184, 184, 184))",
-                  WebkitBackgroundClip: "text",
-                  color: "transparent",
+                  fontSize: "14px",
+                  fontWeight: "400",
+                  letterSpacing: "0.2em",
                 }}
               >
-                Crafting digital experiences
-                <br />
-                with clean code and intuitive design.
-              </h1>
-              {/* <div style={{ marginTop: "0.8rem" }}>
-                <span
-                  style={{
-                    color: "rgb(36, 36, 36, 0.6)",
-                    fontSize: "clamp(16px, 2vw, 20px)",
-                    lineHeight: 1.4,
-                  }}
-                >
-                  I&apos;m Justin, a creative specializing in web development,
-                  product design, and everything in between.
-                </span>
-              </div> */}
-              <div
+                {"["}001{"]"}
+              </sup>
+              <br />
+              <span>UI/UX Design.</span>
+              <p
                 style={{
-                  display: "flex",
-                  flexWrap: "wrap",
-                  justifyContent: "space-between",
-                  alignItems: "center",
-                  gap: "4rem",
-                  marginTop: "4rem",
+                  maxWidth: "610px",
+                  textAlign: "justify",
                 }}
               >
-                <div
-                  style={{
-                    display: "flex",
-                    flexWrap: "wrap",
-                    gap: "0.4rem",
-                  }}
-                >
-                  <button
-                    className="button"
-                    style={{
-                      background: "white",
-                      border: "1px solid rgb(36, 36, 36)",
-                      color: "black",
-                    }}
-                    onClick={() => scrollTo(servicesDiv)}
-                  >
-                    My Services
-                  </button>
-                  <button
-                    className="button"
-                    onClick={() => scrollTo(contactDiv)}
-                  >
-                    Let&apos;s Connect
-                  </button>
-                </div>
-              </div>
+                I design user-friendly interfaces that enhance usability and
+                deliver a seamless, enjoyable experience, focusing on intuitive
+                design and user needs.
+              </p>
+            </div>
+            <div className="services">
+              <sup
+                style={{
+                  fontSize: "14px",
+                  fontWeight: "400",
+                  letterSpacing: "0.2em",
+                }}
+              >
+                {"["}002{"]"}
+              </sup>
+              <br />
+              <span>Development.</span>
+              <p
+                style={{
+                  maxWidth: "610px",
+                  textAlign: "justify",
+                }}
+              >
+                I turn ideas into dynamic web and mobile app experiences,
+                focusing on responsive design and functionality that engage
+                users and elevate your brand.
+              </p>
+            </div>
+            <div className="services">
+              <sup
+                style={{
+                  fontSize: "14px",
+                  fontWeight: "400",
+                  letterSpacing: "0.2em",
+                }}
+              >
+                {"["}003{"]"}
+              </sup>
+              <br />
+              <span>Branding.</span>
+              <p
+                style={{
+                  maxWidth: "610px",
+                  textAlign: "justify",
+                }}
+              >
+                I craft visually compelling designs that resonate with your
+                audience, blending creativity and strategy to strengthen your
+                brand’s visual identity.
+              </p>
+            </div>
+            <div className="services">
+              <sup
+                style={{
+                  fontSize: "14px",
+                  fontWeight: "400",
+                  letterSpacing: "0.2em",
+                }}
+              >
+                {"["}004{"]"}
+              </sup>
+              <br />
+              <span>Graphic Design.</span>
+              <p
+                style={{
+                  maxWidth: "610px",
+                  textAlign: "justify",
+                }}
+              >
+                I bring your vision to life using the latest technology and
+                design trends, ensuring scalable, responsive, and
+                high-performing digital solutions.
+              </p>
+            </div>
+            <div className="services">
+              <sup
+                style={{
+                  fontSize: "14px",
+                  fontWeight: "400",
+                  letterSpacing: "0.2em",
+                }}
+              >
+                {"["}005{"]"}
+              </sup>
+              <br />
+              <span>Motion Design.</span>
+              <p
+                style={{
+                  maxWidth: "610px",
+                  textAlign: "justify",
+                }}
+              >
+                I bring your vision to life using the latest technology and
+                design trends, ensuring scalable, responsive, and
+                high-performing digital solutions.
+              </p>
             </div>
           </div>
+        </div>
+      </div>
 
+      <Work worksDiv={worksDiv} />
+      <Articles articlesDiv={articlesDiv} />
+
+      <div
+        className="container-holder"
+        style={{
+          minHeight: "100vh",
+          alignItems: "center",
+          flexDirection: "column",
+        }}
+        ref={contentHolder2}
+      >
+        <div
+          className="container-splash"
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            opacity: "0",
+          }}
+          ref={contactDiv}
+        >
           <div
-            className="container-holder"
             style={{
-              display: translateX === "-100%" ? "flex" : "none",
-              minHeight: "90vh",
-              alignItems: "center",
-              flexDirection: "column",
+              width: "100%",
+              paddingBlock: "4rem",
             }}
-            ref={servicesDiv}
           >
-            <div
-              className="container-splash"
-              style={{
-                display: "flex",
-                flexDirection: "column",
-                alignItems: "center",
-              }}
-            >
-              <div
-                style={{
-                  width: "100%",
-                  marginBottom: "4rem",
-                  marginTop: "8rem",
-                }}
-              >
-                <h2
-                  style={{
-                    background:
-                      "linear-gradient(to right, rgb(36, 36, 36), rgb(184, 184, 184))",
-                    WebkitBackgroundClip: "text",
-                    color: "transparent",
-                  }}
-                >
-                  Let&apos;s collaborate to create impactful results.
-                </h2>
-                <span
-                  style={{
-                    color: "rgb(36, 36, 36, 0.6)",
-                    fontSize: "clamp(16px, 2vw, 20px)",
-                    lineHeight: 1.4,
-                  }}
-                >
-                  Reach out to explore how we can work together to achieve
-                  meaningful and impactful results for your project.
-                </span>
-              </div>
-              <div className="container-services">
-                <div className="services">
-                  <span>
-                    <sup
-                      style={{
-                        color: "rgb(36, 36, 36, 0.6)",
-                        fontSize: "12px",
-                      }}
-                    >
-                      001&ensp;
-                    </sup>
-                    UX / UI Design
-                  </span>
-                  <p style={{ marginTop: "0.4rem" }}>
-                    I design user-friendly interfaces that enhance usability and
-                    deliver a seamless, enjoyable experience, focusing on
-                    intuitive design and user needs.
-                  </p>
-                </div>
-                <div className="services">
-                  <span>
-                    <sup
-                      style={{
-                        color: "rgb(36, 36, 36, 0.6)",
-                        fontSize: "12px",
-                      }}
-                    >
-                      002&ensp;
-                    </sup>
-                    Project Conception
-                  </span>
-                  <p style={{ marginTop: "0.4rem" }}>
-                    I turn ideas into dynamic web and mobile app experiences,
-                    focusing on responsive design and functionality that engage
-                    users and elevate your brand.
-                  </p>
-                </div>
-                <div className="services">
-                  <span>
-                    <sup
-                      style={{
-                        color: "rgb(36, 36, 36, 0.6)",
-                        fontSize: "12px",
-                      }}
-                    >
-                      003&ensp;
-                    </sup>
-                    Creative Design & Visual Branding
-                  </span>
-                  <p style={{ marginTop: "0.4rem" }}>
-                    I craft visually compelling designs that resonate with your
-                    audience, blending creativity and strategy to strengthen
-                    your brand’s visual identity.
-                  </p>
-                </div>
-                <div className="services">
-                  <span>
-                    <sup
-                      style={{
-                        color: "rgb(36, 36, 36, 0.6)",
-                        fontSize: "12px",
-                      }}
-                    >
-                      004&ensp;
-                    </sup>
-                    Web & App Development
-                  </span>
-                  <p style={{ marginTop: "0.4rem" }}>
-                    I bring your vision to life using the latest technology and
-                    design trends, ensuring scalable, responsive, and
-                    high-performing digital solutions.
-                  </p>
-                </div>
-              </div>
-            </div>
+            <h1 className={inter_tight.className}>Contact.</h1>
+            <h2>REACH OUT</h2>
+            <hr ref={hr2} style={{ width: "0%" }} />
+            <p style={{ maxWidth: "295px", textAlign: "justify" }}>
+              Let&apos;s connect to discuss your vision and how we can
+              collaborate on bringing your next project to life.
+            </p>
           </div>
-
           <div
-            className="container-holder"
             style={{
-              display: translateX === "-100%" ? "flex" : "none",
-              minHeight: "90vh",
-              alignItems: "center",
-              flexDirection: "column",
+              display: emailForm ? "none" : "block",
+              textAlign: "left",
             }}
-            ref={contactDiv}
           >
-            <div
-              className="container-splash"
-              style={{
-                display: "flex",
-                flexDirection: "column",
-                alignItems: "center",
-              }}
-            >
-              <div
-                style={{
-                  width: "100%",
-                  marginBottom: "4rem",
-                  marginTop: "8rem",
-                }}
-              >
-                <h2
-                  style={{
-                    background:
-                      "linear-gradient(to right, rgb(36, 36, 36), rgb(184, 184, 184))",
-                    WebkitBackgroundClip: "text",
-                    color: "transparent",
-                  }}
-                >
-                  Tell me about your next project.
-                </h2>
-                <span
-                  style={{
-                    color: "rgb(36, 36, 36, 0.6)",
-                    fontSize: "clamp(16px, 2vw, 20px)",
-                    lineHeight: 1.4,
-                  }}
-                >
-                  Let&apos;s connect to discuss your vision and how we can
-                  collaborate on bringing your next project to life.
-                </span>
-              </div>
-              <div
-                style={{
-                  display: emailForm ? "none" : "block",
-                  textAlign: "center",
-                }}
-              >
-                <p>
-                  Your message has been received.
-                  <br />A response will follow shortly.
-                </p>
-              </div>
-              <form
-                onSubmit={handleSubmit}
-                style={{
-                  display: emailForm ? "flex" : "none",
-                }}
-              >
+            <p>
+              Your message has been received.
+              <br />A response will follow shortly.
+            </p>
+          </div>
+          <form
+            onSubmit={handleSubmit}
+            style={{
+              display: emailForm ? "flex" : "none",
+            }}
+          >
+            <div style={{ display: "flex", gap: "1rem" }}>
+              <div style={{ width: "50%" }}>
+                <label>NAME</label>
                 <input
-                  className={sf_pro.className}
+                  className={inter.className}
                   type="text"
-                  placeholder="Name"
+                  placeholder="John Doe"
                   required
                   onChange={(e) => setName(e.target.value)}
                   value={name}
                 />
+              </div>
+              <div style={{ width: "50%" }}>
+                <label>EMAIL</label>
                 <input
-                  className={sf_pro.className}
+                  className={inter.className}
                   type="email"
-                  placeholder="Email"
+                  placeholder="mail@example.com"
                   required
                   onChange={(e) => setEmail(e.target.value)}
                   value={email}
                 />
+              </div>
+            </div>
+
+            <div style={{ display: "flex", gap: "1rem" }}>
+              <div style={{ width: "50%" }}>
+                <label>SUBJECT</label>
                 <input
-                  className={sf_pro.className}
+                  className={inter.className}
                   type="text"
-                  placeholder="Subject"
+                  placeholder="Redesign"
                   required
                   onChange={(e) => setTopic(e.target.value)}
                   value={topic}
                 />
-                <textarea
-                  className={sf_pro.className}
-                  placeholder="Message"
+              </div>
+              <div style={{ width: "50%" }}>
+                <label>COMPANY</label>
+                <input
+                  className={inter.className}
+                  type="text"
+                  placeholder="Global Enterprises"
                   required
-                  style={{ height: "14rem", resize: "none" }}
-                  onChange={(e) => setMessage(e.target.value)}
-                  value={message}
+                  onChange={(e) => setCompany(e.target.value)}
+                  value={company}
                 />
-                <button
-                  type="submit"
-                  className="button"
-                  style={{ width: "100%" }}
+              </div>
+            </div>
+
+            <label>MESSAGE</label>
+            <textarea
+              className={inter.className}
+              placeholder="Hello, ...."
+              required
+              style={{ height: "8rem", resize: "none" }}
+              onChange={(e) => setMessage(e.target.value)}
+              value={message}
+            />
+            <button type="submit" className="button">
+              SUBMIT
+            </button>
+          </form>
+        </div>
+      </div>
+
+      <div
+        className="container-holder"
+        style={{
+          alignItems: "center",
+          flexDirection: "column",
+        }}
+      >
+        <footer>
+          <div className="footer">
+            <div>
+              <div style={{ display: "flex", flexDirection: "column" }}>
+                <span
+                  style={{
+                    fontSize: "clamp(24px, 4vw, 28px)",
+                    lineHeight: "1.4",
+                    fontWeight: 500,
+                  }}
                 >
-                  Submit
+                  Justin Davenport.
+                </span>
+                <span>Developer. Designer.</span>
+              </div>
+              <br />
+              <p
+                style={{
+                  maxWidth: "295px",
+                  textAlign: "justify",
+                  marginTop: "0.4rem",
+                }}
+              >
+                Crafting digital experiences with clean code and intuitive
+                design.
+              </p>
+            </div>
+            <div className="footerLinksHolder">
+              <div className="footerLinks">
+                <p
+                  style={{
+                    fontSize: "clamp(10px, 2vw, 12px)",
+                    fontWeight: 500,
+                    lineHeight: 1.6,
+                    letterSpacing: "0.2em",
+                  }}
+                >
+                  LINKS
+                </p>
+                <button aria-label="Home" onClick={() => scrollTo(homeDiv)}>
+                  Home
                 </button>
-              </form>
+                <button
+                  aria-label="Services"
+                  onClick={() => scrollTo(servicesDiv)}
+                >
+                  Services
+                </button>
+                <button aria-label="Works" onClick={() => scrollTo(worksDiv)}>
+                  Works
+                </button>
+                <button
+                  aria-label="Articles"
+                  onClick={() => scrollTo(articlesDiv)}
+                >
+                  Articles
+                </button>
+                <button
+                  aria-label="Contact"
+                  onClick={() => scrollTo(contactDiv)}
+                >
+                  Contact
+                </button>
+              </div>
+              <div className="footerLinks">
+                <p
+                  style={{
+                    fontSize: "clamp(10px, 2vw, 12px)",
+                    fontWeight: 500,
+                    lineHeight: 1.6,
+                    letterSpacing: "0.2em",
+                  }}
+                >
+                  SOCIALS
+                </p>
+                <Link
+                  href="https://www.instagram.com/justindavenport.space/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Instagram"
+                >
+                  Instagram
+                </Link>
+                <Link
+                  href="https://dribbble.com/justindavenport"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Dribbble"
+                >
+                  Dribbble
+                </Link>
+                <Link
+                  href="https://www.linkedin.com/in/justindavenport99/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="LinkedIn"
+                >
+                  LinkedIn
+                </Link>
+                <Link
+                  href="https://github.com/Jdavenport3199"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="GitHub"
+                >
+                  GitHub
+                </Link>
+                <button onClick={downloadResume} aria-label="Resume">
+                  Resume
+                </button>
+              </div>
             </div>
           </div>
-
-          <Work translateX={translateX} />
-          <Articles translateX={translateX} />
-
-          <div
-            className="container-holder"
-            style={{
-              background:
-                "linear-gradient(to top, #f5f5f5 0%, transparent 100%)",
-              alignItems: "center",
-              flexDirection: "column",
-            }}
-          >
-            <footer>
-              <div className="footer">
-                <div>
-                  <div style={{ marginBottom: "0.4rem" }}>
-                    <span>Justin Davenport — Developer & Designer.</span>
-                  </div>
-                  <p>©2024 All Rights Reserved</p>
-                </div>
-                <div className="footerLinksHolder">
-                  <div className="footerLinks" id="footerLinksLeft">
-                    <p
-                      style={{
-                        color: "rgb(36, 36, 36, 0.6)",
-                        lineHeight: 1.4,
-                        fontWeight: 500,
-                      }}
-                    >
-                      LINKS
-                    </p>
-                    <button
-                      onClick={() => setTranslateX("-100%")}
-                      aria-label="Work"
-                    >
-                      About
-                    </button>
-                    <button
-                      onClick={() => setTranslateX("0%")}
-                      aria-label="Work"
-                    >
-                      Work
-                    </button>
-                    <button
-                      onClick={() => setTranslateX("100%")}
-                      aria-label="Blog"
-                    >
-                      Blog
-                    </button>
-                  </div>
-                  <div className="footerLinks">
-                    <p
-                      style={{
-                        color: "rgb(36, 36, 36, 0.6)",
-                        lineHeight: 1.4,
-                        fontWeight: 500,
-                      }}
-                    >
-                      SOCIALS
-                    </p>
-                    <Link
-                      href="https://www.instagram.com/justindavenport.space/"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      aria-label="Instagram"
-                    >
-                      Instagram
-                    </Link>
-                    <Link
-                      href="https://dribbble.com/justindavenport"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      aria-label="Dribbble"
-                    >
-                      Dribbble
-                    </Link>
-                    <Link
-                      href="https://www.linkedin.com/in/justindavenport99/"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      aria-label="LinkedIn"
-                    >
-                      LinkedIn
-                    </Link>
-                    <Link
-                      href="https://github.com/Jdavenport3199"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      aria-label="GitHub"
-                    >
-                      GitHub
-                    </Link>
-                    <button onClick={downloadResume} aria-label="Resume">
-                      Resume
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </footer>
-          </div>
-        </>
-      )}
+        </footer>
+      </div>
     </main>
   );
 }
