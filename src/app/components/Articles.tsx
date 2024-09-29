@@ -125,7 +125,7 @@ const Articles: React.FC<Props> = ({ articlesDiv }) => {
                   style={{
                     maxHeight: "345px",
                     overflow: "hidden",
-                    borderRadius: "2rem",
+                    // borderRadius: "2rem",
                   }}
                 >
                   <img

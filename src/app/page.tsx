@@ -8,6 +8,7 @@ import { gsap } from "gsap";
 import { useInView } from "react-intersection-observer";
 
 export default function Home() {
+  const home = useRef<HTMLDivElement>(null);
   const homeDiv = useRef<HTMLDivElement>(null);
   const servicesDiv = useRef<HTMLDivElement>(null);
   const worksDiv = useRef<HTMLDivElement>(null);
@@ -52,14 +53,19 @@ export default function Home() {
 
   const [contentHolder1, inViewContentHolder1] = useInView({
     triggerOnce: true,
-    threshold: 0.2,
+    threshold: 0.4,
   });
   const hr1 = useRef<HTMLHRElement>(null);
   const [contentHolder2, inViewContentHolder2] = useInView({
     triggerOnce: true,
-    threshold: 0.2,
+    threshold: 0.4,
   });
   const hr2 = useRef<HTMLHRElement>(null);
+  const [contentHolder3, inViewContentHolder3] = useInView({
+    triggerOnce: true,
+    threshold: 0,
+  });
+  const hr3 = useRef<HTMLHRElement>(null);
 
   useEffect(() => {
     if (inViewContentHolder1) {
@@ -88,7 +94,21 @@ export default function Home() {
         ease: "power2.inOut",
       });
     }
-  }, [inViewContentHolder1, inViewContentHolder2]);
+    if (inViewContentHolder3) {
+      const tl = gsap.timeline();
+      tl.to(home.current, {
+        opacity: 1,
+        duration: 1,
+        delay: 1,
+        ease: "power2.inOut",
+      });
+      tl.to(hr3.current, {
+        width: "100%",
+        duration: 0.5,
+        ease: "power2.inOut",
+      });
+    }
+  }, [inViewContentHolder1, inViewContentHolder2, inViewContentHolder3]);
 
   const [theme, setTheme] = useState("light");
 
@@ -283,43 +303,80 @@ export default function Home() {
         style={{
           flexDirection: "column",
           minHeight: "100vh",
+          justifyContent: "flex-end",
         }}
+        ref={contentHolder3}
       >
-        <div className="container-splash">
-          <h1
-            className={inter_tight.className}
-            style={{
-              animation: "fade 750ms ease-in-out forwards",
-              animationDelay: ".5s",
-              opacity: "0",
-            }}
-          >
-            Justin Davenport.
-          </h1>
+        <div
+          className="container-splash"
+          style={{ opacity: "0", marginBottom: "8rem" }}
+          ref={home}
+        >
           <div
             style={{
-              marginBottom: "6rem",
-              animation: "fade 750ms ease-in-out forwards",
-              animationDelay: "1.5s",
-              opacity: "0",
+              width: "100%",
             }}
           >
-            <span style={{ fontSize: "clamp(24px, 4vw, 28px)" }}>
-              Developer. Designer.
-            </span>
+            <h1 className={inter_tight.className}>Justin Davenport.</h1>
+            <h2>DEVELOPER & DESIGNER</h2>
+            <hr ref={hr3} style={{ width: "0%" }} />
+            <p
+              style={{
+                maxWidth: "295px",
+                textAlign: "justify",
+                marginBottom: "4rem",
+              }}
+            >
+              Crafting digital experiences with clean code and intuitive design.
+            </p>
           </div>
-          <br />
-          <p
-            style={{
-              maxWidth: "295px",
-              textAlign: "justify",
-              animation: "fade 750ms ease-in-out forwards",
-              animationDelay: "2.5s",
-              opacity: "0",
-            }}
-          >
-            Crafting digital experiences with clean code and intuitive design.
-          </p>
+          <div className="footerLinks">
+            <p
+              style={{
+                fontSize: "clamp(10px, 2vw, 12px)",
+                fontWeight: 500,
+                lineHeight: 1.6,
+                letterSpacing: "0.2em",
+              }}
+            >
+              SOCIALS
+            </p>
+            <Link
+              href="https://www.instagram.com/justindavenport.space/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Instagram"
+            >
+              Instagram
+            </Link>
+            <Link
+              href="https://dribbble.com/justindavenport"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Dribbble"
+            >
+              Dribbble
+            </Link>
+            <Link
+              href="https://www.linkedin.com/in/justindavenport99/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="LinkedIn"
+            >
+              LinkedIn
+            </Link>
+            <Link
+              href="https://github.com/Jdavenport3199"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="GitHub"
+            >
+              GitHub
+            </Link>
+            <button onClick={downloadResume} aria-label="Resume">
+              Resume
+            </button>
+          </div>
         </div>
       </div>
 
@@ -516,13 +573,13 @@ export default function Home() {
           </div>
           <div
             style={{
-              display: emailForm ? "none" : "block",
-              textAlign: "left",
+              display: emailForm ? "none" : "flex",
+              width: "100%",
+              justifyContent: "right",
             }}
           >
-            <p>
+            <p style={{ maxWidth: "295px", textAlign: "justify" }}>
               Your message has been received.
-              <br />A response will follow shortly.
             </p>
           </div>
           <form
@@ -562,7 +619,7 @@ export default function Home() {
                 <input
                   className={inter.className}
                   type="text"
-                  placeholder="Redesign"
+                  placeholder="Design"
                   required
                   onChange={(e) => setTopic(e.target.value)}
                   value={topic}
@@ -591,7 +648,7 @@ export default function Home() {
               value={message}
             />
             <button type="submit" className="button">
-              SUBMIT
+              Submit
             </button>
           </form>
         </div>

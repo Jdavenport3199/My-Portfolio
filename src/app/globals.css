@@ -60,7 +60,7 @@
     border: 1px solid rgba(36, 36, 36, 0.05);
   } */
 
-  @keyframes fade {
+  /* @keyframes fade {
     0% {
       opacity: 0;
       transform: translateY(50%)
@@ -70,7 +70,7 @@
       opacity: 1;
       transform: translateY(0%)
     }
-  }
+  } */
 
   button {
     all: unset;
@@ -123,7 +123,7 @@
     border-top: 2px solid var(--text-color);
     margin-left: 155px;
     margin-block: 2rem;
-    border-radius: 100rem;
+    /* border-radius: 100rem; */
   }
 
   .button {
@@ -136,7 +136,7 @@
     color: var(--background-color);
     border: 1px solid var(--text-color);
     background: var(--text-color);
-    border-radius: 100rem;
+    /* border-radius: 100rem; */
     transition: 300ms ease-out;
   }
 
@@ -149,7 +149,7 @@
     cursor: pointer;
     position: fixed;
     top: 1rem;
-    right: 1rem;
+    right: 0rem;
     z-index: 6;
     padding: 1rem;
   }
@@ -157,7 +157,7 @@
   .toggle {
     position: fixed;
     bottom: 1rem;
-    right: 1rem;
+    right: 0rem;
     z-index: 6;
     padding: 1rem;
   }
@@ -166,7 +166,7 @@
     position: absolute;
     color: var(--text-color);
     background: var(--text-color);
-    width: 1.25rem;
+    width: 1rem;
     aspect-ratio: 1/1;
     z-index: 1.25;
     border-radius: 100rem;
@@ -182,7 +182,6 @@
     -webkit-backdrop-filter: blur(8px);
     background: var(--glass);
     border-radius: 100rem;
-    padding: .2rem;
     padding-block: 0;
 
     .toggle-switch {
@@ -190,7 +189,7 @@
       align-items: center;
       justify-content: center;
       width: .75rem;
-      aspect-ratio: 1/1;
+      height: .5rem;
       z-index: 2;
       border-radius: 100rem;
     }
@@ -204,11 +203,12 @@
 
   input,
   textarea {
+    color: var(--text-color);
     font-size: clamp(12px, 2vw, 14px);
     font-weight: 400;
     width: 100%;
     border: 0px;
-    border-bottom: 1px solid transparent;
+    border-bottom: 2px solid transparent;
     background: transparent;
     margin-bottom: 1rem;
     padding: 1rem;
@@ -216,13 +216,14 @@
     transition: 300ms ease;
   }
 
-  input:focus {
-    outline: none;
-    border-bottom: 1px solid var(--text-color);
+  textarea {
+    margin-bottom: 2rem;
   }
 
+  input:focus,
   textarea:focus {
     outline: none;
+    border-bottom: 2px solid var(--text-color);
   }
 
   ::placeholder {
@@ -257,7 +258,7 @@
     -webkit-backdrop-filter: blur(8px);
     background: #f5f5f540;
     color: white;
-    border-radius: 100rem;
+    /* border-radius: 100rem; */
     transition: 300ms ease-out;
   }
 
@@ -321,7 +322,7 @@
     max-height: 450px;
     transition: 150ms linear;
     width: 100%;
-    border-radius: 2rem;
+    /* border-radius: 2rem; */
   }
 
   .project-btn {
@@ -337,7 +338,7 @@
     width: 2.5rem;
     aspect-ratio: 1/1;
     z-index: 4;
-    border-radius: 100rem;
+    /* border-radius: 100rem; */
   }
 
   .img {
@@ -415,6 +416,10 @@
 
   form {
     width: 615px;
+  }
+
+  .footerLinks {
+    align-items: flex-end;
   }
 }
 
