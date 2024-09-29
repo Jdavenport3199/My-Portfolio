@@ -77,7 +77,7 @@ const Work: React.FC<Props> = ({ worksDiv }) => {
 
   const [contentHolder, inViewContentHolder] = useInView({
     triggerOnce: true,
-    threshold: 0.25,
+    threshold: 0.2,
   });
   const content = useRef<HTMLAnchorElement[]>([]);
   const hr = useRef<HTMLHRElement>(null);

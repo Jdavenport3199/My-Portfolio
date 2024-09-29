@@ -31,7 +31,7 @@ const Articles: React.FC<Props> = ({ articlesDiv }) => {
 
   const [contentHolder, inViewContentHolder] = useInView({
     triggerOnce: true,
-    threshold: 0.25,
+    threshold: 0.2,
   });
   const content = useRef<HTMLDivElement[]>([]);
   const hr = useRef<HTMLHRElement>(null);

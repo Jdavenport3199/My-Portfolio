@@ -3,13 +3,18 @@
     display: none;
   }
 
-  html,
-  body,
-  main {
-    width: 100%;
-    min-height: 100vh;
-    position: relative;
-    background: white;
+  :root {
+    --background-color: white;
+    --text-color: rgb(36, 36, 36);
+    --text-color-light: rgb(36, 36, 36, 0.6);
+    --glass: #00000040;
+  }
+
+  [data-theme='dark'] {
+    --background-color: black;
+    --text-color: #f5f5f5;
+    --text-color-light: rgb(245, 245, 245, 0.6);
+    --glass: #f5f5f540;
   }
 
   * {
@@ -17,12 +22,25 @@
     margin: 0px;
     box-sizing: border-box;
     z-index: 3;
-    color: rgb(36, 36, 36);
     user-select: none;
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
     text-wrap: pretty;
+  }
+
+  html,
+  body,
+  main {
+    width: 100%;
+    min-height: 100vh;
+    position: relative;
+  }
+
+  body {
+    background-color: var(--background-color);
+    color: var(--text-color);
+    transition: background-color 0.3s, color 0.3s;
   }
 
   .grid-lines {
@@ -77,7 +95,7 @@
     font-size: clamp(12px, 2vw, 14px);
     font-weight: 400;
     line-height: 1.6;
-    color: rgb(36, 36, 36, 0.6);
+    color: var(--text-color-light);
   }
 
   span {
@@ -88,6 +106,7 @@
 
   a,
   button {
+    color: var(--text-color);
     font-size: clamp(12px, 2vw, 14px);
     font-weight: 400;
     line-height: 1.4;
@@ -101,7 +120,7 @@
 
   hr {
     border: 0px;
-    border-top: 2px solid rgba(36, 36, 36);
+    border-top: 2px solid var(--text-color);
     margin-left: 155px;
     margin-block: 2rem;
     border-radius: 100rem;
@@ -114,9 +133,9 @@
     align-items: center;
     justify-content: center;
     background: transparent;
-    color: white;
-    border: 1px solid rgb(36, 36, 36);
-    background: rgb(36, 36, 36);
+    color: var(--background-color);
+    border: 1px solid var(--text-color);
+    background: var(--text-color);
     border-radius: 100rem;
     transition: 300ms ease-out;
   }
@@ -133,6 +152,48 @@
     right: 1rem;
     z-index: 6;
     padding: 1rem;
+  }
+
+  .toggle {
+    position: fixed;
+    bottom: 1rem;
+    right: 1rem;
+    z-index: 6;
+    padding: 1rem;
+  }
+
+  .slider {
+    position: absolute;
+    color: var(--text-color);
+    background: var(--text-color);
+    width: 1.25rem;
+    aspect-ratio: 1/1;
+    z-index: 1.25;
+    border-radius: 100rem;
+    transition: transform 0.3s ease;
+  }
+
+  .links {
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    background: var(--glass);
+    border-radius: 100rem;
+    padding: .2rem;
+    padding-block: 0;
+
+    .toggle-switch {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: .75rem;
+      aspect-ratio: 1/1;
+      z-index: 2;
+      border-radius: 100rem;
+    }
   }
 
   label {
@@ -157,7 +218,7 @@
 
   input:focus {
     outline: none;
-    border-bottom: 1px solid rgb(36, 36, 36);
+    border-bottom: 1px solid var(--text-color);
   }
 
   textarea:focus {
@@ -168,7 +229,15 @@
     font-size: clamp(12px, 2vw, 14px);
     font-weight: 400;
     line-height: 1.4;
-    color: rgb(36, 36, 36, 0.6);
+    color: var(--text-color-light);
+  }
+
+  @supports (-webkit-touch-callout: none) {
+
+    input,
+    textarea {
+      border-radius: 0 !important;
+    }
   }
 
   form {
@@ -352,6 +421,11 @@
 @media (min-width: 999px) {
   nav {
     top: 2rem;
+    right: 2rem;
+  }
+
+  .toggle {
+    bottom: 2rem;
     right: 2rem;
   }
 

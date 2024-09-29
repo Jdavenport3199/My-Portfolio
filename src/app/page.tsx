@@ -8,33 +8,6 @@ import { gsap } from "gsap";
 import { useInView } from "react-intersection-observer";
 
 export default function Home() {
-  const [lastScroll, setLastScroll] = useState(0);
-  const nav = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      const currentScroll = window.scrollY;
-      const threshold = 50;
-      if (currentScroll <= threshold && nav.current) {
-        if (nav.current.style.top !== "0rem") {
-          nav.current.style.top = "2rem";
-          nav.current.style.height = "2.5rem";
-        }
-      } else if (currentScroll < lastScroll && nav.current) {
-        nav.current.style.top = "2rem";
-        nav.current.style.height = "2.5rem";
-      } else if (currentScroll > lastScroll && nav.current) {
-        nav.current.style.top = "-3.25rem";
-        nav.current.style.height = "2.5rem";
-      }
-      setLastScroll(currentScroll);
-    };
-    window.addEventListener("scroll", handleScroll);
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, [lastScroll]);
-
   const homeDiv = useRef<HTMLDivElement>(null);
   const servicesDiv = useRef<HTMLDivElement>(null);
   const worksDiv = useRef<HTMLDivElement>(null);
@@ -79,12 +52,12 @@ export default function Home() {
 
   const [contentHolder1, inViewContentHolder1] = useInView({
     triggerOnce: true,
-    threshold: 0.25,
+    threshold: 0.2,
   });
   const hr1 = useRef<HTMLHRElement>(null);
   const [contentHolder2, inViewContentHolder2] = useInView({
     triggerOnce: true,
-    threshold: 0.25,
+    threshold: 0.2,
   });
   const hr2 = useRef<HTMLHRElement>(null);
 
@@ -116,6 +89,23 @@ export default function Home() {
       });
     }
   }, [inViewContentHolder1, inViewContentHolder2]);
+
+  const [theme, setTheme] = useState("light");
+
+  useEffect(() => {
+    const storedTheme = localStorage.getItem("theme") || "light";
+    setTheme(storedTheme);
+    document.documentElement.setAttribute("data-theme", storedTheme);
+  }, []);
+
+  const toggleTheme = () => {
+    const newTheme = theme === "light" ? "dark" : "light";
+    setTheme(newTheme);
+    localStorage.setItem("theme", newTheme);
+    document.documentElement.setAttribute("data-theme", newTheme);
+  };
+
+  const [toggle, setToggle] = useState(false);
 
   return (
     <main>
@@ -151,7 +141,7 @@ export default function Home() {
             style={{
               width: "100%",
               border: "0",
-              borderTop: "2px solid rgba(36, 36, 36)",
+              borderTop: "2px solid var(--text-color)",
               margin: "0",
             }}
           />
@@ -159,7 +149,7 @@ export default function Home() {
             style={{
               width: "100%",
               border: "0",
-              borderTop: "2px solid rgba(36, 36, 36)",
+              borderTop: "2px solid var(--text-color)",
               margin: "0",
             }}
           />
@@ -167,12 +157,30 @@ export default function Home() {
             style={{
               width: "100%",
               border: "0",
-              borderTop: "2px solid rgba(36, 36, 36)",
+              borderTop: "2px solid var(--text-color)",
               margin: "0",
             }}
           />
         </div>
       </nav>
+
+      <div className="toggle">
+        <div
+          className="links"
+          onClick={() => {
+            setToggle(!toggle), toggleTheme();
+          }}
+        >
+          <div
+            className="slider"
+            style={{
+              transform: toggle ? "translateX(25%)" : "translateX(-25%)",
+            }}
+          ></div>
+          <span className="toggle-switch"></span>
+          <span className="toggle-switch"></span>
+        </div>
+      </div>
 
       <div
         style={{
@@ -221,12 +229,12 @@ export default function Home() {
               opacity: navPanel ? "" : "0",
               transition: "opacity 250ms ease-out, visibility 0ms linear 250ms",
             }}
-            aria-label="Services"
+            aria-label="Works"
             onClick={() => {
-              scrollTo(servicesDiv), setNavPanel(!navPanel);
+              scrollTo(worksDiv), setNavPanel(!navPanel);
             }}
           >
-            Services
+            Works
           </button>
           <button
             style={{
@@ -234,12 +242,12 @@ export default function Home() {
               opacity: navPanel ? "" : "0",
               transition: "opacity 250ms ease-out, visibility 0ms linear 250ms",
             }}
-            aria-label="Works"
+            aria-label="Services"
             onClick={() => {
-              scrollTo(worksDiv), setNavPanel(!navPanel);
+              scrollTo(servicesDiv), setNavPanel(!navPanel);
             }}
           >
-            Works
+            Services
           </button>
           <button
             style={{
@@ -314,6 +322,8 @@ export default function Home() {
           </p>
         </div>
       </div>
+
+      <Work worksDiv={worksDiv} />
 
       <div
         className="container-holder"
@@ -469,7 +479,6 @@ export default function Home() {
         </div>
       </div>
 
-      <Work worksDiv={worksDiv} />
       <Articles articlesDiv={articlesDiv} />
 
       <div
@@ -637,14 +646,14 @@ export default function Home() {
                 <button aria-label="Home" onClick={() => scrollTo(homeDiv)}>
                   Home
                 </button>
+                <button aria-label="Works" onClick={() => scrollTo(worksDiv)}>
+                  Works
+                </button>
                 <button
                   aria-label="Services"
                   onClick={() => scrollTo(servicesDiv)}
                 >
                   Services
-                </button>
-                <button aria-label="Works" onClick={() => scrollTo(worksDiv)}>
-                  Works
                 </button>
                 <button
                   aria-label="Articles"
