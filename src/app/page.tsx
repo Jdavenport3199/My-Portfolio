@@ -231,7 +231,7 @@ export default function Home() {
             justifyContent: "center",
             flexDirection: "column",
             alignItems: "flex-start",
-            gap: "4rem",
+            gap: "2rem",
           }}
         >
           <button
