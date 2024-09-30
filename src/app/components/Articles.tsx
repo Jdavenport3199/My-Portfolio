@@ -2,14 +2,15 @@
 import Link from "next/link";
 import { gsap } from "gsap";
 import { useInView } from "react-intersection-observer";
-import { RefObject, useEffect, useRef } from "react";
+import { Dispatch, RefObject, SetStateAction, useEffect, useRef } from "react";
 import { inter_tight } from "../ui/fonts";
 
 interface Props {
   articlesDiv: RefObject<HTMLDivElement>;
+  setActiveSection: Dispatch<SetStateAction<string>>;
 }
 
-const Articles: React.FC<Props> = ({ articlesDiv }) => {
+const Articles: React.FC<Props> = ({ articlesDiv, setActiveSection }) => {
   const articles = [
     {
       name: "Optimize Custom Fonts for PageSpeed Insights in Next.js",
@@ -30,7 +31,7 @@ const Articles: React.FC<Props> = ({ articlesDiv }) => {
   ];
 
   const [contentHolder, inViewContentHolder] = useInView({
-    triggerOnce: true,
+    triggerOnce: false,
     threshold: 0.2,
   });
   const content = useRef<HTMLDivElement[]>([]);
@@ -38,6 +39,7 @@ const Articles: React.FC<Props> = ({ articlesDiv }) => {
 
   useEffect(() => {
     if (inViewContentHolder) {
+      setActiveSection("Articles");
       const tl = gsap.timeline();
       tl.to(articlesDiv.current, {
         opacity: 1,
@@ -64,7 +66,11 @@ const Articles: React.FC<Props> = ({ articlesDiv }) => {
     <div ref={contentHolder}>
       <div
         className="container-holder"
-        style={{ opacity: "0", paddingBottom: "8rem", transform: "translateY(10%)" }}
+        style={{
+          opacity: "0",
+          paddingBottom: "8rem",
+          transform: "translateY(10%)",
+        }}
         ref={articlesDiv}
       >
         <div className="container-title">
@@ -72,10 +78,16 @@ const Articles: React.FC<Props> = ({ articlesDiv }) => {
             <h1 className={inter_tight.className}>Articles</h1>
             <h2>LATEST INSIGHTS</h2>
             <hr ref={hr} style={{ width: "0%" }} />
-            <div style={{ display: "flex", justifyContent: "space-between", gap: "2rem" }}>
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "space-between",
+                gap: "2rem",
+              }}
+            >
               <p style={{ maxWidth: "295px" }}>
-              Read through my latest blog posts to stay updated on my thoughts,
-              insights, and industry trends.
+                Read through my latest blog posts to stay updated on my
+                thoughts, insights, and industry trends.
               </p>
               <div
                 style={{
@@ -86,14 +98,14 @@ const Articles: React.FC<Props> = ({ articlesDiv }) => {
                 }}
               >
                 <div style={{ display: "flex", gap: "0.4rem" }}>
-                <span className="circle"></span>
-                <span className="circle"></span>
+                  <span className="circle"></span>
+                  <span className="circle"></span>
                   <span className="circle"></span>
                   <span className="circle"></span>
                   <span className="circle"></span>
                 </div>
                 <div style={{ display: "flex", gap: "0.4rem" }}>
-                <span className="circle"></span>
+                  <span className="circle"></span>
                   <span className="circle"></span>
                   <span className="circle"></span>
                 </div>
@@ -150,7 +162,6 @@ const Articles: React.FC<Props> = ({ articlesDiv }) => {
                   style={{
                     maxHeight: "345px",
                     overflow: "hidden",
-                    // borderRadius: "2rem",
                   }}
                 >
                   <img
@@ -164,26 +175,26 @@ const Articles: React.FC<Props> = ({ articlesDiv }) => {
                   />
                 </div>
               </Link>
-              {/* <sup
+              <sup
                 style={{
                   fontSize: "14px",
                   fontWeight: "400",
                   letterSpacing: "0.2em",
                   marginTop: "1.4rem",
-                  marginBottom: "0.4rem",
+                  marginBottom: "0.6rem",
                 }}
               >
                 {"["}
                 {articles.date}
                 {"]"}
               </sup>
-              <span
+              <p
                 style={{
-                  maxWidth: "295px",
+                  maxWidth: "610px",
                 }}
               >
                 {articles.name}
-              </span> */}
+              </p>
             </div>
           ))}
         </div>

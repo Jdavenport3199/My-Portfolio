@@ -2,14 +2,15 @@
 import Link from "next/link";
 import { gsap } from "gsap";
 import { useInView } from "react-intersection-observer";
-import { RefObject, useEffect, useRef } from "react";
+import { Dispatch, RefObject, SetStateAction, useEffect, useRef } from "react";
 import { inter_tight } from "../ui/fonts";
 
 interface Props {
   worksDiv: RefObject<HTMLDivElement>;
+  setActiveSection: Dispatch<SetStateAction<string>>;
 }
 
-const Work: React.FC<Props> = ({ worksDiv }) => {
+const Work: React.FC<Props> = ({ worksDiv, setActiveSection }) => {
   const projects = [
     {
       name: "OCULAR VIBRATIONS™",
@@ -76,7 +77,7 @@ const Work: React.FC<Props> = ({ worksDiv }) => {
   ];
 
   const [contentHolder, inViewContentHolder] = useInView({
-    triggerOnce: true,
+    triggerOnce: false,
     threshold: 0.2,
   });
   const content = useRef<HTMLAnchorElement[]>([]);
@@ -84,6 +85,7 @@ const Work: React.FC<Props> = ({ worksDiv }) => {
 
   useEffect(() => {
     if (inViewContentHolder) {
+      setActiveSection("Works");
       const tl = gsap.timeline();
       tl.to(worksDiv.current, {
         opacity: 1,
@@ -96,12 +98,11 @@ const Work: React.FC<Props> = ({ worksDiv }) => {
         duration: 0.5,
         ease: "power2.inOut",
       });
-      content.current.forEach((ref, index) => {
-        tl.to(ref, {
-          opacity: 1,
-          duration: 0.25,
-          ease: "power2.inOut",
-        });
+      tl.to(content.current, {
+        opacity: 1,
+        duration: 0.25,
+        ease: "power2.inOut",
+        stagger: 0.25,
       });
     }
   }, [inViewContentHolder]);
@@ -110,7 +111,12 @@ const Work: React.FC<Props> = ({ worksDiv }) => {
     <div ref={contentHolder}>
       <div
         className="container-holder"
-        style={{ opacity: "0", paddingBottom: "8rem", transform: "translateY(10%)" }}
+        style={{
+          minHeight: "100vh",
+          opacity: "0",
+          paddingBottom: "8rem",
+          transform: "translateY(10%)",
+        }}
         ref={worksDiv}
       >
         <div className="container-title">
@@ -118,10 +124,16 @@ const Work: React.FC<Props> = ({ worksDiv }) => {
             <h1 className={inter_tight.className}>Works</h1>
             <h2>FEATURED PROJECTS</h2>
             <hr ref={hr} style={{ width: "0%" }} />
-            <div style={{ display: "flex", justifyContent: "space-between", gap: "2rem" }}>
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "space-between",
+                gap: "2rem",
+              }}
+            >
               <p style={{ maxWidth: "295px" }}>
-              Discover the latest websites and designs I&apos;ve been working
-              on.
+                Discover the latest websites and designs I&apos;ve been working
+                on.
               </p>
               <div
                 style={{
@@ -132,7 +144,7 @@ const Work: React.FC<Props> = ({ worksDiv }) => {
                 }}
               >
                 <div style={{ display: "flex", gap: "0.4rem" }}>
-                <span className="circle"></span>
+                  <span className="circle"></span>
                   <span className="circle"></span>
                   <span className="circle"></span>
                   <span className="circle"></span>
