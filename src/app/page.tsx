@@ -319,7 +319,7 @@ export default function Home() {
           >
             <h1 className={inter_tight.className}>Justin Davenport</h1>
             <h2>DEVELOPER & DESIGNER</h2>
-            <hr ref={hr3} style={{ width: "0%" }} />
+            {/* <hr ref={hr3} style={{ width: "0%" }} />
             <p
               style={{
                 maxWidth: "295px",
@@ -350,16 +350,6 @@ export default function Home() {
               <span className="circle"></span>
             </div>
             <div className="footerLinks" style={{ width: "fit-content" }}>
-              {/* <p
-                style={{
-                  fontSize: "clamp(10px, 2vw, 12px)",
-                  fontWeight: 500,
-                  lineHeight: 1.6,
-                  letterSpacing: "0.2em",
-                }}
-              >
-                SOCIALS
-              </p> */}
               <Link
                 href="https://www.instagram.com/justindavenport.space/"
                 target="_blank"
@@ -432,10 +422,7 @@ export default function Home() {
                   />
                 </svg>
               </Link>
-              {/* <button onClick={downloadResume} aria-label="Resume">
-                Resume
-              </button> */}
-            </div>
+            </div> */}
           </div>
         </div>
       </div>
@@ -628,7 +615,7 @@ export default function Home() {
       <div
         className="container-holder"
         style={{
-          minHeight: "100vh",
+          // minHeight: "100vh",
           alignItems: "center",
           flexDirection: "column",
         }}
