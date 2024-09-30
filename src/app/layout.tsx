@@ -4,8 +4,8 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   title: {
-    default: "Justin Davenport.",
-    template: "%s — Justin Davenport.",
+    default: "Justin Davenport",
+    template: "%s — Justin Davenport",
   },
   description:
     "DEVELOPER & DESIGNER",

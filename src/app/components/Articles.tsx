@@ -12,7 +12,7 @@ interface Props {
 const Articles: React.FC<Props> = ({ articlesDiv }) => {
   const articles = [
     {
-      name: "Optimize Custom Fonts for PageSpeed Insights in Next.js.",
+      name: "Optimize Custom Fonts for PageSpeed Insights in Next.js",
       date: "Jun 16, 2024",
       description:
         "Learn how to optimize custom fonts in Next.js for faster load times and better PageSpeed Insights scores. This post covers techniques for reducing font size and efficient loading without compromising design.",
@@ -20,7 +20,7 @@ const Articles: React.FC<Props> = ({ articlesDiv }) => {
       link: "https://medium.com/@justindavenport.space/optimize-custom-fonts-for-pagespeed-insights-in-next-js-334fe993b65a",
     },
     {
-      name: "Create a Product Landing Page with GSAP in Next.js.",
+      name: "Create a Product Landing Page with GSAP in Next.js",
       date: "May 25, 2024",
       description:
         "Discover how to build an engaging product landing page using GSAP animations in Next.js. This tutorial walks you through setting up GSAP and adding smooth, high-performance animations to enhance user experience.",
@@ -42,6 +42,7 @@ const Articles: React.FC<Props> = ({ articlesDiv }) => {
       tl.to(articlesDiv.current, {
         opacity: 1,
         duration: 1,
+        y: "0%",
         ease: "power2.inOut",
       });
       tl.to(hr.current, {
@@ -63,18 +64,42 @@ const Articles: React.FC<Props> = ({ articlesDiv }) => {
     <div ref={contentHolder}>
       <div
         className="container-holder"
-        style={{ opacity: "0", paddingBottom: "8rem" }}
+        style={{ opacity: "0", paddingBottom: "8rem", transform: "translateY(10%)" }}
         ref={articlesDiv}
       >
         <div className="container-title">
           <div style={{ width: "100%", paddingBottom: "4rem" }}>
-            <h1 className={inter_tight.className}>Articles.</h1>
+            <h1 className={inter_tight.className}>Articles</h1>
             <h2>LATEST INSIGHTS</h2>
             <hr ref={hr} style={{ width: "0%" }} />
-            <p style={{ maxWidth: "295px", textAlign: "justify" }}>
+            <div style={{ display: "flex", justifyContent: "space-between", gap: "2rem" }}>
+              <p style={{ maxWidth: "295px" }}>
               Read through my latest blog posts to stay updated on my thoughts,
               insights, and industry trends.
-            </p>
+              </p>
+              <div
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: "flex-end",
+                  gap: "0.4rem",
+                }}
+              >
+                <div style={{ display: "flex", gap: "0.4rem" }}>
+                <span className="circle"></span>
+                <span className="circle"></span>
+                  <span className="circle"></span>
+                  <span className="circle"></span>
+                  <span className="circle"></span>
+                </div>
+                <div style={{ display: "flex", gap: "0.4rem" }}>
+                <span className="circle"></span>
+                  <span className="circle"></span>
+                  <span className="circle"></span>
+                </div>
+                <span className="circle"></span>
+              </div>
+            </div>
           </div>
         </div>
 
@@ -139,7 +164,7 @@ const Articles: React.FC<Props> = ({ articlesDiv }) => {
                   />
                 </div>
               </Link>
-              <sup
+              {/* <sup
                 style={{
                   fontSize: "14px",
                   fontWeight: "400",
@@ -158,7 +183,7 @@ const Articles: React.FC<Props> = ({ articlesDiv }) => {
                 }}
               >
                 {articles.name}
-              </span>
+              </span> */}
             </div>
           ))}
         </div>

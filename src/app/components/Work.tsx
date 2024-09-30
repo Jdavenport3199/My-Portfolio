@@ -88,6 +88,7 @@ const Work: React.FC<Props> = ({ worksDiv }) => {
       tl.to(worksDiv.current, {
         opacity: 1,
         duration: 1,
+        y: "0%",
         ease: "power2.inOut",
       });
       tl.to(hr.current, {
@@ -109,18 +110,42 @@ const Work: React.FC<Props> = ({ worksDiv }) => {
     <div ref={contentHolder}>
       <div
         className="container-holder"
-        style={{ opacity: "0", paddingBottom: "8rem" }}
+        style={{ opacity: "0", paddingBottom: "8rem", transform: "translateY(10%)" }}
         ref={worksDiv}
       >
         <div className="container-title">
           <div style={{ width: "100%", paddingBottom: "4rem" }}>
-            <h1 className={inter_tight.className}>Works.</h1>
+            <h1 className={inter_tight.className}>Works</h1>
             <h2>FEATURED PROJECTS</h2>
             <hr ref={hr} style={{ width: "0%" }} />
-            <p style={{ maxWidth: "295px", textAlign: "justify" }}>
+            <div style={{ display: "flex", justifyContent: "space-between", gap: "2rem" }}>
+              <p style={{ maxWidth: "295px" }}>
               Discover the latest websites and designs I&apos;ve been working
               on.
-            </p>
+              </p>
+              <div
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: "flex-end",
+                  gap: "0.4rem",
+                }}
+              >
+                <div style={{ display: "flex", gap: "0.4rem" }}>
+                <span className="circle"></span>
+                  <span className="circle"></span>
+                  <span className="circle"></span>
+                  <span className="circle"></span>
+                </div>
+                <div style={{ display: "flex", gap: "0.4rem" }}>
+                  <span className="circle"></span>
+                  <span className="circle"></span>
+                  <span className="circle"></span>
+                </div>
+                <span className="circle"></span>
+                <span className="circle"></span>
+              </div>
+            </div>
           </div>
         </div>
 
