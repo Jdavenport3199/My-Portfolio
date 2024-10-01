@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { inter } from "./ui/fonts";
+import { inter, sf_pro } from "./ui/fonts";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -25,7 +25,7 @@ export default function RootLayout({
   return (
     <>
       <html lang="en">
-        <body className={`${inter.className} antialiased`}>{children}</body>
+        <body className={`${sf_pro.className} antialiased`}>{children}</body>
       </html>
     </>
   );

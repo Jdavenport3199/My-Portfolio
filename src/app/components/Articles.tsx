@@ -3,7 +3,6 @@ import Link from "next/link";
 import { gsap } from "gsap";
 import { useInView } from "react-intersection-observer";
 import { Dispatch, RefObject, SetStateAction, useEffect, useRef } from "react";
-import { monument_extended } from "../ui/fonts";
 
 interface Props {
   articlesDiv: RefObject<HTMLDivElement>;
@@ -73,7 +72,7 @@ const Articles: React.FC<Props> = ({ articlesDiv, setActiveSection }) => {
       >
         <div className="container-title">
           <div style={{ width: "100%", paddingBottom: "4rem" }}>
-            <h2 className={monument_extended.className}>ARTICLES</h2>
+            <h2>Articles</h2>
             <h3>LATEST INSIGHTS</h3>
             <hr ref={hr} style={{ width: "0%" }} />
             <div

@@ -5,10 +5,10 @@ export const inter = Inter({
   subsets: ["latin"],
 });
 
-export const monument_extended = localFont({
+export const sf_pro = localFont({
   src: [
     {
-      path: "./PPMonumentExtended-Light.woff2",
+      path: "./SF-Pro.ttf",
       style: "normal",
     },
   ],

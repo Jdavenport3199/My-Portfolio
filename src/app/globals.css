@@ -76,14 +76,14 @@
   }
 
   h1 {
-    font-size: clamp(36px, 6vw, 4vw);
-    font-weight: 600;
+    font-size: clamp(42px, 8vw, 6vw);
+    font-weight: 200;
     line-height: 1.2;
   }
 
   h2 {
     font-size: clamp(36px, 6vw, 4vw);
-    font-weight: 600;
+    font-weight: 200;
     line-height: 1.2;
   }
 
@@ -171,10 +171,9 @@
   nav {
     cursor: pointer;
     position: fixed;
-    top: 1rem;
-    right: 0rem;
+    top: 2rem;
+    right: 1rem;
     z-index: 6;
-    padding: 1rem;
 
     .toggle-switch {
       display: flex;
@@ -199,7 +198,7 @@
 
     button {
       font-size: clamp(36px, 6vw, 4vw);
-      font-weight: 600;
+      font-weight: 200;
       line-height: 1.2;
       transition: all 0.3s ease-in-out;
     }
@@ -207,15 +206,15 @@
 
   .grid-toggle {
     position: fixed;
-    top: 4.5rem;
-    left: 1rem;
+    top: 8rem;
+    right: 1rem;
     z-index: 6;
   }
 
   .toggle {
     position: fixed;
-    top: 1.5rem;
-    left: 1rem;
+    top: 5rem;
+    right: 1rem;
     z-index: 6;
   }
 
@@ -483,7 +482,7 @@
 @media (min-width: 999px) {
   nav {
     top: 2rem;
-    right: 2rem;
+    right: 3rem;
   }
 
   .grid-toggle {

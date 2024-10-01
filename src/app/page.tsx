@@ -2,7 +2,6 @@
 import { useEffect, useRef, useState } from "react";
 import Work from "./components/Work";
 import Articles from "./components/Articles";
-import { monument_extended } from "./ui/fonts";
 import Link from "next/link";
 import { gsap } from "gsap";
 import { useInView } from "react-intersection-observer";
@@ -182,49 +181,44 @@ export default function Home() {
       >
         <div className="panel">
           <button
-            className={monument_extended.className}
             aria-label="Home"
             onClick={() => {
               scrollTo(homeDiv), handlePanelValue();
             }}
           >
-            HOME
+            Home
           </button>
           <button
-            className={monument_extended.className}
             aria-label="Works"
             onClick={() => {
               scrollTo(worksDiv), handlePanelValue();
             }}
           >
-            WORKS
+            Works
           </button>
           <button
-            className={monument_extended.className}
             aria-label="Services"
             onClick={() => {
               scrollTo(servicesDiv), handlePanelValue();
             }}
           >
-            SERVICES
+            Services
           </button>
           <button
-            className={monument_extended.className}
             aria-label="Articles"
             onClick={() => {
               scrollTo(articlesDiv), handlePanelValue();
             }}
           >
-            ARTICLES
+            Articles
           </button>
           <button
-            className={monument_extended.className}
             aria-label="CONTACT"
             onClick={() => {
               scrollTo(contactDiv), handlePanelValue();
             }}
           >
-            CONTACT
+            Contact
           </button>
         </div>
       </div>
@@ -233,9 +227,6 @@ export default function Home() {
         <button
           aria-label="Home"
           onClick={() => scrollTo(homeDiv)}
-          className={
-            activeSection === "Home" ? monument_extended.className : ""
-          }
           style={{
             color:
               activeSection === "Home"
@@ -244,17 +235,13 @@ export default function Home() {
             opacity: activeSection === "Home" ? "1" : "",
             fontSize: activeSection === "Home" ? "clamp(24px, 4vw, 1.5vw)" : "",
             fontWeight: activeSection === "Home" ? 600 : "",
-            letterSpacing: activeSection === "Home" ? "" : "0.2em",
           }}
         >
-          HOME
+          Home
         </button>
         <button
           aria-label="Works"
           onClick={() => scrollTo(worksDiv)}
-          className={
-            activeSection === "Works" ? monument_extended.className : ""
-          }
           style={{
             color:
               activeSection === "Works"
@@ -264,17 +251,13 @@ export default function Home() {
             fontSize:
               activeSection === "Works" ? "clamp(24px, 4vw, 1.5vw)" : "",
             fontWeight: activeSection === "Works" ? 600 : "",
-            letterSpacing: activeSection === "Works" ? "" : "0.2em",
           }}
         >
-          WORKS
+          Works
         </button>
         <button
           aria-label="Services"
           onClick={() => scrollTo(servicesDiv)}
-          className={
-            activeSection === "Services" ? monument_extended.className : ""
-          }
           style={{
             color:
               activeSection === "Services"
@@ -284,17 +267,13 @@ export default function Home() {
             fontSize:
               activeSection === "Services" ? "clamp(24px, 4vw, 1.5vw)" : "",
             fontWeight: activeSection === "Services" ? 600 : "",
-            letterSpacing: activeSection === "Services" ? "" : "0.2em",
           }}
         >
-          SERVICES
+          Services
         </button>
         <button
           aria-label="Articles"
           onClick={() => scrollTo(articlesDiv)}
-          className={
-            activeSection === "Articles" ? monument_extended.className : ""
-          }
           style={{
             color:
               activeSection === "Articles"
@@ -304,17 +283,13 @@ export default function Home() {
             fontSize:
               activeSection === "Articles" ? "clamp(24px, 4vw, 1.5vw)" : "",
             fontWeight: activeSection === "Articles" ? 600 : "",
-            letterSpacing: activeSection === "Articles" ? "" : "0.2em",
           }}
         >
-          ARTICLES
+          Articles
         </button>
         <button
           aria-label="Contact"
           onClick={() => scrollTo(contactDiv)}
-          className={
-            activeSection === "Contact" ? monument_extended.className : ""
-          }
           style={{
             color:
               activeSection === "Contact"
@@ -324,39 +299,27 @@ export default function Home() {
             fontSize:
               activeSection === "Contact" ? "clamp(24px, 4vw, 1.5vw)" : "",
             fontWeight: activeSection === "Contact" ? 600 : "",
-            letterSpacing: activeSection === "Contact" ? "" : "0.2em",
           }}
         >
-          CONTACT
+          Contact
         </button>
       </div>
 
       <nav onClick={() => handlePanelValue()}>
-        <div
-          style={{
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            flexDirection: "column",
-            width: "24px",
-            gap: "0.4rem",
-          }}
-        >
-          <span className="toggle-switch">
-            <svg
-              width="20px"
-              height="20px"
-              viewBox="0 0 24 24"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M13 3C13 2.44772 12.5523 2 12 2C11.4477 2 11 2.44772 11 3V11H3C2.44772 11 2 11.4477 2 12C2 12.5523 2.44772 13 3 13H11V21C11 21.5523 11.4477 22 12 22C12.5523 22 13 21.5523 13 21V13H21C21.5523 13 22 12.5523 22 12C22 11.4477 21.5523 11 21 11H13V3Z"
-                fill="var(--toggle)"
-              />
-            </svg>{" "}
-          </span>
-        </div>
+        <span className="toggle-switch">
+          <svg
+            width="20px"
+            height="20px"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M13 3C13 2.44772 12.5523 2 12 2C11.4477 2 11 2.44772 11 3V11H3C2.44772 11 2 11.4477 2 12C2 12.5523 2.44772 13 3 13H11V21C11 21.5523 11.4477 22 12 22C12.5523 22 13 21.5523 13 21V13H21C21.5523 13 22 12.5523 22 12C22 11.4477 21.5523 11 21 11H13V3Z"
+              fill="var(--toggle)"
+            />
+          </svg>
+        </span>
       </nav>
 
       <div className="grid-toggle">
@@ -477,7 +440,7 @@ export default function Home() {
               width: "100%",
             }}
           >
-            <h1 className={monument_extended.className}>JUSTIN DAVENPORT</h1>
+            <h1>Justin Davenport</h1>
             <h3>DEVELOPER & DESIGNER</h3>
           </div>
         </div>
@@ -511,7 +474,7 @@ export default function Home() {
               paddingBlock: "4rem",
             }}
           >
-            <h2 className={monument_extended.className}>SERVICES</h2>
+            <h2>Services</h2>
             <h3>MY EXPERTISE</h3>
             <hr ref={hr1} style={{ width: "0%" }} />
             <div
@@ -562,7 +525,7 @@ export default function Home() {
                 {"["}001{"]"}
               </sup>
               <br />
-              <span className={monument_extended.className}>UI/UX DESIGN</span>
+              <span>UI/UX Design</span>
               <p
                 style={{
                   maxWidth: "610px",
@@ -584,7 +547,7 @@ export default function Home() {
                 {"["}002{"]"}
               </sup>
               <br />
-              <span className={monument_extended.className}>DEVELOPMENT</span>
+              <span>Development</span>
               <p
                 style={{
                   maxWidth: "610px",
@@ -606,7 +569,7 @@ export default function Home() {
                 {"["}003{"]"}
               </sup>
               <br />
-              <span className={monument_extended.className}>BRANDING</span>
+              <span>Branding</span>
               <p
                 style={{
                   maxWidth: "610px",
@@ -628,9 +591,7 @@ export default function Home() {
                 {"["}004{"]"}
               </sup>
               <br />
-              <span className={monument_extended.className}>
-                GRAPHIC DESIGN
-              </span>
+              <span>Graphic Design</span>
               <p
                 style={{
                   maxWidth: "610px",
@@ -652,7 +613,7 @@ export default function Home() {
                 {"["}005{"]"}
               </sup>
               <br />
-              <span className={monument_extended.className}>MOTION DESIGN</span>
+              <span>Motion Design</span>
               <p
                 style={{
                   maxWidth: "610px",
@@ -693,7 +654,7 @@ export default function Home() {
               paddingBlock: "4rem",
             }}
           >
-            <h2 className={monument_extended.className}>CONTACT</h2>
+            <h2>Contact</h2>
             <h3>REACH OUT</h3>
             <hr ref={hr2} style={{ width: "0%" }} />
             <div
@@ -775,9 +736,7 @@ export default function Home() {
           <div className="footer">
             <div>
               <div style={{ display: "flex", flexDirection: "column" }}>
-                <span className={monument_extended.className}>
-                  JUSTIN DAVENPORT
-                </span>
+                <span>Justin Davenport</span>
                 <h3 style={{ fontSize: "clamp(16px, 4vw, 18px)" }}>
                   DEVELOPER & DESIGNER
                 </h3>
