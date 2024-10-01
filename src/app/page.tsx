@@ -234,7 +234,7 @@ export default function Home() {
                 : "var(--text-color-light)",
             opacity: activeSection === "Home" ? "1" : "",
             fontSize: activeSection === "Home" ? "clamp(24px, 4vw, 1.5vw)" : "",
-            fontWeight: activeSection === "Home" ? 600 : "",
+            fontWeight: activeSection === "Home" ? 400 : "",
           }}
         >
           Home
@@ -250,7 +250,7 @@ export default function Home() {
             opacity: activeSection === "Works" ? "1" : "",
             fontSize:
               activeSection === "Works" ? "clamp(24px, 4vw, 1.5vw)" : "",
-            fontWeight: activeSection === "Works" ? 600 : "",
+            fontWeight: activeSection === "Works" ? 400 : "",
           }}
         >
           Works
@@ -266,7 +266,7 @@ export default function Home() {
             opacity: activeSection === "Services" ? "1" : "",
             fontSize:
               activeSection === "Services" ? "clamp(24px, 4vw, 1.5vw)" : "",
-            fontWeight: activeSection === "Services" ? 600 : "",
+            fontWeight: activeSection === "Services" ? 400 : "",
           }}
         >
           Services
@@ -282,7 +282,7 @@ export default function Home() {
             opacity: activeSection === "Articles" ? "1" : "",
             fontSize:
               activeSection === "Articles" ? "clamp(24px, 4vw, 1.5vw)" : "",
-            fontWeight: activeSection === "Articles" ? 600 : "",
+            fontWeight: activeSection === "Articles" ? 400 : "",
           }}
         >
           Articles
@@ -298,7 +298,7 @@ export default function Home() {
             opacity: activeSection === "Contact" ? "1" : "",
             fontSize:
               activeSection === "Contact" ? "clamp(24px, 4vw, 1.5vw)" : "",
-            fontWeight: activeSection === "Contact" ? 600 : "",
+            fontWeight: activeSection === "Contact" ? 400 : "",
           }}
         >
           Contact
