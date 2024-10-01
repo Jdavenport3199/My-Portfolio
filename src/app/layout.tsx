@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { inter, sf_pro, switzer } from "./ui/fonts";
+import { inter } from "./ui/fonts";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -7,8 +7,7 @@ export const metadata: Metadata = {
     default: "Justin Davenport",
     template: "%s — Justin Davenport",
   },
-  description:
-    "DEVELOPER & DESIGNER",
+  description: "DEVELOPER & DESIGNER",
   openGraph: {
     images: "https://www.justindavenport.space/opengraph-image.png",
   },

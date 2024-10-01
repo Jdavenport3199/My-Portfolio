@@ -3,7 +3,7 @@ import Link from "next/link";
 import { gsap } from "gsap";
 import { useInView } from "react-intersection-observer";
 import { Dispatch, RefObject, SetStateAction, useEffect, useRef } from "react";
-import { inter_tight } from "../ui/fonts";
+import { monument_extended } from "../ui/fonts";
 
 interface Props {
   worksDiv: RefObject<HTMLDivElement>;
@@ -90,7 +90,6 @@ const Work: React.FC<Props> = ({ worksDiv, setActiveSection }) => {
       tl.to(worksDiv.current, {
         opacity: 1,
         duration: 1,
-        y: "0%",
         ease: "power2.inOut",
       });
       tl.to(hr.current, {
@@ -115,14 +114,13 @@ const Work: React.FC<Props> = ({ worksDiv, setActiveSection }) => {
           minHeight: "100vh",
           opacity: "0",
           paddingBottom: "8rem",
-          transform: "translateY(10%)",
         }}
         ref={worksDiv}
       >
         <div className="container-title">
           <div style={{ width: "100%", paddingBottom: "4rem" }}>
-            <h1 className={inter_tight.className}>Works</h1>
-            <h2>FEATURED PROJECTS</h2>
+            <h2 className={monument_extended.className}>WORKS</h2>
+            <h3>FEATURED PROJECTS</h3>
             <hr ref={hr} style={{ width: "0%" }} />
             <div
               style={{

@@ -2,7 +2,7 @@
 import { useEffect, useRef, useState } from "react";
 import Work from "./components/Work";
 import Articles from "./components/Articles";
-import { inter, inter_tight } from "./ui/fonts";
+import { monument_extended } from "./ui/fonts";
 import Link from "next/link";
 import { gsap } from "gsap";
 import { useInView } from "react-intersection-observer";
@@ -19,30 +19,6 @@ export default function Home() {
     if (ref.current) {
       ref.current.scrollIntoView({ behavior: "smooth" });
     }
-  };
-
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [topic, setTopic] = useState("");
-  const [company, setCompany] = useState("");
-  const [message, setMessage] = useState("");
-  const [emailForm, setEmailForm] = useState<boolean>(true);
-
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    const res = await fetch("/api/email", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        name: name,
-        email: email,
-        topic: topic,
-        message: message,
-      }),
-    });
-    setEmailForm(false);
   };
 
   const [activeSection, setActiveSection] = useState("Home");
@@ -70,7 +46,6 @@ export default function Home() {
       tl.to(servicesDiv.current, {
         opacity: 1,
         duration: 1,
-        y: "0%",
         ease: "power2.inOut",
       });
       tl.to(hr1.current, {
@@ -85,7 +60,6 @@ export default function Home() {
       tl.to(contactDiv.current, {
         opacity: 1,
         duration: 1,
-        y: "0%",
         ease: "power2.inOut",
       });
       tl.to(hr2.current, {
@@ -100,8 +74,6 @@ export default function Home() {
       tl.to(home.current, {
         opacity: 1,
         duration: 1,
-        y: "0%",
-        // delay: 1,
         ease: "power2.inOut",
       });
       tl.to(hr3.current, {
@@ -128,40 +100,42 @@ export default function Home() {
   };
 
   const [toggle, setToggle] = useState(false);
+  const [gridToggle, setGridToggle] = useState(false);
 
   const panel = useRef(null);
   const [panelValue, setPanelValue] = useState(false);
 
   useEffect(() => {
-    if (!panelValue) {
+    if (panelValue) {
       gsap.to(panel.current, {
-        y: "-100%",
+        visibility: "visible",
+        opacity: 1,
         duration: 0.5,
         ease: "power2.inOut",
       });
     } else {
-      gsap.set(panel.current, {
-        visibility: "visible",
-        y: "-100%",
-        height: "100vh",
-        duration: 0.5,
-        ease: "power2.inOut",
-      });
       gsap.to(panel.current, {
-        y: "0%",
+        opacity: 0,
         duration: 0.5,
         ease: "power2.inOut",
+        onComplete: () => {
+          gsap.set(panel.current, { visibility: "hidden" });
+          return undefined;
+        },
       });
     }
   }, [panelValue]);
 
   const handlePanelValue = () => {
-    setPanelValue(!panelValue);
+    setPanelValue((prev) => !prev);
   };
 
   return (
     <main ref={homeDiv}>
-      {/* <div className="grid-container">
+      <div
+        className="grid-container"
+        style={{ display: gridToggle ? "grid" : "none" }}
+      >
         <div className="grid-lines">
           <div></div>
           <div></div>
@@ -175,8 +149,187 @@ export default function Home() {
           <div></div>
           <div></div>
           <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
         </div>
-      </div> */}
+      </div>
+
+      <div
+        className="container-holder"
+        style={{
+          position: "fixed",
+          left: "0",
+          top: "0",
+          bottom: "0",
+          background: "var(--glass-overlay)",
+          backdropFilter: "blur(20px)",
+          WebkitBackdropFilter: "blur(20px)",
+          alignItems: "center",
+          visibility: "hidden",
+          zIndex: "5",
+        }}
+        ref={panel}
+      >
+        <div className="panel">
+          <button
+            className={monument_extended.className}
+            aria-label="Home"
+            onClick={() => {
+              scrollTo(homeDiv), handlePanelValue();
+            }}
+          >
+            HOME
+          </button>
+          <button
+            className={monument_extended.className}
+            aria-label="Works"
+            onClick={() => {
+              scrollTo(worksDiv), handlePanelValue();
+            }}
+          >
+            WORKS
+          </button>
+          <button
+            className={monument_extended.className}
+            aria-label="Services"
+            onClick={() => {
+              scrollTo(servicesDiv), handlePanelValue();
+            }}
+          >
+            SERVICES
+          </button>
+          <button
+            className={monument_extended.className}
+            aria-label="Articles"
+            onClick={() => {
+              scrollTo(articlesDiv), handlePanelValue();
+            }}
+          >
+            ARTICLES
+          </button>
+          <button
+            className={monument_extended.className}
+            aria-label="CONTACT"
+            onClick={() => {
+              scrollTo(contactDiv), handlePanelValue();
+            }}
+          >
+            CONTACT
+          </button>
+        </div>
+      </div>
+
+      <div className="nav-slider">
+        <button
+          aria-label="Home"
+          onClick={() => scrollTo(homeDiv)}
+          className={
+            activeSection === "Home" ? monument_extended.className : ""
+          }
+          style={{
+            color:
+              activeSection === "Home"
+                ? "var(--text-color)"
+                : "var(--text-color-light)",
+            opacity: activeSection === "Home" ? "1" : "",
+            fontSize: activeSection === "Home" ? "clamp(24px, 4vw, 1.5vw)" : "",
+            fontWeight: activeSection === "Home" ? 600 : "",
+            letterSpacing: activeSection === "Home" ? "" : "0.2em",
+          }}
+        >
+          HOME
+        </button>
+        <button
+          aria-label="Works"
+          onClick={() => scrollTo(worksDiv)}
+          className={
+            activeSection === "Works" ? monument_extended.className : ""
+          }
+          style={{
+            color:
+              activeSection === "Works"
+                ? "var(--text-color)"
+                : "var(--text-color-light)",
+            opacity: activeSection === "Works" ? "1" : "",
+            fontSize:
+              activeSection === "Works" ? "clamp(24px, 4vw, 1.5vw)" : "",
+            fontWeight: activeSection === "Works" ? 600 : "",
+            letterSpacing: activeSection === "Works" ? "" : "0.2em",
+          }}
+        >
+          WORKS
+        </button>
+        <button
+          aria-label="Services"
+          onClick={() => scrollTo(servicesDiv)}
+          className={
+            activeSection === "Services" ? monument_extended.className : ""
+          }
+          style={{
+            color:
+              activeSection === "Services"
+                ? "var(--text-color)"
+                : "var(--text-color-light)",
+            opacity: activeSection === "Services" ? "1" : "",
+            fontSize:
+              activeSection === "Services" ? "clamp(24px, 4vw, 1.5vw)" : "",
+            fontWeight: activeSection === "Services" ? 600 : "",
+            letterSpacing: activeSection === "Services" ? "" : "0.2em",
+          }}
+        >
+          SERVICES
+        </button>
+        <button
+          aria-label="Articles"
+          onClick={() => scrollTo(articlesDiv)}
+          className={
+            activeSection === "Articles" ? monument_extended.className : ""
+          }
+          style={{
+            color:
+              activeSection === "Articles"
+                ? "var(--text-color)"
+                : "var(--text-color-light)",
+            opacity: activeSection === "Articles" ? "1" : "",
+            fontSize:
+              activeSection === "Articles" ? "clamp(24px, 4vw, 1.5vw)" : "",
+            fontWeight: activeSection === "Articles" ? 600 : "",
+            letterSpacing: activeSection === "Articles" ? "" : "0.2em",
+          }}
+        >
+          ARTICLES
+        </button>
+        <button
+          aria-label="Contact"
+          onClick={() => scrollTo(contactDiv)}
+          className={
+            activeSection === "Contact" ? monument_extended.className : ""
+          }
+          style={{
+            color:
+              activeSection === "Contact"
+                ? "var(--text-color)"
+                : "var(--text-color-light)",
+            opacity: activeSection === "Contact" ? "1" : "",
+            fontSize:
+              activeSection === "Contact" ? "clamp(24px, 4vw, 1.5vw)" : "",
+            fontWeight: activeSection === "Contact" ? 600 : "",
+            letterSpacing: activeSection === "Contact" ? "" : "0.2em",
+          }}
+        >
+          CONTACT
+        </button>
+      </div>
 
       <nav onClick={() => handlePanelValue()}>
         <div
@@ -189,187 +342,117 @@ export default function Home() {
             gap: "0.4rem",
           }}
         >
-          <hr
-            style={{
-              width: "100%",
-              margin: "0",
-            }}
-          />
-          <hr
-            style={{
-              width: "100%",
-              margin: "0",
-            }}
-          />
-          <hr
-            style={{
-              width: "100%",
-              margin: "0",
-            }}
-          />
+          <span className="toggle-switch">
+            <svg
+              width="20px"
+              height="20px"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M13 3C13 2.44772 12.5523 2 12 2C11.4477 2 11 2.44772 11 3V11H3C2.44772 11 2 11.4477 2 12C2 12.5523 2.44772 13 3 13H11V21C11 21.5523 11.4477 22 12 22C12.5523 22 13 21.5523 13 21V13H21C21.5523 13 22 12.5523 22 12C22 11.4477 21.5523 11 21 11H13V3Z"
+                fill="var(--toggle)"
+              />
+            </svg>{" "}
+          </span>
         </div>
       </nav>
 
-      <div
-        className="container-holder"
-        style={{
-          position: "fixed",
-          left: "0",
-          top: "0",
-          bottom: "0",
-          background: "var(--glass-overlay)",
-          backdropFilter: "blur(12px)",
-          WebkitBackdropFilter: "blur(12px)",
-          alignItems: "center",
-          visibility: "hidden",
-          zIndex: "5",
-        }}
-        ref={panel}
-      >
+      <div className="grid-toggle">
         <div
-          style={{
-            display: "flex",
-            justifyContent: "center",
-            flexDirection: "column",
-            alignItems: "flex-start",
-            gap: "1rem",
+          className="links"
+          onClick={() => {
+            setGridToggle(!gridToggle);
           }}
         >
-          <button
-            aria-label="Home"
-            onClick={() => {
-              scrollTo(homeDiv), handlePanelValue();
-            }}
-          >
-            Home
-          </button>
-          <button
-            aria-label="Works"
-            onClick={() => {
-              scrollTo(worksDiv), handlePanelValue();
-            }}
-          >
-            Works
-          </button>
-          <button
-            aria-label="Services"
-            onClick={() => {
-              scrollTo(servicesDiv), handlePanelValue();
-            }}
-          >
-            Services
-          </button>
-          <button
-            aria-label="Articles"
-            onClick={() => {
-              scrollTo(articlesDiv), handlePanelValue();
-            }}
-          >
-            Articles
-          </button>
-          <button
-            aria-label="Contact"
-            onClick={() => {
-              scrollTo(contactDiv), handlePanelValue();
-            }}
-          >
-            Contact
-          </button>
-        </div>
-        <div className="toggle">
-          <div
-            className="links"
-            onClick={() => {
-              setToggle(!toggle), toggleTheme();
-            }}
-          >
-            <div
-              className="slider"
-              style={{
-                transform: toggle ? "translateX(25%)" : "translateX(-25%)",
-              }}
-            ></div>
-            <span className="toggle-switch"></span>
-            <span className="toggle-switch"></span>
-          </div>
+          <span className="toggle-switch">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              height="22"
+              width="18"
+              fill="var(--toggle)"
+              viewBox="0 0 448 512"
+            >
+              <path d="M32 480a32 32 0 1 1 0-64 32 32 0 1 1 0 64zm96-64a32 32 0 1 1 0 64 32 32 0 1 1 0-64zm0-384a32 32 0 1 1 0 64 32 32 0 1 1 0-64zm0 256a32 32 0 1 1 0-64 32 32 0 1 1 0 64zM320 416a32 32 0 1 1 0 64 32 32 0 1 1 0-64zm0-320a32 32 0 1 1 0-64 32 32 0 1 1 0 64zm0 128a32 32 0 1 1 0 64 32 32 0 1 1 0-64zM224 480a32 32 0 1 1 0-64 32 32 0 1 1 0 64zm0-448a32 32 0 1 1 0 64 32 32 0 1 1 0-64zm0 256a32 32 0 1 1 0-64 32 32 0 1 1 0 64zM416 416a32 32 0 1 1 0 64 32 32 0 1 1 0-64zm0-384a32 32 0 1 1 0 64 32 32 0 1 1 0-64zM32 96a32 32 0 1 1 0-64 32 32 0 1 1 0 64zM416 224a32 32 0 1 1 0 64 32 32 0 1 1 0-64zM32 288a32 32 0 1 1 0-64 32 32 0 1 1 0 64zm192 32a32 32 0 1 1 0 64 32 32 0 1 1 0-64zm192 64a32 32 0 1 1 0-64 32 32 0 1 1 0 64zM32 320a32 32 0 1 1 0 64 32 32 0 1 1 0-64zM416 192a32 32 0 1 1 0-64 32 32 0 1 1 0 64zM32 128a32 32 0 1 1 0 64 32 32 0 1 1 0-64zm192 64a32 32 0 1 1 0-64 32 32 0 1 1 0 64z" />
+            </svg>
+          </span>
         </div>
       </div>
 
-      <div className="nav-slider">
-        <button
-          aria-label="Home"
-          onClick={() => scrollTo(homeDiv)}
-          style={{
-            color:
-              activeSection === "Home"
-                ? "var(--text-color)"
-                : "var(--text-color-light)",
-            opacity: activeSection === "Home" ? "1" : "",
-            fontSize: activeSection === "Home" ? "clamp(24px, 4vw, 1.5vw)" : "",
+      <div className="toggle">
+        <div
+          className="links"
+          onClick={() => {
+            setToggle(!toggle), toggleTheme();
           }}
         >
-          Home
-        </button>
-        <button
-          aria-label="Works"
-          onClick={() => scrollTo(worksDiv)}
-          style={{
-            color:
-              activeSection === "Works"
-                ? "var(--text-color)"
-                : "var(--text-color-light)",
-            opacity: activeSection === "Works" ? "1" : "",
-            fontSize:
-              activeSection === "Works" ? "clamp(24px, 4vw, 1.5vw)" : "",
-          }}
-        >
-          Works
-        </button>
-        <button
-          aria-label="Services"
-          onClick={() => scrollTo(servicesDiv)}
-          style={{
-            color:
-              activeSection === "Services"
-                ? "var(--text-color)"
-                : "var(--text-color-light)",
-            opacity: activeSection === "Services" ? "1" : "",
-            fontSize:
-              activeSection === "Services" ? "clamp(24px, 4vw, 1.5vw)" : "",
-          }}
-        >
-          Services
-        </button>
-        <button
-          aria-label="Articles"
-          onClick={() => scrollTo(articlesDiv)}
-          style={{
-            color:
-              activeSection === "Articles"
-                ? "var(--text-color)"
-                : "var(--text-color-light)",
-            opacity: activeSection === "Articles" ? "1" : "",
-            fontSize:
-              activeSection === "Articles" ? "clamp(24px, 4vw, 1.5vw)" : "",
-          }}
-        >
-          Articles
-        </button>
-        <button
-          aria-label="Contact"
-          onClick={() => scrollTo(contactDiv)}
-          style={{
-            color:
-              activeSection === "Contact"
-                ? "var(--text-color)"
-                : "var(--text-color-light)",
-            opacity: activeSection === "Contact" ? "1" : "",
-            fontSize:
-              activeSection === "Contact" ? "clamp(24px, 4vw, 1.5vw)" : "",
-          }}
-        >
-          Contact
-        </button>
+          <span className="toggle-switch">
+            <svg
+              width="24px"
+              height="24px"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <circle
+                cx="12"
+                cy="12"
+                r="5"
+                stroke="var(--toggle)"
+                stroke-width="1.5"
+              />
+              <path
+                d="M12 2V4"
+                stroke="var(--toggle)"
+                stroke-width="1.5"
+                stroke-linecap="round"
+              />
+              <path
+                d="M12 20V22"
+                stroke="var(--toggle)"
+                stroke-width="1.5"
+                stroke-linecap="round"
+              />
+              <path
+                d="M4 12L2 12"
+                stroke="var(--toggle)"
+                stroke-width="1.5"
+                stroke-linecap="round"
+              />
+              <path
+                d="M22 12L20 12"
+                stroke="var(--toggle)"
+                stroke-width="1.5"
+                stroke-linecap="round"
+              />
+              <path
+                d="M19.7778 4.22266L17.5558 6.25424"
+                stroke="var(--toggle)"
+                stroke-width="1.5"
+                stroke-linecap="round"
+              />
+              <path
+                d="M4.22217 4.22266L6.44418 6.25424"
+                stroke="var(--toggle)"
+                stroke-width="1.5"
+                stroke-linecap="round"
+              />
+              <path
+                d="M6.44434 17.5557L4.22211 19.7779"
+                stroke="var(--toggle)"
+                stroke-width="1.5"
+                stroke-linecap="round"
+              />
+              <path
+                d="M19.7778 19.7773L17.5558 17.5551"
+                stroke="var(--toggle)"
+                stroke-width="1.5"
+                stroke-linecap="round"
+              />
+            </svg>
+          </span>
+        </div>
       </div>
 
       <div
@@ -385,8 +468,7 @@ export default function Home() {
           className="container-splash"
           style={{
             opacity: "0",
-            marginBottom: "8rem",
-            transform: "translateY(10%)",
+            marginBottom: "12rem",
           }}
           ref={home}
         >
@@ -395,8 +477,8 @@ export default function Home() {
               width: "100%",
             }}
           >
-            <h1 className={inter_tight.className}>Justin Davenport</h1>
-            <h2>DEVELOPER & DESIGNER</h2>
+            <h1 className={monument_extended.className}>JUSTIN DAVENPORT</h1>
+            <h3>DEVELOPER & DESIGNER</h3>
           </div>
         </div>
       </div>
@@ -420,7 +502,6 @@ export default function Home() {
             flexDirection: "column",
             alignItems: "center",
             opacity: "0",
-            transform: "translateY(10%)",
           }}
           ref={servicesDiv}
         >
@@ -430,8 +511,8 @@ export default function Home() {
               paddingBlock: "4rem",
             }}
           >
-            <h1 className={inter_tight.className}>Services</h1>
-            <h2>MY EXPERTISE</h2>
+            <h2 className={monument_extended.className}>SERVICES</h2>
+            <h3>MY EXPERTISE</h3>
             <hr ref={hr1} style={{ width: "0%" }} />
             <div
               style={{
@@ -481,7 +562,7 @@ export default function Home() {
                 {"["}001{"]"}
               </sup>
               <br />
-              <span>UI/UX Design</span>
+              <span className={monument_extended.className}>UI/UX DESIGN</span>
               <p
                 style={{
                   maxWidth: "610px",
@@ -503,7 +584,7 @@ export default function Home() {
                 {"["}002{"]"}
               </sup>
               <br />
-              <span>Development</span>
+              <span className={monument_extended.className}>DEVELOPMENT</span>
               <p
                 style={{
                   maxWidth: "610px",
@@ -525,7 +606,7 @@ export default function Home() {
                 {"["}003{"]"}
               </sup>
               <br />
-              <span>Branding</span>
+              <span className={monument_extended.className}>BRANDING</span>
               <p
                 style={{
                   maxWidth: "610px",
@@ -547,7 +628,9 @@ export default function Home() {
                 {"["}004{"]"}
               </sup>
               <br />
-              <span>Graphic Design</span>
+              <span className={monument_extended.className}>
+                GRAPHIC DESIGN
+              </span>
               <p
                 style={{
                   maxWidth: "610px",
@@ -569,7 +652,7 @@ export default function Home() {
                 {"["}005{"]"}
               </sup>
               <br />
-              <span>Motion Design</span>
+              <span className={monument_extended.className}>MOTION DESIGN</span>
               <p
                 style={{
                   maxWidth: "610px",
@@ -601,7 +684,6 @@ export default function Home() {
             flexDirection: "column",
             alignItems: "center",
             opacity: "0",
-            transform: "translateY(10%)",
           }}
           ref={contactDiv}
         >
@@ -611,8 +693,8 @@ export default function Home() {
               paddingBlock: "4rem",
             }}
           >
-            <h1 className={inter_tight.className}>Contact</h1>
-            <h2>REACH OUT</h2>
+            <h2 className={monument_extended.className}>CONTACT</h2>
+            <h3>REACH OUT</h3>
             <hr ref={hr2} style={{ width: "0%" }} />
             <div
               style={{
@@ -651,94 +733,6 @@ export default function Home() {
               </div>
             </div>
           </div>
-          {/* <div
-            style={{
-              display: emailForm ? "none" : "flex",
-              width: "100%",
-              justifyContent: "right",
-            }}
-          >
-            <p style={{ maxWidth: "295px", textAlign: "justify" }}>
-              Your message has been received.
-            </p>
-          </div>
-          <form
-            onSubmit={handleSubmit}
-            style={{
-              display: emailForm ? "flex" : "none",
-            }}
-          >
-            <div style={{ display: "flex", gap: "1rem" }}>
-              <div style={{ width: "50%" }}>
-                <label>NAME</label>
-                <input
-                  className={inter.className}
-                  type="text"
-                  placeholder="John Doe"
-                  required
-                  onChange={(e) => setName(e.target.value)}
-                  value={name}
-                />
-              </div>
-              <div style={{ width: "50%" }}>
-                <label>EMAIL</label>
-                <input
-                  className={inter.className}
-                  type="email"
-                  placeholder="mail@example.com"
-                  required
-                  onChange={(e) => setEmail(e.target.value)}
-                  value={email}
-                />
-              </div>
-            </div>
-
-            <div style={{ display: "flex", gap: "1rem" }}>
-              <div style={{ width: "50%" }}>
-                <label>SUBJECT</label>
-                <input
-                  className={inter.className}
-                  type="text"
-                  placeholder="Design"
-                  required
-                  onChange={(e) => setTopic(e.target.value)}
-                  value={topic}
-                />
-              </div>
-              <div style={{ width: "50%" }}>
-                <label>COMPANY</label>
-                <input
-                  className={inter.className}
-                  type="text"
-                  placeholder="Global Enterprises"
-                  required
-                  onChange={(e) => setCompany(e.target.value)}
-                  value={company}
-                />
-              </div>
-            </div>
-
-            <label>MESSAGE</label>
-            <textarea
-              className={inter.className}
-              placeholder="Hello, ...."
-              required
-              style={{ height: "8rem", resize: "none" }}
-              onChange={(e) => setMessage(e.target.value)}
-              value={message}
-            />
-            <div
-              style={{
-                width: "100%",
-                display: "flex",
-                justifyContent: "right",
-              }}
-            >
-              <button type="submit" className="button">
-                Submit
-              </button>
-            </div>
-          </form> */}
           <div
             style={{
               width: "100%",
@@ -758,7 +752,7 @@ export default function Home() {
                 height="32"
                 width="24"
                 viewBox="0 0 448 512"
-                fill="var(--background-color)"
+                fill="var(--button)"
                 style={{
                   transform: "rotate(-45deg)",
                 }}
@@ -781,8 +775,12 @@ export default function Home() {
           <div className="footer">
             <div>
               <div style={{ display: "flex", flexDirection: "column" }}>
-                <span>Justin Davenport</span>
-                <h2>DEVELOPER & DESIGNER</h2>
+                <span className={monument_extended.className}>
+                  JUSTIN DAVENPORT
+                </span>
+                <h3 style={{ fontSize: "clamp(16px, 4vw, 18px)" }}>
+                  DEVELOPER & DESIGNER
+                </h3>
               </div>
               <br />
               <p
@@ -805,8 +803,8 @@ export default function Home() {
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    height="24"
-                    width="24"
+                    height="22"
+                    width="22"
                     viewBox="0 0 448 512"
                   >
                     <path
@@ -823,8 +821,8 @@ export default function Home() {
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    height="24"
-                    width="24"
+                    height="22"
+                    width="22"
                     viewBox="0 0 512 512"
                   >
                     <path
@@ -841,8 +839,8 @@ export default function Home() {
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    height="26"
-                    width="22"
+                    height="24"
+                    width="20"
                     viewBox="0 0 448 512"
                   >
                     <path
@@ -859,8 +857,8 @@ export default function Home() {
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    height="24"
-                    width="23"
+                    height="22"
+                    width="21"
                     viewBox="0 0 496 512"
                   >
                     <path

@@ -3,7 +3,7 @@ import Link from "next/link";
 import { gsap } from "gsap";
 import { useInView } from "react-intersection-observer";
 import { Dispatch, RefObject, SetStateAction, useEffect, useRef } from "react";
-import { inter_tight } from "../ui/fonts";
+import { monument_extended } from "../ui/fonts";
 
 interface Props {
   articlesDiv: RefObject<HTMLDivElement>;
@@ -44,7 +44,6 @@ const Articles: React.FC<Props> = ({ articlesDiv, setActiveSection }) => {
       tl.to(articlesDiv.current, {
         opacity: 1,
         duration: 1,
-        y: "0%",
         ease: "power2.inOut",
       });
       tl.to(hr.current, {
@@ -69,14 +68,13 @@ const Articles: React.FC<Props> = ({ articlesDiv, setActiveSection }) => {
         style={{
           opacity: "0",
           paddingBottom: "8rem",
-          transform: "translateY(10%)",
         }}
         ref={articlesDiv}
       >
         <div className="container-title">
           <div style={{ width: "100%", paddingBottom: "4rem" }}>
-            <h1 className={inter_tight.className}>Articles</h1>
-            <h2>LATEST INSIGHTS</h2>
+            <h2 className={monument_extended.className}>ARTICLES</h2>
+            <h3>LATEST INSIGHTS</h3>
             <hr ref={hr} style={{ width: "0%" }} />
             <div
               style={{
