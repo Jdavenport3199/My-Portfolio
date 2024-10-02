@@ -45,11 +45,11 @@ const Articles: React.FC<Props> = ({ articlesDiv, setActiveSection }) => {
         duration: 1,
         ease: "power2.inOut",
       });
-      tl.to(hr.current, {
-        width: "100%",
-        duration: 0.5,
-        ease: "power2.inOut",
-      });
+      // tl.to(hr.current, {
+      //   width: "100%",
+      //   duration: 0.5,
+      //   ease: "power2.inOut",
+      // });
       content.current.forEach((ref, index) => {
         tl.to(ref, {
           opacity: 1,
@@ -66,7 +66,7 @@ const Articles: React.FC<Props> = ({ articlesDiv, setActiveSection }) => {
         className="container-holder"
         style={{
           opacity: "0",
-          paddingBottom: "8rem",
+          paddingBottom: "12rem",
         }}
         ref={articlesDiv}
       >
@@ -74,7 +74,7 @@ const Articles: React.FC<Props> = ({ articlesDiv, setActiveSection }) => {
           <div style={{ width: "100%", paddingBottom: "4rem" }}>
             <h2>Articles</h2>
             <h3>LATEST INSIGHTS</h3>
-            <hr ref={hr} style={{ width: "0%" }} />
+            {/* <hr ref={hr} style={{ width: "0%" }} />
             <div
               style={{
                 display: "flex",
@@ -108,7 +108,7 @@ const Articles: React.FC<Props> = ({ articlesDiv, setActiveSection }) => {
                 </div>
                 <span className="circle"></span>
               </div>
-            </div>
+            </div> */}
           </div>
         </div>
 

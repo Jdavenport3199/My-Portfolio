@@ -47,11 +47,11 @@ export default function Home() {
         duration: 1,
         ease: "power2.inOut",
       });
-      tl.to(hr1.current, {
-        width: "100%",
-        duration: 0.5,
-        ease: "power2.inOut",
-      });
+      // tl.to(hr1.current, {
+      //   width: "100%",
+      //   duration: 0.5,
+      //   ease: "power2.inOut",
+      // });
     }
     if (inViewContentHolder2) {
       setActiveSection("Contact");
@@ -61,11 +61,11 @@ export default function Home() {
         duration: 1,
         ease: "power2.inOut",
       });
-      tl.to(hr2.current, {
-        width: "100%",
-        duration: 0.5,
-        ease: "power2.inOut",
-      });
+      // tl.to(hr2.current, {
+      //   width: "100%",
+      //   duration: 0.5,
+      //   ease: "power2.inOut",
+      // });
     }
     if (inViewContentHolder3) {
       setActiveSection("Home");
@@ -75,15 +75,15 @@ export default function Home() {
         duration: 1,
         ease: "power2.inOut",
       });
-      tl.to(hr3.current, {
-        width: "100%",
-        duration: 0.5,
-        ease: "power2.inOut",
-      });
+      // tl.to(hr3.current, {
+      //   width: "100%",
+      //   duration: 0.5,
+      //   ease: "power2.inOut",
+      // });
     }
   }, [inViewContentHolder1, inViewContentHolder2, inViewContentHolder3]);
 
-  const [theme, setTheme] = useState("light");
+  const [theme, setTheme] = useState("dark");
 
   useEffect(() => {
     const storedTheme = localStorage.getItem("theme") || "light";
@@ -99,7 +99,7 @@ export default function Home() {
   };
 
   const [toggle, setToggle] = useState(false);
-  const [gridToggle, setGridToggle] = useState(false);
+  const [gridToggle, setGridToggle] = useState(true);
 
   const panel = useRef(null);
   const [panelValue, setPanelValue] = useState(false);
@@ -136,18 +136,6 @@ export default function Home() {
         style={{ display: gridToggle ? "grid" : "none" }}
       >
         <div className="grid-lines">
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
           <div></div>
           <div></div>
           <div></div>
@@ -476,7 +464,7 @@ export default function Home() {
           >
             <h2>Services</h2>
             <h3>MY EXPERTISE</h3>
-            <hr ref={hr1} style={{ width: "0%" }} />
+            {/* <hr ref={hr1} style={{ width: "0%" }} />
             <div
               style={{
                 display: "flex",
@@ -510,8 +498,8 @@ export default function Home() {
                   <span className="circle"></span>
                 </div>
                 <span className="circle"></span>
-              </div>
-            </div>
+              </div> 
+            </div>*/}
           </div>
           <div className="container-services">
             <div className="services" style={{ paddingTop: "0" }}>
@@ -656,7 +644,7 @@ export default function Home() {
           >
             <h2>Contact</h2>
             <h3>REACH OUT</h3>
-            <hr ref={hr2} style={{ width: "0%" }} />
+            {/* <hr ref={hr2} style={{ width: "0%" }} />
             <div
               style={{
                 display: "flex",
@@ -692,7 +680,7 @@ export default function Home() {
                 </div>
                 <span className="circle"></span>
               </div>
-            </div>
+            </div> */}
           </div>
           <div
             style={{
@@ -827,6 +815,7 @@ export default function Home() {
                   </svg>
                 </Link>
               </div>
+              <img src="/me.jpg" width={320} />
             </div>
           </div>
         </footer>

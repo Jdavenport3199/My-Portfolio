@@ -91,11 +91,11 @@ const Work: React.FC<Props> = ({ worksDiv, setActiveSection }) => {
         duration: 1,
         ease: "power2.inOut",
       });
-      tl.to(hr.current, {
-        width: "100%",
-        duration: 0.5,
-        ease: "power2.inOut",
-      });
+      // tl.to(hr.current, {
+      //   width: "100%",
+      //   duration: 0.5,
+      //   ease: "power2.inOut",
+      // });
       tl.to(content.current, {
         opacity: 1,
         duration: 0.25,
@@ -120,7 +120,7 @@ const Work: React.FC<Props> = ({ worksDiv, setActiveSection }) => {
           <div style={{ width: "100%", paddingBottom: "4rem" }}>
             <h2>Works</h2>
             <h3>FEATURED PROJECTS</h3>
-            <hr ref={hr} style={{ width: "0%" }} />
+            {/* <hr ref={hr} style={{ width: "0%" }} />
             <div
               style={{
                 display: "flex",
@@ -154,7 +154,7 @@ const Work: React.FC<Props> = ({ worksDiv, setActiveSection }) => {
                 <span className="circle"></span>
                 <span className="circle"></span>
               </div>
-            </div>
+            </div> */}
           </div>
         </div>
 
