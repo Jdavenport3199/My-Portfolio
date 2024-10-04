@@ -29,7 +29,7 @@ const Work: React.FC<Props> = ({ worksDiv, setActiveSection, theme }) => {
     {
       name: "Smart Home",
       description:
-        "An all-in-one application to control your home’s smart devices.",
+        "All-in-one application to control your home’s smart devices.",
       image: "/designs/smarthome-mockup.png",
       link: "https://dribbble.com/shots/24906297-Smart-Home-App",
       tag1: "UI / UX",
@@ -49,11 +49,11 @@ const Work: React.FC<Props> = ({ worksDiv, setActiveSection, theme }) => {
     {
       name: "iSync",
       description:
-        "Add songs, playlists, and mixes from YouTube directly to your Apple Music Library.",
+        "Add songs from YouTube directly to your Apple Music Library.",
       image: "/projects/isync.png",
       link: "https://i-sync.vercel.app/",
-      tag1: "UI / UX",
-      tag2: "Figma",
+      tag1: "Website",
+      tag2: "Next.js",
       tag3: "Project",
     },
     {
@@ -61,48 +61,47 @@ const Work: React.FC<Props> = ({ worksDiv, setActiveSection, theme }) => {
       description: "A dynamic and responsive mock company dashboard.",
       image: "/projects/ge.png",
       link: "https://dashboard-six-snowy.vercel.app/",
-      tag1: "UI / UX",
-      tag2: "Figma",
+      tag1: "Website",
+      tag2: "Next.js",
       tag3: "Project",
     },
     {
       name: "Teenage Engineering™",
       description:
-        "Teenage Engineering™ creates high quality electronic products for people who love sound and music.",
+        "High quality electronic products for people who love sound and music.",
       image: "/projects/te.png",
       link: "https://teenage-engineering.vercel.app/",
-      tag1: "UI / UX",
-      tag2: "Figma",
+      tag1: "Website",
+      tag2: "Next.js",
       tag3: "Project",
     },
     {
       name: "Digital Portfolio",
       description:
-        "A digital portfolio showcasing a diverse array of meticulously crafted 3D art and digital designs.",
+        "A showcase of meticulously crafted 3D art and digital designs.",
       image: "/projects/studio.png",
       link: "https://www.christiandavenport.studio/",
-      tag1: "UI / UX",
-      tag2: "Figma",
+      tag1: "Website",
+      tag2: "Next.js",
       tag3: "Project",
     },
     {
       name: "Stack",
-      description:
-        "A platform designed to help developers showcase and visualize their tech stacks.",
+      description: "Showcase and visualize your tech stacks.",
       image: "/projects/stack.png",
       link: "https://stack-three-psi.vercel.app/",
-      tag1: "UI / UX",
-      tag2: "Figma",
+      tag1: "Website",
+      tag2: "Next.js",
       tag3: "Project",
     },
     {
       name: "Cinema Collection",
       description:
-        "A platform for discovery of new and unique films based on your favorite movie genres.",
+        "Discover new and unique films based on your favorite movie genres.",
       image: "/projects/cinema.png",
       link: "https://cinema-collection.vercel.app/",
-      tag1: "UI / UX",
-      tag2: "Figma",
+      tag1: "Website",
+      tag2: "Next.js",
       tag3: "Project",
     },
   ];
@@ -125,8 +124,8 @@ const Work: React.FC<Props> = ({ worksDiv, setActiveSection, theme }) => {
       });
       tl.to(content.current, {
         opacity: 1,
-        duration: 0.25,
-        delay: 0.5,
+        duration: 0.5,
+        // delay: 0.25,
         ease: "power2.inOut",
         stagger: 0.5,
       });
@@ -166,11 +165,14 @@ const Work: React.FC<Props> = ({ worksDiv, setActiveSection, theme }) => {
               <div className="overlay"></div>
               <div className="project-title">
                 <h2 style={{ color: "white" }}>{project.name}</h2>
+                <span style={{ color: "var(--text-color-light)" }}>
+                  {project.description}
+                </span>
                 <div
                   style={{
                     display: "flex",
                     gap: "0.4rem",
-                    marginTop: "0.4rem",
+                    marginTop: "0.8rem",
                   }}
                 >
                   <p className="detail">{project.tag1}</p>

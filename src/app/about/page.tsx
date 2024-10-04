@@ -1,22 +1,13 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
-import Work from "./components/Work";
 import Link from "next/link";
 import { gsap } from "gsap";
 import { useInView } from "react-intersection-observer";
 
 export default function Home() {
   const home = useRef<HTMLDivElement>(null);
-  const homeDiv = useRef<HTMLDivElement>(null);
-  const worksDiv = useRef<HTMLDivElement>(null);
-
-  const scrollTo = (ref: React.RefObject<HTMLDivElement>) => {
-    if (ref.current) {
-      ref.current.scrollIntoView({ behavior: "smooth" });
-    }
-  };
-
-  const [activeSection, setActiveSection] = useState("Home");
+  const links = useRef<HTMLDivElement>(null);
+  const image = useRef<HTMLImageElement>(null);
 
   const [contentHolder, inViewContentHolder] = useInView({
     triggerOnce: false,
@@ -25,12 +16,22 @@ export default function Home() {
 
   useEffect(() => {
     if (inViewContentHolder) {
-      setActiveSection("Home");
       const tl = gsap.timeline();
       tl.to(home.current, {
         opacity: 1,
         duration: 1,
         y: "0%",
+        ease: "power2.inOut",
+      });
+      tl.to(links.current, {
+        opacity: 1,
+        duration: 1,
+        y: "0%",
+        ease: "power2.inOut",
+      });
+      tl.to(image.current, {
+        opacity: 1,
+        duration: 1,
         ease: "power2.inOut",
       });
     }
@@ -97,31 +98,8 @@ export default function Home() {
 
   const [isRotated, setIsRotated] = useState(false);
 
-  const [lastScroll, setLastScroll] = useState(0);
-  const nav = useRef<HTMLDivElement>(null);
-  useEffect(() => {
-    const handleScroll = () => {
-      const currentScroll = window.scrollY;
-      const threshold = 50;
-      if (currentScroll <= threshold && nav.current) {
-        if (nav.current.style.top !== "0rem") {
-          nav.current.style.top = "4rem";
-        }
-      } else if (currentScroll < lastScroll && nav.current) {
-        nav.current.style.top = "4rem";
-      } else if (currentScroll > lastScroll && nav.current) {
-        nav.current.style.top = "-9rem";
-      }
-      setLastScroll(currentScroll);
-    };
-    window.addEventListener("scroll", handleScroll);
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, [lastScroll]);
-
   return (
-    <main ref={homeDiv}>
+    <main>
       <div className="grid-container" style={{ display: theme.grid }}>
         <div className="grid-lines">
           {Array.from({ length: 12 }).map((_, index) => (
@@ -132,17 +110,18 @@ export default function Home() {
 
       <div className="panel-holder" ref={panel}>
         <div className="panel">
+          <Link aria-label="Home" href="/">
+            Works
+          </Link>
           <button
-            aria-label="Home"
+            aria-label="About"
             onClick={() => {
-              scrollTo(homeDiv), handlePanelValue(), setIsRotated(!isRotated);
+              handlePanelValue();
+              setIsRotated(!isRotated);
             }}
           >
-            Works
-          </button>
-          <Link aria-label="About" href="/about">
             About
-          </Link>
+          </button>
           <Link
             href="https://www.linkedin.com/in/justindavenport99/"
             target="_blank"
@@ -287,61 +266,197 @@ export default function Home() {
         </span>
       </nav>
 
-      <div
-        className="container-holder"
-        style={{
-          flexDirection: "column",
-          minHeight: "85vh",
-          justifyContent: "flex-end",
-        }}
-        ref={contentHolder}
-      >
+      <div className="about-holder" ref={contentHolder}>
         <div
           className="container-splash"
-          ref={home}
-          style={{ transform: "translateY(10%)" }}
+          style={{
+            display: "flex",
+            justifyContent: "space-between",
+            alignItems: "flex-end",
+            flexWrap: "wrap",
+            gap: "4rem 2rem",
+            opacity: "1",
+          }}
         >
-          <h1>Justin Davenport is a web developer and product designer.</h1>
-          <br />
-          <br />
-          <span>
-            He crafts digital experiences with clean code and intuitive design.
-          </span>
-          <br />
-          <span style={{ display: "flex" }}>
-            View his work below. Or hire him&nbsp;
-            <Link
-              className="link"
-              href="https://www.linkedin.com/in/justindavenport99/"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="LinkedIn"
-              style={{ transform: "translateY(0px)" }}
+          <div>
+            <div
+              style={{
+                maxWidth: "610px",
+                opacity: "0",
+                transform: "translateY(10%)",
+              }}
+              ref={home}
             >
-              here.&nbsp;
-              <svg
-                className="circle"
-                xmlns="http://www.w3.org/2000/svg"
-                height="18"
-                width="14"
-                viewBox="0 0 448 512"
-                fill="var(--text-color-light)"
+              <span
                 style={{
-                  transform: "rotate(-45deg)",
+                  display: "flex",
+                  alignItems: "baseline",
+                  gap: "0.4rem",
                 }}
               >
-                <path d="M438.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L338.8 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l306.7 0L233.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z" />
-              </svg>
-            </Link>
-          </span>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  height="14"
+                  width="12"
+                  viewBox="0 0 384 512"
+                  fill="var(--text-color)"
+                >
+                  <path d="M215.7 499.2C267 435 384 279.4 384 192C384 86 298 0 192 0S0 86 0 192c0 87.4 117 243 168.3 307.2c12.3 15.3 35.1 15.3 47.4 0zM192 128a64 64 0 1 1 0 128 64 64 0 1 1 0-128z" />
+                </svg>
+                Charlotte, NC
+              </span>
+              <br />
+              <h1>Open to exploring new opportunities.</h1>
+              <br />
+              <span>
+                I&apos;m Justin, a Web Developer and Product Designer. My
+                expertise lies in crafting dynamic web experiences using HTML,
+                CSS, and JavaScript primarily within Next.js. I thrive on
+                enhancing interactivity and creating captivating visuals,
+                harnessing frameworks like GSAP and Three.js to push the
+                boundaries of user engagement. My workflow seamlessly integrates
+                design and development, thanks to my adeptness with tools like
+                Figma and the Adobe Suite.
+              </span>
+            </div>
+            <br />
+            <br />
+            <br />
+            <div
+              style={{
+                maxWidth: "610px",
+                opacity: "0",
+                transform: "translateY(10%)",
+              }}
+              ref={links}
+            >
+              <Link
+                className="link"
+                href="mailto:justindavenport.space@gmail.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Email"
+              >
+                justindavenport.space@gmail.com&nbsp;
+                <svg
+                  className="circle"
+                  xmlns="http://www.w3.org/2000/svg"
+                  height="18"
+                  width="14"
+                  viewBox="0 0 448 512"
+                  fill="var(--text-color)"
+                  style={{
+                    transform: "rotate(-45deg)",
+                  }}
+                >
+                  <path d="M438.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L338.8 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l306.7 0L233.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z" />
+                </svg>
+              </Link>
+              <Link
+                className="link"
+                href="https://www.linkedin.com/in/justindavenport99/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="LinkedIn"
+              >
+                LinkedIn&nbsp;
+                <svg
+                  className="circle"
+                  xmlns="http://www.w3.org/2000/svg"
+                  height="18"
+                  width="14"
+                  viewBox="0 0 448 512"
+                  fill="var(--text-color)"
+                  style={{
+                    transform: "rotate(-45deg)",
+                  }}
+                >
+                  <path d="M438.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L338.8 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l306.7 0L233.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z" />
+                </svg>
+              </Link>
+              <Link
+                className="link"
+                href="https://github.com/Jdavenport3199"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="GitHub"
+              >
+                GitHub&nbsp;
+                <svg
+                  className="circle"
+                  xmlns="http://www.w3.org/2000/svg"
+                  height="18"
+                  width="14"
+                  viewBox="0 0 448 512"
+                  fill="var(--text-color)"
+                  style={{
+                    transform: "rotate(-45deg)",
+                  }}
+                >
+                  <path d="M438.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L338.8 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l306.7 0L233.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z" />
+                </svg>
+              </Link>
+              <Link
+                className="link"
+                href="https://www.instagram.com/justindavenport.space/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Instagram"
+              >
+                Instagram&nbsp;
+                <svg
+                  className="circle"
+                  xmlns="http://www.w3.org/2000/svg"
+                  height="18"
+                  width="14"
+                  viewBox="0 0 448 512"
+                  fill="var(--text-color)"
+                  style={{
+                    transform: "rotate(-45deg)",
+                  }}
+                >
+                  <path d="M438.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L338.8 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l306.7 0L233.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z" />
+                </svg>
+              </Link>
+              <Link
+                className="link"
+                href="https://dribbble.com/justindavenport"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Dribbble"
+              >
+                Dribble&nbsp;
+                <svg
+                  className="circle"
+                  xmlns="http://www.w3.org/2000/svg"
+                  height="18"
+                  width="14"
+                  viewBox="0 0 448 512"
+                  fill="var(--text-color)"
+                  style={{
+                    transform: "rotate(-45deg)",
+                  }}
+                >
+                  <path d="M438.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L338.8 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l306.7 0L233.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z" />
+                </svg>
+              </Link>
+            </div>
+          </div>
+          <img
+            src="/me.jpg"
+            width={450}
+            style={{
+              borderRadius: theme.borderRadius,
+              objectPosition: "center center",
+              objectFit: "cover",
+              maxWidth: "450px",
+              maxHeight: "450px",
+              opacity: "0",
+            }}
+            ref={image}
+          />
         </div>
       </div>
-
-      <Work
-        worksDiv={worksDiv}
-        setActiveSection={setActiveSection}
-        theme={theme}
-      />
     </main>
   );
 }
