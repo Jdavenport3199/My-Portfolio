@@ -7,23 +7,34 @@ import { Dispatch, RefObject, SetStateAction, useEffect, useRef } from "react";
 interface Props {
   worksDiv: RefObject<HTMLDivElement>;
   setActiveSection: Dispatch<SetStateAction<string>>;
+  theme: {
+    color: string;
+    borderRadius: string;
+    grid: string;
+  };
 }
 
-const Work: React.FC<Props> = ({ worksDiv, setActiveSection }) => {
+const Work: React.FC<Props> = ({ worksDiv, setActiveSection, theme }) => {
   const projects = [
-    {
-      name: "OCULAR VIBRATIONS™",
-      description:
-        "A modern age digital design studio, your gateway to the digital renaissance.",
-      image: "/projects/ocular.png",
-      link: "https://www.ocularvibrations.com/",
-    },
+    // {
+    //   name: "OCULAR VIBRATIONS™",
+    //   description:
+    //     "A modern age digital design studio, your gateway to the digital renaissance.",
+    //   image: "/projects/ocular.png",
+    //   link: "https://www.ocularvibrations.com/",
+    //   tag1: "UI / UX",
+    //   tag2: "Figma",
+    //   tag3: "Project",
+    // },
     {
       name: "Smart Home",
       description:
         "An all-in-one application to control your home’s smart devices.",
       image: "/designs/smarthome-mockup.png",
       link: "https://dribbble.com/shots/24906297-Smart-Home-App",
+      tag1: "UI / UX",
+      tag2: "Figma",
+      tag3: "Project",
     },
     {
       name: "IMDb",
@@ -31,6 +42,9 @@ const Work: React.FC<Props> = ({ worksDiv, setActiveSection }) => {
         "The world's most popular source for movie, TV and celebrity content.",
       image: "/designs/imdb-mockup.png",
       link: "https://dribbble.com/shots/24913217-IMDb-mobile-app",
+      tag1: "UI / UX",
+      tag2: "Figma",
+      tag3: "Project",
     },
     {
       name: "iSync",
@@ -38,12 +52,18 @@ const Work: React.FC<Props> = ({ worksDiv, setActiveSection }) => {
         "Add songs, playlists, and mixes from YouTube directly to your Apple Music Library.",
       image: "/projects/isync.png",
       link: "https://i-sync.vercel.app/",
+      tag1: "UI / UX",
+      tag2: "Figma",
+      tag3: "Project",
     },
     {
       name: "Global Enterprises",
       description: "A dynamic and responsive mock company dashboard.",
       image: "/projects/ge.png",
       link: "https://dashboard-six-snowy.vercel.app/",
+      tag1: "UI / UX",
+      tag2: "Figma",
+      tag3: "Project",
     },
     {
       name: "Teenage Engineering™",
@@ -51,6 +71,9 @@ const Work: React.FC<Props> = ({ worksDiv, setActiveSection }) => {
         "Teenage Engineering™ creates high quality electronic products for people who love sound and music.",
       image: "/projects/te.png",
       link: "https://teenage-engineering.vercel.app/",
+      tag1: "UI / UX",
+      tag2: "Figma",
+      tag3: "Project",
     },
     {
       name: "Digital Portfolio",
@@ -58,6 +81,9 @@ const Work: React.FC<Props> = ({ worksDiv, setActiveSection }) => {
         "A digital portfolio showcasing a diverse array of meticulously crafted 3D art and digital designs.",
       image: "/projects/studio.png",
       link: "https://www.christiandavenport.studio/",
+      tag1: "UI / UX",
+      tag2: "Figma",
+      tag3: "Project",
     },
     {
       name: "Stack",
@@ -65,6 +91,9 @@ const Work: React.FC<Props> = ({ worksDiv, setActiveSection }) => {
         "A platform designed to help developers showcase and visualize their tech stacks.",
       image: "/projects/stack.png",
       link: "https://stack-three-psi.vercel.app/",
+      tag1: "UI / UX",
+      tag2: "Figma",
+      tag3: "Project",
     },
     {
       name: "Cinema Collection",
@@ -72,12 +101,15 @@ const Work: React.FC<Props> = ({ worksDiv, setActiveSection }) => {
         "A platform for discovery of new and unique films based on your favorite movie genres.",
       image: "/projects/cinema.png",
       link: "https://cinema-collection.vercel.app/",
+      tag1: "UI / UX",
+      tag2: "Figma",
+      tag3: "Project",
     },
   ];
 
   const [contentHolder, inViewContentHolder] = useInView({
     triggerOnce: false,
-    threshold: 0.2,
+    threshold: 0,
   });
   const content = useRef<HTMLAnchorElement[]>([]);
   const hr = useRef<HTMLHRElement>(null);
@@ -91,16 +123,12 @@ const Work: React.FC<Props> = ({ worksDiv, setActiveSection }) => {
         duration: 1,
         ease: "power2.inOut",
       });
-      // tl.to(hr.current, {
-      //   width: "100%",
-      //   duration: 0.5,
-      //   ease: "power2.inOut",
-      // });
       tl.to(content.current, {
         opacity: 1,
         duration: 0.25,
+        delay: 0.5,
         ease: "power2.inOut",
-        stagger: 0.25,
+        stagger: 0.5,
       });
     }
   }, [inViewContentHolder]);
@@ -116,48 +144,6 @@ const Work: React.FC<Props> = ({ worksDiv, setActiveSection }) => {
         }}
         ref={worksDiv}
       >
-        <div className="container-title">
-          <div style={{ width: "100%", paddingBottom: "4rem" }}>
-            <h2>Works</h2>
-            <h3>FEATURED PROJECTS</h3>
-            {/* <hr ref={hr} style={{ width: "0%" }} />
-            <div
-              style={{
-                display: "flex",
-                justifyContent: "space-between",
-                gap: "2rem",
-              }}
-            >
-              <p style={{ maxWidth: "295px" }}>
-                Discover the latest websites and designs I&apos;ve been working
-                on.
-              </p>
-              <div
-                style={{
-                  display: "flex",
-                  flexDirection: "column",
-                  alignItems: "flex-end",
-                  gap: "0.4rem",
-                }}
-              >
-                <div style={{ display: "flex", gap: "0.4rem" }}>
-                  <span className="circle"></span>
-                  <span className="circle"></span>
-                  <span className="circle"></span>
-                  <span className="circle"></span>
-                </div>
-                <div style={{ display: "flex", gap: "0.4rem" }}>
-                  <span className="circle"></span>
-                  <span className="circle"></span>
-                  <span className="circle"></span>
-                </div>
-                <span className="circle"></span>
-                <span className="circle"></span>
-              </div>
-            </div> */}
-          </div>
-        </div>
-
         <div className="project-holder">
           {projects.map((project, index) => (
             <Link
@@ -174,10 +160,23 @@ const Work: React.FC<Props> = ({ worksDiv, setActiveSection }) => {
                 padding: "0rem",
                 width: "100%",
                 position: "relative",
+                borderRadius: theme.borderRadius,
               }}
             >
+              <div className="overlay"></div>
               <div className="project-title">
-                <p className="detail">Explore</p>
+                <h2 style={{ color: "white" }}>{project.name}</h2>
+                <div
+                  style={{
+                    display: "flex",
+                    gap: "0.4rem",
+                    marginTop: "0.4rem",
+                  }}
+                >
+                  <p className="detail">{project.tag1}</p>
+                  <p className="detail">{project.tag2}</p>
+                  <p className="detail">{project.tag3}</p>
+                </div>
               </div>
               <div className="project-btn">
                 <svg

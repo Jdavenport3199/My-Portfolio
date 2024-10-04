@@ -45,11 +45,6 @@ const Articles: React.FC<Props> = ({ articlesDiv, setActiveSection }) => {
         duration: 1,
         ease: "power2.inOut",
       });
-      // tl.to(hr.current, {
-      //   width: "100%",
-      //   duration: 0.5,
-      //   ease: "power2.inOut",
-      // });
       content.current.forEach((ref, index) => {
         tl.to(ref, {
           opacity: 1,
@@ -70,48 +65,6 @@ const Articles: React.FC<Props> = ({ articlesDiv, setActiveSection }) => {
         }}
         ref={articlesDiv}
       >
-        <div className="container-title">
-          <div style={{ width: "100%", paddingBottom: "4rem" }}>
-            <h2>Articles</h2>
-            <h3>LATEST INSIGHTS</h3>
-            {/* <hr ref={hr} style={{ width: "0%" }} />
-            <div
-              style={{
-                display: "flex",
-                justifyContent: "space-between",
-                gap: "2rem",
-              }}
-            >
-              <p style={{ maxWidth: "295px" }}>
-                Read through my latest blog posts to stay updated on my
-                thoughts, insights, and industry trends.
-              </p>
-              <div
-                style={{
-                  display: "flex",
-                  flexDirection: "column",
-                  alignItems: "flex-end",
-                  gap: "0.4rem",
-                }}
-              >
-                <div style={{ display: "flex", gap: "0.4rem" }}>
-                  <span className="circle"></span>
-                  <span className="circle"></span>
-                  <span className="circle"></span>
-                  <span className="circle"></span>
-                  <span className="circle"></span>
-                </div>
-                <div style={{ display: "flex", gap: "0.4rem" }}>
-                  <span className="circle"></span>
-                  <span className="circle"></span>
-                  <span className="circle"></span>
-                </div>
-                <span className="circle"></span>
-              </div>
-            </div> */}
-          </div>
-        </div>
-
         <div className="project-holder" ref={contentHolder}>
           {articles.map((articles, index) => (
             <div
@@ -138,6 +91,7 @@ const Articles: React.FC<Props> = ({ articlesDiv, setActiveSection }) => {
                   position: "relative",
                 }}
               >
+                <div className="overlay"></div>
                 <div className="project-title">
                   <p className="detail">Explore</p>
                 </div>
