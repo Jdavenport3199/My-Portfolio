@@ -31,6 +31,7 @@ const Work: React.FC<Props> = ({ worksDiv, setActiveSection, theme }) => {
       description:
         "All-in-one application to control your home’s smart devices.",
       image: "/designs/smarthome-mockup.png",
+      // link: "/projects/smartHome",
       link: "https://dribbble.com/shots/24906297-Smart-Home-App",
       tag1: "UI / UX",
       tag2: "Figma",
@@ -119,7 +120,7 @@ const Work: React.FC<Props> = ({ worksDiv, setActiveSection, theme }) => {
       const tl = gsap.timeline();
       tl.to(worksDiv.current, {
         opacity: 1,
-        duration: 1,
+        duration: 0.75,
         ease: "power2.inOut",
       });
       tl.to(content.current, {
@@ -165,19 +166,25 @@ const Work: React.FC<Props> = ({ worksDiv, setActiveSection, theme }) => {
               <div className="overlay"></div>
               <div className="project-title">
                 <h2 style={{ color: "white" }}>{project.name}</h2>
-                <span style={{ color: "var(--text-color-light)" }}>
+                {/* <p style={{ color: "var(--text-color-project)" }}>
                   {project.description}
-                </span>
-                <div
-                  style={{
-                    display: "flex",
-                    gap: "0.4rem",
-                    marginTop: "0.8rem",
-                  }}
-                >
-                  <p className="detail">{project.tag1}</p>
-                  <p className="detail">{project.tag2}</p>
-                  <p className="detail">{project.tag3}</p>
+                </p> */}
+                <div>
+                  <span style={{ color: "var(--text-color-project)" }}>
+                    Explore the project.
+                  </span>
+
+                  <div
+                    style={{
+                      display: "flex",
+                      gap: "0.4rem",
+                      marginTop: "0.8rem",
+                    }}
+                  >
+                    <p className="detail">{project.tag1}</p>
+                    <p className="detail">{project.tag2}</p>
+                    <p className="detail">{project.tag3}</p>
+                  </div>
                 </div>
               </div>
               <div className="project-btn">

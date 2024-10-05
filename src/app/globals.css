@@ -12,6 +12,7 @@
     --glass-overlay: #00000080;
     --button: black;
     --toggle: white;
+    --text-color-project: rgb(245, 245, 245, 0.65);
   }
 
   [data-theme='light'] {
@@ -23,6 +24,7 @@
     --glass-overlay: #ffffff80;
     --button: white;
     --toggle: black;
+    --text-color-project: rgb(245, 245, 245, 0.65);
   }
 
   * {
@@ -79,7 +81,7 @@
   }
 
   h2 {
-    font-size: clamp(20px, 4vw, 2vw);
+    font-size: clamp(18px, 4vw, 1.5vw);
     font-weight: 200;
     line-height: 1.4;
   }
@@ -91,9 +93,9 @@
   }
 
   p {
-    font-size: clamp(14px);
+    font-size: clamp(12px, 4vw, 0.7vw);
     font-weight: 300;
-    line-height: 1.4;
+    line-height: 1.6;
     color: var(--text-color-light);
   }
 
@@ -274,8 +276,8 @@
 
   .detail {
     opacity: 1;
-    width: 6rem;
-    height: 2.5rem;
+    width: 5rem;
+    height: 2rem;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -336,10 +338,14 @@
   .project-title {
     position: absolute;
     left: 0rem;
+    top: 0rem;
     bottom: 0rem;
     padding: 1rem;
     z-index: 4;
     opacity: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     transition: 300ms ease-out;
   }
 
@@ -498,12 +504,12 @@
   }
 
   .project-title {
-    padding: 2rem;
+    padding: 4rem;
   }
 
   .project-btn {
-    right: 2rem;
-    top: 2rem;
+    right: 4rem;
+    top: 4rem;
   }
 }
 

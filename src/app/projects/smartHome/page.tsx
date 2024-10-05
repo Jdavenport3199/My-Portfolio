@@ -1,23 +1,13 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
-import Work from "./components/Work";
 import Link from "next/link";
 import { gsap } from "gsap";
 import { useInView } from "react-intersection-observer";
-import TransitionLink from "./components/TransitionLink";
+import TransitionLink from "../../components/TransitionLink";
 
 export default function Home() {
   const home = useRef<HTMLDivElement>(null);
-  const homeDiv = useRef<HTMLDivElement>(null);
-  const worksDiv = useRef<HTMLDivElement>(null);
-
-  const scrollTo = (ref: React.RefObject<HTMLDivElement>) => {
-    if (ref.current) {
-      ref.current.scrollIntoView({ behavior: "smooth" });
-    }
-  };
-
-  const [activeSection, setActiveSection] = useState("Home");
+  const image = useRef<HTMLImageElement>(null);
 
   const [contentHolder, inViewContentHolder] = useInView({
     triggerOnce: false,
@@ -26,12 +16,16 @@ export default function Home() {
 
   useEffect(() => {
     if (inViewContentHolder) {
-      setActiveSection("Home");
       const tl = gsap.timeline();
       tl.to(home.current, {
         opacity: 1,
         duration: 0.75,
         y: "0%",
+        ease: "power2.inOut",
+      });
+      tl.to(image.current, {
+        opacity: 1,
+        duration: 0.75,
         ease: "power2.inOut",
       });
     }
@@ -52,20 +46,6 @@ export default function Home() {
       document.documentElement.setAttribute("data-theme", newTheme.color);
       return newTheme;
     });
-  };
-
-  const toggleBorderRadius = () => {
-    setTheme((prevTheme) => ({
-      ...prevTheme,
-      borderRadius: prevTheme.borderRadius === "0rem" ? "2rem" : "0rem",
-    }));
-  };
-
-  const toggleGrid = () => {
-    setTheme((prevTheme) => ({
-      ...prevTheme,
-      grid: prevTheme.grid === "none" ? "grid" : "none",
-    }));
   };
 
   const panel = useRef(null);
@@ -98,31 +78,8 @@ export default function Home() {
 
   const [isRotated, setIsRotated] = useState(false);
 
-  const [lastScroll, setLastScroll] = useState(0);
-  const nav = useRef<HTMLDivElement>(null);
-  useEffect(() => {
-    const handleScroll = () => {
-      const currentScroll = window.scrollY;
-      const threshold = 50;
-      if (currentScroll <= threshold && nav.current) {
-        if (nav.current.style.top !== "0rem") {
-          nav.current.style.top = "4rem";
-        }
-      } else if (currentScroll < lastScroll && nav.current) {
-        nav.current.style.top = "4rem";
-      } else if (currentScroll > lastScroll && nav.current) {
-        nav.current.style.top = "-9rem";
-      }
-      setLastScroll(currentScroll);
-    };
-    window.addEventListener("scroll", handleScroll);
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, [lastScroll]);
-
   return (
-    <main ref={homeDiv}>
+    <main>
       <div className="grid-container" style={{ display: theme.grid }}>
         <div className="grid-lines">
           {Array.from({ length: 12 }).map((_, index) => (
@@ -133,15 +90,20 @@ export default function Home() {
 
       <div className="panel-holder" ref={panel}>
         <div className="panel">
+          <TransitionLink
+            href={"/"}
+            label={"Works"}
+            setPanelValue={setPanelValue}
+          />
           <button
-            aria-label="Home"
+            aria-label="About"
             onClick={() => {
-              scrollTo(homeDiv), handlePanelValue(), setIsRotated(!isRotated);
+              handlePanelValue();
+              setIsRotated(!isRotated);
             }}
           >
-            Works
+            About
           </button>
-          <TransitionLink href={"/about"} label={"About"} setPanelValue={setPanelValue}/>
           <Link
             href="https://www.linkedin.com/in/justindavenport99/"
             target="_blank"
@@ -224,43 +186,6 @@ export default function Home() {
             />
           </svg>
         </span>
-        {/* <span
-          className="toggle-switch"
-          onClick={() => {
-            toggleGrid();
-          }}
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            height="22"
-            width="18"
-            fill="var(--toggle)"
-            viewBox="0 0 448 512"
-          >
-            <path d="M32 480a32 32 0 1 1 0-64 32 32 0 1 1 0 64zm96-64a32 32 0 1 1 0 64 32 32 0 1 1 0-64zm0-384a32 32 0 1 1 0 64 32 32 0 1 1 0-64zm0 256a32 32 0 1 1 0-64 32 32 0 1 1 0 64zM320 416a32 32 0 1 1 0 64 32 32 0 1 1 0-64zm0-320a32 32 0 1 1 0-64 32 32 0 1 1 0 64zm0 128a32 32 0 1 1 0 64 32 32 0 1 1 0-64zM224 480a32 32 0 1 1 0-64 32 32 0 1 1 0 64zm0-448a32 32 0 1 1 0 64 32 32 0 1 1 0-64zm0 256a32 32 0 1 1 0-64 32 32 0 1 1 0 64zM416 416a32 32 0 1 1 0 64 32 32 0 1 1 0-64zm0-384a32 32 0 1 1 0 64 32 32 0 1 1 0-64zM32 96a32 32 0 1 1 0-64 32 32 0 1 1 0 64zM416 224a32 32 0 1 1 0 64 32 32 0 1 1 0-64zM32 288a32 32 0 1 1 0-64 32 32 0 1 1 0 64zm192 32a32 32 0 1 1 0 64 32 32 0 1 1 0-64zm192 64a32 32 0 1 1 0-64 32 32 0 1 1 0 64zM32 320a32 32 0 1 1 0 64 32 32 0 1 1 0-64zM416 192a32 32 0 1 1 0-64 32 32 0 1 1 0 64zM32 128a32 32 0 1 1 0 64 32 32 0 1 1 0-64zm192 64a32 32 0 1 1 0-64 32 32 0 1 1 0 64z" />
-          </svg>
-        </span>
-        <span
-          className="toggle-switch"
-          onClick={() => {
-            toggleBorderRadius();
-          }}
-        >
-          <svg
-            width="24px"
-            height="24px"
-            viewBox="0 0 15 15"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              fill-rule="evenodd"
-              clip-rule="evenodd"
-              d="M9.87737 3H9.9H11.5C11.7761 3 12 3.22386 12 3.5C12 3.77614 11.7761 4 11.5 4H9.9C8.77164 4 7.95545 4.00039 7.31352 4.05284C6.67744 4.10481 6.25662 4.20539 5.91103 4.38148C5.25247 4.71703 4.71703 5.25247 4.38148 5.91103C4.20539 6.25662 4.10481 6.67744 4.05284 7.31352C4.00039 7.95545 4 8.77164 4 9.9V11.5C4 11.7761 3.77614 12 3.5 12C3.22386 12 3 11.7761 3 11.5V9.9V9.87737C3 8.77641 3 7.91948 3.05616 7.23209C3.11318 6.53416 3.23058 5.9671 3.49047 5.45704C3.9219 4.61031 4.61031 3.9219 5.45704 3.49047C5.9671 3.23058 6.53416 3.11318 7.23209 3.05616C7.91948 3 8.77641 3 9.87737 3Z"
-              fill="var(--toggle)"
-            />
-          </svg>
-        </span> */}
         <span
           className="toggle-switch"
           onClick={() => {
@@ -300,47 +225,31 @@ export default function Home() {
           ref={home}
           style={{ transform: "translateY(10%)" }}
         >
-          <h1>Justin Davenport is a web developer and product designer.</h1>
-          <br />
+          <div
+            style={{
+              width: "100%",
+              justifyContent: "right",
+              display: "flex",
+              gap: "0.4rem",
+              marginTop: "0.8rem",
+            }}
+          >
+            <p className="detail" style={{ color: "var(--toggle)", background: "var(--glass)"}}>UI / UX</p>
+            <p className="detail" style={{ color: "var(--toggle)", background: "var(--glass)"}}>Figma</p>
+            <p className="detail" style={{ color: "var(--toggle)", background: "var(--glass)"}}>Project</p>
+          </div>
+          <h1>Smart Home.</h1>
           <br />
           <span>
-            He crafts digital experiences with clean code and intuitive design.
-          </span>
-          <br />
-          <span style={{ display: "flex" }}>
-            View his work below. Or hire him&nbsp;
-            <Link
-              className="link"
-              href="https://www.linkedin.com/in/justindavenport99/"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="LinkedIn"
-              style={{ transform: "translateY(0px)" }}
-            >
-              here.&nbsp;
-              <svg
-                className="circle"
-                xmlns="http://www.w3.org/2000/svg"
-                height="18"
-                width="14"
-                viewBox="0 0 448 512"
-                fill="var(--text-color-light)"
-                style={{
-                  transform: "rotate(-45deg)",
-                }}
-              >
-                <path d="M438.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L338.8 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l306.7 0L233.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z" />
-              </svg>
-            </Link>
+            An all-in-one application to control your home’s smart devices.
+            <br />
+            View the case study below.
           </span>
         </div>
       </div>
-
-      <Work
-        worksDiv={worksDiv}
-        setActiveSection={setActiveSection}
-        theme={theme}
-      />
+      <img src="/designs/smarthome.png" ref={image} style={{opacity: "0"}}/>
+      <img src="/designs/smarthome2.png" style={{height: "100vh", width: "75%", position: "absolute", left: 0, objectFit: "cover"}}/>
+      <img src="/designs/smarthome-mockup.png" style={{height: "100vh", width: "25%", position: "absolute", right: 0, objectFit: "cover"}}/>
     </main>
   );
 }

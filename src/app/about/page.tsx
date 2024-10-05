@@ -3,6 +3,7 @@ import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { gsap } from "gsap";
 import { useInView } from "react-intersection-observer";
+import TransitionLink from "../components/TransitionLink";
 
 export default function Home() {
   const home = useRef<HTMLDivElement>(null);
@@ -19,19 +20,19 @@ export default function Home() {
       const tl = gsap.timeline();
       tl.to(home.current, {
         opacity: 1,
-        duration: 1,
+        duration: 0.75,
         y: "0%",
         ease: "power2.inOut",
       });
       tl.to(links.current, {
         opacity: 1,
-        duration: 1,
+        duration: 0.75,
         y: "0%",
         ease: "power2.inOut",
       });
       tl.to(image.current, {
         opacity: 1,
-        duration: 1,
+        duration: 0.75,
         ease: "power2.inOut",
       });
     }
@@ -110,9 +111,11 @@ export default function Home() {
 
       <div className="panel-holder" ref={panel}>
         <div className="panel">
-          <Link aria-label="Home" href="/">
-            Works
-          </Link>
+          <TransitionLink
+            href={"/"}
+            label={"Works"}
+            setPanelValue={setPanelValue}
+          />
           <button
             aria-label="About"
             onClick={() => {
@@ -309,14 +312,13 @@ export default function Home() {
               <h1>Open to exploring new opportunities.</h1>
               <br />
               <span>
-                I&apos;m Justin, a Web Developer and Product Designer. My
-                expertise lies in crafting dynamic web experiences using HTML,
-                CSS, and JavaScript primarily within Next.js. I thrive on
-                enhancing interactivity and creating captivating visuals,
-                harnessing frameworks like GSAP and Three.js to push the
-                boundaries of user engagement. My workflow seamlessly integrates
-                design and development, thanks to my adeptness with tools like
-                Figma and the Adobe Suite.
+                I&apos;m Justin, a Web Developer and Product Designer
+                specializing in creating dynamic web experiences with Next.js.
+                My passion lies in enhancing interactivity and crafting
+                captivating visuals, utilizing frameworks like GSAP and Three.js
+                to elevate user engagement. I seamlessly integrate design and
+                development in my workflow, leveraging my expertise in Figma and
+                the Adobe Creative Suite.
               </span>
             </div>
             <br />
@@ -425,7 +427,7 @@ export default function Home() {
                 rel="noopener noreferrer"
                 aria-label="Dribbble"
               >
-                Dribble&nbsp;
+                Dribbble&nbsp;
                 <svg
                   className="circle"
                   xmlns="http://www.w3.org/2000/svg"
