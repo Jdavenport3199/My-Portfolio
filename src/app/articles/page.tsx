@@ -1,13 +1,23 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
+import Articles from "../components/Articles";
 import Link from "next/link";
 import { gsap } from "gsap";
 import { useInView } from "react-intersection-observer";
-import TransitionLink from "../../components/TransitionLink";
+import TransitionLink from "../components/TransitionLink";
 
 export default function Home() {
   const home = useRef<HTMLDivElement>(null);
-  const image = useRef<HTMLImageElement>(null);
+  const homeDiv = useRef<HTMLDivElement>(null);
+  const articlesDiv = useRef<HTMLDivElement>(null);
+
+  const scrollTo = (ref: React.RefObject<HTMLDivElement>) => {
+    if (ref.current) {
+      ref.current.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
+  const [activeSection, setActiveSection] = useState("Home");
 
   const [contentHolder, inViewContentHolder] = useInView({
     triggerOnce: false,
@@ -16,16 +26,12 @@ export default function Home() {
 
   useEffect(() => {
     if (inViewContentHolder) {
+      setActiveSection("Home");
       const tl = gsap.timeline();
       tl.to(home.current, {
         opacity: 1,
         duration: 0.75,
         y: "0%",
-        ease: "power2.inOut",
-      });
-      tl.to(image.current, {
-        opacity: 1,
-        duration: 0.75,
         ease: "power2.inOut",
       });
     }
@@ -78,8 +84,31 @@ export default function Home() {
 
   const [isRotated, setIsRotated] = useState(false);
 
+  const [lastScroll, setLastScroll] = useState(0);
+  const nav = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScroll = window.scrollY;
+      const threshold = 50;
+      if (currentScroll <= threshold && nav.current) {
+        if (nav.current.style.top !== "0rem") {
+          nav.current.style.top = "4rem";
+        }
+      } else if (currentScroll < lastScroll && nav.current) {
+        nav.current.style.top = "4rem";
+      } else if (currentScroll > lastScroll && nav.current) {
+        nav.current.style.top = "-9rem";
+      }
+      setLastScroll(currentScroll);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, [lastScroll]);
+
   return (
-    <main>
+    <main ref={homeDiv}>
       <div className="panel-holder" ref={panel}>
         <div className="panel">
           <TransitionLink
@@ -88,14 +117,18 @@ export default function Home() {
             setPanelValue={setPanelValue}
           />
           <button
-            aria-label="About"
+            aria-label="Home"
             onClick={() => {
-              handlePanelValue();
-              setIsRotated(!isRotated);
+              scrollTo(homeDiv), handlePanelValue(), setIsRotated(!isRotated);
             }}
           >
-            About
+            Articles
           </button>
+          <TransitionLink
+            href={"/about"}
+            label={"About"}
+            setPanelValue={setPanelValue}
+          />
           <Link
             href="https://www.linkedin.com/in/justindavenport99/"
             target="_blank"
@@ -217,31 +250,48 @@ export default function Home() {
           ref={home}
           style={{ transform: "translateY(10%)" }}
         >
-          <div
-            style={{
-              width: "100%",
-              justifyContent: "right",
-              display: "flex",
-              gap: "0.4rem",
-              marginTop: "0.8rem",
-            }}
-          >
-            <p className="detail" style={{ color: "var(--toggle)", background: "var(--glass)"}}>UI / UX</p>
-            <p className="detail" style={{ color: "var(--toggle)", background: "var(--glass)"}}>Figma</p>
-            <p className="detail" style={{ color: "var(--toggle)", background: "var(--glass)"}}>Project</p>
-          </div>
-          <h1>Smart Home.</h1>
+          <h1>Justin Davenport is a writer and enthusiast.</h1>
+          <br />
           <br />
           <span>
-            An all-in-one application to control your home’s smart devices.
-            <br />
-            View the case study below.
+            He writes about creating digital experiences and exploring
+            innovative design.
+          </span>
+          <br />
+          <span style={{ display: "flex" }}>
+            Explore select articles below. Or read them all here&nbsp;
+            <Link
+              className="link"
+              href="https://medium.com/@justindavenport.space"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="LinkedIn"
+              style={{ transform: "translateY(0px)" }}
+            >
+              here.&nbsp;
+              <svg
+                className="circle"
+                xmlns="http://www.w3.org/2000/svg"
+                height="18"
+                width="14"
+                viewBox="0 0 448 512"
+                fill="var(--text-color-light)"
+                style={{
+                  transform: "rotate(-45deg)",
+                }}
+              >
+                <path d="M438.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L338.8 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l306.7 0L233.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z" />
+              </svg>
+            </Link>
           </span>
         </div>
       </div>
-      <img src="/designs/smarthome.png" ref={image} style={{opacity: "0"}}/>
-      <img src="/designs/smarthome2.png" style={{height: "100vh", width: "75%", position: "absolute", left: 0, objectFit: "cover"}}/>
-      <img src="/designs/smarthome-mockup.png" style={{height: "100vh", width: "25%", position: "absolute", right: 0, objectFit: "cover"}}/>
+
+      <Articles
+        articlesDiv={articlesDiv}
+        setActiveSection={setActiveSection}
+        theme={theme}
+      />
     </main>
   );
 }

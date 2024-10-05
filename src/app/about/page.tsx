@@ -55,20 +55,6 @@ export default function Home() {
     });
   };
 
-  const toggleBorderRadius = () => {
-    setTheme((prevTheme) => ({
-      ...prevTheme,
-      borderRadius: prevTheme.borderRadius === "0rem" ? "2rem" : "0rem",
-    }));
-  };
-
-  const toggleGrid = () => {
-    setTheme((prevTheme) => ({
-      ...prevTheme,
-      grid: prevTheme.grid === "none" ? "grid" : "none",
-    }));
-  };
-
   const panel = useRef(null);
   const [panelValue, setPanelValue] = useState(false);
 
@@ -101,19 +87,16 @@ export default function Home() {
 
   return (
     <main>
-      <div className="grid-container" style={{ display: theme.grid }}>
-        <div className="grid-lines">
-          {Array.from({ length: 12 }).map((_, index) => (
-            <div key={index}></div>
-          ))}
-        </div>
-      </div>
-
       <div className="panel-holder" ref={panel}>
         <div className="panel">
           <TransitionLink
             href={"/"}
             label={"Works"}
+            setPanelValue={setPanelValue}
+          />
+          <TransitionLink
+            href={"/articles"}
+            label={"Articles"}
             setPanelValue={setPanelValue}
           />
           <button
@@ -207,43 +190,6 @@ export default function Home() {
             />
           </svg>
         </span>
-        {/* <span
-          className="toggle-switch"
-          onClick={() => {
-            toggleGrid();
-          }}
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            height="22"
-            width="18"
-            fill="var(--toggle)"
-            viewBox="0 0 448 512"
-          >
-            <path d="M32 480a32 32 0 1 1 0-64 32 32 0 1 1 0 64zm96-64a32 32 0 1 1 0 64 32 32 0 1 1 0-64zm0-384a32 32 0 1 1 0 64 32 32 0 1 1 0-64zm0 256a32 32 0 1 1 0-64 32 32 0 1 1 0 64zM320 416a32 32 0 1 1 0 64 32 32 0 1 1 0-64zm0-320a32 32 0 1 1 0-64 32 32 0 1 1 0 64zm0 128a32 32 0 1 1 0 64 32 32 0 1 1 0-64zM224 480a32 32 0 1 1 0-64 32 32 0 1 1 0 64zm0-448a32 32 0 1 1 0 64 32 32 0 1 1 0-64zm0 256a32 32 0 1 1 0-64 32 32 0 1 1 0 64zM416 416a32 32 0 1 1 0 64 32 32 0 1 1 0-64zm0-384a32 32 0 1 1 0 64 32 32 0 1 1 0-64zM32 96a32 32 0 1 1 0-64 32 32 0 1 1 0 64zM416 224a32 32 0 1 1 0 64 32 32 0 1 1 0-64zM32 288a32 32 0 1 1 0-64 32 32 0 1 1 0 64zm192 32a32 32 0 1 1 0 64 32 32 0 1 1 0-64zm192 64a32 32 0 1 1 0-64 32 32 0 1 1 0 64zM32 320a32 32 0 1 1 0 64 32 32 0 1 1 0-64zM416 192a32 32 0 1 1 0-64 32 32 0 1 1 0 64zM32 128a32 32 0 1 1 0 64 32 32 0 1 1 0-64zm192 64a32 32 0 1 1 0-64 32 32 0 1 1 0 64z" />
-          </svg>
-        </span>
-        <span
-          className="toggle-switch"
-          onClick={() => {
-            toggleBorderRadius();
-          }}
-        >
-          <svg
-            width="24px"
-            height="24px"
-            viewBox="0 0 15 15"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              fill-rule="evenodd"
-              clip-rule="evenodd"
-              d="M9.87737 3H9.9H11.5C11.7761 3 12 3.22386 12 3.5C12 3.77614 11.7761 4 11.5 4H9.9C8.77164 4 7.95545 4.00039 7.31352 4.05284C6.67744 4.10481 6.25662 4.20539 5.91103 4.38148C5.25247 4.71703 4.71703 5.25247 4.38148 5.91103C4.20539 6.25662 4.10481 6.67744 4.05284 7.31352C4.00039 7.95545 4 8.77164 4 9.9V11.5C4 11.7761 3.77614 12 3.5 12C3.22386 12 3 11.7761 3 11.5V9.9V9.87737C3 8.77641 3 7.91948 3.05616 7.23209C3.11318 6.53416 3.23058 5.9671 3.49047 5.45704C3.9219 4.61031 4.61031 3.9219 5.45704 3.49047C5.9671 3.23058 6.53416 3.11318 7.23209 3.05616C7.91948 3 8.77641 3 9.87737 3Z"
-              fill="var(--toggle)"
-            />
-          </svg>
-        </span> */}
         <span
           className="toggle-switch"
           onClick={() => {
@@ -290,25 +236,6 @@ export default function Home() {
               }}
               ref={home}
             >
-              <span
-                style={{
-                  display: "flex",
-                  alignItems: "baseline",
-                  gap: "0.4rem",
-                }}
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  height="14"
-                  width="12"
-                  viewBox="0 0 384 512"
-                  fill="var(--text-color)"
-                >
-                  <path d="M215.7 499.2C267 435 384 279.4 384 192C384 86 298 0 192 0S0 86 0 192c0 87.4 117 243 168.3 307.2c12.3 15.3 35.1 15.3 47.4 0zM192 128a64 64 0 1 1 0 128 64 64 0 1 1 0-128z" />
-                </svg>
-                Charlotte, NC
-              </span>
-              <br />
               <h1>Open to exploring new opportunities.</h1>
               <br />
               <span>
@@ -442,6 +369,28 @@ export default function Home() {
                   <path d="M438.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L338.8 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l306.7 0L233.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z" />
                 </svg>
               </Link>
+              <br />
+              <span
+                style={{
+                  width: "100%",
+                  justifyContent: "right",
+                  display: "flex",
+                  alignItems: "center",
+                  gap: "0.4rem",
+                  lineHeight: "1",
+                }}
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  height="18"
+                  width="18"
+                  viewBox="0 0 512 512"
+                  fill="var(--text-color)"
+                >
+                  <path d="M57.7 193l9.4 16.4c8.3 14.5 21.9 25.2 38 29.8L163 255.7c17.2 4.9 29 20.6 29 38.5l0 39.9c0 11 6.2 21 16 25.9s16 14.9 16 25.9l0 39c0 15.6 14.9 26.9 29.9 22.6c16.1-4.6 28.6-17.5 32.7-33.8l2.8-11.2c4.2-16.9 15.2-31.4 30.3-40l8.1-4.6c15-8.5 24.2-24.5 24.2-41.7l0-8.3c0-12.7-5.1-24.9-14.1-33.9l-3.9-3.9c-9-9-21.2-14.1-33.9-14.1L257 256c-11.1 0-22.1-2.9-31.8-8.4l-34.5-19.7c-4.3-2.5-7.6-6.5-9.2-11.2c-3.2-9.6 1.1-20 10.2-24.5l5.9-3c6.6-3.3 14.3-3.9 21.3-1.5l23.2 7.7c8.2 2.7 17.2-.4 21.9-7.5c4.7-7 4.2-16.3-1.2-22.8l-13.6-16.3c-10-12-9.9-29.5 .3-41.3l15.7-18.3c8.8-10.3 10.2-25 3.5-36.7l-2.4-4.2c-3.5-.2-6.9-.3-10.4-.3C163.1 48 84.4 108.9 57.7 193zM464 256c0-36.8-9.6-71.4-26.4-101.5L412 164.8c-15.7 6.3-23.8 23.8-18.5 39.8l16.9 50.7c3.5 10.4 12 18.3 22.6 20.9l29.1 7.3c1.2-9 1.8-18.2 1.8-27.5zM0 256a256 256 0 1 1 512 0A256 256 0 1 1 0 256z" />
+                </svg>
+                Charlotte, NC
+              </span>
             </div>
           </div>
           <img

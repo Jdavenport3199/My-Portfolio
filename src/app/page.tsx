@@ -141,7 +141,16 @@ export default function Home() {
           >
             Works
           </button>
-          <TransitionLink href={"/about"} label={"About"} setPanelValue={setPanelValue}/>
+          <TransitionLink
+            href={"/articles"}
+            label={"Articles"}
+            setPanelValue={setPanelValue}
+          />
+          <TransitionLink
+            href={"/about"}
+            label={"About"}
+            setPanelValue={setPanelValue}
+          />
           <Link
             href="https://www.linkedin.com/in/justindavenport99/"
             target="_blank"

@@ -112,7 +112,6 @@ const Work: React.FC<Props> = ({ worksDiv, setActiveSection, theme }) => {
     threshold: 0,
   });
   const content = useRef<HTMLAnchorElement[]>([]);
-  const hr = useRef<HTMLHRElement>(null);
 
   useEffect(() => {
     if (inViewContentHolder) {
@@ -126,7 +125,6 @@ const Work: React.FC<Props> = ({ worksDiv, setActiveSection, theme }) => {
       tl.to(content.current, {
         opacity: 1,
         duration: 0.5,
-        // delay: 0.25,
         ease: "power2.inOut",
         stagger: 0.5,
       });
@@ -165,15 +163,8 @@ const Work: React.FC<Props> = ({ worksDiv, setActiveSection, theme }) => {
             >
               <div className="overlay"></div>
               <div className="project-title">
-                <h2 style={{ color: "white" }}>{project.name}</h2>
-                {/* <p style={{ color: "var(--text-color-project)" }}>
-                  {project.description}
-                </p> */}
-                <div>
-                  <span style={{ color: "var(--text-color-project)" }}>
-                    Explore the project.
-                  </span>
-
+                  <h2 style={{ color: "white" }}>{project.name}</h2>
+                  <span style={{ color: "var(--text-color-project)" }}>{project.description}</span>
                   <div
                     style={{
                       display: "flex",
@@ -184,7 +175,6 @@ const Work: React.FC<Props> = ({ worksDiv, setActiveSection, theme }) => {
                     <p className="detail">{project.tag1}</p>
                     <p className="detail">{project.tag2}</p>
                     <p className="detail">{project.tag3}</p>
-                  </div>
                 </div>
               </div>
               <div className="project-btn">
