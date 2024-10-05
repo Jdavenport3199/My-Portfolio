@@ -189,7 +189,7 @@
     flex-direction: column;
     align-items: flex-start;
     gap: 1rem;
-    padding-bottom: 5%;
+    padding-bottom: 10%;
 
     button,
     a {
@@ -513,6 +513,10 @@
   .project-btn {
     right: 2rem;
     top: 2rem;
+  }
+
+  .panel {
+    padding-bottom: 5%;
   }
 }
 

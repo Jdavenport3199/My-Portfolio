@@ -259,7 +259,7 @@ export default function Home() {
           </span>
           <br />
           <span style={{ display: "flex" }}>
-            Explore select articles below. Or read them all here&nbsp;
+            Explore select articles below. Or read them&nbsp;
             <Link
               className="link"
               href="https://medium.com/@justindavenport.space"
