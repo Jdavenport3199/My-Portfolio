@@ -30,7 +30,7 @@ export default function Home() {
   });
   const [contentHolder2, inViewContentHolder2] = useInView({
     triggerOnce: false,
-    threshold: 0.65,
+    threshold: 0.2,
   });
   const [contentHolder3, inViewContentHolder3] = useInView({
     triggerOnce: false,
@@ -38,7 +38,7 @@ export default function Home() {
   });
   const [contentHolder4, inViewContentHolder4] = useInView({
     triggerOnce: false,
-    threshold: 0.4,
+    threshold: 0.2,
   });
   const [contentHolder5, inViewContentHolder5] = useInView({
     triggerOnce: false,
