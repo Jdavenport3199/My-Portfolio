@@ -555,8 +555,7 @@ export default function Home() {
               translucent panels that contrast against a dynamic background,
               shifting based on time or preference. Each device control is
               housed in a frosted glass card for separation while preserving
-              visual unity. One-tap controls, live status updates, and quick
-              mode switching ("Away," "Night," or "Movie Time") make
+              visual unity. One-tap controls, and live status updates make
               interactions effortless, blending functionality with a sleek
               glassmorphism design that ensures clarity and readability.
             </span>

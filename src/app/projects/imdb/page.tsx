@@ -411,7 +411,8 @@ export default function Home() {
           <h1>IMDb.</h1>
           <br />
           <span>
-            The world's most popular source for movie, TV and celebrity content.
+            The world&apos;s most popular source for movie, TV and celebrity
+            content.
           </span>
           <br />
           <span style={{ display: "flex" }}>
@@ -553,9 +554,9 @@ export default function Home() {
               Each media entry is presented in a frosted glass card, ensuring
               visual separation while maintaining a cohesive look. Features such
               as one-tap access, real-time updates, and quick navigation options
-              (like "Watchlist," "Trending," or "Recommended") enhance user
-              interactions, seamlessly combining functionality with a refined
-              glassmorphism design that prioritizes clarity and readability.
+              enhance user interactions, seamlessly combining functionality with
+              a refined glassmorphism design that prioritizes clarity and
+              readability.
             </span>
           </div>
         </div>
