@@ -395,13 +395,13 @@ export default function Home() {
           </div>
           <img
             src="/me.jpg"
-            width={450}
+            width={600}
             style={{
               borderRadius: theme.borderRadius,
               objectPosition: "center center",
               objectFit: "cover",
-              maxWidth: "450px",
-              maxHeight: "450px",
+              maxWidth: "600px",
+              maxHeight: "600px",
               opacity: "0",
             }}
             ref={image}

@@ -25,27 +25,31 @@ const Work: React.FC<Props> = ({ worksDiv, setActiveSection, theme }) => {
     //   tag1: "UI / UX",
     //   tag2: "Figma",
     //   tag3: "Project",
+    //   openInNewTab:  true
     // },
     {
       name: "Smart Home",
       description:
         "All-in-one application to control your home’s smart devices.",
       image: "/designs/smarthome-mockup.png",
-      // link: "/projects/smartHome",
-      link: "https://dribbble.com/shots/24906297-Smart-Home-App",
+      link: "/projects/smartHome",
+      // link: "https://dribbble.com/shots/24906297-Smart-Home-App",
       tag1: "UI / UX",
       tag2: "Figma",
       tag3: "Project",
+      openInNewTab: false,
     },
     {
       name: "IMDb",
       description:
         "The world's most popular source for movie, TV and celebrity content.",
       image: "/designs/imdb-mockup.png",
-      link: "https://dribbble.com/shots/24913217-IMDb-mobile-app",
+      link: "/projects/imdb",
+      // link: "https://dribbble.com/shots/24913217-IMDb-mobile-app",
       tag1: "UI / UX",
       tag2: "Figma",
       tag3: "Project",
+      openInNewTab: false,
     },
     {
       name: "iSync",
@@ -56,6 +60,7 @@ const Work: React.FC<Props> = ({ worksDiv, setActiveSection, theme }) => {
       tag1: "Website",
       tag2: "Next.js",
       tag3: "Project",
+      openInNewTab: true,
     },
     {
       name: "Global Enterprises",
@@ -65,6 +70,7 @@ const Work: React.FC<Props> = ({ worksDiv, setActiveSection, theme }) => {
       tag1: "Website",
       tag2: "Next.js",
       tag3: "Project",
+      openInNewTab: true,
     },
     {
       name: "Teenage Engineering™",
@@ -75,6 +81,7 @@ const Work: React.FC<Props> = ({ worksDiv, setActiveSection, theme }) => {
       tag1: "Website",
       tag2: "Next.js",
       tag3: "Project",
+      openInNewTab: true,
     },
     {
       name: "Digital Portfolio",
@@ -85,6 +92,7 @@ const Work: React.FC<Props> = ({ worksDiv, setActiveSection, theme }) => {
       tag1: "Website",
       tag2: "Next.js",
       tag3: "Project",
+      openInNewTab: true,
     },
     {
       name: "Stack",
@@ -94,6 +102,7 @@ const Work: React.FC<Props> = ({ worksDiv, setActiveSection, theme }) => {
       tag1: "Website",
       tag2: "Next.js",
       tag3: "Project",
+      openInNewTab: true,
     },
     {
       name: "Cinema Collection",
@@ -104,6 +113,7 @@ const Work: React.FC<Props> = ({ worksDiv, setActiveSection, theme }) => {
       tag1: "Website",
       tag2: "Next.js",
       tag3: "Project",
+      openInNewTab: true,
     },
   ];
 
@@ -149,8 +159,8 @@ const Work: React.FC<Props> = ({ worksDiv, setActiveSection, theme }) => {
               key={index}
               className="project"
               href={project.link}
-              target="_blank"
-              rel="noopener noreferrer"
+              target={project.openInNewTab ? "_blank" : "_self"}
+              rel={project.openInNewTab ? "noopener noreferrer" : undefined}
               aria-label={project.name}
               style={{
                 opacity: 0,
@@ -163,18 +173,20 @@ const Work: React.FC<Props> = ({ worksDiv, setActiveSection, theme }) => {
             >
               <div className="overlay"></div>
               <div className="project-title">
-                  <h2 style={{ color: "white" }}>{project.name}</h2>
-                  <span style={{ color: "var(--text-color-project)" }}>{project.description}</span>
-                  <div
-                    style={{
-                      display: "flex",
-                      gap: "0.4rem",
-                      marginTop: "0.8rem",
-                    }}
-                  >
-                    <p className="detail">{project.tag1}</p>
-                    <p className="detail">{project.tag2}</p>
-                    <p className="detail">{project.tag3}</p>
+                <h2 style={{ color: "white" }}>{project.name}</h2>
+                <span style={{ color: "var(--text-color-project)" }}>
+                  {project.description}
+                </span>
+                <div
+                  style={{
+                    display: "flex",
+                    gap: "0.4rem",
+                    marginTop: "0.8rem",
+                  }}
+                >
+                  <p className="detail">{project.tag1}</p>
+                  <p className="detail">{project.tag2}</p>
+                  <p className="detail">{project.tag3}</p>
                 </div>
               </div>
               <div className="project-btn">

@@ -408,10 +408,10 @@ export default function Home() {
               Project
             </p>
           </div>
-          <h1>Smart Home.</h1>
+          <h1>IMDb.</h1>
           <br />
           <span>
-            An all-in-one application to control your home’s smart devices.
+            The world's most popular source for movie, TV and celebrity content.
           </span>
           <br />
           <span style={{ display: "flex" }}>
@@ -446,7 +446,7 @@ export default function Home() {
       <div className="container-holder" style={{ marginBottom: "4rem" }}>
         <div style={{ width: "90%" }}>
           <img
-            src="/designs/smarthome.png"
+            src="/designs/imdb.png"
             ref={image}
             style={{
               opacity: "0",
@@ -486,17 +486,19 @@ export default function Home() {
               <h2>Overview.</h2>
               <br />
               <span>
-                The Smart Home app concept simplifies control of various
-                devices—lighting, cameras, and thermostats—on a single platform.
-                The goal was to create quick, engaging interactions for
-                efficient home management. The glassmorphism design adds a
-                modern, translucent look that offers a futuristic feel while
-                maintaining clear visual hierarchy.
+                The IMDb redesign focuses on creating an intuitive and visually
+                captivating platform for discovering movies, TV shows, and
+                celebrity content. The goal was to streamline the user
+                experience, making it easier to navigate, search, and interact
+                with media information. The modern interface leverages
+                glassmorphism to offer a clean, immersive look while ensuring
+                content is front and center, enhancing both aesthetics and
+                usability.
               </span>
             </div>
             <img
               ref={image2}
-              src="/designs/smarthome-mockup.png"
+              src="/designs/imdb-mockup.png"
               style={{
                 opacity: "0",
                 width: "50%",
@@ -524,12 +526,6 @@ export default function Home() {
               <h2>Process.</h2>
               <br />
               <span>
-                The design process involved research, wireframing, prototyping,
-                and user testing. It started by simplifying existing app
-                complexities for quick access to core features. Wireframes
-                mapped clear navigation for controls and modes. Glassmorphism
-                was used for a modern, sleek look. The Figma prototype
-                incorporated smooth animations, refined through user feedback.
               </span>
             </div>
           </div>
@@ -551,14 +547,15 @@ export default function Home() {
             <h2>Prototype.</h2>
             <br />
             <span>
-              The final prototype features a polished, futuristic interface with
-              translucent panels that contrast against a dynamic background,
-              shifting based on time or preference. Each device control is
-              housed in a frosted glass card for separation while preserving
-              visual unity. One-tap controls, live status updates, and quick
-              mode switching ("Away," "Night," or "Movie Time") make
-              interactions effortless, blending functionality with a sleek
-              glassmorphism design that ensures clarity and readability.
+              The final prototype showcases a sleek, modern interface with
+              translucent panels that create a striking contrast against a
+              dynamic background, adapting to user preferences or time of day.
+              Each media entry is presented in a frosted glass card, ensuring
+              visual separation while maintaining a cohesive look. Features such
+              as one-tap access, real-time updates, and quick navigation options
+              (like "Watchlist," "Trending," or "Recommended") enhance user
+              interactions, seamlessly combining functionality with a refined
+              glassmorphism design that prioritizes clarity and readability.
             </span>
           </div>
         </div>
@@ -567,7 +564,7 @@ export default function Home() {
           <div style={{ width: "90%" }}>
             <img
               ref={image3}
-              src="/designs/smarthome2.png"
+              src="/designs/imdb2.png"
               style={{
                 opacity: "0",
                 gridColumn: "span 4",
@@ -596,15 +593,6 @@ export default function Home() {
               <h2>Reflection.</h2>
               <br />
               <span>
-                Creating this concept was a journey in balancing modern
-                aesthetics with functionality. Glassmorphism added visual
-                appeal, but maintaining readability and usability required
-                careful consideration. Early testing emphasized that form should
-                not compromise function. Key takeaways included prioritizing
-                user needs over trends, keeping controls simple, and using
-                iterative design to refine the experience. The final design
-                blends elegance with usability, showcasing a potential future
-                for intuitive smart home interfaces.
               </span>
             </div>
           </div>
