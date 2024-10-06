@@ -380,13 +380,14 @@ export default function Home() {
           ref={home}
           style={{ transform: "translateY(10%)" }}
         >
+          <h1>IMDb.</h1>
           <div
             style={{
               width: "100%",
               justifyContent: "right",
               display: "flex",
               gap: "0.4rem",
-              marginTop: "0.8rem",
+              marginBlock: "0.4rem",
             }}
           >
             <p
@@ -408,39 +409,40 @@ export default function Home() {
               Project
             </p>
           </div>
-          <h1>IMDb.</h1>
-          <br />
           <span>
             The world&apos;s most popular source for movie, TV and celebrity
             content.
           </span>
           <br />
-          <span style={{ display: "flex" }}>
-            View the case study below. Or visit the project&nbsp;
-            <Link
-              className="link"
-              href="https://dribbble.com/shots/24906297-Smart-Home-App"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="LinkedIn"
-              style={{ transform: "translateY(0px)" }}
-            >
-              here.&nbsp;
-              <svg
-                className="circle"
-                xmlns="http://www.w3.org/2000/svg"
-                height="18"
-                width="14"
-                viewBox="0 0 448 512"
-                fill="var(--text-color-light)"
-                style={{
-                  transform: "rotate(-45deg)",
-                }}
+          <div style={{ display: "flex", flexWrap: "wrap" }}>
+            <span>View the case study below.&nbsp;</span>
+            <span style={{ display: "flex" }}>
+              Or visit the project&nbsp;
+              <Link
+                className="link"
+                href="https://dribbble.com/shots/24906297-Smart-Home-App"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="LinkedIn"
+                style={{ transform: "translateY(0px)" }}
               >
-                <path d="M438.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L338.8 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l306.7 0L233.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z" />
-              </svg>
-            </Link>
-          </span>
+                here.&nbsp;
+                <svg
+                  className="circle"
+                  xmlns="http://www.w3.org/2000/svg"
+                  height="18"
+                  width="14"
+                  viewBox="0 0 448 512"
+                  fill="var(--text-color-light)"
+                  style={{
+                    transform: "rotate(-45deg)",
+                  }}
+                >
+                  <path d="M438.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L338.8 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l306.7 0L233.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z" />
+                </svg>
+              </Link>
+            </span>
+          </div>
         </div>
       </div>
 
@@ -498,14 +500,9 @@ export default function Home() {
               </span>
             </div>
             <img
+              className="side-img"
               ref={image2}
               src="/designs/imdb-mockup.png"
-              style={{
-                opacity: "0",
-                width: "50%",
-                height: "85vh",
-                objectFit: "cover",
-              }}
             />
           </div>
         </div>

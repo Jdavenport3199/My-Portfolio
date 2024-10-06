@@ -175,7 +175,7 @@
   }
 
   nav {
-    display: flex; 
+    display: flex;
     justify-content: center;
     z-index: 6;
     position: fixed;
@@ -407,6 +407,14 @@
     transition: 500ms ease-out;
   }
 
+  .side-img {
+    opacity: 0;
+    width: 100%;
+    height: 85vh;
+    object-fit: cover;
+    object-position: center top;
+  }
+
   .overlay {
     position: absolute;
     left: 0;
@@ -565,5 +573,9 @@
 @media (min-width: 1679px) {
   .about-holder {
     margin-top: 0rem;
+  }
+
+  .side-img {
+    width: 50%;
   }
 }
