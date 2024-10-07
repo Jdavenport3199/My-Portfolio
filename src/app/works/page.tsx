@@ -2,31 +2,23 @@
 import Link from "next/link";
 import { gsap } from "gsap";
 import { useInView } from "react-intersection-observer";
-import { Dispatch, RefObject, SetStateAction, useEffect, useRef } from "react";
+import { Dispatch, RefObject, SetStateAction, useEffect, useRef, useState } from "react";
+import TransitionLink from "../components/TransitionLink";
 
 interface Props {
-  worksDiv: RefObject<HTMLDivElement>;
-  setActiveSection: Dispatch<SetStateAction<string>>;
-  theme: {
-    color: string;
-    borderRadius: string;
-    grid: string;
-  };
+  // worksDiv: RefObject<HTMLDivElement>;
+  // setActiveSection: Dispatch<SetStateAction<string>>;
+  // theme: {
+  //   color: string;
+  //   borderRadius: string;
+  //   grid: string;
+  // };
 }
 
-const Work: React.FC<Props> = ({ worksDiv, setActiveSection, theme }) => {
+const Work: React.FC<Props> = ({ }) => {
+  const worksDiv = useRef<HTMLDivElement>(null);
+
   const projects = [
-    // {
-    //   name: "OCULAR VIBRATIONS™",
-    //   description:
-    //     "A modern age digital design studio, your gateway to the digital renaissance.",
-    //   image: "/projects/ocular.png",
-    //   link: "https://www.ocularvibrations.com/",
-    //   tag1: "UI / UX",
-    //   tag2: "Figma",
-    //   tag3: "Project",
-    //   openInNewTab:  true
-    // },
     {
       name: "Furniture Store",
       description: "Browse and shop high-end modern furniture.",
@@ -115,17 +107,28 @@ const Work: React.FC<Props> = ({ worksDiv, setActiveSection, theme }) => {
       tag3: "Project",
       openInNewTab: true,
     },
-    // {
-    //   name: "Cinema Collection",
-    //   description:
-    //     "Discover new and unique films based on your favorite movie genres.",
-    //   image: "/projects/cinema.png",
-    //   link: "https://cinema-collection.vercel.app/",
-    //   tag1: "Website",
-    //   tag2: "Next.js",
-    //   tag3: "Project",
-    //   openInNewTab: true,
-    // },
+    {
+      name: "Cinema Collection",
+      description:
+        "Discover new and unique films based on your favorite movie genres.",
+      image: "/projects/cinema.png",
+      link: "https://cinema-collection.vercel.app/",
+      tag1: "Website",
+      tag2: "Next.js",
+      tag3: "Project",
+      openInNewTab: true,
+    },
+    {
+      name: "OCULAR VIBRATIONS™",
+      description:
+        "A modern age digital design studio, your gateway to the digital renaissance.",
+      image: "/projects/ocular.png",
+      link: "https://www.ocularvibrations.com/",
+      tag1: "UI / UX",
+      tag2: "Figma",
+      tag3: "Project",
+      openInNewTab:  true
+    },
   ];
 
   const [contentHolder, inViewContentHolder] = useInView({
@@ -136,7 +139,6 @@ const Work: React.FC<Props> = ({ worksDiv, setActiveSection, theme }) => {
 
   useEffect(() => {
     if (inViewContentHolder) {
-      setActiveSection("Works");
       const tl = gsap.timeline();
       tl.to(worksDiv.current, {
         opacity: 1,
@@ -152,14 +154,185 @@ const Work: React.FC<Props> = ({ worksDiv, setActiveSection, theme }) => {
     }
   }, [inViewContentHolder]);
 
+  const [theme, setTheme] = useState({
+    color: "dark",
+    borderRadius: "0rem",
+    grid: "none",
+  });
+
+  const toggleColor = () => {
+    setTheme((prevTheme) => {
+      const newTheme = {
+        ...prevTheme,
+        color: prevTheme.color === "dark" ? "light" : "dark",
+      };
+      document.documentElement.setAttribute("data-theme", newTheme.color);
+      return newTheme;
+    });
+  };
+
+  const panel = useRef(null);
+  const [panelValue, setPanelValue] = useState(false);
+  const [isRotated, setIsRotated] = useState(false);
+
+  useEffect(() => {
+    if (panelValue) {
+      gsap.to(panel.current, {
+        visibility: "visible",
+        opacity: 1,
+        duration: 0.5,
+        ease: "power2.inOut",
+      });
+    } else {
+      gsap.to(panel.current, {
+        opacity: 0,
+        duration: 0.5,
+        ease: "power2.inOut",
+        onComplete: () => {
+          gsap.set(panel.current, { visibility: "hidden" });
+          return undefined;
+        },
+      });
+    }
+  }, [panelValue]);
+
+  const handlePanelValue = () => {
+    setPanelValue((prev: any) => !prev);
+  };
+
   return (
+    <main>
+    <div className="panel-holder" ref={panel}>
+    <div className="panel">
+    <TransitionLink
+        href={"/"}
+        label={"Works"}
+        setPanelValue={setPanelValue}
+      />
+      <TransitionLink
+        href={"/articles"}
+        label={"Articles"}
+        setPanelValue={setPanelValue}
+      />
+      <TransitionLink
+        href={"/about"}
+        label={"About"}
+        setPanelValue={setPanelValue}
+      />
+      <Link
+        href="https://www.linkedin.com/in/justindavenport99/"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="LinkedIn"
+      >
+        Contact
+      </Link>
+    </div>
+  </div>
+
+  <nav>
+        <span
+          className="toggle-switch"
+          onClick={() => {
+            toggleColor();
+          }}
+        >
+          <svg
+            width="24px"
+            height="24px"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <circle
+              cx="12"
+              cy="12"
+              r="5"
+              stroke="var(--toggle)"
+              stroke-width="1.5"
+            />
+            <path
+              d="M12 2V4"
+              stroke="var(--toggle)"
+              stroke-width="1.5"
+              stroke-linecap="round"
+            />
+            <path
+              d="M12 20V22"
+              stroke="var(--toggle)"
+              stroke-width="1.5"
+              stroke-linecap="round"
+            />
+            <path
+              d="M4 12L2 12"
+              stroke="var(--toggle)"
+              stroke-width="1.5"
+              stroke-linecap="round"
+            />
+            <path
+              d="M22 12L20 12"
+              stroke="var(--toggle)"
+              stroke-width="1.5"
+              stroke-linecap="round"
+            />
+            <path
+              d="M19.7778 4.22266L17.5558 6.25424"
+              stroke="var(--toggle)"
+              stroke-width="1.5"
+              stroke-linecap="round"
+            />
+            <path
+              d="M4.22217 4.22266L6.44418 6.25424"
+              stroke="var(--toggle)"
+              stroke-width="1.5"
+              stroke-linecap="round"
+            />
+            <path
+              d="M6.44434 17.5557L4.22211 19.7779"
+              stroke="var(--toggle)"
+              stroke-width="1.5"
+              stroke-linecap="round"
+            />
+            <path
+              d="M19.7778 19.7773L17.5558 17.5551"
+              stroke="var(--toggle)"
+              stroke-width="1.5"
+              stroke-linecap="round"
+            />
+          </svg>
+        </span>
+        <span
+          className="toggle-switch"
+          onClick={() => {
+            handlePanelValue(), setIsRotated(!isRotated);
+          }}
+        >
+          <svg
+            width="20px"
+            height="20px"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            style={{
+              transform: isRotated ? "rotate(45deg)" : "",
+              transition: "transform 0.3s ease",
+            }}
+          >
+            <path
+              d="M13 3C13 2.44772 12.5523 2 12 2C11.4477 2 11 2.44772 11 3V11H3C2.44772 11 2 11.4477 2 12C2 12.5523 2.44772 13 3 13H11V21C11 21.5523 11.4477 22 12 22C12.5523 22 13 21.5523 13 21V13H21C21.5523 13 22 12.5523 22 12C22 11.4477 21.5523 11 21 11H13V3Z"
+              fill="var(--toggle)"
+            />
+          </svg>
+        </span>
+      </nav>
+
     <div ref={contentHolder}>
       <div
         className="container-holder"
         style={{
           minHeight: "100vh",
           opacity: "0",
-          paddingBottom: "12rem",
+          paddingBlock: "4rem",
         }}
         ref={worksDiv}
       >
@@ -179,7 +352,7 @@ const Work: React.FC<Props> = ({ worksDiv, setActiveSection, theme }) => {
                 padding: "0rem",
                 width: "100%",
                 position: "relative",
-                borderRadius: theme.borderRadius,
+                // borderRadius: theme.borderRadius,
               }}
             >
               <div className="overlay"></div>
@@ -223,9 +396,9 @@ const Work: React.FC<Props> = ({ worksDiv, setActiveSection, theme }) => {
             </Link>
           ))}
         </div>
-        <Link className="button" href="/works">View all Work</Link>
       </div>
     </div>
+    </main>
   );
 };
 

@@ -154,17 +154,19 @@
   }
 
   .button {
-    width: 8rem;
-    height: 8rem;
+    width: fit-content;
+    margin-top: 4rem;
+    height: 2.5rem;
+    padding: 1.25rem;
+    padding-block: 0;
+    border-radius: 100rem;
     display: flex;
     align-items: center;
     justify-content: center;
-    background: transparent;
-    color: var(--background-color);
-    border: 1px solid var(--text-color);
-    background: var(--text-color);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    background: var(--glass);
     transition: 300ms ease-out;
-    border-radius: 100rem;
   }
 
   a:hover,
@@ -185,7 +187,7 @@
   }
 
   .nav-slider {
-    position: fixed;
+    position: absolute;
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -197,11 +199,11 @@
     transition: all 0.3s ease-in-out;
   }
 
-  .logo {
+  /* .logo {
     position: absolute;
     top: 4rem;
     left: 1rem;
-  }
+  } */
 
   .panel {
     display: flex;
@@ -243,7 +245,7 @@
     opacity: 0.6;
   }
 
-  label {
+  /* label {
     font-size: clamp(10px, 2vw, 12px);
     font-weight: 500;
     line-height: 1.6;
@@ -279,21 +281,21 @@
     font-weight: 400;
     line-height: 1.4;
     color: var(--text-color-light);
-  }
+  } */
 
-  @supports (-webkit-touch-callout: none) {
+  /* @supports (-webkit-touch-callout: none) {
 
     input,
     textarea {
       border-radius: 0 !important;
     }
-  }
+  } */
 
-  form {
+  /* form {
     width: 100%;
     margin-bottom: 4rem;
     flex-direction: column;
-  }
+  } */
 
   .detail {
     opacity: 1;
@@ -440,14 +442,14 @@
     margin-bottom: 4rem;
   }
 
-  .container-title {
+  /* .container-title {
     padding-top: 4rem;
     text-align: left;
     width: 90%;
     overflow: hidden;
-  }
+  } */
 
-  footer {
+  /* footer {
     width: 90%;
     padding-top: 4rem;
     padding-bottom: 4rem;
@@ -486,28 +488,32 @@
       -webkit-backdrop-filter: blur(8px);
       background: var(--glass);
     }
-  }
+  } */
 }
 
 @media (min-width: 799px) {
-  .button:hover {
-    opacity: 0.6;
-    transform: translateY(-5px) rotate(360deg);
+  .nav-slider {
+    position: fixed;
   }
 
-  form {
+  .button:hover {
+    opacity: 0.6;
+    /* transform: translateY(-5px) rotate(360deg); */
+  }
+
+  /* form {
     width: 615px;
   }
 
   .footerLinks {
     align-items: flex-end;
-  }
+  } */
 }
 
 @media (min-width: 999px) {
-  .logo {
+  /* .logo {
     left: 4rem;
-  }
+  } */
 
   .project-holder {
     width: 100%;

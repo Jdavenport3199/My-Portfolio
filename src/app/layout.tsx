@@ -7,7 +7,7 @@ export const metadata: Metadata = {
     default: "Justin Davenport",
     template: "%s — Justin Davenport",
   },
-  description: "DEVELOPER & DESIGNER",
+  description: "Developer & Designer",
   openGraph: {
     images: "https://www.justindavenport.space/opengraph-image.png",
   },
