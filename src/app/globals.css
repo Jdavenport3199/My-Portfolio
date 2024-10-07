@@ -112,7 +112,6 @@
   }
 
   .link {
-    /* all: unset; */
     cursor: pointer;
     color: var(--text-color);
     transition: 150ms linear;
@@ -143,7 +142,7 @@
   a,
   button {
     color: var(--text-color);
-    font-size: clamp(16px, 4vw, 1vw);
+    font-size: clamp(16px, 4vw, 0.7vw);
     font-weight: 200;
     line-height: 1.4;
     text-decoration: none;

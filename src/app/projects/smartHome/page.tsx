@@ -299,10 +299,10 @@ export default function Home() {
                 : "var(--text-color-light)",
             opacity: activeSection === "Intro" ? "1" : "",
             fontSize:
-              activeSection === "Intro" ? "clamp(24px, 4vw, 1.5vw)" : "",
+              activeSection === "Intro" ? "clamp(24px, 4vw, 1vw)" : "",
           }}
         >
-          Intro.
+          Intro
         </button>
         <button
           aria-label="Overview"
@@ -314,10 +314,10 @@ export default function Home() {
                 : "var(--text-color-light)",
             opacity: activeSection === "Overview" ? "1" : "",
             fontSize:
-              activeSection === "Overview" ? "clamp(24px, 4vw, 1.5vw)" : "",
+              activeSection === "Overview" ? "clamp(24px, 4vw, 1vw)" : "",
           }}
         >
-          Overview.
+          Overview
         </button>
         {/* <button
           aria-label="Process"
@@ -329,7 +329,7 @@ export default function Home() {
                 : "var(--text-color-light)",
             opacity: activeSection === "Process" ? "1" : "",
             fontSize:
-              activeSection === "Process" ? "clamp(24px, 4vw, 1.5vw)" : "",
+              activeSection === "Process" ? "clamp(24px, 4vw, 1vw)" : "",
           }}
         >
           Process
@@ -344,10 +344,10 @@ export default function Home() {
                 : "var(--text-color-light)",
             opacity: activeSection === "Prototype" ? "1" : "",
             fontSize:
-              activeSection === "Prototype" ? "clamp(24px, 4vw, 1.5vw)" : "",
+              activeSection === "Prototype" ? "clamp(24px, 4vw, 1vw)" : "",
           }}
         >
-          Prototype.
+          Prototype
         </button>
         {/* <button
           aria-label="Reflection"
@@ -359,7 +359,7 @@ export default function Home() {
                 : "var(--text-color-light)",
             opacity: activeSection === "Reflection" ? "1" : "",
             fontSize:
-              activeSection === "Reflection" ? "clamp(24px, 4vw, 1.5vw)" : "",
+              activeSection === "Reflection" ? "clamp(24px, 4vw, 1vw)" : "",
           }}
         >
           Reflection
