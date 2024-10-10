@@ -360,6 +360,7 @@
     top: 0;
     mask-image: linear-gradient(to bottom, black, transparent);
     filter: invert(var(--video));
+    pointer-events: none;
   }
 
   .img {
