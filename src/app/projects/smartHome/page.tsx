@@ -4,6 +4,7 @@ import Link from "next/link";
 import { gsap } from "gsap";
 import { useInView } from "react-intersection-observer";
 import TransitionLink from "../../components/TransitionLink";
+import Background from "../../components/Background";
 
 export default function Home() {
   const home = useRef<HTMLDivElement>(null);
@@ -12,9 +13,7 @@ export default function Home() {
   const image3 = useRef<HTMLImageElement>(null);
   const introDiv = useRef<HTMLDivElement>(null);
   const overviewDiv = useRef<HTMLDivElement>(null);
-  const processDiv = useRef<HTMLDivElement>(null);
   const prototypeDiv = useRef<HTMLDivElement>(null);
-  const reflectionDiv = useRef<HTMLDivElement>(null);
 
   const scrollTo = (ref: React.RefObject<HTMLDivElement>) => {
     if (ref.current) {
@@ -33,14 +32,6 @@ export default function Home() {
     threshold: 0.2,
   });
   const [contentHolder3, inViewContentHolder3] = useInView({
-    triggerOnce: false,
-    threshold: 0.2,
-  });
-  const [contentHolder4, inViewContentHolder4] = useInView({
-    triggerOnce: false,
-    threshold: 0.2,
-  });
-  const [contentHolder5, inViewContentHolder5] = useInView({
     triggerOnce: false,
     threshold: 0.2,
   });
@@ -76,15 +67,6 @@ export default function Home() {
       });
     }
     if (inViewContentHolder3) {
-      setActiveSection("Process");
-      const tl = gsap.timeline();
-      tl.to(processDiv.current, {
-        opacity: 1,
-        duration: 0.75,
-        ease: "power2.inOut",
-      });
-    }
-    if (inViewContentHolder4) {
       setActiveSection("Prototype");
       const tl = gsap.timeline();
       tl.to(prototypeDiv.current, {
@@ -98,39 +80,7 @@ export default function Home() {
         ease: "power2.inOut",
       });
     }
-    if (inViewContentHolder5) {
-      setActiveSection("Reflection");
-      const tl = gsap.timeline();
-      tl.to(reflectionDiv.current, {
-        opacity: 1,
-        duration: 0.75,
-        ease: "power2.inOut",
-      });
-    }
-  }, [
-    inViewContentHolder,
-    inViewContentHolder2,
-    inViewContentHolder3,
-    inViewContentHolder4,
-    inViewContentHolder5,
-  ]);
-
-  const [theme, setTheme] = useState({
-    color: "dark",
-    borderRadius: "0rem",
-    grid: "none",
-  });
-
-  const toggleColor = () => {
-    setTheme((prevTheme) => {
-      const newTheme = {
-        ...prevTheme,
-        color: prevTheme.color === "dark" ? "light" : "dark",
-      };
-      document.documentElement.setAttribute("data-theme", newTheme.color);
-      return newTheme;
-    });
-  };
+  }, [inViewContentHolder, inViewContentHolder2, inViewContentHolder3]);
 
   const panel = useRef(null);
   const [panelValue, setPanelValue] = useState(false);
@@ -196,76 +146,6 @@ export default function Home() {
         <span
           className="toggle-switch"
           onClick={() => {
-            toggleColor();
-          }}
-        >
-          <svg
-            width="24px"
-            height="24px"
-            viewBox="0 0 24 24"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <circle
-              cx="12"
-              cy="12"
-              r="5"
-              stroke="var(--toggle)"
-              stroke-width="1.5"
-            />
-            <path
-              d="M12 2V4"
-              stroke="var(--toggle)"
-              stroke-width="1.5"
-              stroke-linecap="round"
-            />
-            <path
-              d="M12 20V22"
-              stroke="var(--toggle)"
-              stroke-width="1.5"
-              stroke-linecap="round"
-            />
-            <path
-              d="M4 12L2 12"
-              stroke="var(--toggle)"
-              stroke-width="1.5"
-              stroke-linecap="round"
-            />
-            <path
-              d="M22 12L20 12"
-              stroke="var(--toggle)"
-              stroke-width="1.5"
-              stroke-linecap="round"
-            />
-            <path
-              d="M19.7778 4.22266L17.5558 6.25424"
-              stroke="var(--toggle)"
-              stroke-width="1.5"
-              stroke-linecap="round"
-            />
-            <path
-              d="M4.22217 4.22266L6.44418 6.25424"
-              stroke="var(--toggle)"
-              stroke-width="1.5"
-              stroke-linecap="round"
-            />
-            <path
-              d="M6.44434 17.5557L4.22211 19.7779"
-              stroke="var(--toggle)"
-              stroke-width="1.5"
-              stroke-linecap="round"
-            />
-            <path
-              d="M19.7778 19.7773L17.5558 17.5551"
-              stroke="var(--toggle)"
-              stroke-width="1.5"
-              stroke-linecap="round"
-            />
-          </svg>
-        </span>
-        <span
-          className="toggle-switch"
-          onClick={() => {
             handlePanelValue(), setIsRotated(!isRotated);
           }}
         >
@@ -298,8 +178,7 @@ export default function Home() {
                 ? "var(--text-color)"
                 : "var(--text-color-light)",
             opacity: activeSection === "Intro" ? "1" : "",
-            fontSize:
-              activeSection === "Intro" ? "clamp(24px, 4vw, 1vw)" : "",
+            fontSize: activeSection === "Intro" ? "clamp(24px, 4vw, 1vw)" : "",
           }}
         >
           Intro
@@ -319,21 +198,6 @@ export default function Home() {
         >
           Overview
         </button>
-        {/* <button
-          aria-label="Process"
-          onClick={() => scrollTo(processDiv)}
-          style={{
-            color:
-              activeSection === "Process"
-                ? "var(--text-color)"
-                : "var(--text-color-light)",
-            opacity: activeSection === "Process" ? "1" : "",
-            fontSize:
-              activeSection === "Process" ? "clamp(24px, 4vw, 1vw)" : "",
-          }}
-        >
-          Process
-        </button> */}
         <button
           aria-label="Prototype"
           onClick={() => scrollTo(prototypeDiv)}
@@ -349,23 +213,9 @@ export default function Home() {
         >
           Prototype
         </button>
-        {/* <button
-          aria-label="Reflection"
-          onClick={() => scrollTo(reflectionDiv)}
-          style={{
-            color:
-              activeSection === "Reflection"
-                ? "var(--text-color)"
-                : "var(--text-color-light)",
-            opacity: activeSection === "Reflection" ? "1" : "",
-            fontSize:
-              activeSection === "Reflection" ? "clamp(24px, 4vw, 1vw)" : "",
-          }}
-        >
-          Reflection
-        </button> */}
       </div>
 
+      <Background />
       <div
         className="container-holder"
         style={{
@@ -381,33 +231,19 @@ export default function Home() {
           style={{ transform: "translateY(10%)" }}
         >
           <h1>Smart Home.</h1>
-          <div
-            style={{
-              width: "100%",
-              justifyContent: "right",
-              display: "flex",
-              gap: "0.4rem",
-              marginBlock: "0.4rem",
-            }}
-          >
-            <p
-              className="detail"
-              style={{ color: "var(--toggle)", background: "var(--glass)" }}
-            >
-              UI / UX
-            </p>
-            <p
-              className="detail"
-              style={{ color: "var(--toggle)", background: "var(--glass)" }}
-            >
-              Figma
-            </p>
-            <p
-              className="detail"
-              style={{ color: "var(--toggle)", background: "var(--glass)" }}
-            >
-              Project
-            </p>
+          <div className="topics">
+            <div>
+              <p>Purpose</p>
+              <h2>UI / UX</h2>
+            </div>
+            <div>
+              <p>Tools</p>
+              <h2>Figma</h2>
+            </div>
+            <div>
+              <p>Type</p>
+              <h2>Project</h2>
+            </div>
           </div>
           <span>
             An all-in-one application to control your home’s smart devices.
@@ -505,35 +341,7 @@ export default function Home() {
         </div>
       </div>
 
-      {/* <div ref={contentHolder3}>
-        <div
-          className="container-holder"
-          style={{
-            flexDirection: "column",
-            minHeight: "100vh",
-            justifyContent: "flex-end",
-            opacity: "0",
-          }}
-          ref={processDiv}
-        >
-          <div className="container-splash" style={{ opacity: "1" }}>
-            <div style={{ maxWidth: "610px" }}>
-              <h2>Process.</h2>
-              <br />
-              <span>
-                The design process involved research, wireframing, prototyping,
-                and user testing. It started by simplifying existing app
-                complexities for quick access to core features. Wireframes
-                mapped clear navigation for controls and modes. Glassmorphism
-                was used for a modern, sleek look. The Figma prototype
-                incorporated smooth animations, refined through user feedback.
-              </span>
-            </div>
-          </div>
-        </div>
-      </div> */}
-
-      <div ref={contentHolder4}>
+      <div ref={contentHolder3}>
         <div
           className="container-holder"
           style={{
@@ -575,37 +383,6 @@ export default function Home() {
           </div>
         </div>
       </div>
-
-      {/* <div ref={contentHolder5}>
-        <div
-          className="container-holder"
-          style={{
-            flexDirection: "column",
-            minHeight: "100vh",
-            justifyContent: "flex-end",
-            opacity: "0",
-          }}
-          ref={reflectionDiv}
-        >
-          <div className="container-splash" style={{ opacity: "1" }}>
-            <div style={{ maxWidth: "610px" }}>
-              <h2>Reflection.</h2>
-              <br />
-              <span>
-                Creating this concept was a journey in balancing modern
-                aesthetics with functionality. Glassmorphism added visual
-                appeal, but maintaining readability and usability required
-                careful consideration. Early testing emphasized that form should
-                not compromise function. Key takeaways included prioritizing
-                user needs over trends, keeping controls simple, and using
-                iterative design to refine the experience. The final design
-                blends elegance with usability, showcasing a potential future
-                for intuitive smart home interfaces.
-              </span>
-            </div>
-          </div>
-        </div>
-      </div> */}
     </main>
   );
 }

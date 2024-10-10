@@ -5,6 +5,7 @@ import Link from "next/link";
 import { gsap } from "gsap";
 import { useInView } from "react-intersection-observer";
 import TransitionLink from "../components/TransitionLink";
+import Background from "../components/Background";
 
 export default function Home() {
   const home = useRef<HTMLDivElement>(null);
@@ -37,23 +38,6 @@ export default function Home() {
     }
   }, [inViewContentHolder]);
 
-  const [theme, setTheme] = useState({
-    color: "dark",
-    borderRadius: "0rem",
-    grid: "none",
-  });
-
-  const toggleColor = () => {
-    setTheme((prevTheme) => {
-      const newTheme = {
-        ...prevTheme,
-        color: prevTheme.color === "dark" ? "light" : "dark",
-      };
-      document.documentElement.setAttribute("data-theme", newTheme.color);
-      return newTheme;
-    });
-  };
-
   const panel = useRef(null);
   const [panelValue, setPanelValue] = useState(false);
 
@@ -83,29 +67,6 @@ export default function Home() {
   };
 
   const [isRotated, setIsRotated] = useState(false);
-
-  const [lastScroll, setLastScroll] = useState(0);
-  const nav = useRef<HTMLDivElement>(null);
-  useEffect(() => {
-    const handleScroll = () => {
-      const currentScroll = window.scrollY;
-      const threshold = 50;
-      if (currentScroll <= threshold && nav.current) {
-        if (nav.current.style.top !== "0rem") {
-          nav.current.style.top = "4rem";
-        }
-      } else if (currentScroll < lastScroll && nav.current) {
-        nav.current.style.top = "4rem";
-      } else if (currentScroll > lastScroll && nav.current) {
-        nav.current.style.top = "-9rem";
-      }
-      setLastScroll(currentScroll);
-    };
-    window.addEventListener("scroll", handleScroll);
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, [lastScroll]);
 
   return (
     <main ref={homeDiv}>
@@ -144,76 +105,6 @@ export default function Home() {
         <span
           className="toggle-switch"
           onClick={() => {
-            toggleColor();
-          }}
-        >
-          <svg
-            width="24px"
-            height="24px"
-            viewBox="0 0 24 24"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <circle
-              cx="12"
-              cy="12"
-              r="5"
-              stroke="var(--toggle)"
-              stroke-width="1.5"
-            />
-            <path
-              d="M12 2V4"
-              stroke="var(--toggle)"
-              stroke-width="1.5"
-              stroke-linecap="round"
-            />
-            <path
-              d="M12 20V22"
-              stroke="var(--toggle)"
-              stroke-width="1.5"
-              stroke-linecap="round"
-            />
-            <path
-              d="M4 12L2 12"
-              stroke="var(--toggle)"
-              stroke-width="1.5"
-              stroke-linecap="round"
-            />
-            <path
-              d="M22 12L20 12"
-              stroke="var(--toggle)"
-              stroke-width="1.5"
-              stroke-linecap="round"
-            />
-            <path
-              d="M19.7778 4.22266L17.5558 6.25424"
-              stroke="var(--toggle)"
-              stroke-width="1.5"
-              stroke-linecap="round"
-            />
-            <path
-              d="M4.22217 4.22266L6.44418 6.25424"
-              stroke="var(--toggle)"
-              stroke-width="1.5"
-              stroke-linecap="round"
-            />
-            <path
-              d="M6.44434 17.5557L4.22211 19.7779"
-              stroke="var(--toggle)"
-              stroke-width="1.5"
-              stroke-linecap="round"
-            />
-            <path
-              d="M19.7778 19.7773L17.5558 17.5551"
-              stroke="var(--toggle)"
-              stroke-width="1.5"
-              stroke-linecap="round"
-            />
-          </svg>
-        </span>
-        <span
-          className="toggle-switch"
-          onClick={() => {
             handlePanelValue(), setIsRotated(!isRotated);
           }}
         >
@@ -236,6 +127,7 @@ export default function Home() {
         </span>
       </nav>
 
+      <Background />
       <div
         className="container-holder"
         style={{
@@ -287,11 +179,7 @@ export default function Home() {
         </div>
       </div>
 
-      <Articles
-        articlesDiv={articlesDiv}
-        setActiveSection={setActiveSection}
-        theme={theme}
-      />
+      <Articles articlesDiv={articlesDiv} setActiveSection={setActiveSection} />
     </main>
   );
 }

@@ -5,6 +5,7 @@ import Link from "next/link";
 import { gsap } from "gsap";
 import { useInView } from "react-intersection-observer";
 import TransitionLink from "./components/TransitionLink";
+import Background from "./components/Background";
 
 export default function Home() {
   const home = useRef<HTMLDivElement>(null);
@@ -37,36 +38,36 @@ export default function Home() {
     }
   }, [inViewContentHolder]);
 
-  const [theme, setTheme] = useState({
-    color: "dark",
-    borderRadius: "0rem",
-    grid: "none",
-  });
+  // const [theme, setTheme] = useState({
+  //   color: "dark",
+  //   borderRadius: "0rem",
+  //   grid: "none",
+  // });
 
-  const toggleColor = () => {
-    setTheme((prevTheme) => {
-      const newTheme = {
-        ...prevTheme,
-        color: prevTheme.color === "dark" ? "light" : "dark",
-      };
-      document.documentElement.setAttribute("data-theme", newTheme.color);
-      return newTheme;
-    });
-  };
+  // const toggleColor = () => {
+  //   setTheme((prevTheme) => {
+  //     const newTheme = {
+  //       ...prevTheme,
+  //       color: prevTheme.color === "dark" ? "light" : "dark",
+  //     };
+  //     document.documentElement.setAttribute("data-theme", newTheme.color);
+  //     return newTheme;
+  //   });
+  // };
 
-  const toggleBorderRadius = () => {
-    setTheme((prevTheme) => ({
-      ...prevTheme,
-      borderRadius: prevTheme.borderRadius === "0rem" ? "2rem" : "0rem",
-    }));
-  };
+  // const toggleBorderRadius = () => {
+  //   setTheme((prevTheme) => ({
+  //     ...prevTheme,
+  //     borderRadius: prevTheme.borderRadius === "0rem" ? "2rem" : "0rem",
+  //   }));
+  // };
 
-  const toggleGrid = () => {
-    setTheme((prevTheme) => ({
-      ...prevTheme,
-      grid: prevTheme.grid === "none" ? "grid" : "none",
-    }));
-  };
+  // const toggleGrid = () => {
+  //   setTheme((prevTheme) => ({
+  //     ...prevTheme,
+  //     grid: prevTheme.grid === "none" ? "grid" : "none",
+  //   }));
+  // };
 
   const panel = useRef(null);
   const [panelValue, setPanelValue] = useState(false);
@@ -98,38 +99,38 @@ export default function Home() {
 
   const [isRotated, setIsRotated] = useState(false);
 
-  const [lastScroll, setLastScroll] = useState(0);
-  const nav = useRef<HTMLDivElement>(null);
-  useEffect(() => {
-    const handleScroll = () => {
-      const currentScroll = window.scrollY;
-      const threshold = 50;
-      if (currentScroll <= threshold && nav.current) {
-        if (nav.current.style.top !== "0rem") {
-          nav.current.style.top = "4rem";
-        }
-      } else if (currentScroll < lastScroll && nav.current) {
-        nav.current.style.top = "4rem";
-      } else if (currentScroll > lastScroll && nav.current) {
-        nav.current.style.top = "-9rem";
-      }
-      setLastScroll(currentScroll);
-    };
-    window.addEventListener("scroll", handleScroll);
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, [lastScroll]);
+  // const [lastScroll, setLastScroll] = useState(0);
+  // const nav = useRef<HTMLDivElement>(null);
+  // useEffect(() => {
+  //   const handleScroll = () => {
+  //     const currentScroll = window.scrollY;
+  //     const threshold = 50;
+  //     if (currentScroll <= threshold && nav.current) {
+  //       if (nav.current.style.top !== "0rem") {
+  //         nav.current.style.top = "4rem";
+  //       }
+  //     } else if (currentScroll < lastScroll && nav.current) {
+  //       nav.current.style.top = "4rem";
+  //     } else if (currentScroll > lastScroll && nav.current) {
+  //       nav.current.style.top = "-9rem";
+  //     }
+  //     setLastScroll(currentScroll);
+  //   };
+  //   window.addEventListener("scroll", handleScroll);
+  //   return () => {
+  //     window.removeEventListener("scroll", handleScroll);
+  //   };
+  // }, [lastScroll]);
 
   return (
     <main ref={homeDiv}>
-      <div className="grid-container" style={{ display: theme.grid }}>
+      {/* <div className="grid-container" style={{ display: theme.grid }}>
         <div className="grid-lines">
           {Array.from({ length: 12 }).map((_, index) => (
             <div key={index}></div>
           ))}
         </div>
-      </div>
+      </div> */}
 
       <div className="panel-holder" ref={panel}>
         <div className="panel">
@@ -163,7 +164,7 @@ export default function Home() {
       </div>
 
       <nav>
-        <span
+        {/* <span
           className="toggle-switch"
           onClick={() => {
             toggleColor();
@@ -232,7 +233,7 @@ export default function Home() {
               stroke-linecap="round"
             />
           </svg>
-        </span>
+        </span> */}
         {/* <span
           className="toggle-switch"
           onClick={() => {
@@ -248,8 +249,8 @@ export default function Home() {
           >
             <path d="M32 480a32 32 0 1 1 0-64 32 32 0 1 1 0 64zm96-64a32 32 0 1 1 0 64 32 32 0 1 1 0-64zm0-384a32 32 0 1 1 0 64 32 32 0 1 1 0-64zm0 256a32 32 0 1 1 0-64 32 32 0 1 1 0 64zM320 416a32 32 0 1 1 0 64 32 32 0 1 1 0-64zm0-320a32 32 0 1 1 0-64 32 32 0 1 1 0 64zm0 128a32 32 0 1 1 0 64 32 32 0 1 1 0-64zM224 480a32 32 0 1 1 0-64 32 32 0 1 1 0 64zm0-448a32 32 0 1 1 0 64 32 32 0 1 1 0-64zm0 256a32 32 0 1 1 0-64 32 32 0 1 1 0 64zM416 416a32 32 0 1 1 0 64 32 32 0 1 1 0-64zm0-384a32 32 0 1 1 0 64 32 32 0 1 1 0-64zM32 96a32 32 0 1 1 0-64 32 32 0 1 1 0 64zM416 224a32 32 0 1 1 0 64 32 32 0 1 1 0-64zM32 288a32 32 0 1 1 0-64 32 32 0 1 1 0 64zm192 32a32 32 0 1 1 0 64 32 32 0 1 1 0-64zm192 64a32 32 0 1 1 0-64 32 32 0 1 1 0 64zM32 320a32 32 0 1 1 0 64 32 32 0 1 1 0-64zM416 192a32 32 0 1 1 0-64 32 32 0 1 1 0 64zM32 128a32 32 0 1 1 0 64 32 32 0 1 1 0-64zm192 64a32 32 0 1 1 0-64 32 32 0 1 1 0 64z" />
           </svg>
-        </span>
-        <span
+        </span> */}
+        {/* <span
           className="toggle-switch"
           onClick={() => {
             toggleBorderRadius();
@@ -295,6 +296,7 @@ export default function Home() {
         </span>
       </nav>
 
+      <Background />
       <div
         className="container-holder"
         style={{
@@ -309,6 +311,13 @@ export default function Home() {
           ref={home}
           style={{ transform: "translateY(10%)" }}
         >
+          {/* <div
+            onMouseEnter={() => (lottieRef.current as any).play()}
+            onMouseLeave={() => (lottieRef.current as any).stop()}
+            style={{ width: 300, height: 300 }}
+          >
+            <Lottie animationData={Test} loop={true} />
+          </div> */}
           <h1>Justin Davenport is a web developer and product designer.</h1>
           <br />
           <br />
@@ -345,11 +354,7 @@ export default function Home() {
         </div>
       </div>
 
-      <Work
-        worksDiv={worksDiv}
-        setActiveSection={setActiveSection}
-        theme={theme}
-      />
+      <Work worksDiv={worksDiv} setActiveSection={setActiveSection} />
     </main>
   );
 }

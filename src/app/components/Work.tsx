@@ -7,32 +7,15 @@ import { Dispatch, RefObject, SetStateAction, useEffect, useRef } from "react";
 interface Props {
   worksDiv: RefObject<HTMLDivElement>;
   setActiveSection: Dispatch<SetStateAction<string>>;
-  theme: {
-    color: string;
-    borderRadius: string;
-    grid: string;
-  };
 }
 
-const Work: React.FC<Props> = ({ worksDiv, setActiveSection, theme }) => {
+const Work: React.FC<Props> = ({ worksDiv, setActiveSection }) => {
   const projects = [
-    // {
-    //   name: "OCULAR VIBRATIONS™",
-    //   description:
-    //     "A modern age digital design studio, your gateway to the digital renaissance.",
-    //   image: "/projects/ocular.png",
-    //   link: "https://www.ocularvibrations.com/",
-    //   tag1: "UI / UX",
-    //   tag2: "Figma",
-    //   tag3: "Project",
-    //   openInNewTab:  true
-    // },
     {
       name: "Furniture Store",
       description: "Browse and shop high-end modern furniture.",
       image: "/designs/furniture-mockup.png",
       link: "/projects/furniture",
-      // link: "https://dribbble.com/shots/24991402-Furniture-Store-mobile-app",
       tag1: "UI / UX",
       tag2: "Figma",
       tag3: "Project",
@@ -44,7 +27,6 @@ const Work: React.FC<Props> = ({ worksDiv, setActiveSection, theme }) => {
         "All-in-one application to control your home’s smart devices.",
       image: "/designs/smarthome-mockup.png",
       link: "/projects/smartHome",
-      // link: "https://dribbble.com/shots/24906297-Smart-Home-App",
       tag1: "UI / UX",
       tag2: "Figma",
       tag3: "Project",
@@ -56,7 +38,6 @@ const Work: React.FC<Props> = ({ worksDiv, setActiveSection, theme }) => {
         "The world's most popular source for movie, TV and celebrity content.",
       image: "/designs/imdb-mockup.png",
       link: "/projects/imdb",
-      // link: "https://dribbble.com/shots/24913217-IMDb-mobile-app",
       tag1: "UI / UX",
       tag2: "Figma",
       tag3: "Project",
@@ -115,17 +96,6 @@ const Work: React.FC<Props> = ({ worksDiv, setActiveSection, theme }) => {
       tag3: "Project",
       openInNewTab: true,
     },
-    // {
-    //   name: "Cinema Collection",
-    //   description:
-    //     "Discover new and unique films based on your favorite movie genres.",
-    //   image: "/projects/cinema.png",
-    //   link: "https://cinema-collection.vercel.app/",
-    //   tag1: "Website",
-    //   tag2: "Next.js",
-    //   tag3: "Project",
-    //   openInNewTab: true,
-    // },
   ];
 
   const [contentHolder, inViewContentHolder] = useInView({
@@ -179,7 +149,6 @@ const Work: React.FC<Props> = ({ worksDiv, setActiveSection, theme }) => {
                 padding: "0rem",
                 width: "100%",
                 position: "relative",
-                borderRadius: theme.borderRadius,
               }}
             >
               <div className="overlay"></div>
@@ -223,7 +192,9 @@ const Work: React.FC<Props> = ({ worksDiv, setActiveSection, theme }) => {
             </Link>
           ))}
         </div>
-        <Link className="button" href="/works">View all Work</Link>
+        <Link className="button" href="/works">
+          View all Work
+        </Link>
       </div>
     </div>
   );

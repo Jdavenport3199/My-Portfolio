@@ -7,18 +7,9 @@ import { Dispatch, RefObject, SetStateAction, useEffect, useRef } from "react";
 interface Props {
   articlesDiv: RefObject<HTMLDivElement>;
   setActiveSection: Dispatch<SetStateAction<string>>;
-  theme: {
-    color: string;
-    borderRadius: string;
-    grid: string;
-  };
 }
 
-const Articles: React.FC<Props> = ({
-  articlesDiv,
-  setActiveSection,
-  theme,
-}) => {
+const Articles: React.FC<Props> = ({ articlesDiv, setActiveSection }) => {
   const articles = [
     {
       name: "Optimize Fonts for PageSpeed Insights",
@@ -88,7 +79,6 @@ const Articles: React.FC<Props> = ({
                 padding: "0rem",
                 width: "100%",
                 position: "relative",
-                borderRadius: theme.borderRadius,
               }}
             >
               <div className="overlay"></div>

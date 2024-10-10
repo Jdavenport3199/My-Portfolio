@@ -4,6 +4,7 @@ import Link from "next/link";
 import { gsap } from "gsap";
 import { useInView } from "react-intersection-observer";
 import TransitionLink from "../components/TransitionLink";
+import Background from "../components/Background";
 
 export default function Home() {
   const home = useRef<HTMLDivElement>(null);
@@ -215,6 +216,7 @@ export default function Home() {
         </span>
       </nav>
 
+      <Background />
       <div className="about-holder" ref={contentHolder}>
         <div
           className="container-splash"
