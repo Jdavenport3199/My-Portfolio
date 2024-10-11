@@ -4,6 +4,7 @@ import { gsap } from "gsap";
 import { useInView } from "react-intersection-observer";
 import { useEffect, useRef, useState } from "react";
 import TransitionLink from "../components/TransitionLink";
+import Background from "../components/Background";
 
 interface Props {}
 
@@ -181,11 +182,11 @@ const Work: React.FC<Props> = ({}) => {
             label={"Works"}
             setPanelValue={setPanelValue}
           />
-          <TransitionLink
+          {/* <TransitionLink
             href={"/articles"}
             label={"Articles"}
             setPanelValue={setPanelValue}
-          />
+          /> */}
           <TransitionLink
             href={"/about"}
             label={"About"}
@@ -228,6 +229,7 @@ const Work: React.FC<Props> = ({}) => {
         </span>
       </nav>
 
+      <Background />
       <div ref={contentHolder}>
         <div
           className="container-holder"

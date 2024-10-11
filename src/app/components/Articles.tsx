@@ -15,9 +15,12 @@ const Articles: React.FC<Props> = ({ articlesDiv, setActiveSection }) => {
       name: "Optimize Fonts for PageSpeed Insights",
       date: "June 16, 2024",
       description:
-        "Learn how to optimize custom fonts in Next.js for faster load times and better PageSpeed Insights scores.",
+        "Learn how to optimize fonts in Next.js for faster load times.",
       image: "/og/dashboard-six-snowy.vercel.app_.png",
       link: "https://medium.com/@justindavenport.space/optimize-custom-fonts-for-pagespeed-insights-in-next-js-334fe993b65a",
+      tag1: "Next.js",
+      tag2: "Fonts",
+      tag3: "Optimization",
     },
     {
       name: "Create a Product Landing Page with GSAP",
@@ -26,6 +29,9 @@ const Articles: React.FC<Props> = ({ articlesDiv, setActiveSection }) => {
         "Discover how to build an engaging product landing page using GSAP animations in Next.js.",
       image: "/og/teenage-engineering.vercel.app_.png",
       link: "https://medium.com/@justindavenport.space/create-a-product-landing-page-with-gsap-in-next-js-9403e29b89d8",
+      tag1: "Next.js",
+      tag2: "GSAP",
+      tag3: "Product Design",
     },
   ];
 
@@ -94,8 +100,10 @@ const Articles: React.FC<Props> = ({ articlesDiv, setActiveSection }) => {
                     marginTop: "0.8rem",
                   }}
                 >
+                  <p className="detail">{articles.tag1}</p>
+                  <p className="detail">{articles.tag2}</p>
                   <p className="detail" style={{ width: "7.5rem" }}>
-                    {articles.date}
+                    {articles.tag3}
                   </p>
                 </div>
               </div>

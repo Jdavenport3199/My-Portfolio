@@ -121,11 +121,11 @@ export default function Home() {
             label={"Works"}
             setPanelValue={setPanelValue}
           />
-          <TransitionLink
+          {/* <TransitionLink
             href={"/articles"}
             label={"Articles"}
             setPanelValue={setPanelValue}
-          />
+          /> */}
           <TransitionLink
             href={"/about"}
             label={"About"}
@@ -288,10 +288,10 @@ export default function Home() {
             ref={image}
             style={{
               opacity: "0",
-              gridColumn: "span 4",
               width: "100%",
               height: "100%",
               objectFit: "cover",
+              // borderRadius: "40px",
             }}
           />
         </div>
@@ -336,6 +336,7 @@ export default function Home() {
               className="side-img"
               ref={image2}
               src="/designs/smarthome-mockup.png"
+              // style={{ borderRadius: "40px" }}
             />
           </div>
         </div>
@@ -374,10 +375,10 @@ export default function Home() {
               src="/designs/smarthome2.png"
               style={{
                 opacity: "0",
-                gridColumn: "span 4",
                 width: "100%",
                 height: "100%",
                 objectFit: "cover",
+                // borderRadius: "40px",
               }}
             />
           </div>

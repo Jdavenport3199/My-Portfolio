@@ -142,11 +142,11 @@ export default function Home() {
           >
             Works
           </button>
-          <TransitionLink
+          {/* <TransitionLink
             href={"/articles"}
             label={"Articles"}
             setPanelValue={setPanelValue}
-          />
+          /> */}
           <TransitionLink
             href={"/about"}
             label={"About"}
@@ -319,8 +319,12 @@ export default function Home() {
             <Lottie animationData={Test} loop={true} />
           </div> */}
           <h1>Justin Davenport is a web developer and product designer.</h1>
-          <br />
-          <br />
+          <div className="topics">
+            <div>
+              <p>Status</p>
+              <h2>Available</h2>
+            </div>
+          </div>
           <span>
             He crafts digital experiences with clean code and intuitive design.
           </span>
