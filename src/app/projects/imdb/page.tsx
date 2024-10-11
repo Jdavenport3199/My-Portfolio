@@ -350,7 +350,7 @@ export default function Home() {
           className="container-holder"
           style={{
             flexDirection: "column",
-            minHeight: "85dvh",
+            minHeight: "40dvh",
             justifyContent: "flex-end",
             opacity: "0",
           }}
