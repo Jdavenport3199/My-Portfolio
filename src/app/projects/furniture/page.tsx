@@ -220,7 +220,7 @@ export default function Home() {
         className="container-holder"
         style={{
           flexDirection: "column",
-          minHeight: "85vh",
+          minHeight: "85dvh",
           justifyContent: "flex-end",
         }}
         ref={contentHolder}
@@ -300,7 +300,7 @@ export default function Home() {
           className="container-holder"
           style={{
             flexDirection: "column",
-            minHeight: "100vh",
+            minHeight: "100dvh",
             justifyContent: "flex-end",
             opacity: "0",
           }}
@@ -346,7 +346,7 @@ export default function Home() {
           className="container-holder"
           style={{
             flexDirection: "column",
-            minHeight: "85vh",
+            minHeight: "85dvh",
             justifyContent: "flex-end",
             opacity: "0",
           }}

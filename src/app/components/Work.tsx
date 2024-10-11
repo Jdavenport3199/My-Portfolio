@@ -127,7 +127,7 @@ const Work: React.FC<Props> = ({ worksDiv, setActiveSection }) => {
       <div
         className="container-holder"
         style={{
-          minHeight: "100vh",
+          minHeight: "100dvh",
           opacity: "0",
           paddingBottom: "12rem",
         }}
@@ -157,13 +157,7 @@ const Work: React.FC<Props> = ({ worksDiv, setActiveSection }) => {
                 <span style={{ color: "var(--text-color-project)" }}>
                   {project.description}
                 </span>
-                <div
-                  style={{
-                    display: "flex",
-                    gap: "0.4rem",
-                    marginTop: "0.8rem",
-                  }}
-                >
+                <div className="detail-holder">
                   <p className="detail">{project.tag1}</p>
                   <p className="detail">{project.tag2}</p>
                   <p className="detail">{project.tag3}</p>

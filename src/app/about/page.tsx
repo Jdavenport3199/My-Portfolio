@@ -134,7 +134,7 @@ export default function Home() {
         className="container-holder"
         style={{
           flexDirection: "column",
-          minHeight: "94.75vh",
+          minHeight: "94.75dvh",
           justifyContent: "flex-end",
         }}
         ref={contentHolder}
@@ -144,7 +144,7 @@ export default function Home() {
           ref={home}
           style={{ transform: "translateY(10%)" }}
         >
-          <h1>Justin Davenport is open to new opportunities.</h1>
+          <h1>Justin Davenport is open to new&nbsp;opportunities.</h1>
           <div className="topics">
             <div>
               <p>Contact</p>

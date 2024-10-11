@@ -301,7 +301,7 @@ export default function Home() {
         className="container-holder"
         style={{
           flexDirection: "column",
-          minHeight: "85vh",
+          minHeight: "85dvh",
           justifyContent: "flex-end",
         }}
         ref={contentHolder}
@@ -318,7 +318,9 @@ export default function Home() {
           >
             <Lottie animationData={Test} loop={true} />
           </div> */}
-          <h1>Justin Davenport is a web developer and product designer.</h1>
+          <h1>
+            Justin Davenport is a web developer and&nbsp;product designer.
+          </h1>
           <div className="topics">
             <div>
               <p>Status</p>

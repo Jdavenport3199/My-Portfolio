@@ -93,13 +93,7 @@ const Articles: React.FC<Props> = ({ articlesDiv, setActiveSection }) => {
                 <span style={{ color: "var(--text-color-project)" }}>
                   {articles.description}
                 </span>
-                <div
-                  style={{
-                    display: "flex",
-                    gap: "0.4rem",
-                    marginTop: "0.8rem",
-                  }}
-                >
+                <div className="detail-holder">
                   <p className="detail">{articles.tag1}</p>
                   <p className="detail">{articles.tag2}</p>
                   <p className="detail" style={{ width: "7.5rem" }}>
