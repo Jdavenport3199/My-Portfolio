@@ -13,6 +13,16 @@ const Work: React.FC<Props> = ({}) => {
 
   const projects = [
     {
+      name: "Chancellor Apartments",
+      description: "Modern living in the heart of San Francisco.",
+      image: "/projects/yardi.png",
+      link: "https://storage.googleapis.com/yardi-chancellor-apartments/Yardi/index.html",
+      tag1: "Website",
+      tag2: "Bootstrap",
+      tag3: "Project",
+      openInNewTab: true,
+    },
+    {
       name: "Furniture Store",
       description: "Browse and shop high-end modern furniture.",
       image: "/designs/furniture-mockup.png",

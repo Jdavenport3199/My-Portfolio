@@ -12,6 +12,16 @@ interface Props {
 const Work: React.FC<Props> = ({ worksDiv, setActiveSection }) => {
   const projects = [
     {
+      name: "Chancellor Apartments",
+      description: "Modern living in the heart of San Francisco.",
+      image: "/projects/yardi.png",
+      link: "https://storage.googleapis.com/yardi-chancellor-apartments/Yardi/index.html",
+      tag1: "Website",
+      tag2: "Bootstrap",
+      tag3: "Project",
+      openInNewTab: true,
+    },
+    {
       name: "Furniture Store",
       description: "Browse and shop high-end modern furniture.",
       image: "/designs/furniture-mockup.png",
@@ -81,16 +91,6 @@ const Work: React.FC<Props> = ({ worksDiv, setActiveSection }) => {
         "A showcase of meticulously crafted 3D art and digital designs.",
       image: "/projects/studio.png",
       link: "https://www.christiandavenport.studio/",
-      tag1: "Website",
-      tag2: "Next.js",
-      tag3: "Project",
-      openInNewTab: true,
-    },
-    {
-      name: "Stack",
-      description: "Showcase and visualize your tech stacks.",
-      image: "/projects/stack.png",
-      link: "https://stack-three-psi.vercel.app/",
       tag1: "Website",
       tag2: "Next.js",
       tag3: "Project",
