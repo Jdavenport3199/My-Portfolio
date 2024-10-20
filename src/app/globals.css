@@ -9,25 +9,12 @@
     --text-color-light: rgb(245, 245, 245, 0.65);
     --glass: #f5f5f520;
     --text-color-light2: rgb(245, 245, 245, 0.1);
-    --glass-overlay: #00000080;
+    --glass-overlay: #00000040;
     --button: black;
     --toggle: white;
     --text-color-project: rgb(245, 245, 245, 0.65);
     --video: 0;
   }
-
-  /* [data-theme='light'] {
-    --background-color: white;
-    --text-color: #020202;
-    --text-color-light: rgb(36, 36, 36, 0.65);
-    --glass: #00000020;
-    --text-color-light2: rgb(36, 36, 36, 0.1);
-    --glass-overlay: #ffffff80;
-    --button: white;
-    --toggle: black;
-    --text-color-project: rgb(245, 245, 245, 0.65);
-    --video: 1;
-  } */
 
   * {
     padding: 0px;
@@ -38,7 +25,6 @@
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
-    text-wrap: pretty;
   }
 
   html,
@@ -55,29 +41,6 @@
     transition: background-color 0.3s, color 0.3s;
   }
 
-  /* .grid-lines {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    display: grid;
-    grid-template-columns: repeat(12, 1fr);
-    z-index: -1;
-  }
-
-  .grid-lines div {
-    border-left: 1px dashed var(--text-color-light2);
-  } */
-
-  /* .grid {
-    width: 90%;
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: repeat(2, 100dvh);
-    gap: 0.4rem;
-  } */
-
   button {
     all: unset;
     cursor: pointer;
@@ -85,25 +48,20 @@
   }
 
   h1 {
-    font-size: clamp(20px, 4vw, 2vw);
+    font-size: clamp(22.65px, 6vw, 36.65px);
     font-weight: 200;
     line-height: 1.4;
+    text-wrap: balance;
   }
 
   h2 {
-    font-size: clamp(18px, 4vw, 1.5vw);
+    font-size: clamp(19.42px, 4vw, 22.65px);
     font-weight: 200;
     line-height: 1.6;
   }
 
-  h3 {
-    line-height: 1.4;
-    font-size: clamp(18px, 4vw, 1.5vw);
-    font-weight: 300;
-  }
-
   p {
-    font-size: clamp(12px, 4vw, 0.7vw);
+    font-size: 14px;
     font-weight: 300;
     line-height: 1.6;
     color: var(--text-color-light);
@@ -111,12 +69,16 @@
 
   span {
     color: var(--text-color-light);
+    line-height: 1.4;
+    font-size: clamp(19.42px, 4vw, 22.65px);
   }
 
   .link,
   .link-large {
+    line-height: 1.6;
     cursor: pointer;
     color: var(--text-color);
+    font-size: 14px;
     transition: 150ms linear;
 
     .circle {
@@ -124,14 +86,6 @@
       scale: 0;
       transition: 150ms linear;
     }
-  }
-
-  span,
-  .link,
-  .link-large {
-    font-weight: 300;
-    font-size: clamp(16px, 4vw, 1vw);
-    line-height: 1.4;
   }
 
   .link:hover {
@@ -155,7 +109,7 @@
   a,
   button {
     color: var(--text-color);
-    font-size: clamp(16px, 4vw, 0.7vw);
+    font-size: 14px;
     font-weight: 300;
     line-height: 1.4;
     text-decoration: none;
@@ -217,12 +171,12 @@
     justify-content: center;
     flex-direction: column;
     align-items: flex-start;
-    gap: 1rem;
-    padding-bottom: 10%;
+    width: fit-content;
+    gap: 0.4rem;
 
     button,
     a {
-      font-size: clamp(36px, 6vw, 4vw);
+      font-size: clamp(22.65px, 6vw, 36.65px);
       font-weight: 200;
       line-height: 1.2;
       transition: all 0.3s ease-in-out;
@@ -296,9 +250,10 @@
   }
 
   .panel-holder {
-    align-items: flex-end;
+    align-items: center;
     position: fixed;
     left: 0;
+    right: 0;
     top: 0;
     bottom: 0;
     background: var(--glass-overlay);
@@ -327,10 +282,6 @@
     display: flex;
     flex-direction: column;
     transition: 300ms ease-out;
-
-    span {
-      display: none;
-    }
   }
 
   .project {
@@ -343,7 +294,6 @@
     max-width: auto;
     transition: 150ms linear;
     width: 100%;
-    /* border-radius: 40px; */
   }
 
   .project-btn {
@@ -378,7 +328,7 @@
     width: 100%;
     max-height: 750px;
     object-fit: cover;
-    transition: 500ms ease-out;
+    transition: .75s cubic-bezier(.165, .84, .44, 1);
   }
 
   .side-img {
@@ -410,14 +360,12 @@
     top: 0;
     bottom: 0;
     right: 0;
-    background: #00000060;
+    background: linear-gradient(to top, #00000060, transparent);
     z-index: 4;
-    opacity: 0;
     transition: 500ms ease-out;
   }
 
-  .container-splash,
-  .panel {
+  .container-splash {
     text-align: left;
     width: 90%;
     overflow: hidden;
@@ -436,7 +384,6 @@
 
   .button:hover {
     opacity: 0.6;
-    /* transform: translateY(-5px) rotate(360deg); */
   }
 
   .topics {
@@ -447,31 +394,9 @@
     margin-top: 0.8rem
   }
 
-  .project-title {
-    padding: 2rem;
-
-    span {
-      display: flex;
-    }
-  }
-
-  .overlay {
-    opacity: 1;
-  }
-
   .project:hover {
-    transition: 150ms linear;
-
     .img {
-      scale: 1.075;
-    }
-
-    .project-title {
-      opacity: 0;
-    }
-
-    .overlay {
-      opacity: 0;
+      scale: 1.1;
     }
   }
 }
@@ -482,17 +407,16 @@
   }
 
   .project {
-    max-width: 615px;
     max-width: 45%;
+  }
+
+  .project-title {
+    padding: 2rem;
   }
 
   .project-btn {
     right: 2rem;
     top: 2rem;
-  }
-
-  .panel {
-    padding-bottom: 5%;
   }
 }
 
@@ -503,9 +427,5 @@
 
   .video {
     position: fixed;
-  }
-
-  .project-title {
-    padding: 4rem;
   }
 }

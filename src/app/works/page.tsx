@@ -13,104 +13,50 @@ const Work: React.FC<Props> = ({}) => {
 
   const projects = [
     {
+      name: "Teenage Engineering™",
+      description: "Website",
+      image: "/projects/te.png",
+      link: "https://teenage-engineering.vercel.app/",
+      openInNewTab: true,
+    },
+    {
       name: "Chancellor Apartments",
-      description: "Modern living in the heart of San Francisco.",
+      description: "Website",
       image: "/projects/yardi.png",
       link: "https://storage.googleapis.com/yardi-chancellor-apartments/Yardi/index.html",
-      tag1: "Website",
-      tag2: "Bootstrap",
-      tag3: "Project",
       openInNewTab: true,
     },
     {
       name: "Furniture Store",
-      description: "Browse and shop high-end modern furniture.",
+      description: "Figma Prototype",
       image: "/designs/furniture-mockup.png",
       link: "/projects/furniture",
-      tag1: "UI / UX",
-      tag2: "Figma",
-      tag3: "Project",
       openInNewTab: false,
     },
     {
       name: "Smart Home",
-      description:
-        "All-in-one application to control your home’s smart devices.",
+      description: "Figma Prototype",
       image: "/designs/smarthome-mockup.png",
       link: "/projects/smartHome",
-      tag1: "UI / UX",
-      tag2: "Figma",
-      tag3: "Project",
       openInNewTab: false,
     },
     {
       name: "IMDb",
-      description:
-        "The world's most popular source for movie, TV and celebrity content.",
+      description: "Figma Prototype",
       image: "/designs/imdb-mockup.png",
       link: "/projects/imdb",
-      tag1: "UI / UX",
-      tag2: "Figma",
-      tag3: "Project",
       openInNewTab: false,
     },
     {
       name: "iSync",
-      description:
-        "Add songs from YouTube directly to your Apple Music Library.",
+      description: "Website",
       image: "/projects/isync.png",
       link: "https://i-sync.vercel.app/",
-      tag1: "Website",
-      tag2: "Next.js",
-      tag3: "Project",
-      openInNewTab: true,
-    },
-    {
-      name: "Global Enterprises",
-      description: "A dynamic and responsive mock company dashboard.",
-      image: "/projects/ge.png",
-      link: "https://dashboard-six-snowy.vercel.app/",
-      tag1: "Website",
-      tag2: "Next.js",
-      tag3: "Project",
-      openInNewTab: true,
-    },
-    {
-      name: "Teenage Engineering™",
-      description:
-        "High quality electronic products for people who love sound and music.",
-      image: "/projects/te.png",
-      link: "https://teenage-engineering.vercel.app/",
-      tag1: "Website",
-      tag2: "Next.js",
-      tag3: "Project",
-      openInNewTab: true,
-    },
-    {
-      name: "Digital Portfolio",
-      description:
-        "A showcase of meticulously crafted 3D art and digital designs.",
-      image: "/projects/studio.png",
-      link: "https://www.christiandavenport.studio/",
-      tag1: "Website",
-      tag2: "Next.js",
-      tag3: "Project",
-      openInNewTab: true,
-    },
-    {
-      name: "Stack",
-      description: "Showcase and visualize your tech stacks.",
-      image: "/projects/stack.png",
-      link: "https://stack-three-psi.vercel.app/",
-      tag1: "Website",
-      tag2: "Next.js",
-      tag3: "Project",
       openInNewTab: true,
     },
     {
       name: "Cinema Collection",
-      description:
-        "Discover new and unique films based on your favorite movie genres.",
+      description: "Website",
       image: "/projects/cinema.png",
       link: "https://cinema-collection.vercel.app/",
       tag1: "Website",
@@ -119,14 +65,37 @@ const Work: React.FC<Props> = ({}) => {
       openInNewTab: true,
     },
     {
+      name: "Global Enterprises",
+      description: "Website",
+      image: "/projects/ge.png",
+      link: "https://dashboard-six-snowy.vercel.app/",
+      tag1: "Website",
+      tag2: "Next.js",
+      tag3: "Project",
+      openInNewTab: true,
+    },
+    {
+      name: "Digital Portfolio",
+      description: "Website",
+      image: "/projects/studio.png",
+      link: "https://www.christiandavenport.studio/",
+      openInNewTab: true,
+    },
+    {
+      name: "Stack",
+      description: "Website",
+      image: "/projects/stack.png",
+      link: "https://stack-three-psi.vercel.app/",
+      tag1: "Website",
+      tag2: "Next.js",
+      tag3: "Project",
+      openInNewTab: true,
+    },
+    {
       name: "OCULAR VIBRATIONS™",
-      description:
-        "A modern age digital design studio, your gateway to the digital renaissance.",
+      description: "Website",
       image: "/projects/ocular.png",
       link: "https://www.ocularvibrations.com/",
-      tag1: "UI / UX",
-      tag2: "Figma",
-      tag3: "Project",
       openInNewTab: true,
     },
   ];
@@ -189,17 +158,21 @@ const Work: React.FC<Props> = ({}) => {
         <div className="panel">
           <TransitionLink
             href={"/"}
-            label={"Works"}
+            label={"Home."}
             setPanelValue={setPanelValue}
           />
-          {/* <TransitionLink
-            href={"/articles"}
-            label={"Articles"}
-            setPanelValue={setPanelValue}
-          /> */}
+          <button
+            aria-label="Works."
+            onClick={() => {
+              handlePanelValue();
+              setIsRotated(!isRotated);
+            }}
+          >
+            Works.
+          </button>
           <TransitionLink
             href={"/about"}
-            label={"About"}
+            label={"About."}
             setPanelValue={setPanelValue}
           />
           <Link
@@ -208,7 +181,7 @@ const Work: React.FC<Props> = ({}) => {
             rel="noopener noreferrer"
             aria-label="LinkedIn"
           >
-            Contact
+            Contact.
           </Link>
         </div>
       </div>
@@ -270,21 +243,10 @@ const Work: React.FC<Props> = ({}) => {
               >
                 <div className="overlay"></div>
                 <div className="project-title">
-                  <h2 style={{ color: "white" }}>{project.name}</h2>
-                  <span style={{ color: "var(--text-color-project)" }}>
+                  <span style={{ color: "white" }}>{project.name}</span>
+                  <p style={{ color: "var(--text-color-project)" }}>
                     {project.description}
-                  </span>
-                  <div
-                    style={{
-                      display: "flex",
-                      gap: "0.4rem",
-                      marginTop: "0.8rem",
-                    }}
-                  >
-                    <p className="detail">{project.tag1}</p>
-                    <p className="detail">{project.tag2}</p>
-                    <p className="detail">{project.tag3}</p>
-                  </div>
+                  </p>
                 </div>
                 <div className="project-btn">
                   <svg

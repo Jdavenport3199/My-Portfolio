@@ -118,17 +118,17 @@ export default function Home() {
         <div className="panel">
           <TransitionLink
             href={"/"}
-            label={"Works"}
+            label={"Home."}
             setPanelValue={setPanelValue}
           />
-          {/* <TransitionLink
-            href={"/articles"}
-            label={"Articles"}
+          <TransitionLink
+            href={"/works"}
+            label={"Works."}
             setPanelValue={setPanelValue}
-          /> */}
+          />
           <TransitionLink
             href={"/about"}
-            label={"About"}
+            label={"About."}
             setPanelValue={setPanelValue}
           />
           <Link
@@ -137,7 +137,7 @@ export default function Home() {
             rel="noopener noreferrer"
             aria-label="LinkedIn"
           >
-            Contact
+            Contact.
           </Link>
         </div>
       </div>
@@ -178,7 +178,7 @@ export default function Home() {
                 ? "var(--text-color)"
                 : "var(--text-color-light)",
             opacity: activeSection === "Intro" ? "1" : "",
-            fontSize: activeSection === "Intro" ? "clamp(24px, 4vw, 1vw)" : "",
+            fontSize: activeSection === "Intro" ? "22.65px" : "",
           }}
         >
           Intro
@@ -192,8 +192,7 @@ export default function Home() {
                 ? "var(--text-color)"
                 : "var(--text-color-light)",
             opacity: activeSection === "Overview" ? "1" : "",
-            fontSize:
-              activeSection === "Overview" ? "clamp(24px, 4vw, 1vw)" : "",
+            fontSize: activeSection === "Overview" ? "22.65px" : "",
           }}
         >
           Overview
@@ -207,8 +206,7 @@ export default function Home() {
                 ? "var(--text-color)"
                 : "var(--text-color-light)",
             opacity: activeSection === "Prototype" ? "1" : "",
-            fontSize:
-              activeSection === "Prototype" ? "clamp(24px, 4vw, 1vw)" : "",
+            fontSize: activeSection === "Prototype" ? "22.65px" : "",
           }}
         >
           Prototype
@@ -220,7 +218,7 @@ export default function Home() {
         className="container-holder"
         style={{
           flexDirection: "column",
-          minHeight: "85dvh",
+          minHeight: "83dvh",
           justifyContent: "flex-end",
         }}
         ref={contentHolder}
@@ -245,13 +243,10 @@ export default function Home() {
               <h2>Project</h2>
             </div>
           </div>
-          <span>
-            An all-in-one application to control your home’s smart devices.
-          </span>
-          <br />
+          <p>An all-in-one application to control your home’s smart devices.</p>
           <div style={{ display: "flex", flexWrap: "wrap" }}>
-            <span>View the case study below.&nbsp;</span>
-            <span style={{ display: "flex" }}>
+            <p>View the case study below.&nbsp;</p>
+            <p style={{ display: "flex" }}>
               Or visit the project&nbsp;
               <Link
                 className="link"
@@ -276,7 +271,7 @@ export default function Home() {
                   <path d="M438.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L338.8 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l306.7 0L233.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z" />
                 </svg>
               </Link>
-            </span>
+            </p>
           </div>
         </div>
       </div>
@@ -291,7 +286,6 @@ export default function Home() {
               width: "100%",
               height: "100%",
               objectFit: "cover",
-              // borderRadius: "40px",
             }}
           />
         </div>
@@ -323,20 +317,19 @@ export default function Home() {
             <div style={{ maxWidth: "610px" }}>
               <h2>Overview.</h2>
               <br />
-              <span>
+              <p>
                 The Smart Home app concept simplifies control of various
                 devices—lighting, cameras, and thermostats—on a single platform.
                 The goal was to create quick, engaging interactions for
                 efficient home management. The glassmorphism design adds a
                 modern, translucent look that offers a futuristic feel while
                 maintaining clear visual hierarchy.
-              </span>
+              </p>
             </div>
             <img
               className="side-img"
               ref={image2}
               src="/designs/smarthome-mockup.png"
-              // style={{ borderRadius: "40px" }}
             />
           </div>
         </div>
@@ -356,7 +349,7 @@ export default function Home() {
           <div className="container-splash" style={{ opacity: "1" }}>
             <h2>Prototype.</h2>
             <br />
-            <span>
+            <p>
               The final prototype features a polished, futuristic interface with
               translucent panels that contrast against a dynamic background,
               shifting based on time or preference. Each device control is
@@ -364,7 +357,7 @@ export default function Home() {
               visual unity. One-tap controls, and live status updates make
               interactions effortless, blending functionality with a sleek
               glassmorphism design that ensures clarity and readability.
-            </span>
+            </p>
           </div>
         </div>
 
@@ -378,7 +371,6 @@ export default function Home() {
                 width: "100%",
                 height: "100%",
                 objectFit: "cover",
-                // borderRadius: "40px",
               }}
             />
           </div>

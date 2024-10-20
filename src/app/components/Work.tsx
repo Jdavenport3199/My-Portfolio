@@ -3,6 +3,7 @@ import Link from "next/link";
 import { gsap } from "gsap";
 import { useInView } from "react-intersection-observer";
 import { Dispatch, RefObject, SetStateAction, useEffect, useRef } from "react";
+import TransitionLink from "./TransitionLink";
 
 interface Props {
   worksDiv: RefObject<HTMLDivElement>;
@@ -12,53 +13,52 @@ interface Props {
 const Work: React.FC<Props> = ({ worksDiv, setActiveSection }) => {
   const projects = [
     {
+      name: "Teenage Engineering™",
+      description: "Website",
+      image: "/projects/te.png",
+      link: "https://teenage-engineering.vercel.app/",
+      openInNewTab: true,
+    },
+    {
       name: "Chancellor Apartments",
-      description: "Modern living in the heart of San Francisco.",
+      description: "Website",
       image: "/projects/yardi.png",
       link: "https://storage.googleapis.com/yardi-chancellor-apartments/Yardi/index.html",
-      tag1: "Website",
-      tag2: "Bootstrap",
-      tag3: "Project",
       openInNewTab: true,
     },
     {
       name: "Furniture Store",
-      description: "Browse and shop high-end modern furniture.",
+      description: "Figma Prototype",
       image: "/designs/furniture-mockup.png",
       link: "/projects/furniture",
-      tag1: "UI / UX",
-      tag2: "Figma",
-      tag3: "Project",
       openInNewTab: false,
     },
     {
       name: "Smart Home",
-      description:
-        "All-in-one application to control your home’s smart devices.",
+      description: "Figma Prototype",
       image: "/designs/smarthome-mockup.png",
       link: "/projects/smartHome",
-      tag1: "UI / UX",
-      tag2: "Figma",
-      tag3: "Project",
       openInNewTab: false,
     },
     {
       name: "IMDb",
-      description:
-        "The world's most popular source for movie, TV and celebrity content.",
+      description: "Figma Prototype",
       image: "/designs/imdb-mockup.png",
       link: "/projects/imdb",
-      tag1: "UI / UX",
-      tag2: "Figma",
-      tag3: "Project",
       openInNewTab: false,
     },
     {
       name: "iSync",
-      description:
-        "Add songs from YouTube directly to your Apple Music Library.",
+      description: "Website",
       image: "/projects/isync.png",
       link: "https://i-sync.vercel.app/",
+      openInNewTab: true,
+    },
+    {
+      name: "Cinema Collection",
+      description: "Website",
+      image: "/projects/cinema.png",
+      link: "https://cinema-collection.vercel.app/",
       tag1: "Website",
       tag2: "Next.js",
       tag3: "Project",
@@ -66,31 +66,9 @@ const Work: React.FC<Props> = ({ worksDiv, setActiveSection }) => {
     },
     {
       name: "Global Enterprises",
-      description: "A dynamic and responsive mock company dashboard.",
+      description: "Website",
       image: "/projects/ge.png",
       link: "https://dashboard-six-snowy.vercel.app/",
-      tag1: "Website",
-      tag2: "Next.js",
-      tag3: "Project",
-      openInNewTab: true,
-    },
-    {
-      name: "Teenage Engineering™",
-      description:
-        "High quality electronic products for people who love sound and music.",
-      image: "/projects/te.png",
-      link: "https://teenage-engineering.vercel.app/",
-      tag1: "Website",
-      tag2: "Next.js",
-      tag3: "Project",
-      openInNewTab: true,
-    },
-    {
-      name: "Digital Portfolio",
-      description:
-        "A showcase of meticulously crafted 3D art and digital designs.",
-      image: "/projects/studio.png",
-      link: "https://www.christiandavenport.studio/",
       tag1: "Website",
       tag2: "Next.js",
       tag3: "Project",
@@ -133,7 +111,7 @@ const Work: React.FC<Props> = ({ worksDiv, setActiveSection }) => {
         }}
         ref={worksDiv}
       >
-        <div className="project-holder">
+        <div className="project-holder" style={{ marginBottom: "2rem" }}>
           {projects.map((project, index) => (
             <Link
               ref={(el) => (content.current[index] = el!)}
@@ -153,15 +131,10 @@ const Work: React.FC<Props> = ({ worksDiv, setActiveSection }) => {
             >
               <div className="overlay"></div>
               <div className="project-title">
-                <h2 style={{ color: "white" }}>{project.name}</h2>
-                <span style={{ color: "var(--text-color-project)" }}>
+                <span style={{ color: "white" }}>{project.name}</span>
+                <p style={{ color: "var(--text-color-project)" }}>
                   {project.description}
-                </span>
-                <div className="detail-holder">
-                  <p className="detail">{project.tag1}</p>
-                  <p className="detail">{project.tag2}</p>
-                  <p className="detail">{project.tag3}</p>
-                </div>
+                </p>
               </div>
               <div className="project-btn">
                 <svg
@@ -186,9 +159,13 @@ const Work: React.FC<Props> = ({ worksDiv, setActiveSection }) => {
             </Link>
           ))}
         </div>
-        <Link className="button" href="/works">
-          View all Work
-        </Link>
+        <TransitionLink
+          href={"/works"}
+          label={"View all Work."}
+          setPanelValue={function (value: SetStateAction<boolean>): void {
+            throw new Error("Function not implemented.");
+          }}
+        />
       </div>
     </div>
   );
