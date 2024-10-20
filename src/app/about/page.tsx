@@ -134,7 +134,7 @@ export default function Home() {
         className="container-holder"
         style={{
           flexDirection: "column",
-          minHeight: "100vh",
+          minHeight: "100dvh",
           justifyContent: "flex-end",
         }}
         ref={contentHolder}

@@ -217,7 +217,7 @@ const Work: React.FC<Props> = ({}) => {
         <div
           className="container-holder"
           style={{
-            minHeight: "100vh",
+            minHeight: "100dvh",
             opacity: "0",
             paddingBlock: "4rem",
           }}
