@@ -8,12 +8,12 @@ import Background from "../components/Background";
 
 export default function Home() {
   const home = useRef<HTMLDivElement>(null);
-  const links = useRef<HTMLDivElement>(null);
-  const image = useRef<HTMLImageElement>(null);
+  const contact = useRef<HTMLDivElement>(null);
+  const links = useRef<HTMLImageElement>(null);
 
   const [contentHolder, inViewContentHolder] = useInView({
     triggerOnce: false,
-    threshold: 0.2,
+    threshold: 0,
   });
 
   useEffect(() => {
@@ -22,16 +22,14 @@ export default function Home() {
       tl.to(home.current, {
         opacity: 1,
         duration: 0.75,
-        y: "0%",
+        ease: "power2.inOut",
+      });
+      tl.to(contact.current, {
+        opacity: 1,
+        duration: 0.75,
         ease: "power2.inOut",
       });
       tl.to(links.current, {
-        opacity: 1,
-        duration: 0.75,
-        y: "0%",
-        ease: "power2.inOut",
-      });
-      tl.to(image.current, {
         opacity: 1,
         duration: 0.75,
         ease: "power2.inOut",
@@ -134,18 +132,18 @@ export default function Home() {
         className="container-holder"
         style={{
           flexDirection: "column",
-          minHeight: "92dvh",
+          minHeight: "100dvh",
           justifyContent: "flex-end",
         }}
         ref={contentHolder}
       >
-        <div
-          className="container-splash"
-          ref={home}
-          style={{ transform: "translateY(10%)" }}
-        >
+        <div className="container-splash" ref={home}>
           <h1>Justin Davenport is open to new opportunities.</h1>
-          <div className="topics">
+          <div
+            className="topics"
+            style={{ marginTop: "33vh", opacity: "0" }}
+            ref={contact}
+          >
             <div>
               <p>Contact</p>
               <Link
@@ -176,7 +174,6 @@ export default function Home() {
             style={{
               width: "100%",
               opacity: "0",
-              transform: "translateY(10%)",
             }}
             ref={links}
           >

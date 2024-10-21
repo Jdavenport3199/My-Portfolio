@@ -1,5 +1,6 @@
 "use client";
 import Link from "next/link";
+import Image from "next/image";
 import { gsap } from "gsap";
 import { useInView } from "react-intersection-observer";
 import { useEffect, useRef, useState } from "react";
@@ -11,6 +12,12 @@ interface Props {}
 const Work: React.FC<Props> = ({}) => {
   const worksDiv = useRef<HTMLDivElement>(null);
 
+  const scrollTo = (ref: React.RefObject<HTMLDivElement>) => {
+    if (ref.current) {
+      ref.current.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   const projects = [
     {
       name: "Teenage Engineering™",
@@ -20,10 +27,10 @@ const Work: React.FC<Props> = ({}) => {
       openInNewTab: true,
     },
     {
-      name: "Chancellor Apartments",
-      description: "Website",
-      image: "/projects/yardi.png",
-      link: "https://storage.googleapis.com/yardi-chancellor-apartments/Yardi/index.html",
+      name: "Cinema Collection",
+      description: "Web Application",
+      image: "/projects/cinema.png",
+      link: "https://cinema-collection.vercel.app/",
       openInNewTab: true,
     },
     {
@@ -49,19 +56,16 @@ const Work: React.FC<Props> = ({}) => {
     },
     {
       name: "iSync",
-      description: "Website",
+      description: "Web Application",
       image: "/projects/isync.png",
       link: "https://i-sync.vercel.app/",
       openInNewTab: true,
     },
     {
-      name: "Cinema Collection",
+      name: "Chancellor Apartments",
       description: "Website",
-      image: "/projects/cinema.png",
-      link: "https://cinema-collection.vercel.app/",
-      tag1: "Website",
-      tag2: "Next.js",
-      tag3: "Project",
+      image: "/projects/yardi.png",
+      link: "https://storage.googleapis.com/yardi-chancellor-apartments/Yardi/index.html",
       openInNewTab: true,
     },
     {
@@ -69,9 +73,6 @@ const Work: React.FC<Props> = ({}) => {
       description: "Website",
       image: "/projects/ge.png",
       link: "https://dashboard-six-snowy.vercel.app/",
-      tag1: "Website",
-      tag2: "Next.js",
-      tag3: "Project",
       openInNewTab: true,
     },
     {
@@ -86,9 +87,6 @@ const Work: React.FC<Props> = ({}) => {
       description: "Website",
       image: "/projects/stack.png",
       link: "https://stack-three-psi.vercel.app/",
-      tag1: "Website",
-      tag2: "Next.js",
-      tag3: "Project",
       openInNewTab: true,
     },
     {
@@ -164,7 +162,7 @@ const Work: React.FC<Props> = ({}) => {
           <button
             aria-label="Works."
             onClick={() => {
-              handlePanelValue();
+              scrollTo(worksDiv), handlePanelValue();
               setIsRotated(!isRotated);
             }}
           >
@@ -262,11 +260,15 @@ const Work: React.FC<Props> = ({}) => {
                     <path d="M438.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L338.8 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l306.7 0L233.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z" />
                   </svg>
                 </div>
-                <img
+                <Image
                   className="img"
                   src={project.image}
                   alt={project.name}
                   style={{ objectPosition: "center center" }}
+                  width={2000}
+                  height={1333}
+                  placeholder="blur"
+                  blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/..."
                 />
               </Link>
             ))}

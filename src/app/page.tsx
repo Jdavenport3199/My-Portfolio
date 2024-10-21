@@ -11,14 +11,14 @@ export default function Home() {
   const home = useRef<HTMLDivElement>(null);
   const homeDiv = useRef<HTMLDivElement>(null);
   const worksDiv = useRef<HTMLDivElement>(null);
+  const status = useRef<HTMLDivElement>(null);
+  const info = useRef<HTMLImageElement>(null);
 
   const scrollTo = (ref: React.RefObject<HTMLDivElement>) => {
     if (ref.current) {
       ref.current.scrollIntoView({ behavior: "smooth" });
     }
   };
-
-  const [activeSection, setActiveSection] = useState("Home");
 
   const [contentHolder, inViewContentHolder] = useInView({
     triggerOnce: false,
@@ -27,12 +27,20 @@ export default function Home() {
 
   useEffect(() => {
     if (inViewContentHolder) {
-      setActiveSection("Home");
       const tl = gsap.timeline();
       tl.to(home.current, {
         opacity: 1,
         duration: 0.75,
-        y: "0%",
+        ease: "power2.inOut",
+      });
+      tl.to(status.current, {
+        opacity: 1,
+        duration: 0.75,
+        ease: "power2.inOut",
+      });
+      tl.to(info.current, {
+        opacity: 1,
+        duration: 0.75,
         ease: "power2.inOut",
       });
     }
@@ -155,58 +163,61 @@ export default function Home() {
         className="container-holder"
         style={{
           flexDirection: "column",
-          minHeight: "85dvh",
+          minHeight: "100dvh",
           justifyContent: "flex-end",
         }}
         ref={contentHolder}
       >
-        <div
-          className="container-splash"
-          ref={home}
-          style={{ transform: "translateY(10%)" }}
-        >
+        <div className="container-splash" ref={home}>
           <h1>
             Justin Davenport is a web developer and&nbsp;product designer.
           </h1>
-          <div className="topics">
+          <div
+            className="topics"
+            style={{ marginTop: "40vh", opacity: "0" }}
+            ref={status}
+          >
             <div>
               <p>Status</p>
               <h2>Available</h2>
             </div>
           </div>
-          <p>
-            He crafts digital experiences with clean code and intuitive design.
-          </p>
-          <p style={{ display: "flex" }}>
-            View his work below. Or hire him&nbsp;
-            <Link
-              className="link"
-              href="https://www.linkedin.com/in/justindavenport99/"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="LinkedIn"
-              style={{ transform: "translateY(0px)" }}
-            >
-              here.&nbsp;
-              <svg
-                className="circle"
-                xmlns="http://www.w3.org/2000/svg"
-                height="18"
-                width="14"
-                viewBox="0 0 448 512"
-                fill="var(--text-color-light)"
-                style={{
-                  transform: "rotate(-45deg)",
-                }}
+          <div style={{ opacity: "0" }} ref={info}>
+            <p style={{ textWrap: "balance" }}>
+              He crafts digital experiences with clean code and intuitive
+              design.
+            </p>
+            <p style={{ display: "flex" }}>
+              View his work below. Or hire him&nbsp;
+              <Link
+                className="link"
+                href="https://www.linkedin.com/in/justindavenport99/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="LinkedIn"
+                style={{ transform: "translateY(0px)" }}
               >
-                <path d="M438.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L338.8 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l306.7 0L233.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z" />
-              </svg>
-            </Link>
-          </p>
+                here.&nbsp;
+                <svg
+                  className="circle"
+                  xmlns="http://www.w3.org/2000/svg"
+                  height="18"
+                  width="14"
+                  viewBox="0 0 448 512"
+                  fill="var(--text-color-light)"
+                  style={{
+                    transform: "rotate(-45deg)",
+                  }}
+                >
+                  <path d="M438.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L338.8 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l306.7 0L233.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z" />
+                </svg>
+              </Link>
+            </p>
+          </div>
         </div>
       </div>
 
-      <Work worksDiv={worksDiv} setActiveSection={setActiveSection} />
+      <Work worksDiv={worksDiv} />
     </main>
   );
 }

@@ -43,7 +43,6 @@ export default function Home() {
       tl.to(home.current, {
         opacity: 1,
         duration: 0.75,
-        y: "0%",
         ease: "power2.inOut",
       });
       tl.to(image.current, {
@@ -223,11 +222,7 @@ export default function Home() {
         }}
         ref={contentHolder}
       >
-        <div
-          className="container-splash"
-          ref={home}
-          style={{ transform: "translateY(10%)" }}
-        >
+        <div className="container-splash" ref={home}>
           <h1>Smart Home.</h1>
           <div className="topics">
             <div>
@@ -286,6 +281,7 @@ export default function Home() {
               width: "100%",
               height: "100%",
               objectFit: "cover",
+              borderRadius: "12px",
             }}
           />
         </div>
@@ -330,6 +326,7 @@ export default function Home() {
               className="side-img"
               ref={image2}
               src="/designs/smarthome-mockup.png"
+              style={{ borderRadius: "12px" }}
             />
           </div>
         </div>
@@ -371,6 +368,7 @@ export default function Home() {
                 width: "100%",
                 height: "100%",
                 objectFit: "cover",
+                borderRadius: "12px",
               }}
             />
           </div>
