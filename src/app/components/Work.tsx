@@ -156,7 +156,7 @@ const Work: React.FC<Props> = ({ worksDiv }) => {
             </Link>
           ))}
         </div>
-        <div
+        {/* <div
           style={{ width: "100%", display: "flex", justifyContent: "center" }}
         >
           <TransitionLink
@@ -166,7 +166,7 @@ const Work: React.FC<Props> = ({ worksDiv }) => {
               throw new Error("Function not implemented.");
             }}
           />
-        </div>
+        </div> */}
       </div>
     </div>
   );

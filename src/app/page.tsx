@@ -111,11 +111,11 @@ export default function Home() {
           >
             Home.
           </button>
-          <TransitionLink
+          {/* <TransitionLink
             href={"/works"}
             label={"Works."}
             setPanelValue={setPanelValue}
-          />
+          /> */}
           <TransitionLink
             href={"/about"}
             label={"About."}

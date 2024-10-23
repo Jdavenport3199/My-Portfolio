@@ -75,27 +75,27 @@ const Work: React.FC<Props> = ({}) => {
       link: "https://dashboard-six-snowy.vercel.app/",
       openInNewTab: true,
     },
-    {
-      name: "Digital Portfolio",
-      description: "Website",
-      image: "/projects/studio.png",
-      link: "https://www.christiandavenport.studio/",
-      openInNewTab: true,
-    },
-    {
-      name: "Stack",
-      description: "Website",
-      image: "/projects/stack.png",
-      link: "https://stack-three-psi.vercel.app/",
-      openInNewTab: true,
-    },
-    {
-      name: "OCULAR VIBRATIONS™",
-      description: "Website",
-      image: "/projects/ocular.png",
-      link: "https://www.ocularvibrations.com/",
-      openInNewTab: true,
-    },
+    // {
+    //   name: "Digital Portfolio",
+    //   description: "Website",
+    //   image: "/projects/studio.png",
+    //   link: "https://www.christiandavenport.studio/",
+    //   openInNewTab: true,
+    // },
+    // {
+    //   name: "Stack",
+    //   description: "Website",
+    //   image: "/projects/stack.png",
+    //   link: "https://stack-three-psi.vercel.app/",
+    //   openInNewTab: true,
+    // },
+    // {
+    //   name: "OCULAR VIBRATIONS™",
+    //   description: "Website",
+    //   image: "/projects/ocular.png",
+    //   link: "https://www.ocularvibrations.com/",
+    //   openInNewTab: true,
+    // },
   ];
 
   const [contentHolder, inViewContentHolder] = useInView({

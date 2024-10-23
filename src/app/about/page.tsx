@@ -76,11 +76,11 @@ export default function Home() {
             label={"Home."}
             setPanelValue={setPanelValue}
           />
-          <TransitionLink
+          {/* <TransitionLink
             href={"/works"}
             label={"Works."}
             setPanelValue={setPanelValue}
-          />
+          /> */}
           <button
             aria-label="About."
             onClick={() => {

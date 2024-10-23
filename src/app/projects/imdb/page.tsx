@@ -120,11 +120,11 @@ export default function Home() {
             label={"Home."}
             setPanelValue={setPanelValue}
           />
-          <TransitionLink
+          {/* <TransitionLink
             href={"/works"}
             label={"Works."}
             setPanelValue={setPanelValue}
-          />
+          /> */}
           <TransitionLink
             href={"/about"}
             label={"About."}
