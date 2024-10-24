@@ -183,7 +183,7 @@ export default function Home() {
             </div>
           </div>
           <div style={{ opacity: "0" }} ref={info}>
-            <p style={{ textWrap: "balance" }}>
+            <p>
               He crafts digital experiences with clean code and intuitive
               design.
             </p>
