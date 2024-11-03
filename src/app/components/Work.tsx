@@ -13,6 +13,13 @@ interface Props {
 const Work: React.FC<Props> = ({ worksDiv }) => {
   const projects = [
     {
+      name: "iSync",
+      description: "Web Application",
+      image: "/projects/isync.png",
+      link: "https://i-sync.vercel.app/",
+      openInNewTab: true,
+    },
+    {
       name: "Teenage Engineering™",
       description: "Website",
       image: "/projects/te.png",
@@ -46,13 +53,6 @@ const Work: React.FC<Props> = ({ worksDiv }) => {
       image: "/designs/imdb-mockup.png",
       link: "/projects/imdb",
       openInNewTab: false,
-    },
-    {
-      name: "iSync",
-      description: "Web Application",
-      image: "/projects/isync.png",
-      link: "https://i-sync.vercel.app/",
-      openInNewTab: true,
     },
     {
       name: "Chancellor Apartments",
