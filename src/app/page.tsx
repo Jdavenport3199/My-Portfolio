@@ -177,7 +177,7 @@ export default function Home() {
             <div className="bio">
               <span
                 style={{
-                  fontSize: "clamp(1rem, 6vw, 1.618rem)",
+                  fontSize: "clamp(1rem, 4vw, 1.618rem)",
                   fontWeight: 400,
                   textWrap: "balance",
                 }}
