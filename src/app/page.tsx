@@ -33,7 +33,7 @@ const projects = [
     description:
       "A sleek and user-friendly furniture store prototype designed in Figma, emphasizing a smooth shopping experience.",
     image: "/thumbnails/furniture.jpg",
-    link: "",
+    link: "https://dribbble.com/shots/24991402-Furniture-Store-mobile-app",
     openInNewTab: true,
   },
   {
@@ -54,33 +54,33 @@ const projects = [
     link: "https://storage.googleapis.com/yardi-chancellor-apartments/Yardi/index.html",
     openInNewTab: true,
   },
-  // {
-  //   name: "IMDb",
-  //   title: "Figma Prototype",
-  //   description:
-  //     "A conceptual redesign of IMDb’s interface, optimizing user experience and accessibility.",
-  //   image: "/designs/imdb-mockup.png",
-  //   link: "",
-  //   openInNewTab: true,
-  // },
-  // {
-  //   name: "Smart Home",
-  //   title: "Figma Prototype",
-  //   description:
-  //     "A futuristic smart home UI prototype designed for seamless home automation control.",
-  //   image: "/designs/smarthome-mockup.png",
-  //   link: "",
-  //   openInNewTab: true,
-  // },
-  // {
-  //   name: "Global Enterprises",
-  //   title: "Website",
-  //   description:
-  //     "A corporate dashboard for Global Enterprises, providing insights and management tools.",
-  //   image: "/projects/ge.png",
-  //   link: "https://dashboard-six-snowy.vercel.app/",
-  //   openInNewTab: true,
-  // },
+  {
+    name: "IMDb",
+    title: "Figma Prototype",
+    description:
+      "A conceptual redesign of IMDb’s interface, optimizing user experience and accessibility.",
+    image: "/thumbnails/imdb.jpg",
+    link: "https://dribbble.com/shots/24913217-IMDb-mobile-app",
+    openInNewTab: true,
+  },
+  {
+    name: "Smart Home",
+    title: "Figma Prototype",
+    description:
+      "A futuristic smart home UI prototype designed for seamless home automation control.",
+    image: "/thumbnails/smarthome.jpg",
+    link: "https://dribbble.com/shots/24906297-Smart-Home-mobile-app",
+    openInNewTab: true,
+  },
+  {
+    name: "Global Enterprises",
+    title: "Website",
+    description:
+      "A corporate dashboard for Global Enterprises, providing insights and management tools.",
+    image: "/thumbnails/global.jpg",
+    link: "https://dashboard-six-snowy.vercel.app/",
+    openInNewTab: true,
+  },
   {
     name: "",
     title: "",
@@ -177,15 +177,15 @@ export default function Home() {
             <div className="bio">
               <span
                 style={{
-                  fontSize: "clamp(1rem, 4vw, 1.618rem)",
-                  fontWeight: 400,
                   textWrap: "balance",
+                  color: "#7D7E75",
                 }}
               >
                 I&apos;m Justin, a Web Developer and Product Designer based in
                 Durham, NC.
               </span>
             </div>
+            <span>— Explore my work below.</span>
           </div>
         </div>
 

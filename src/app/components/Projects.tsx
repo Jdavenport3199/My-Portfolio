@@ -58,20 +58,42 @@ const Project = ({
         }}
       >
         {project.name !== "" && (
-          <Image
-            className="img"
-            src={project.image}
-            alt={project.name}
-            style={{
-              transform: inView ? "translateY(0)" : "translateY(100px)",
-              backgroundColor: project.name == "" ? "white" : "",
-              width: "100%",
-            }}
-            width={2000}
-            height={1333}
-            placeholder="blur"
-            blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/..."
-          />
+          <>
+            <Image
+              className="img"
+              src={project.image}
+              alt={project.name}
+              style={{
+                transform: inView ? "translateY(0)" : "translateY(100px)",
+                backgroundColor: project.name == "" ? "white" : "",
+                width: "100%",
+              }}
+              width={2000}
+              height={1333}
+              placeholder="blur"
+              blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/..."
+            />
+            <span
+              className="project-btn"
+              style={{
+                transform: inView ? "translateY(0)" : "translateY(100px)",
+                opacity: inView ? 1 : 0,
+              }}
+            >
+              <svg
+                style={{ transform: "rotate(-45deg)" }}
+                height="16"
+                width="14.25"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 448 512"
+              >
+                <path
+                  fill="#2b80ff"
+                  d="M438.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L338.8 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l306.7 0L233.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z"
+                />
+              </svg>
+            </span>
+          </>
         )}
       </Link>
       <div

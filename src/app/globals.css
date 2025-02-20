@@ -34,22 +34,22 @@
   }
 
   h1 {
-    font-size: clamp(2.618rem, 6vw, 4.236rem);
+    font-size: clamp(2rem, 6vw, 5.5rem);
     font-weight: 400;
-    line-height: 1.2;
+    line-height: 1.1;
     text-wrap: balance;
   }
 
   h2 {
-    font-size: 1.618rem;
+    font-size: clamp(1.5rem, 6vw, 2rem);
     font-weight: 400;
-    line-height: 1.6;
+    line-height: 1.2;
   }
 
   span {
-    line-height: 1.4;
-    font-weight: 500;
-    font-size: 1rem;
+    line-height: 1.6;
+    font-weight: 400;
+    font-size: clamp(1rem, 4vw, 1.5rem);
     color: #2b80ff;
   }
 
@@ -63,7 +63,7 @@
   a,
   button {
     font-size: 1rem;
-    font-weight: 500;
+    font-weight: 400;
     line-height: 1.4;
     text-decoration: none;
     width: fit-content;
@@ -121,19 +121,21 @@
   }
 
   .bio {
-    padding-top: 2rem;
+    padding-top: 1rem;
+    padding-bottom: 4rem;
+    max-width: 500px;
   }
 
   .link-holder {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: flex-end;
     justify-content: center;
     flex-wrap: wrap;
-    gap: 0.4rem;
+    gap: 1rem;
     width: fit-content;
     top: 2rem;
-    right: 2.5%;
+    right: 5%;
     position: absolute;
     z-index: 4;
   }
@@ -142,13 +144,9 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 0.2rem;
-    padding: 2rem;
-    padding-block: 0.4rem;
     border-radius: 100px;
-    background: #7D7E7508;
-    backdrop-filter: blur(20px) saturate(200%);
-    -webkit-backdrop-filter: blur(20px) saturate(200%);
+    color: #7D7E75;
+    transition: 300ms linear;
   }
 
   .project-holder {
@@ -172,6 +170,20 @@
     max-height: 90vh;
     flex: 0 0 auto;
     scroll-snap-align: start;
+  }
+
+  .project-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    right: 1rem;
+    top: 1rem;
+    transition: opacity .25s cubic-bezier(0.175, 0.885, 0.32, 1.275), 0.5s;
+    background: #ffffff;
+    width: 2rem;
+    height: 2rem;
+    aspect-ratio: 1/1;
   }
 
   .description-holder {
@@ -213,7 +225,6 @@
     width: 100%;
     max-height: 60vh;
     object-fit: cover;
-    transition: .75s cubic-bezier(.165, .84, .44, 1);
     background: whitesmoke;
     transform: translateY(100px);
     transition: opacity .25s cubic-bezier(0.175, 0.885, 0.32, 1.275), 0.5s;
@@ -252,6 +263,11 @@
     flex-wrap: nowrap;
   }
 
+  .project-btn {
+    right: 2rem;
+    top: 2rem;
+  }
+
   .description-holder {
     padding: 4rem;
   }
@@ -260,12 +276,11 @@
     scale: 1.1;
   }
 
-  .link:hover,
-  .button:hover {
-    opacity: 0.6;
+  .link:hover {
+    color: #2b80ff;
   }
 
   .link-holder {
-    flex-direction: row;
+    gap: 2.5rem;
   }
 }
