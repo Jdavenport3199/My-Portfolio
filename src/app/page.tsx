@@ -111,25 +111,26 @@ export default function Home() {
     const scrollWidth = container.scrollWidth;
     const windowWidth = window.innerWidth;
 
-    gsap.to(container, {
-      x: () => -(scrollWidth - windowWidth),
-      ease: "none",
-      scrollTrigger: {
-        trigger: "#projects",
-        start: "top top",
-        end: () => `+=${scrollWidth}`,
-        scrub: true,
-        pin: "#projects",
-        anticipatePin: 1,
-        pinSpacing: true,
-      },
-    });
+    if (windowWidth > 799) {
+      gsap.to(container, {
+        x: () => -(scrollWidth - windowWidth),
+        ease: "none",
+        scrollTrigger: {
+          trigger: "#projects",
+          start: "top top",
+          end: () => `+=${scrollWidth}`,
+          scrub: true,
+          pin: "#projects",
+          anticipatePin: 0,
+        },
+      });
+    }
   });
 
   return (
     <ReactLenis root>
       <main>
-        <Background />
+        {/* <Background /> */}
 
         <div className="link-holder">
           <Link

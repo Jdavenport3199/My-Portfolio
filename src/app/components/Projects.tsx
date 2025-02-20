@@ -80,7 +80,10 @@ const Project = ({
           visibility: inView ? "visible" : "hidden",
           transform: inView ? "scale(1)" : "scale(0.85)",
           opacity: inView ? 1 : 0,
-          backgroundColor: project.name == "" ? "white" : "",
+          backgroundColor: project.name == "" ? "#ffffff00" : "",
+          backdropFilter: project.name == "" ? "blur(0px) saturate(100%)" : "",
+          WebkitBackdropFilter:
+            project.name == "" ? "blur(0px) saturate(100%)" : "",
         }}
       >
         <div className="description">
